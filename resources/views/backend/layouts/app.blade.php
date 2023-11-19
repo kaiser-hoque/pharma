@@ -43,7 +43,7 @@
 					<img src="{{asset('public/assets/images/logo-icon.png')}}" class="logo-icon" alt="logo icon">
 				</div>
 				<div>
-					<h4 class="logo-text">PHARMA</h4>
+					<h4 class="logo-text">  <a href="{{route('dashboard')}}"> PHARMA </a> </h4>
 				</div>
 				<div class="toggle-icon ms-auto"><i class='bx bx-arrow-back'></i>
 				</div>
@@ -51,16 +51,16 @@
 			<!--navigation-->
 			<ul class="metismenu" id="menu">
 				<li>
-					<a href="javascript:;" class="has-arrow">
+					<a href="{{route('dashboard')}}" class="has-arrow">
 						<div class="parent-icon"><i class='bx bx-home-alt'></i>
 						</div>
 						<div class="menu-title">Dashboard</div>
 					</a>
-					 
+
 				</li>
-				 
+
 				<li class="menu-label">UI Elements</li>
-				 
+
 				<li>
 					<a href="javascript:;" class="has-arrow">
 						<div class="parent-icon"><i class='bx bx-cart'></i>
@@ -72,14 +72,14 @@
 						</li>
 						<li> <a href="{{route('user.index')}}"><i class='bx bx-radio-circle'></i>User List</a>
 						</li>
-						<li> <a href="{{route('user.index')}}"><i class='bx bx-radio-circle'></i>User profile</a>
+						<li> <a href="{{route('profile')}}"><i class='bx bx-radio-circle'></i>User profile</a>
 						</li>
 					</ul>
 				</li>
 			</ul>
 			<!--end navigation-->
 		</div>
-		 
+
 		<!--start header -->
 		<header>
 			<div class="topbar d-flex align-items-center">
@@ -347,9 +347,9 @@
 											  </div>
 											</a>
 										 </div>
-				
+
 									  </div><!--end row-->
-				
+
 									</div>
 								</div>
 							</li>
@@ -672,7 +672,7 @@
 							<img src="{{asset('public/uploads/users/'.request()->session()->get('image'))}}" class="user-img" alt="user avatar">
 							<div class="user-info">
 								<p class="user-name mb-0"> {{ encryptor('decrypt',request()->session()->get('username'))}}</p>
-								
+
 							</div>
 						</a>
 						<ul class="dropdown-menu dropdown-menu-end">
@@ -765,7 +765,7 @@
 	<script src="{{asset('public/assets/plugins/apexcharts-bundle/js/apexcharts.min.js')}}"></script>
 	<script src="{{asset('public/assets/plugins/datatable/js/jquery.dataTables.min.js')}}"></script>
 	<script src="{{asset('public/assets/plugins/datatable/js/dataTables.bootstrap5.min.js')}}"></script>
-	
+
 	<script src="{{asset('public/assets/js/index.js')}}"></script>
 	<!--app JS-->
 	<script src="{{asset('public/assets/js/app.js')}}"></script>

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Backend\AuthenticationController as auth;
 use App\Http\Controllers\Backend\UserController as user;
 use App\Http\Controllers\Backend\DashboardController as dashboard;
-use App\Http\Controllers\Backend\MedicineTypeController as meditype;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -31,11 +31,15 @@ Route::get('/logout', [auth::class, 'singOut'])->name('logOut');
 //     return view('dashboard');
 // })->name('dashboard');
 
+Route::get('/profile', function () {
+    return view('backend.user.userprofile');
+ })->name('profile');
+
 
 Route::middleware(['checkrole'])->group(function(){
     Route::get('/dashboard', [dashboard::class, 'index'])->name('dashboard');
     Route::resource('/user', user::class);
 
-     
+
 });
 
