@@ -76,6 +76,38 @@
 						</li>
 					</ul>
 				</li>
+
+				<li>
+					<a href="javascript:;" class="has-arrow">
+						<div class="parent-icon"><i class='bx bx-cart'></i>
+						</div>
+						<div class="menu-title">Customer</div>
+					</a>
+					<ul>
+						<li> <a href="#"><i class='bx bx-radio-circle'></i>Add Customer</a>
+						</li>
+						<li> <a href="#"><i class='bx bx-radio-circle'></i>Customer List</a>
+						</li>
+						<li> <a href="#"><i class='bx bx-radio-circle'></i>Customer Ledger</a>
+						</li>
+					</ul>
+				</li>
+
+				<li>
+					<a href="javascript:;" class="has-arrow">
+						<div class="parent-icon"><i class='bx bx-cart'></i>
+						</div>
+						<div class="menu-title">Medicine</div>
+					</a>
+					<ul>
+						<li> <a href=" #"><i class='bx bx-radio-circle'></i>Add Medicine</a>
+						</li>
+						<li> <a href=" #"><i class='bx bx-radio-circle'></i>List Medicine</a>
+						</li>
+						<li> <a href="#"><i class='bx bx-radio-circle'></i>Medicine Details</a>
+						</li>
+					</ul>
+				</li>
 			</ul>
 			<!--end navigation-->
 		</div>

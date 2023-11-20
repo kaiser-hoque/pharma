@@ -1,6 +1,12 @@
 @extends('backend.layouts.app')
 @section('title',trans('create Users'))
 @section('content')
+
+ 
+
+ 
+
+
 <div class="page-wrapper">
 			<div class="page-content">
 				<div class="card radius-10">
@@ -49,7 +55,8 @@
                                     <form id="" action="{{ route('user.destroy',encrypt($d->id))}}" method="post">
                                         @csrf
                                         @method('delete')
-                                        <button type="submit"><i class="fa fa-trash text-danger"></i></button>
+                                        <button style="background: none; border: none;" type="submit"><i class="fa fa-trash text-danger"></i></button>
+
                                     </form>
                                 </td>
                             </tr>
