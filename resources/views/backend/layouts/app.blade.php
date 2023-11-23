@@ -54,7 +54,7 @@
                 </div>
             </div>
             <!--navigation-->
-            <ul class="metismenu" id="menu">
+            <ul class="metismenu" id="menu" class="bg-">
                 <li>
                     <a href="{{ route('dashboard') }}" class="has-arrow">
                         <div class="parent-icon"><i class='bx bx-home-alt'></i>
@@ -909,6 +909,8 @@
     <script src="{{ asset('public/assets/plugins/datatable/js/dataTables.bootstrap5.min.js') }}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
 
+    
+
     <script>
         // toastr.options = {
         //     "closeButton": true,
@@ -939,6 +941,9 @@
     <script src="{{ asset('public/assets/js/index.js') }}"></script>
     <!--app JS-->
     <script src="{{ asset('public/assets/js/app.js') }}"></script>
+<script src="{{ asset('assets/plugins/perfect-scrollbar/js/perfect-scrollbar.js')}}"></script>
+	<script src="{{ asset('assets/plugins/datatable/js/jquery.dataTables.min.js')}}"></script>
+	<script src="{{ asset('assets/plugins/datatable/js/dataTables.bootstrap5.min.js')}}"></script>
 </body>
 
 

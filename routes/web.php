@@ -37,3 +37,4 @@ Route::middleware(['checkrole'])->prefix('admin')->group(function(){
 // Route::get('/profile', function () {
 //     return view('backend.user.userprofile')->name('profile');
 // });
+Route::view('backend/customer/index', 'backend.customer.index');
