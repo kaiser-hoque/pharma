@@ -65,15 +65,7 @@
                                             @endif
                                         </div>
                                     </div>
-                                    <div class="col-md-6 col-12">
-                                        <div class="form-group">
-                                            <label for="contactNumber_en">Contact Number (English) <i class="text-danger">*</i></label>
-                                            <input type="text" id="contactNumber_en" class="form-control" value="{{ old('contactNumber_en')}}" name="contactNumber_en">
-                                            @if($errors->has('contactNumber_en'))
-                                                <span class="text-danger"> {{ $errors->first('contactNumber_en') }}</span>
-                                            @endif
-                                        </div>
-                                    </div>
+                                    
                                     <div class="col-md-6 col-12">
                                         <div class="form-group">
                                             <label for="contactNumber_bn">Contact Number (Bangla)</label>

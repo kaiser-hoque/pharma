@@ -7,7 +7,7 @@
  
 
 
-<div class="page-wrapper">
+	<div class="page-wrapper">
 			<div class="page-content">
 				<div class="card radius-10">
 					<div class="card-body">
@@ -27,7 +27,7 @@
 						<hr/>
 						<div class="table-responsive">
 							<table class="table align-middle mb-0">
-								<thead class="table-light">
+								<thead class="table-light">	
 									<tr>
 										<th scope="col">{{__('#SL')}}</th>
 										<th scope="col">{{__('Name')}}</th>
@@ -71,7 +71,5 @@
 					</div>
 				</div>
 			</div>
-		</div>
-
-
-        @endsection
+	</div>
+ @endsection

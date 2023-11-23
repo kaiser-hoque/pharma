@@ -74,8 +74,21 @@
                         </li>
                         <li> <a href="{{ route('user.index') }}"><i class='bx bx-radio-circle'></i>User List</a>
                         </li>
-                        <li> <a href="{{ route('profile') }}"><i class='bx bx-radio-circle'></i>User profile</a>
+                      
+                    </ul>
+                </li>
+                <li>
+                    <a href="javascript:;" class="has-arrow">
+                        <div class="parent-icon"><i class='bx bx-cart'></i>
+                        </div>
+                        <div class="menu-title">Role</div>
+                    </a>
+                    <ul>
+                        <li> <a href="{{ route('role.create') }}"><i class='bx bx-radio-circle'></i>Create Role</a>
                         </li>
+                        <li> <a href="{{ route('role.index') }}"><i class='bx bx-radio-circle'></i>Role List</a>
+                        </li>
+                      
                     </ul>
                 </li>
             </ul>
@@ -921,6 +934,7 @@
         toastr.warning("{{ session('warning') }}", { closeButton: true, progressBar: true });
     @endif
     </script>
+    @stack('scripts');
 
     <script src="{{ asset('public/assets/js/index.js') }}"></script>
     <!--app JS-->

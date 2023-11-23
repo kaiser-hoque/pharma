@@ -53,7 +53,7 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" ></script>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css"/>
 
-	<script >
+	<!-- <script >
 			@if (Session:: has('success '))
 		toastr.success("{{ Session:: get('success') }}");
 		@endif
@@ -66,7 +66,7 @@
 		@if (Session:: has('error '))
 		toastr.error("{{ Session:: get('error') }}");
 		@endif  
-	</script>
+	</script> -->
 </body>
 
 

@@ -11,14 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('customer_controllers', function (Blueprint $table) {
+        Schema::create('permissions', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('role_id')->index();
+            $table->foreign('role_id')->references('id')->on('roles')->onDelete('cascade');
             $table->string('name');
-            $table->string('contact_num');
-            $table->string('contact_num');
-            $table->string('email');
-            $table->text('adress');
-            $table->text('description');
             $table->timestamps();
         });
     }
@@ -28,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('customer_controllers');
+        Schema::dropIfExists('permissions');
     }
 };
