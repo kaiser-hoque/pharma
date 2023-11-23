@@ -61,12 +61,8 @@
                         </div>
                         <div class="menu-title">Dashboard</div>
                     </a>
-
                 </li>
-
                 <li class="menu-label">UI Elements</li>
-
-<<<<<<< HEAD
                 <li>
                     <a href="javascript:;" class="has-arrow">
                         <div class="parent-icon"><i class='bx bx-cart'></i>
@@ -85,58 +81,9 @@
             </ul>
             <!--end navigation-->
         </div>
-=======
-				<li>
-					<a href="javascript:;" class="has-arrow">
-						<div class="parent-icon"><i class='bx bx-cart'></i>
-						</div>
-						<div class="menu-title">User</div>
-					</a>
-					<ul>
-						<li> <a href="{{route('user.create')}}"><i class='bx bx-radio-circle'></i>Add User</a>
-						</li>
-						<li> <a href="{{route('user.index')}}"><i class='bx bx-radio-circle'></i>User List</a>
-						</li>
-						<li> <a href="{{route('profile')}}"><i class='bx bx-radio-circle'></i>User profile</a>
-						</li>
-					</ul>
-				</li>
-
-				<li>
-					<a href="javascript:;" class="has-arrow">
-						<div class="parent-icon"><i class='bx bx-cart'></i>
-						</div>
-						<div class="menu-title">Customer</div>
-					</a>
-					<ul>
-						<li> <a href="#"><i class='bx bx-radio-circle'></i>Add Customer</a>
-						</li>
-						<li> <a href="#"><i class='bx bx-radio-circle'></i>Customer List</a>
-						</li>
-						<li> <a href="#"><i class='bx bx-radio-circle'></i>Customer Ledger</a>
-						</li>
-					</ul>
-				</li>
-
-				<li>
-					<a href="javascript:;" class="has-arrow">
-						<div class="parent-icon"><i class='bx bx-cart'></i>
-						</div>
-						<div class="menu-title">Medicine</div>
-					</a>
-					<ul>
-						<li> <a href=" #"><i class='bx bx-radio-circle'></i>Add Medicine</a>
-						</li>
-						<li> <a href=" #"><i class='bx bx-radio-circle'></i>List Medicine</a>
-						</li>
-						<li> <a href="#"><i class='bx bx-radio-circle'></i>Medicine Details</a>
-						</li>
-					</ul>
-				</li>
-			</ul>
-			<!--end navigation-->
+        <!--end navigation-->
 		</div>
->>>>>>> 1c0c5145f1867a808e643d6acb5a2bc274a234aa
+ 
 
         <!--start header -->
         <header>
