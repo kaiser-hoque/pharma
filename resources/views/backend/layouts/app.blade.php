@@ -74,7 +74,7 @@
                         </li>
                         <li> <a href="{{ route('user.index') }}"><i class='bx bx-radio-circle'></i>User List</a>
                         </li>
-                      
+
                     </ul>
                 </li>
                 <li>
@@ -88,7 +88,21 @@
                         </li>
                         <li> <a href="{{ route('role.index') }}"><i class='bx bx-radio-circle'></i>Role List</a>
                         </li>
-                      
+
+                    </ul>
+                </li>
+                <li>
+                    <a href="javascript:;" class="has-arrow">
+                        <div class="parent-icon"><i class='bx bx-cart'></i>
+                        </div>
+                        <div class="menu-title">Customer</div>
+                    </a>
+                    <ul>
+                        <li> <a href="#"><i class='bx bx-radio-circle'></i>Create Customer</a>
+                        </li>
+                        <li> <a href="{{route('customer.index')}}"><i class='bx bx-radio-circle'></i>Customer List</a>
+                        </li>
+
                     </ul>
                 </li>
             </ul>
@@ -96,7 +110,7 @@
         </div>
         <!--end navigation-->
 		</div>
- 
+
 
         <!--start header -->
         <header>
@@ -909,7 +923,9 @@
     <script src="{{ asset('public/assets/plugins/datatable/js/dataTables.bootstrap5.min.js') }}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
 
-    
+
+
+
 
     <script>
         // toastr.options = {
@@ -936,7 +952,7 @@
         toastr.warning("{{ session('warning') }}", { closeButton: true, progressBar: true });
     @endif
     </script>
-    @stack('scripts');
+
 
     <script src="{{ asset('public/assets/js/index.js') }}"></script>
     <!--app JS-->
@@ -944,6 +960,7 @@
 <script src="{{ asset('assets/plugins/perfect-scrollbar/js/perfect-scrollbar.js')}}"></script>
 	<script src="{{ asset('assets/plugins/datatable/js/jquery.dataTables.min.js')}}"></script>
 	<script src="{{ asset('assets/plugins/datatable/js/dataTables.bootstrap5.min.js')}}"></script>
+    @stack('scripts');
 </body>
 
 

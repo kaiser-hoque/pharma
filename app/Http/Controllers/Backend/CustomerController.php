@@ -1,18 +1,18 @@
 <?php
 
-namespace App\Http\Controllers;
-use App\Http\Controllers\Controller;
-use App\Models\SuppliersController;
-use Illuminate\Http\Request;
+namespace App\Http\Controllers\Backend;
 
-class SuppliersControllerController extends Controller
+use App\Models\customer;
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+class CustomerController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //
+        return view('backend.customer.index');
     }
 
     /**
@@ -34,7 +34,7 @@ class SuppliersControllerController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(SuppliersController $suppliersController)
+    public function show(customer $customer)
     {
         //
     }
@@ -42,7 +42,7 @@ class SuppliersControllerController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(SuppliersController $suppliersController)
+    public function edit(customer $customer)
     {
         //
     }
@@ -50,7 +50,7 @@ class SuppliersControllerController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, SuppliersController $suppliersController)
+    public function update(Request $request, customer $customer)
     {
         //
     }
@@ -58,7 +58,7 @@ class SuppliersControllerController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(SuppliersController $suppliersController)
+    public function destroy(customer $customer)
     {
         //
     }

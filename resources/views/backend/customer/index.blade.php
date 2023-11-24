@@ -38,10 +38,10 @@
 	<!--wrapper-->
 	<div class="wrapper">
 		<!--sidebar wrapper -->
-		 
+
 		<!--end sidebar wrapper -->
 		<!--start header -->
-		 
+
 		<!--end header -->
 		<!--start page wrapper -->
 		<div class="page-wrapper">
@@ -145,7 +145,7 @@
 										<td>2012/08/06</td>
 										<td>$137,500</td>
 									</tr>
-									 
+
 									<tr>
 										<td>Serge Baldwin</td>
 										<td>Data Coordinator</td>
@@ -249,8 +249,8 @@
 						</div>
 					</div>
 				</div>
-				 
-				 
+
+
 			</div>
 		</div>
 		<!--end page wrapper -->
@@ -311,22 +311,10 @@
 		  </div>
 		</div>
 	  </div>
-    <!-- end search modal -->
-
-
-
-	<!--start switcher-->
-	 
-	<!--end switcher-->
+    
 	<!-- Bootstrap JS -->
-	<script src="assets/js/bootstrap.bundle.min.js"></script>
-	<!--plugins-->
-	<script src="assets/js/jquery.min.js"></script>
-	<script src="assets/plugins/simplebar/js/simplebar.min.js"></script>
-	<script src="assets/plugins/metismenu/js/metisMenu.min.js"></script>
-	<script src="assets/plugins/perfect-scrollbar/js/perfect-scrollbar.js"></script>
-	<script src="assets/plugins/datatable/js/jquery.dataTables.min.js"></script>
-	<script src="assets/plugins/datatable/js/dataTables.bootstrap5.min.js"></script>
+
+    @push('scripts');
 	<script>
 		$(document).ready(function() {
 			$('#example').DataTable();
@@ -338,17 +326,19 @@
 				lengthChange: false,
 				buttons: [ 'copy', 'excel', 'pdf', 'print']
 			} );
-		 
+
 			table.buttons().container()
 				.appendTo( '#example2_wrapper .col-md-6:eq(0)' );
 		} );
 	</script>
+    @endpush
+
 	<!--app JS-->
 	<script src="assets/js/app.js"></script>
 </body>
 
 
 <!-- Mirrored from codervent.com/syndron/demo/vertical/table-datatable.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 29 Jul 2023 03:58:38 GMT -->
-</html>		 
-		 
+</html>
+
 @endsection
