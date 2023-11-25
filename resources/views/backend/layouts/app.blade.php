@@ -95,6 +95,20 @@
                     <a href="javascript:;" class="has-arrow">
                         <div class="parent-icon"><i class='bx bx-cart'></i>
                         </div>
+                        <div class="menu-title">Category</div>
+                    </a>
+                    <ul>
+                        <li> <a href="{{route('category.create')}}"><i class='bx bx-radio-circle'></i>Create category</a>
+                        </li>
+                        <li> <a href="{{route('category.index')}}"><i class='bx bx-radio-circle'></i>Category List</a>
+                        </li>
+
+                    </ul>
+                </li>
+                <li>
+                    <a href="javascript:;" class="has-arrow">
+                        <div class="parent-icon"><i class='bx bx-cart'></i>
+                        </div>
                         <div class="menu-title">Customer</div>
                     </a>
                     <ul>
