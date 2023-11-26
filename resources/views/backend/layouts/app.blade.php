@@ -86,6 +86,8 @@
                     <ul>
                         <li> <a href="{{ route('role.create') }}"><i class='bx bx-radio-circle'></i>Create Role</a>
                         </li>
+                        
+                       
                         <li> <a href="{{ route('role.index') }}"><i class='bx bx-radio-circle'></i>Role List</a>
                         </li>
 

@@ -1,10 +1,11 @@
 <?php
 
 namespace App\Http\Controllers\Backend;
-
-use App\Models\customer;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Customer;
+use Illuminate\Http\Request;
+use Exception;
+
 class CustomerController extends Controller
 {
     /**
@@ -12,15 +13,18 @@ class CustomerController extends Controller
      */
     public function index()
     {
-        return view('backend.customer.index');
+        $customer=Customer::paginate(10);
+        return view ('backend.category.index', compact('customer'));
+     
     }
 
     /**
      * Show the form for creating a new resource.
      */
     public function create()
-    {
-        //
+    {   
+         
+       return view('backend.customer.create');
     }
 
     /**
@@ -28,13 +32,31 @@ class CustomerController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        try {
+        $customer= new Customer();
+        $customer->name = $request->name;
+        $customer->contact_num = $request->contact_num;
+        $customer->email = $request->email;
+        $customer->gender = $request->gender;
+        $customer->address = $request->address;
+        $customer->status = $request->status;
+        $customer->description = $request->description;
+        $customer->save();
+        $this->notice::success('Customer data saved');
+        return redirect()->route('customer.index');
+       }
+       catch(Exception $e){
+        $this->notice::error('Please try again');
+         dd($e);
+        return redirect()->back()->withInput();
+    }
+        
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(customer $customer)
+    public function show(Customer $customer)
     {
         //
     }
@@ -42,24 +64,47 @@ class CustomerController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(customer $customer)
+    public function edit(Customer $customer)
     {
-        //
+     $customer=Customer::find(encryptor('decrypt',$id));
+        return view('backend.customer.edit',compact('customer'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, customer $customer)
+    public function update(Request $request, Customer $customer)
     {
-        //
+         try {
+       
+        $customer=Customer::find(encryptor('decrypt',$id));
+        $customer->name = $request->name;
+        $customer->contact_num = $request->contact_num;
+        $customer->email = $request->email;
+        $customer->gender = $request->gender;
+        $customer->address = $request->address;
+        $customer->status = $request->status;
+        $customer->description = $request->description;
+        $customer->save();
+        $this->notice::success('Customer data saved');
+        return redirect()->route('customer.index');
+       }
+       catch(Exception $e){
+        $this->notice::error('Please try again');
+         dd($e);
+        return redirect()->back()->withInput();
+    }
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(customer $customer)
+    public function destroy(Customer $customer)
     {
-        //
+         $customer= Customer::findOrFail(encryptor('decrypt',$id));
+        if($land->delete()){
+            $this->notice::warning('Deleted Permanently!');
+            return redirect()->back();
+        }
     }
 }

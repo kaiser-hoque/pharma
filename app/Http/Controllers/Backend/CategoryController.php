@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
-use Illuminate\Http\Request;
+use Illuminate\Http\Request; 
 use Exception;
 
 class CategoryController extends Controller
@@ -13,7 +13,8 @@ class CategoryController extends Controller
      */
     public function index()
     {
-       return view ('backend.category.index');
+        $category=Category::all();
+        return view ('backend.category.index', compact('category'));
     }
 
     /**
@@ -30,49 +31,73 @@ class CategoryController extends Controller
     public function store(Request $request)
 {
     try {
-        $data = new Category();
-        $data->category_name = $request->medicine_category;
-        dd($request->category_name);
+        $data= new Category();
+        $data->medicine_category = $request->category_name;
+        
+        
 
-        if ($data->save()) {
-            return redirect()->route('category.index')->with('success', 'Category successfully saved.');
+     if($data->save())
+                $this->notice::success('Successfully saved');
+                return redirect()->route('category.index'); 
+            }
+    catch(Exception $e){
+            // dd($e);
+             $this->notice::error('Please try again');
+            return redirect()->back()->withInput();
         }
-    } catch (Exception $e) {
-        // dd($e);
-        return redirect()->back()->withInput()->with('error', 'Error saving category. Please try again.');
-    }
+
 }
 
 
     /**
      * Display the specified resource.
      */
-    // public function show(category $category)
-    // {
-        //
-    // }
+    public function show(category $category)
+    {
+        
+    }
 
     /**
      * Show the form for editing the specified resource.
      */
     public function edit(string $id)
     {
-        //
+        $data = Category::findOrFail(encryptor('decrypt',$id));
+        return view('backend.category.edit',compact('data'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, $id)
     {
-        //
+        try{
+            $data = Category::findOrFail(encryptor('decrypt',$id));
+           $data->medicine_category = $request->category_name;
+            if($data->save())
+                $this->notice::success('Successfully updated');
+                return redirect()->route('category.index');
+        }catch(Exception $e){
+            // dd($e);
+            $this->notice::error('Please try again');
+            return redirect()->back()->withInput();
+        }
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy($id)
     {
-        //
+          try {
+        $decryptedId = Crypt::decrypt($id);
+        $data = User::findOrFail($decryptedId);
+        $data->delete();
+        
+        return back()->with('success', 'Data deleted');
+        } catch (\Exception $e) {
+            // dd($e);
+            return back()->with('error', 'Please try again');
+        }
     }
 }

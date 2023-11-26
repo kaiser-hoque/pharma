@@ -20,7 +20,7 @@
                                 >{{$errors-first ('category_name')}}</span>
                                 @endif
 
-							    <button type="button" class="btn btn-primary mt-4">Submit</button>
+							    <button type="submit" class="btn btn-primary mt-4">Submit</button>
 						 </div>
 						</div>
 					</div>
