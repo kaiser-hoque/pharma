@@ -14,16 +14,16 @@ class CustomerController extends Controller
     public function index()
     {
         $customer=Customer::paginate(10);
-        return view ('backend.category.index', compact('customer'));
-     
+        return view ('backend.customer.index', compact('customer'));
+
     }
 
     /**
      * Show the form for creating a new resource.
      */
     public function create()
-    {   
-         
+    {
+
        return view('backend.customer.create');
     }
 
@@ -50,7 +50,7 @@ class CustomerController extends Controller
          dd($e);
         return redirect()->back()->withInput();
     }
-        
+
     }
 
     /**
@@ -76,7 +76,7 @@ class CustomerController extends Controller
     public function update(Request $request, Customer $customer)
     {
          try {
-       
+
         $customer=Customer::find(encryptor('decrypt',$id));
         $customer->name = $request->name;
         $customer->contact_num = $request->contact_num;
@@ -101,10 +101,16 @@ class CustomerController extends Controller
      */
     public function destroy(Customer $customer)
     {
-         $customer= Customer::findOrFail(encryptor('decrypt',$id));
-        if($land->delete()){
-            $this->notice::warning('Deleted Permanently!');
-            return redirect()->back();
-        }
-    }
+        try {
+            $decryptedId = decrypt($id);
+            $customer = Customer::findOrFail($decryptedId);
+            $customer->delete();
+
+            return back()->with('success', 'Data deleted');
+            } catch (\Exception $e) {
+                // dd($e);
+                return back()->with('error', 'Please try again');
+            }
 }
+}
+

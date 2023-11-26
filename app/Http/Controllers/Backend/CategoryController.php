@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
-use Illuminate\Http\Request; 
+use Illuminate\Http\Request;
 use Exception;
 
 class CategoryController extends Controller
@@ -33,12 +33,12 @@ class CategoryController extends Controller
     try {
         $data= new Category();
         $data->medicine_category = $request->category_name;
-        
-        
+
+
 
      if($data->save())
                 $this->notice::success('Successfully saved');
-                return redirect()->route('category.index'); 
+                return redirect()->route('category.index');
             }
     catch(Exception $e){
             // dd($e);
@@ -54,7 +54,7 @@ class CategoryController extends Controller
      */
     public function show(category $category)
     {
-        
+
     }
 
     /**
@@ -90,14 +90,14 @@ class CategoryController extends Controller
     public function destroy($id)
     {
           try {
-        $decryptedId = Crypt::decrypt($id);
-        $data = User::findOrFail($decryptedId);
-        $data->delete();
-        
-        return back()->with('success', 'Data deleted');
-        } catch (\Exception $e) {
-            // dd($e);
-            return back()->with('error', 'Please try again');
-        }
+                $decryptedId = decrypt($id);
+                $data = Category::findOrFail($decryptedId);
+                $data->delete();
+
+                return back()->with('success', 'Data deleted');
+                } catch (\Exception $e) {
+                    // dd($e);
+                    return back()->with('error', 'Please try again');
+                }
     }
 }

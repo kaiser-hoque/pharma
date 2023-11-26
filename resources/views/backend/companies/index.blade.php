@@ -15,20 +15,20 @@
                             <ol class="breadcrumb mb-0 p-0">
                                 <li class="breadcrumb-item"><a href="javascript:;"><i class="bx bx-home-alt"></i></a>
                                 </li>
-                                <li class="breadcrumb-item active" aria-current="page">Data Table</li>
+                                <li class="breadcrumb-item active" aria-current="page">Companies Data Table</li>
                             </ol>
                         </nav>
                     </div>
                     <div class="ms-auto">
                         <div class="btn-group">
-                            <div class="ms-auto"><a href="{{ route('customer.create') }}"
+                            <div class="ms-auto"><a href="{{ route('companies.create') }}"
                                     class="btn btn-primary radius-30 mt-2 mt-lg-0"><i class="bx bxs-plus-square"></i>Add New
                                 </a>
                             </div>
                         </div>
                     </div>
                 </div>
-                <h6 class="mb-0 text-uppercase">Medicine Category</h6>
+                <h6 class="mb-0 text-uppercase">Medicine Companies</h6>
                 <hr />
                 <div class="card">
                     <div class="card-body">
@@ -40,37 +40,37 @@
                                         <th>{{ __('Name') }}</th>
                                         <th>{{ __('Contact NO') }}</th>
                                         <th>{{ __('Email') }}</th>
-                                        <th>{{ __('Gender') }}</th>
                                         <th>{{ __('Address') }}</th>
                                         <th>{{ __('Starus') }}</th>
+                                        <th>{{ __('Division') }}</th>
                                         <th>{{ __('Description') }}</th>
                                         <th class="white-space-nowrap">{{ __('Action') }}</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @forelse($customer as $value)
+                                    @forelse($companies as $value)
                                     <tr>
                                         <td>{{++$loop->index}}</td>
                                         <td class="text-center">{{$value->name}}</td>
                                         <td class="text-center">{{$value->contact_num}}</td>
                                         <td class="text-center">{{$value->email}}</td>
-                                        <td class="text-center">{{$value->gender}}</td>
                                         <td class="text-center">{{$value->address}}</td>
                                         <td class="text-center">{{$value->status}}</td>
+                                        <td class="text-center">{{$value->division}}</td>
                                         <td class="text-center">{{$value->description}}</td>
                                         <td class="action-buttons">
                                             <div class="button-container">
-                                                <a href="{{route('category.edit', 		encryptor('encrypt', $value->id))}}">
+                                                <a href="{{route('companies.edit', 		encryptor('encrypt', $value->id))}}">
                                                     <i class="fa fa-edit"></i>
                                                 </a>
-                                                <form id="" action="{{ route('category.destroy', encrypt($value->id))}}"
-                                                    method="post">
+                                                <form id="" action="{{ route('companies.destroy', $value->id)}}" method="post">
                                                     @csrf
                                                     @method('delete')
                                                     <button style="background: none; border: none;" type="submit">
                                                         <i class="fa fa-trash text-danger"></i>
                                                     </button>
                                                 </form>
+
                                             </div>
                                         </td>
                                     </tr>

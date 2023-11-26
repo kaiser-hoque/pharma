@@ -86,8 +86,8 @@
                     <ul>
                         <li> <a href="{{ route('role.create') }}"><i class='bx bx-radio-circle'></i>Create Role</a>
                         </li>
-                        
-                       
+
+
                         <li> <a href="{{ route('role.index') }}"><i class='bx bx-radio-circle'></i>Role List</a>
                         </li>
 
@@ -111,12 +111,41 @@
                     <a href="javascript:;" class="has-arrow">
                         <div class="parent-icon"><i class='bx bx-cart'></i>
                         </div>
+                        <div class="menu-title">Dose</div>
+                    </a>
+                    <ul>
+                        <li> <a href="{{route('dose.create')}}"><i class='bx bx-radio-circle'></i>Create Dose</a>
+                        </li>
+
+                        <li> <a href="{{route('dose.index')}}"><i class='bx bx-radio-circle'></i>Dose List</a>
+                        </li>
+
+                    </ul>
+                </li>
+                <li>
+                    <a href="javascript:;" class="has-arrow">
+                        <div class="parent-icon"><i class='bx bx-cart'></i>
+                        </div>
                         <div class="menu-title">Customer</div>
                     </a>
                     <ul>
-                        <li> <a href="#"><i class='bx bx-radio-circle'></i>Create Customer</a>
+                        <li> <a href="{{route('customer.create')}}"><i class='bx bx-radio-circle'></i>Create Customer</a>
                         </li>
                         <li> <a href="{{route('customer.index')}}"><i class='bx bx-radio-circle'></i>Customer List</a>
+                        </li>
+
+                    </ul>
+                </li>
+                <li>
+                    <a href="javascript:;" class="has-arrow">
+                        <div class="parent-icon"><i class='bx bx-cart'></i>
+                        </div>
+                        <div class="menu-title">Compani</div>
+                    </a>
+                    <ul>
+                        <li> <a href="{{route('companies.create')}}"><i class='bx bx-radio-circle'></i>Create Customer</a>
+                        </li>
+                        <li> <a href="{{route('companies.index')}}"><i class='bx bx-radio-circle'></i>Customer List</a>
                         </li>
 
                     </ul>

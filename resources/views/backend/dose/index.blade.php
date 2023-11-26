@@ -24,7 +24,7 @@
                 </div>
                 <div class="ms-auto">
                     <div class="btn-group">
-                        <div class="ms-auto"><a href="{{route('category.create')}}"
+                        <div class="ms-auto"><a href="{{route('dose.create')}}"
                                 class="btn btn-primary radius-30 mt-2 mt-lg-0"><i class="bx bxs-plus-square"></i>Add New
                             </a></div>
 
@@ -32,7 +32,7 @@
                 </div>
             </div>
 
-            <h6 class="mb-0 text-uppercase">Medicine Category</h6>
+            <h6 class="mb-0 text-uppercase">Medicin Dose</h6>
             <hr />
             <div class="card">
                 <div class="card-body">
@@ -41,19 +41,20 @@
                             <thead>
                                 <tr>
                                     <th>{{__('SL')}}</th>
-                                    <th>{{__('Category Name')}}</th>
+                                    <th>{{__('Dose Description')}}</th>
                                     <th class="white-space-nowrap">{{__('Action')}}</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @forelse($category as $value)
+                                @forelse($dose as $value)
                                 <tr>
                                     <td>{{++$loop->index}}</td>
-                                    <td class="text-center">{{$value->medicine_category}}</td>
+                                    <td class="text-center">{{$value->dose_description}}</td>
                                     <td class="action-buttons">
                                         <div class="button-container">
-                                            <a href="{{route('category.edit', 		encryptor('encrypt', $value->id))}}">
-                                                <i class="fa fa-edit"></i>
+                                            <a href="{{route('dose.edit', 		encryptor('encrypt', $value->id))}}">
+                                                <i class="fa fa-edit">
+                                                </i>
                                             </a>
                                             <form id="" action="{{ route('category.destroy', encrypt($value->id))}}"
                                                 method="post">
@@ -68,7 +69,7 @@
                                 </tr>
                                 @empty
                                 <tr>
-                                    <th colspan="8" class="text-center">No Product Found</th>
+                                    <th colspan="8" class="text-center">No Dose Found</th>
                                 </tr>
                                 @endforelse
                             </tbody>

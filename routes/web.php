@@ -8,6 +8,10 @@ use App\Http\Controllers\Backend\DashboardController as dashboard;
 use App\Http\Controllers\Backend\PermissionController as permission;
 use App\Http\Controllers\Backend\CustomerController as customer;
 use App\Http\Controllers\Backend\CategoryController as category;
+use App\Http\Controllers\Backend\DoseController as dose;
+use App\Http\Controllers\Backend\CompaniesController as companies;
+
+
 // use App\Models\MedicineCategory;
 
 /*
@@ -35,6 +39,8 @@ Route::middleware(['checkrole'])->prefix('admin')->group(function(){
     Route::resource('role', role::class);
     Route::resource('customer', customer::class);
     Route::resource('category', Category::class);
+    Route::resource('dose', dose::class);
+    Route::resource('companies',companies::class);
 
 
     Route::resource('medicineCategory', MedicineCategory::class);
