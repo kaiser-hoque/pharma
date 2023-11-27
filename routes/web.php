@@ -10,6 +10,8 @@ use App\Http\Controllers\Backend\CustomerController as customer;
 use App\Http\Controllers\Backend\CategoryController as category;
 use App\Http\Controllers\Backend\DoseController as dose;
 use App\Http\Controllers\Backend\CompaniesController as companies;
+use App\Http\Controllers\Backend\SupplierController as supplier;
+use App\Http\Controllers\Backend\MedicineController as medicine;
 
 
 // use App\Models\MedicineCategory;
@@ -35,13 +37,14 @@ Route::middleware(['checkauth'])->prefix('admin')->group(function(){
     Route::get('dashboard', [dashboard::class,'index'])->name('dashboard');
 });
 Route::middleware(['checkrole'])->prefix('admin')->group(function(){
-    Route::resource('user', user::class);
+    Route::resource('user', user::class); //1st is for url and 2nd one is controller alice name
     Route::resource('role', role::class);
     Route::resource('customer', customer::class);
     Route::resource('category', Category::class);
     Route::resource('dose', dose::class);
-    Route::resource('companies',companies::class);
-
+    Route::resource('companies', companies::class);
+    Route::resource('supplier', supplier::class); 
+    Route::resource('medicine', medicine::class); 
 
     Route::resource('medicineCategory', MedicineCategory::class);
     Route::get('permission/{role}', [permission::class,'index'])->name('permission.list');

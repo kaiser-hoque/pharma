@@ -143,9 +143,24 @@
                         <div class="menu-title">Compani</div>
                     </a>
                     <ul>
-                        <li> <a href="{{route('companies.create')}}"><i class='bx bx-radio-circle'></i>Create Customer</a>
+                        <li> <a href="{{route('companies.create')}}"><i class='bx bx-radio-circle'></i>Create Company</a>
                         </li>
-                        <li> <a href="{{route('companies.index')}}"><i class='bx bx-radio-circle'></i>Customer List</a>
+                        <li> <a href="{{route('companies.index')}}"><i class='bx bx-radio-circle'></i>Company List</a>
+                        </li>
+
+                    </ul>
+                </li>
+                <li>
+                    <a href="javascript:;" class="has-arrow">
+                        <div class="parent-icon"><i class='bx bx-cart'></i>
+                        </div>
+                        <div class="menu-title">Supplier</div>
+                    </a>
+                    <ul>
+                        <li> <a href="{{route('supplier.create')}}"><i class='bx bx-radio-circle'></i>Create Supplier</a>
+                        </li>
+                        
+                        <li> <a href="{{route('supplier.index')}}"><i class='bx bx-radio-circle'></i>Supplier List</a>
                         </li>
 
                     </ul>

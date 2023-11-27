@@ -12,13 +12,13 @@
 			<div class="page-content">
 				<!--breadcrumb-->
 				<div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
-					<div class="breadcrumb-title pe-3">Companies</div>
+					<div class="breadcrumb-title pe-3">Supplier</div>
 					<div class="ps-3">
 						<nav aria-label="breadcrumb">
 							<ol class="breadcrumb mb-0 p-0">
 								<li class="breadcrumb-item"><a href="javascript:;"><i class="bx bx-home-alt"></i></a>
 								</li>
-								<li class="breadcrumb-item active" aria-current="page">Companies Create</li>
+								<li class="breadcrumb-item active" aria-current="page">Supplier Create</li>
 							</ol>
 						</nav>
 					</div>
@@ -40,10 +40,10 @@
 					<div class="col-xl-6 mx-auto">
 						<div class="card">
 							<div class="card-header px-4 py-3">
-								<h5 class="mb-0">Companies Create</h5>
+								<h5 class="mb-0">Supplier Create</h5>
 							</div>
 							<div class="card-body p-4">
-								<form method="post" enctype="multipart/form-data" action="{{route('companies.store')}}" class="row g-3 needs-validation" novalidate>
+								<form method="post" enctype="multipart/form-data" action="{{route('supplier.store')}}" class="row g-3 needs-validation" novalidate>
                                     @csrf
 									<div class="col-md-12">
 										<label for="bsValidation1" class="form-label"><b>Full Name</b></label>
@@ -90,20 +90,15 @@
                                     </div>
 									<div class="col-md-12">
                                         <div class="form-group">
-                                            <label for="division"><b>Division</b></label>
-                                            <select id="division" class="form-control" name="division">
-												<option value="">select</option>
-                                                <option value="Dhaka" @if(old('division') == 'Dhaka') selected @endif>Dhaka</option>
-                                                <option value="Chittagong" @if(old('division') == 'Chittagong') selected @endif>Chittagong</option>
-                                                <option value="Rajshahi" @if(old('division') == 'Rajshahi') selected @endif>Rajshahi</option>
-                                                <option value="Khulna" @if(old('division') == 'Khulna') selected @endif>Khulna</option>
-                                                <option value="Barisal" @if(old('division') == 'Barisal') selected @endif>Barisal</option>
-                                                <option value="Sylhet" @if(old('division') == 'Sylhet') selected @endif>Sylhet</option>
-                                                <option value="Rangpur" @if(old('division') == 'Rangpur') selected @endif>Rangpur</option>
+                                            <label for="supplier"><b>supplier Type</b></label>
+                                            <select id="supplier" class="form-control" name="supplier">
+                                                <option value="Common" @if(old('supplier') == 'Common') selected @endif>Common</option>
+                                                <option value="Regular" @if(old('supplier') == 'Regular') selected @endif>Regular</option>
+                                                <option value="Very Regular" @if(old('supplier') == 'Veryregular') selected @endif>Very Regular</option>
                                             </select>
 
-                                            @if($errors->has('division'))
-                                                <span class="text-danger">{{ $errors->first('division') }}</span>
+                                            @if($errors->has('supplier'))
+                                                <span class="text-danger">{{ $errors->first('supplier') }}</span>
                                             @endif
                                         </div>
                                     </div>

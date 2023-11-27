@@ -12,13 +12,13 @@
 			<div class="page-content">
 				<!--breadcrumb-->
 				<div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
-					<div class="breadcrumb-title pe-3">Companies</div>
+					<div class="breadcrumb-title pe-3">Supplier</div>
 					<div class="ps-3">
 						<nav aria-label="breadcrumb">
 							<ol class="breadcrumb mb-0 p-0">
 								<li class="breadcrumb-item"><a href="javascript:;"><i class="bx bx-home-alt"></i></a>
 								</li>
-								<li class="breadcrumb-item active" aria-current="page">Companies Create</li>
+								<li class="breadcrumb-item active" aria-current="page">Supplier Create</li>
 							</ol>
 						</nav>
 					</div>
@@ -40,15 +40,17 @@
 					<div class="col-xl-6 mx-auto">
 						<div class="card">
 							<div class="card-header px-4 py-3">
-								<h5 class="mb-0">Companies Create</h5>
+								<h5 class="mb-0">Supplier Create</h5>
 							</div>
 							<div class="card-body p-4">
-								<form method="post" enctype="multipart/form-data" action="{{route('companies.store')}}" class="row g-3 needs-validation" novalidate>
-                                    @csrf
+								 <form class="form" method="post" enctype="multipart/form-data" action="{{route('supplier.update',encryptor('encrypt',$supplier->id))}}">
+                                @csrf
+                                @method('PATCH')
+								 
 									<div class="col-md-12">
 										<label for="bsValidation1" class="form-label"><b>Full Name</b></label>
 										<input type="text" class="form-control"
-										name="name" id="name" placeholder="  Name" >
+										name="name" id="name" placeholder=""  value="{{old('FullName',$supplier->name)}}"  >
 
                                         @if($errors->has('name'))
                                         <span class="text-danger"> {{ $errors->first('name') }}</span>
@@ -58,7 +60,7 @@
 									<div class="col-md-12">
 										<label for="bsValidation3" class="form-label"><b>Contact Num</b></label>
 										<input type="text" class="form-control" id="contact_num"
-										name="contact_num"placeholder="contact_num"  >
+										name="contact_num"placeholder="contact_num" value="{{ old('ContactNum',$supplier->contact_num)}}"  >
 
                                         @if($errors->has('contact_num'))
                                         <span class="text-danger"> {{ $errors->first('contact_num') }}</span>
@@ -68,7 +70,7 @@
 									<div class="col-md-12">
 										<label for="bsValidation4" class="form-label"><b>Email</b></label>
 										<input type="email" class="form-control"
-										name="email" id="email" placeholder="Email" >
+										name="email" id="email" placeholder="Email" value="{{ old('EmailAddress',$supplier->email)}}" >
 
                                         @if($errors->has('email'))
                                         <span class="text-danger"> {{ $errors->first('email') }}</span>
@@ -79,8 +81,8 @@
                                         <div class="form-group">
                                             <label for="status"><b>Status</b></label>
                                             <select id="status" class="form-control" name="status">
-                                                <option value="1" @if(old('status')==1) selected @endif>Active</option>
-                                                <option value="0" @if(old('status')==0) selected @endif>Inactive</option>
+                                                <option value="1" @if(old('status',$supplier->status)==1) selected @endif>Active</option>
+                                                <option value="0" @if(old('status',$supplier->status)==0) selected @endif>Inactive</option>
                                             </select>
 
                                             @if($errors->has('status'))
@@ -90,20 +92,15 @@
                                     </div>
 									<div class="col-md-12">
                                         <div class="form-group">
-                                            <label for="division"><b>Division</b></label>
-                                            <select id="division" class="form-control" name="division">
-												<option value="">select</option>
-                                                <option value="Dhaka" @if(old('division') == 'Dhaka') selected @endif>Dhaka</option>
-                                                <option value="Chittagong" @if(old('division') == 'Chittagong') selected @endif>Chittagong</option>
-                                                <option value="Rajshahi" @if(old('division') == 'Rajshahi') selected @endif>Rajshahi</option>
-                                                <option value="Khulna" @if(old('division') == 'Khulna') selected @endif>Khulna</option>
-                                                <option value="Barisal" @if(old('division') == 'Barisal') selected @endif>Barisal</option>
-                                                <option value="Sylhet" @if(old('division') == 'Sylhet') selected @endif>Sylhet</option>
-                                                <option value="Rangpur" @if(old('division') == 'Rangpur') selected @endif>Rangpur</option>
+                                            <label for="supplier"><b>supplier Type</b></label>
+                                            <select id="supplier" class="form-control" name="supplier">
+                                                <option value="Common" @if(old('supplier') == 'Common') selected @endif>Common</option>
+                                                <option value="Regular" @if(old('supplier') == 'Regular') selected @endif>Regular</option>
+                                                <option value="Very Regular" @if(old('supplier') == 'Veryregular') selected @endif>Very Regular</option>
                                             </select>
 
-                                            @if($errors->has('division'))
-                                                <span class="text-danger">{{ $errors->first('division') }}</span>
+                                            @if($errors->has('supplier'))
+                                                <span class="text-danger">{{ $errors->first('supplier') }}</span>
                                             @endif
                                         </div>
                                     </div>
@@ -114,7 +111,7 @@
 									<div class="col-md-12">
 										<label for="bsValidation13" class="form-label"><b>Adress</b></label>
 										<textarea class="form-control" id="address"
-										name="address"placeholder="Address ..." rows="3" ></textarea>
+										name="address"placeholder="Address ..." rows="3" value="{{ old('Address',$supplier->address)}}"  ></textarea>
 
                                         @if($errors->has('address'))
                                         <span class="text-danger"> {{ $errors->first('address') }}</span>
@@ -123,7 +120,7 @@
 									<div class="col-md-12">
 										<label for="bsValidation13" class="form-label"><b>Description</b></label>
 										<textarea class="form-control" id="description" placeholder="description ..."
-										name="description"rows="3" required></textarea>
+										name="description"rows="3" value="{{ old('Description',$supplier->description)}}" ></textarea>
 
                                         @if($errors->has('description'))
                                         <span class="text-danger"> {{ $errors->first('description') }}</span>

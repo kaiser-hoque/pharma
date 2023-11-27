@@ -5,10 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Medicine extends Model
+class Supplier extends Model
 {
     use HasFactory;
-     public function company(){
-        return $this->belongsTo(Companies::class);
-    }
 }
