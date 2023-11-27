@@ -159,8 +159,23 @@
                     <ul>
                         <li> <a href="{{route('supplier.create')}}"><i class='bx bx-radio-circle'></i>Create Supplier</a>
                         </li>
-                        
+
                         <li> <a href="{{route('supplier.index')}}"><i class='bx bx-radio-circle'></i>Supplier List</a>
+                        </li>
+
+                    </ul>
+                </li>
+                <li>
+                    <a href="javascript:;" class="has-arrow">
+                        <div class="parent-icon"><i class='bx bx-cart'></i>
+                        </div>
+                        <div class="menu-title">Medicine</div>
+                    </a>
+                    <ul>
+                        <li> <a href="{{route('medicine.create')}}"><i class='bx bx-radio-circle'></i>Add Medicine</a>
+                        </li>
+
+                        <li> <a href="{{route('medicine.index')}}"><i class='bx bx-radio-circle'></i>Medicine List</a>
                         </li>
 
                     </ul>

@@ -56,7 +56,7 @@
                                                 <i class="fa fa-edit">
                                                 </i>
                                             </a>
-                                            <form id="" action="{{ route('category.destroy', encrypt($value->id))}}"
+                                            <form id="" action="{{ route('dose.destroy', encrypt($value->id))}}"
                                                 method="post">
                                                 @csrf
                                                 @method('delete')

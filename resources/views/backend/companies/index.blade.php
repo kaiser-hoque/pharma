@@ -114,8 +114,7 @@
 
 
     </div>
-    @push('scripts')
-        ;
+    @push('scripts');
         <script>
             $(document).ready(function() {
                 $('#example').DataTable();

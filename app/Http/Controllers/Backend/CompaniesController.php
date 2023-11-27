@@ -65,10 +65,12 @@ class CompaniesController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Companies $companies)
+    public function edit($id)
     {
         $companies=Companies::find(encryptor('decrypt',$id));
         return view('backend.companies.edit',compact('companies'));
+
+         
     }
 
     /**
@@ -111,7 +113,7 @@ class CompaniesController extends Controller
         //         // dd($e);
         //         return back()->with('error', 'Please try again');
         //     }
-        
+
         try {
             $companies->delete();
             return back()->with('success', 'Data deleted');

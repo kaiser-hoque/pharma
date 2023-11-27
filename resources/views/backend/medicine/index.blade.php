@@ -28,7 +28,7 @@
                         </div>
                     </div>
                 </div>
-                <h6 class="mb-0 text-uppercase">Medicine Companies</h6>
+                <h6 class="mb-0 text-uppercase">Medicine</h6>
                 <hr />
                 <div class="card">
                     <div class="card-body">
@@ -37,13 +37,15 @@
                                 <thead>
                                     <tr>
                                         <th>{{ __('SL') }}</th>
-                                        <th>{{ __('Name') }}</th>
-                                        <th>{{ __('Contact NO') }}</th>
-                                        <th>{{ __('Email') }}</th>
-                                        <th>{{ __('Address') }}</th>
-                                        <th>{{ __('Starus') }}</th>
-                                        <th>{{ __('Supplier') }}</th>
-                                        <th>{{ __('Description') }}</th>
+                                        <th class="text-center">{{ __('Company') }}<br>{{ __('Name') }}</th>
+                                        <th class="text-center">{{ __('Brand') }}<br>{{ __('Name') }}</th>
+                                        <th class="text-center">{{ __('Generic') }}<br>{{ __('Name') }}</th>
+                                        <th class="text-center">{{ __('Category') }}<br>{{ __('Name') }}</th>
+                                        <th class="text-center">{{ __('Supplier') }}<br>{{ __('Name') }}</th>
+                                        <th class="text-center">{{ __('Medicine') }}<br>{{ __('Image') }}</th>
+                                        <th class="text-center">{{ __('Dose') }}<br>{{ __('Name') }}</th>
+                                        <th>{{ __('Price') }}</th>
+                                        <th>{{ __('Status') }}</th>
                                         <th class="white-space-nowrap">{{ __('Action') }}</th>
                                     </tr>
                                 </thead>
@@ -51,12 +53,19 @@
                                     @forelse($medicine as $value)
                                     <tr>
                                         <td>{{++$loop->index}}</td>
-                                        <td class="text-center">{{$value->name}}</td>
-                                        <td class="text-center">{{$value->contact_num}}</td>
-                                        <td class="text-center">{{$value->email}}</td>
-                                        <td class="text-center">{{$value->address}}</td>
-                                        <td class="text-center">{{$value->status}}</td>
-                                        <td class="text-center">{{$value->supplier}}</td>
+                                        <td class="text-center">{{$value->company?->name}}</td>
+                                        <td class="text-center">{{$value->bname}}</td>
+                                        <td class="text-center">{{$value->gname}}</td>
+                                        <td class="text-center">{{$value->category?->medicine_category}}</td>
+                                        <td class="text-center">{{$value->supplier?->name}}</td>
+
+
+                                        <td class="text-center">
+                                            <img width="50px" class="rounded-circle" src="{{asset('public/uploads/medicine/'.$value->image)}}" alt="">
+                                        </td>
+                                        <td class="text-center">{{$value->dose?->dose_description}}</td>
+                                        <td class="text-center">{{$value->price}}</td>
+                                        <td class="text-center">{{($value->status)==1 ? 'active':'inactive'}}</td>
                                         <td class="text-center">{{$value->description}}</td>
                                         <td class="action-buttons">
                                             <div class="button-container">
@@ -76,7 +85,7 @@
                                     </tr>
                                     @empty
                                     <tr>
-                                        <th colspan="8" class="text-center">No Product Found</th>
+                                        <th colspan="12" class="text-center">No Product Found</th>
                                     </tr>
                                     @endforelse
                                 </tbody>

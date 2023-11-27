@@ -55,7 +55,7 @@
                                         <td class="text-center">{{$value->contact_num}}</td>
                                         <td class="text-center">{{$value->email}}</td>
                                         <td class="text-center">{{$value->address}}</td>
-                                        <td class="text-center">{{$value->status}}</td>
+                                        <td class="text-center" >{{$value->status}}</td>
                                         <td class="text-center">{{$value->supplier}}</td>
                                         <td class="text-center">{{$value->description}}</td>
                                         <td class="action-buttons">

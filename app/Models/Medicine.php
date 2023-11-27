@@ -11,4 +11,13 @@ class Medicine extends Model
      public function company(){
         return $this->belongsTo(Companies::class);
     }
+     public function category(){
+        return $this->belongsTo(Category::class);
+    }
+     public function supplier(){
+        return $this->belongsTo(Supplier::class);
+    }
+     public function dose(){
+        return $this->belongsTo(Dose::class);
+    }
 }

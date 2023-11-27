@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('medicines', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('brand_id')->index();
-            $table->foreign('brand_id')->references('id')->on('companies')->onDelete('cascade');
+            $table->unsignedBigInteger('companies_id')->index();
+            $table->foreign('companies_id')->references('id')->on('companies')->onDelete('cascade');
             $table->string('bname');
             $table->string('gname');
             $table->unsignedBigInteger('category_id')->index();
