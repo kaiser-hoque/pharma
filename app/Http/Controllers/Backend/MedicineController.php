@@ -40,7 +40,7 @@ class MedicineController extends Controller
     {
         try {
             $medicine = new Medicine;
-            $medicine->companies_id = $request->companies_id;
+            $medicine->companie_id = $request->companie_id;
             $medicine->bname = $request->bname;
             $medicine->gname = $request->gname;
             $medicine->category_id = $request->category_id;
@@ -96,30 +96,30 @@ class MedicineController extends Controller
     public function update(Request $request,$id)
     {
         try {
-            $medicine=Supplier::find(encryptor('decrypt',$id));
-            $medicine->companies_id = $request->companies_id;
-            $medicine->bname = $request->bname;
-            $medicine->gname = $request->gname;
-            $medicine->category_id = $request->category_id;
-            $medicine->supplier_id = $request->supplier_id;
-            $medicine->dose_id = $request->dose_id;
-            $medicine->price = $request->price;
-            $medicine->status = $request->status;
-            $medicine->description = $request->description;
+                $medicine=Medicine::find(encryptor('decrypt',$id));
+                $medicine->companie_id = $request->companie_id;
+                $medicine->bname = $request->bname;
+                $medicine->gname = $request->gname;
+                $medicine->category_id = $request->category_id;
+                $medicine->supplier_id = $request->supplier_id;
+                $medicine->dose_id = $request->dose_id;
+                $medicine->price = $request->price;
+                $medicine->status = $request->status;
+                $medicine->description = $request->description;
 
-            if ($request->hasFile('image')) {
-                $imageName = rand(111, 999) . time() . '.' . $request->image->extension();
-                $request->image->move(public_path('uploads/medicine'), $imageName);
-                $medicine->image = $imageName;
-            }
+                    if ($request->hasFile('image')) {
+                        $imageName = rand(111, 999) . time() . '.' . $request->image->extension();
+                        $request->image->move(public_path('uploads/medicine'), $imageName);
+                        $medicine->image = $imageName;
+                    }
 
-            if ($medicine->save()) {
-                $this->notice::success('Medicine Data Successfully saved');
-                return redirect()->route('medicine.index');
-            } else {
-                $this->notice::error('Please try again');
-                return redirect()->back()->withInput();
-            }
+                    if ($medicine->save()) {
+                        $this->notice::success('Medicine Data Successfully saved');
+                        return redirect()->route('medicine.index');
+                    } else {
+                        $this->notice::error('Please try again');
+                        return redirect()->back()->withInput();
+                    }
         } catch (Exception $e) {
             // dd($e);
             return redirect()->back()->withInput()->with('error', 'Please try again');

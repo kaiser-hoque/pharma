@@ -41,10 +41,10 @@
                                     @csrf
 									<div class="col-md-4">
 										<label for="bsValidation1" class="form-label"><b>Company Name</b></label> <br>
-                                        <select class="form-control" name="companies_id" id="companies_id">
+                                        <select class="form-control" name="companie_id" id="companie_id">
                                             <option value="">==Select Name==</option>
                                             @forelse ($company as $c )
-                                            <option {{old('companies_id')==$c->id}} value="{{$c->id}}">{{$c->name}}</option>
+                                            <option {{old('companie_id')==$c->id}} value="{{$c->id}}">{{$c->name}}</option>
                                             @empty
                                             <option value="">No Company name found</option>
                                             @endforelse
@@ -63,7 +63,7 @@
 									</div>
 									<div class="col-md-4">
 										<label for="bsValidation1" class="form-label"><b>Medicine Generic name</b></label>
-										<input type="text" class="form-control"
+										<input type="text" class="form-control rounded-5"
 										name="gname" id="gname" placeholder=" Generic Name" >
 
                                         @if($errors->has('gname'))
@@ -104,7 +104,7 @@
 
 									<div class="col-md-4">
 										<label for="bsValidation1" class="form-label"><b>Medicine Image</b></label>
-                                        <input type="file" id="image" class="form-control" placeholder="Image" name="image">
+                                        <input type="file" id="image" class="form-control rounded-5" placeholder="Image" name="image">
 
                                         @if($errors->has('image'))
                                         <span class="text-danger"> {{ $errors->first('image') }}</span>
@@ -124,15 +124,12 @@
                                             @endforelse
 
                                         </select>
-
-
-
 									</div>
 
 
 									<div class="col-md-4">
 										<label for="bsValidation1" class="form-label"><b>Price</b></label>
-										<input type="text" class="form-control"
+										<input type="text" class="form-control rounded-5"
 										name="price" id="price" placeholder=" price" >
 
                                         @if($errors->has('price'))
@@ -160,7 +157,7 @@
 
 									<div class="col-md-4">
 										<label for="bsValidation13" class="form-label"><b>Description</b></label>
-										<textarea class="form-control" id="description" placeholder="description ..."
+										<textarea class="form-control rounded-5" id="description" placeholder="description ..."
 										name="description"rows="3" required></textarea>
 
                                         @if($errors->has('description'))

@@ -9,7 +9,7 @@ class Medicine extends Model
 {
     use HasFactory;
      public function company(){
-        return $this->belongsTo(Companies::class);
+        return $this->belongsTo(Companies::class,'companie_id','id');
     }
      public function category(){
         return $this->belongsTo(Category::class);
