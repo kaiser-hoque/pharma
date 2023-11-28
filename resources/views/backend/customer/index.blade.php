@@ -9,13 +9,13 @@
         <div class="page-wrapper">
             <div class="page-content">
                 <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
-                    <div class="breadcrumb-title pe-3">Tables</div>
+                    <div class="breadcrumb-title pe-3">Customer</div>
                     <div class="ps-3">
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb mb-0 p-0">
                                 <li class="breadcrumb-item"><a href="javascript:;"><i class="bx bx-home-alt"></i></a>
                                 </li>
-                                <li class="breadcrumb-item active" aria-current="page">Data Table</li>
+                                <li class="breadcrumb-item active" aria-current="page">Customer Data List</li>
                             </ol>
                         </nav>
                     </div>
@@ -28,7 +28,7 @@
                         </div>
                     </div>
                 </div>
-                <h6 class="mb-0 text-uppercase">Medicine Category</h6>
+                <h6 class="mb-0 text-uppercase">Customer List</h6>
                 <hr />
                 <div class="card">
                     <div class="card-body">
@@ -60,10 +60,10 @@
                                         <td class="text-center">{{$value->description}}</td>
                                         <td class="action-buttons">
                                             <div class="button-container">
-                                                <a href="{{route('category.edit', 		encryptor('encrypt', $value->id))}}">
+                                                <a href="{{route('customer.edit', 		encryptor('encrypt', $value->id))}}">
                                                     <i class="fa fa-edit"></i>
                                                 </a>
-                                                <form id="" action="{{ route('category.destroy', encrypt($value->id))}}"
+                                                <form id="" action="{{ route('customer.destroy', encrypt($value->id))}}"
                                                     method="post">
                                                     @csrf
                                                     @method('delete')

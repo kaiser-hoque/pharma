@@ -17,11 +17,11 @@ return new class extends Migration
             $table->string('contact_num');
 
             $table->string('email');
-            $table->string('address');
-            $table->integer('status');
+            $table->string('address')->nullable();;
+            $table->boolean('status')->default(1)->comment('1=>active 2=>inactive');
 
             $table->string('supplier');
-            $table->text('description');
+            $table->text('description')->nullable();;
             $table->timestamps();
         });
     }

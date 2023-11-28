@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Backend;
+
 use App\Http\Controllers\Controller;
 use App\Models\Category;
 use Illuminate\Http\Request;
@@ -13,8 +14,8 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $category=Category::all();
-        return view ('backend.category.index', compact('category'));
+        $category = Category::all();
+        return view('backend.category.index', compact('category'));
     }
 
     /**
@@ -22,31 +23,29 @@ class CategoryController extends Controller
      */
     public function create()
     {
-       return view ('backend.category.create');
+        return view('backend.category.create');
     }
 
     /**
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
-{
-    try {
-        $data= new Category();
-        $data->medicine_category = $request->category_name;
+    {
+        try {
+            $data = new Category();
+            $data->medicine_category = $request->category_name;
 
 
 
-     if($data->save())
+            if ($data->save())
                 $this->notice::success('Successfully saved');
-                return redirect()->route('category.index');
-            }
-    catch(Exception $e){
+            return redirect()->route('category.index');
+        } catch (Exception $e) {
             // dd($e);
-             $this->notice::error('Please try again');
+            $this->notice::error('Please try again');
             return redirect()->back()->withInput();
         }
-
-}
+    }
 
 
     /**
@@ -54,7 +53,6 @@ class CategoryController extends Controller
      */
     public function show(category $category)
     {
-
     }
 
     /**
@@ -62,8 +60,8 @@ class CategoryController extends Controller
      */
     public function edit(string $id)
     {
-        $data = Category::findOrFail(encryptor('decrypt',$id));
-        return view('backend.category.edit',compact('data'));
+        $data = Category::findOrFail(encryptor('decrypt', $id));
+        return view('backend.category.edit', compact('data'));
     }
 
     /**
@@ -71,13 +69,13 @@ class CategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        try{
-            $data = Category::findOrFail(encryptor('decrypt',$id));
-           $data->medicine_category = $request->category_name;
-            if($data->save())
+        try {
+            $data = Category::findOrFail(encryptor('decrypt', $id));
+            $data->medicine_category = $request->category_name;
+            if ($data->save())
                 $this->notice::success('Successfully updated');
-                return redirect()->route('category.index');
-        }catch(Exception $e){
+            return redirect()->route('category.index');
+        } catch (Exception $e) {
             // dd($e);
             $this->notice::error('Please try again');
             return redirect()->back()->withInput();
@@ -89,15 +87,15 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-          try {
-                $decryptedId = decrypt($id);
-                $data = Category::findOrFail($decryptedId);
-                $data->delete();
+        try {
+            $decryptedId = decrypt($id);
+            $data = Category::findOrFail($decryptedId);
+            $data->delete();
 
-                return back()->with('success', 'Data deleted');
-                } catch (\Exception $e) {
-                    // dd($e);
-                    return back()->with('error', 'Please try again');
-                }
+            return back()->with('success', 'Data deleted');
+        } catch (\Exception $e) {
+            // dd($e);
+            return back()->with('error', 'Please try again');
+        }
     }
 }

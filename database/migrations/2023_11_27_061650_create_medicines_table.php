@@ -22,11 +22,11 @@ return new class extends Migration
             $table->unsignedBigInteger('supplier_id')->index();
             $table->foreign('supplier_id')->references('id')->on('suppliers')->onDelete('cascade');
             $table->string('image')->nullable();
-            $table->unsignedBigInteger('dose_id')->index();
+            $table->unsignedBigInteger('dose_id')->index()->nullable();
             $table->foreign('dose_id')->references('id')->on('doses')->onDelete('cascade');
             $table->decimal('price');
             $table->integer('status');
-            $table->text('description');
+            $table->text('description')->nullable();;
             $table->timestamps();
         });
     }

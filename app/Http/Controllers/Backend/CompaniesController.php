@@ -70,13 +70,13 @@ class CompaniesController extends Controller
         $companies=Companies::find(encryptor('decrypt',$id));
         return view('backend.companies.edit',compact('companies'));
 
-         
+
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Companies $companies)
+    public function update(Request $request, $id)
     {
         try {
             $companies=Companies::find(encryptor('decrypt',$id));

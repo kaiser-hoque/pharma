@@ -9,16 +9,17 @@
             <div class="card">
                 <div class="card-body">
                     <form class="form" method="post" enctype="multipart/form-data"
-                        action="{{route('dose.update',encryptor('encrypt',$data->id))}}">
+                        action="{{route('dose.update',encryptor('encrypt',$dose->id))}}">
                         @csrf
                         @method('Patch')
+
                         <div class="row row-cols-1 g-3 row-cols-lg-auto align-items-center">
                             <div class="col">
                                 <label for="dose">
                                     <h4>Add Dose</h4>
                                 </label>
-                                <input type="text" class="form-control" id="dose_description" name="category_name"
-                                    value="{{ old('dose_description',$data->dose_description)}}"
+                                <input type="text" class="form-control" id="dose_description" name="dose_description"
+                                    value="{{ old('dose_description',$dose->dose_description)}}"
                                     placeholder="dose name">
 
                                 @if ($errors ->has ('dose_description'))

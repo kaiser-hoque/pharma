@@ -22,22 +22,11 @@
 							</ol>
 						</nav>
 					</div>
-					<div class="ms-auto">
-						<div class="btn-group">
-							<button type="button" class="btn btn-primary">Settings</button>
-							<button type="button" class="btn btn-primary split-bg-primary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown">	<span class="visually-hidden">Toggle Dropdown</span>
-							</button>
-							<div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-end">	<a class="dropdown-item" href="javascript:;">Action</a>
-								<a class="dropdown-item" href="javascript:;">Another action</a>
-								<a class="dropdown-item" href="javascript:;">Something else here</a>
-								<div class="dropdown-divider"></div>	<a class="dropdown-item" href="javascript:;">Separated link</a>
-							</div>
-						</div>
-					</div>
+
 				</div>
 				<!--end breadcrumb-->
 				<div class="row">
-					<div class="col-xl-6 mx-auto">
+					<div class="col-md-10 mx-auto">
 						<div class="card">
 							<div class="card-header px-4 py-3">
 								<h5 class="mb-0">Customer Create</h5>
@@ -45,9 +34,9 @@
 							<div class="card-body p-4">
 								<form method="post" enctype="multipart/form-data" action="{{route('customer.store')}}" class="row g-3 needs-validation" novalidate>
                                     @csrf
-									<div class="col-md-12">
+									<div class="col-md-6">
 										<label for="bsValidation1" class="form-label"><b>Full Name</b></label>
-										<input type="text" class="form-control"
+										<input type="text" class="form-control rounded-5"
 										name="name" id="name" placeholder="  Name" >
 
                                         @if($errors->has('name'))
@@ -55,9 +44,9 @@
                                     @endif
 									</div>
 
-									<div class="col-md-12">
+									<div class="col-md-6">
 										<label for="bsValidation3" class="form-label"><b>Contact Num</b></label>
-										<input type="text" class="form-control" id="contact_num"
+										<input type="text" class="form-control rounded-5" id="contact_num"
 										name="contact_num"placeholder="contact_num"  >
 
                                         @if($errors->has('contact_num'))
@@ -65,9 +54,9 @@
                                     @endif
 
 									</div>
-									<div class="col-md-12">
+									<div class="col-md-6">
 										<label for="bsValidation4" class="form-label"><b>Email</b></label>
-										<input type="email" class="form-control"
+										<input type="email" class="form-control rounded-5"
 										name="email" id="email" placeholder="Email" >
 
                                         @if($errors->has('email'))
@@ -75,12 +64,12 @@
                                     @endif
 									</div>
 
-                                    <div class="sm-col-12">
+                                    <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="status"><b>Gender</b></label>
                                             <select id="gender" class="form-control" name="gender">
-                                                <option value="1" @if(old('gender')==1) selected @endif>Male</option>
-                                                <option value="0" @if(old('gender')==0) selected @endif>Female</option>
+                                                <option value="male" @if(old('gender')=='male') selected @endif>Male</option>
+                                                <option value="female" @if(old('gender')=='female') selected @endif>Female</option>
                                             </select>
 
                                             @if($errors->has('gender'))
@@ -90,7 +79,7 @@
                                     </div>
 
 
-									 <div class="sm-col-12">
+									 <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="status"><b>Status</b></label>
                                             <select id="status" class="form-control" name="status">
@@ -105,18 +94,18 @@
                                     </div>
 
 
-									<div class="col-md-12">
+									<div class="col-md-6">
 										<label for="bsValidation13" class="form-label"><b>Adress</b></label>
-										<textarea class="form-control" id="address"
+										<textarea class="form-control rounded-5" id="address"
 										name="address"placeholder="Address ..." rows="3" ></textarea>
 
                                         @if($errors->has('address'))
                                         <span class="text-danger"> {{ $errors->first('address') }}</span>
                                     @endif
 									</div>
-									<div class="col-md-12">
+									<div class="col-md-6">
 										<label for="bsValidation13" class="form-label"><b>Description</b></label>
-										<textarea class="form-control" id="description" placeholder="description ..."
+										<textarea class="form-control rounded-5" id="description" placeholder="description ..."
 										name="description"rows="3" required></textarea>
 
                                         @if($errors->has('description'))

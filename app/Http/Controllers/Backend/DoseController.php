@@ -30,12 +30,12 @@ class DoseController extends Controller
     public function store(Request $request)
     {
         try {
-            $data= new Dose();
-            $data->dose_description = $request->dose_description;
+            $dose= new Dose();
+            $dose->dose_description = $request->dose_description;
 
 
 
-         if($data->save())
+         if($dose->save())
                     $this->notice::success('Successfully saved');
                     return redirect()->route('dose.index');
                 }
@@ -57,16 +57,16 @@ class DoseController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Dose $id)
+    public function edit($id)
     {
         $dose = Dose::findOrFail(encryptor('decrypt',$id));
-        return view('backend.dose.edit',compact('data'));
+        return view('backend.dose.edit',compact('dose'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Dose $id)
+    public function update(Request $request, $id)
     {
         try{
             $dose = Dose::findOrFail(encryptor('decrypt',$id));
@@ -80,7 +80,6 @@ class DoseController extends Controller
             return redirect()->back()->withInput();
         }
     }
-
     /**
      * Remove the specified resource from storage.
      */

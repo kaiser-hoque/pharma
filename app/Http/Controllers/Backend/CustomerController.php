@@ -64,9 +64,9 @@ class CustomerController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Customer $customer)
+    public function edit($id)
     {
-     $customer=Customer::find(encryptor('decrypt',$id));
+     $customer=Customer::findOrFail(encryptor('decrypt',$id));
         return view('backend.customer.edit',compact('customer'));
     }
 

@@ -87,7 +87,7 @@ class MedicineController extends Controller
         $supplier = Supplier::get();
         $dose = Dose::get();
         $medicine = Medicine::findOrFail(encryptor('decrypt',$id));
-        return view('backend.medicine.create', compact('category', 'company', 'supplier', 'dose'));
+        return view('backend.medicine.edit', compact('medicine','category', 'company', 'supplier', 'dose'));
     }
 
     /**

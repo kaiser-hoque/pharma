@@ -50,7 +50,7 @@
                                             <option value="">No Company name found</option>
                                             @endforelse
 
-											    
+
                                         </select>
 									</div>
 
@@ -159,7 +159,7 @@
                                     </div>
 
 
-                                   
+
 
 									<div class="col-md-4">
 										<label for="bsValidation13" class="form-label"><b>Description</b></label>

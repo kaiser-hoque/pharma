@@ -28,7 +28,7 @@
                         </div>
                     </div>
                 </div>
-                <h6 class="mb-0 text-uppercase">Medicine Companies</h6>
+                <h6 class="mb-0 text-uppercase">Suppliers List</h6>
                 <hr />
                 <div class="card">
                     <div class="card-body">

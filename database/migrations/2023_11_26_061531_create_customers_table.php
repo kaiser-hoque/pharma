@@ -16,12 +16,12 @@ return new class extends Migration
             $table->string('name');
             $table->string('contact_num');
 
-            $table->string('email');  
-            $table->string('gender');
-            $table->string('address');
+            $table->string('email');
+            $table->enum('gender',['male', 'female'])->nullable();
+            $table->string('address')->nullable();
 
-            $table->integer('status');
-            $table->text('description');
+            $table->integer('status')->default(1)->comment('1=>active 2=>inactive');
+            $table->text('description')->nullable();;
             $table->timestamps();
         });
     }

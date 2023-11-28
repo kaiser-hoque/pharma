@@ -19,19 +19,19 @@ return new class extends Migration
             $table->timestamps();
         });
         DB::table('roles')->insert([
-             
+
             [
-                'type' => 'Admin',
+                'name' => 'Admin',
                 'identity' => 'admin',
                 'created_at' => Carbon::now()
             ],
             [
-                'type' => 'Sales Manager',
+                'name' => 'Sales Manager',
                 'identity' => 'salesmanager',
                 'created_at' => Carbon::now()
             ],
             [
-                'type' => 'Sales Man',
+                'name' => 'Sales Man',
                 'identity' => 'salesman',
                 'created_at' => Carbon::now()
             ]
@@ -47,3 +47,5 @@ return new class extends Migration
         Schema::dropIfExists('roles');
     }
 };
+
+ 
