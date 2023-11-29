@@ -46,7 +46,7 @@
                                 <td>{{$d->name_en}}</td>
                                 <td>{{$d->email}}</td>
                                 <td>{{$d->contact_no_en}}</td>
-                                <td>{{$d->role?->type}}</td>
+                                <td>{{$d->role?->name}}</td>
                                 <td><img width="50px" src="{{asset('public/uploads/users/'.$d->image)}}" alt=""></td>
                                 <td style="color: @if($d->status==1) green @else red @endif; border-radius: 5px;font-weight: bold; font-size:15px">@if($d->status==1){{__('Active')}} @else{{__('Inactive')}} @endif</td>
                                 <td class="btn group">

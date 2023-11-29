@@ -43,7 +43,7 @@
             
                 <div class="row">
                 @forelse($routes as $k=>$r)
-                    <div class="col-6 col-sm-3 col-md-2">
+                    <div class="col-6 col-sm-3 col-md-3 mt-3">
                         <input type="checkbox" onchange="checkAll(this)"> {{__($k)}}
                         @if($r)
                             <ul class="list-group">
@@ -51,7 +51,8 @@
                                     @if(in_array($name['method'],$auto_accept))
                                     <li class="list-group-item">
                                         @if(in_array($k.'.'.$name['function'],$permissions))
-                                            <input type="checkbox" checked name="permission[]" value="{{$k.'.'.$name['function']}}"> {{__($name['function'])}}
+                                            <input type="checkbox"  checked name="permission[]" value="{{$k.'.'.$name['function']}}"> 
+                                             {{__($name['function'])}} 
                                         @else
                                         <input type="checkbox" name="permission[]" value="{{$k.'.'.$name['function']}}"> {{__($name['function'])}}
                                         @endif
