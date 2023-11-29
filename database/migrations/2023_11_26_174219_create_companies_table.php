@@ -15,11 +15,9 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('contact_num');
-
             $table->string('email');
             $table->string('address')->nullable();;
             $table->integer('status');
-
             $table->string('division');
             $table->text('description')->nullable();;
             $table->timestamps();

@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('gname');
             $table->unsignedBigInteger('category_id')->index();
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
-            $table->unsignedBigInteger('supplier_id')->index();
+            $table->unsignedBigInteger('supplier_id')->index()->nullable()                                      ;
             $table->foreign('supplier_id')->references('id')->on('suppliers')->onDelete('cascade');
             $table->string('image')->nullable();
             $table->unsignedBigInteger('dose_id')->index()->nullable();
@@ -28,6 +28,10 @@ return new class extends Migration
             $table->integer('status');
             $table->text('description')->nullable();;
             $table->timestamps();
+            $table->date('manufacturedate');
+            $table->date('importdate');
+            $table->date('expiredate');
+            $table->date('strength');
         });
     }
 

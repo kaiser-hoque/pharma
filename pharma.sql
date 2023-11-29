@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 28, 2023 at 08:45 PM
+-- Generation Time: Nov 29, 2023 at 10:03 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -40,7 +40,13 @@ CREATE TABLE `categories` (
 
 INSERT INTO `categories` (`id`, `medicine_category`, `created_at`, `updated_at`) VALUES
 (1, 'Aerosol Inhalationy', '2023-11-28 10:55:36', '2023-11-28 10:55:36'),
-(2, 'dghdfhfg', '2023-11-28 10:55:47', '2023-11-28 10:55:47');
+(3, 'Antibiotics', '2023-11-28 21:53:33', '2023-11-28 21:53:39'),
+(4, 'Antihistamines', '2023-11-28 21:54:01', '2023-11-28 21:54:01'),
+(5, 'Antidepressants', '2023-11-28 21:54:16', '2023-11-28 21:54:16'),
+(6, 'Antacids', '2023-11-28 21:54:32', '2023-11-28 21:54:32'),
+(7, 'Antipyretics', '2023-11-28 21:54:52', '2023-11-28 21:54:52'),
+(8, 'Bronchodilators', '2023-11-28 21:55:11', '2023-11-28 21:55:11'),
+(12, 'Aerosol Inhalationy', '2023-11-29 08:50:14', '2023-11-29 08:50:14');
 
 -- --------------------------------------------------------
 
@@ -66,8 +72,14 @@ CREATE TABLE `companies` (
 --
 
 INSERT INTO `companies` (`id`, `name`, `contact_num`, `email`, `address`, `status`, `division`, `description`, `created_at`, `updated_at`) VALUES
-(1, 'kaiserrrrrrrr', '123444', 'gabc@gamil.com', 'dgdfdfg', 1, 'Chittagong', 'dfgdfggfg', '2023-11-28 10:51:22', '2023-11-28 10:53:35'),
-(2, 'jasim', '123', 'abu@gmail.com', 'fhfg', 1, 'Chittagong', 'fhfgh', '2023-11-28 10:56:32', '2023-11-28 10:56:32');
+(1, 'Novartis', '123444', 'gabc@gamil.com', 'asdas', 0, 'Chittagong', 'sdfsdf', '2023-11-28 10:51:22', '2023-11-28 22:17:53'),
+(2, 'Johnson & Johnson', '123', 'abu@gmail.com', 'sdsdfsd', 0, 'Khulna', 'sfsdfsd', '2023-11-28 10:56:32', '2023-11-28 22:18:23'),
+(3, 'Pfizer', '0164', 'isdbstudent@gmail.com', 'sfsdfsd', 1, 'Chittagong', 'sdfsdfsd', '2023-11-28 22:14:11', '2023-11-28 22:14:11'),
+(4, 'kaiser', '123', 'kaisgger@gamil.com', 'fhfghf', 1, 'Chittagong', 'fghfhfg', '2023-11-28 22:16:33', '2023-11-28 22:16:33'),
+(5, 'GlaxoSmithKline (GSK)', '01856', 'Glaxo@mail.com', 'sdfsdf', 1, 'Khulna', 'sdfsdf', '2023-11-28 22:19:05', '2023-11-28 22:19:05'),
+(6, 'Eli Lilly and Company', '0123', 'Company@gmail.com', 'sfsdf', 1, 'Barisal', 'sdfsd', '2023-11-28 22:19:56', '2023-11-28 22:19:56'),
+(7, 'Novo Nordisk', '0454', 'nordisk@gmail.com', 'dfgdfg', 1, 'Barisal', 'dgdfgdf', '2023-11-28 22:20:47', '2023-11-28 22:20:47'),
+(8, 'Boehringer Ingelheim', '034465', 'boehringer@gmail.com', 'dfgdfg', 1, 'Barisal', 'sdfgfd', '2023-11-28 22:21:53', '2023-11-28 22:21:53');
 
 -- --------------------------------------------------------
 
@@ -93,9 +105,10 @@ CREATE TABLE `customers` (
 --
 
 INSERT INTO `customers` (`id`, `name`, `contact_num`, `email`, `gender`, `address`, `status`, `description`, `created_at`, `updated_at`) VALUES
-(1, 'kaiser', '123', 'kaiser@gamil.com', 'female', 'sdfs', 1, 'sdfds', '2023-11-28 09:53:09', '2023-11-28 09:53:09'),
-(2, 'SAfira', '345', 'safira@gamil.com', 'female', 'sdfsd', 1, 'sdfsd', '2023-11-28 09:58:54', '2023-11-28 09:58:54'),
-(3, 'SAfira', '123', 'safira@gamil.com', 'female', 'dfgdf', 1, 'dfgdf', '2023-11-28 10:31:21', '2023-11-28 10:31:21');
+(1, 'kaiser', '0186', 'kaisgger@gamil.com', 'male', NULL, 0, '>dfgdfgdfg', '2023-11-28 09:53:09', '2023-11-28 22:12:50'),
+(2, 'SAfira', '345', 'safira@gamil.com', 'male', 'satkira', 0, 'hi', '2023-11-28 09:58:54', '2023-11-28 22:12:28'),
+(3, 'SAfira', '123', 'safira@gamil.com', 'female', 'dfgdf', 1, 'dfgdf', '2023-11-28 10:31:21', '2023-11-28 10:31:21'),
+(4, 'kaiser', '01856635067', 'isdbstudent@gmail.com', 'male', 'dfgdfg', 1, 'sdffg', '2023-11-28 22:08:16', '2023-11-28 22:08:16');
 
 -- --------------------------------------------------------
 
@@ -116,7 +129,15 @@ CREATE TABLE `doses` (
 
 INSERT INTO `doses` (`id`, `dose_description`, `created_at`, `updated_at`) VALUES
 (1, 'Drops', '2023-11-28 10:56:01', '2023-11-28 10:56:01'),
-(2, 'dfgdfgd', '2023-11-28 10:56:09', '2023-11-28 10:56:09');
+(2, 'Blood Tubing Set', '2023-11-28 10:56:09', '2023-11-28 22:05:05'),
+(3, 'Blood Bag', '2023-11-28 22:04:27', '2023-11-28 22:04:27'),
+(4, 'Boluse', '2023-11-28 22:05:25', '2023-11-28 22:05:25'),
+(5, 'Butterfly', '2023-11-28 22:05:46', '2023-11-28 22:05:46'),
+(6, 'Cr Capsule', '2023-11-28 22:06:08', '2023-11-28 22:06:08'),
+(7, 'Cr Tablet', '2023-11-28 22:06:20', '2023-11-28 22:06:20'),
+(8, 'Cream', '2023-11-28 22:06:28', '2023-11-28 22:06:28'),
+(9, 'Dialysis Solution', '2023-11-28 22:06:47', '2023-11-28 22:06:47'),
+(10, 'Dispersible Tablet', '2023-11-28 22:07:13', '2023-11-28 22:07:13');
 
 -- --------------------------------------------------------
 
@@ -130,22 +151,28 @@ CREATE TABLE `medicines` (
   `bname` varchar(255) NOT NULL,
   `gname` varchar(255) NOT NULL,
   `category_id` bigint(20) UNSIGNED NOT NULL,
-  `supplier_id` bigint(20) UNSIGNED NOT NULL,
+  `supplier_id` bigint(20) UNSIGNED DEFAULT NULL,
   `image` varchar(255) DEFAULT NULL,
   `dose_id` bigint(20) UNSIGNED DEFAULT NULL,
   `price` decimal(8,2) NOT NULL,
   `status` int(11) NOT NULL,
   `description` text DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `manufacturedate` date NOT NULL,
+  `importdate` varchar(255) NOT NULL,
+  `expiredate` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `medicines`
 --
 
-INSERT INTO `medicines` (`id`, `companie_id`, `bname`, `gname`, `category_id`, `supplier_id`, `image`, `dose_id`, `price`, `status`, `description`, `created_at`, `updated_at`) VALUES
-(1, 1, 'fgdgdrtre', 'dfgfdfgdf', 1, 1, '6181701192673.jpg', 2, '344.00', 1, 'dgdfdgdf', '2023-11-28 11:31:13', '2023-11-28 11:31:13');
+INSERT INTO `medicines` (`id`, `companie_id`, `bname`, `gname`, `category_id`, `supplier_id`, `image`, `dose_id`, `price`, `status`, `description`, `created_at`, `updated_at`, `manufacturedate`, `importdate`, `expiredate`) VALUES
+(1, 1, 'fgdgdrtre', 'fgdgdrtre', 4, 1, '6181701192673.jpg', 2, '344.00', 0, 'gdfg', '2023-11-28 11:31:13', '2023-11-28 22:30:13', '0000-00-00', '', '0000-00-00'),
+(2, 3, 'fsdfds', 'fsdfds', 4, 2, '7701701237832.jpg', 3, '623.00', 0, 'fdgfg', '2023-11-28 22:28:39', '2023-11-29 00:03:52', '0000-00-00', '', '0000-00-00'),
+(3, 3, 'gdgdsg', 'gdsgdg', 5, 3, NULL, 5, '23.00', 1, 'dfgdfg', '2023-11-28 23:58:05', '2023-11-28 23:58:05', '0000-00-00', '', '0000-00-00'),
+(4, 2, 'uyu', 'dfgfd', 1, NULL, NULL, 2, '23.00', 1, NULL, '2023-11-29 10:34:07', '2023-11-29 10:34:07', '0000-00-00', '', '0000-00-00');
 
 -- --------------------------------------------------------
 
@@ -188,6 +215,21 @@ CREATE TABLE `permissions` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `permissions`
+--
+
+INSERT INTO `permissions` (`id`, `role_id`, `name`, `created_at`, `updated_at`) VALUES
+(1, 3, 'user.show', '2023-11-29 00:12:27', '2023-11-29 00:12:27'),
+(2, 3, 'role.show', '2023-11-29 00:12:27', '2023-11-29 00:12:27'),
+(3, 3, 'customer.show', '2023-11-29 00:12:27', '2023-11-29 00:12:27'),
+(4, 3, 'category.show', '2023-11-29 00:12:27', '2023-11-29 00:12:27'),
+(5, 3, 'dose.show', '2023-11-29 00:12:27', '2023-11-29 00:12:27'),
+(6, 3, 'companies.show', '2023-11-29 00:12:27', '2023-11-29 00:12:27'),
+(7, 3, 'supplier.show', '2023-11-29 00:12:27', '2023-11-29 00:12:27'),
+(8, 3, 'medicine.show', '2023-11-29 00:12:27', '2023-11-29 00:12:27'),
+(9, 3, 'medicineCategory.show', '2023-11-29 00:12:27', '2023-11-29 00:12:27');
 
 -- --------------------------------------------------------
 
@@ -255,7 +297,11 @@ CREATE TABLE `suppliers` (
 --
 
 INSERT INTO `suppliers` (`id`, `name`, `contact_num`, `email`, `address`, `status`, `supplier`, `description`, `created_at`, `updated_at`) VALUES
-(1, 'kaiserrrrr', '12345', 'kaisedddr@gamil.com', 'df', 0, 'Common', 'fdg', '2023-11-28 10:09:18', '2023-11-28 10:54:33');
+(1, 'kaiser', '1234566', 'kaisedddr@gamil.com', 'dfgdf', 0, 'Common', 'dfgdf', '2023-11-28 10:09:18', '2023-11-28 22:23:16'),
+(2, 'josim', '012344', 'josim@gmail.com', 'dfgdfgd', 1, 'Very Regular', 'sdfdsf', '2023-11-28 22:22:49', '2023-11-28 22:22:49'),
+(3, 'Mojahid', '0123', 'josim@gmail.com', 'dfgdfg', 1, 'Regular', 'fdgdfg', '2023-11-28 22:23:49', '2023-11-28 22:23:49'),
+(4, 'Noman', '345', 'noman@gmail.com', 'fdhfg', 1, 'Regular', 'fdgdf', '2023-11-28 22:24:30', '2023-11-28 22:24:30'),
+(5, 'Salman', '012345', 'galib@gmail.com', 'dfgdfg', 1, 'Common', 'dfgd', '2023-11-28 22:24:58', '2023-11-28 22:25:13');
 
 -- --------------------------------------------------------
 
@@ -287,7 +333,9 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name_en`, `name_bn`, `email`, `contact_no_en`, `contact_no_bn`, `role_id`, `password`, `language`, `image`, `full_access`, `status`, `remember_token`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 'kaiser', NULL, 'kaiser@gmail.com', '1', NULL, 1, '$2y$12$N3Btd3WIJlTLEm/7pVaOSOHDB1W3v3ylkJUEirWQr4AWLUprjqLS2', 'en', NULL, 1, 1, NULL, '2023-11-28 09:51:44', '2023-11-28 09:51:44', NULL);
+(5, 'kaiser', NULL, 'k@gmail.com', '2', NULL, 1, '$2y$12$0V58N/ukLtquhcrSmID0MOneAWr.YIyD5Mdx2SyGfHCrB2EPmjJMu', 'en', '7401701238600.jpg', 1, 1, NULL, '2023-11-29 00:05:30', '2023-11-29 00:16:41', NULL),
+(6, 'salman', NULL, 'l@gmail.com', '3', NULL, 2, '$2y$12$6GcOBUlrJktiYG771Q59U.yIBdt5csCkC53Hm8mqdi1oUpa448gMK', 'en', '8221701238128.jpg', 1, 1, NULL, '2023-11-29 00:08:48', '2023-11-29 00:08:48', NULL),
+(7, 'Tarif', NULL, 't@gmail.com', '4', NULL, 3, '$2y$12$FctdPVSSd4YwnlyZ8UtPceuHFcC3a/h0e4z8YfzZCrUmtopY29mKm', 'en', '1301701238259.jpg', 0, 1, NULL, '2023-11-29 00:10:59', '2023-11-29 00:10:59', NULL);
 
 --
 -- Indexes for dumped tables
@@ -380,31 +428,31 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `companies`
 --
 ALTER TABLE `companies`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `customers`
 --
 ALTER TABLE `customers`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `doses`
 --
 ALTER TABLE `doses`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `medicines`
 --
 ALTER TABLE `medicines`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `migrations`
@@ -416,7 +464,7 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `permissions`
 --
 ALTER TABLE `permissions`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `personal_access_tokens`
@@ -434,13 +482,13 @@ ALTER TABLE `roles`
 -- AUTO_INCREMENT for table `suppliers`
 --
 ALTER TABLE `suppliers`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- Constraints for dumped tables

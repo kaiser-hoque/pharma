@@ -75,7 +75,7 @@
                                     @endif
 									</div>
 
-									<div class="col-md-4">
+									{{-- <div class="col-md-4">
 										<label for="bsValidation1" class="form-label"><b>Category Name</b></label> <br>
                                         <select class="form-control" name="category_id" id="category_id">
                                             <option value="">==Select Name==</option>
@@ -89,7 +89,20 @@
 
 
 
-									</div>
+									</div> --}}
+
+                                    <div class="col-md-4">
+                                        <label for="bsValidation1" class="form-label"><b>Category Name</b></label> <br>
+                                        <select class="form-control" name="category_id" id="category_id">
+                                            <option value="">==Select Name==</option>
+                                            @forelse ($category as $c)
+                                                <option {{ old('category_id', $medicine->category_id) == $c->id ? 'selected' : '' }} value="{{ $c->id }}">{{ $c->medicine_category }}</option>
+                                            @empty
+                                                <option value="">No Company name found</option>
+                                            @endforelse
+                                        </select>
+                                    </div>
+
 
 
 									<div class="col-md-4">
@@ -162,9 +175,10 @@
 
 
 									<div class="col-md-4">
-										<label for="bsValidation13" class="form-label"><b>Description</b></label>
+                                        <label for="description"><b>Description</b> </label>
 										<textarea class="form-control rounded-5" id="description" placeholder="description ..."
-										name="description"rows="3" value="{{ old('description',$medicine->description)}}" ></textarea>
+                                        name="description" rows="3">{{ old('description',$medicine->description) }}</textarea>
+
 
                                         @if($errors->has('description'))
                                         <span class="text-danger"> {{ $errors->first('description') }}</span>
