@@ -41,13 +41,13 @@
 								</thead>
 								<tbody>
 									@forelse($data as $d)
-                            <tr>
+                            <tr class="">
                                 <td>{{++$loop->index}}</td>
                                 <td>{{$d->name_en}}</td>
                                 <td>{{$d->email}}</td>
                                 <td>{{$d->contact_no_en}}</td>
                                 <td>{{$d->role?->name}}</td>
-                                <td><img width="50px" src="{{asset('public/uploads/users/'.$d->image)}}" alt=""></td>
+                                <td><img width="50px" class="product-img" src="{{asset('public/uploads/users/'.$d->image)}}" alt=""></td>
                                 <td style="color: @if($d->status==1) green @else red @endif; border-radius: 5px;font-weight: bold; font-size:15px">@if($d->status==1){{__('Active')}} @else{{__('Inactive')}} @endif</td>
                                 <td class="btn group">
                                     <a href="{{route('user.edit',encryptor('encrypt',$d->id))}}"><i class="fa fa-edit"></i></a>

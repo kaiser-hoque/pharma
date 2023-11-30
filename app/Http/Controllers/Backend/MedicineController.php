@@ -77,7 +77,7 @@ class MedicineController extends Controller
      */
     public function show(Medicine $medicine)
     {
-        //
+       return view('backend.medicine.show', compact('medicine'));
     }
 
     /**
