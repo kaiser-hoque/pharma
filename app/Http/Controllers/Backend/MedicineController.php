@@ -49,6 +49,9 @@ class MedicineController extends Controller
             $medicine->price = $request->price;
             $medicine->status = $request->status;
             $medicine->description = $request->description;
+            $medicine->manufacturedate = $request->manufacturedate;
+            $medicine->expiredate = $request->expiredate;
+            $medicine->strength = $request->strength;
 
             if ($request->hasFile('image')) {
                 $imageName = rand(111, 999) . time() . '.' . $request->image->extension();
@@ -106,6 +109,9 @@ class MedicineController extends Controller
                 $medicine->price = $request->price;
                 $medicine->status = $request->status;
                 $medicine->description = $request->description;
+                $medicine->manufacturedate = $request->manufacturedate;
+                $medicine->expiredate = $request->expiredate;
+                $medicine->strength = $request->strength;
 
                     if ($request->hasFile('image')) {
                         $imageName = rand(111, 999) . time() . '.' . $request->image->extension();
@@ -121,7 +127,7 @@ class MedicineController extends Controller
                         return redirect()->back()->withInput();
                     }
         } catch (Exception $e) {
-            // dd($e);
+            dd($e);
             return redirect()->back()->withInput()->with('error', 'Please try again');
         }
     }

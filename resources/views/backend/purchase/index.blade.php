@@ -69,7 +69,7 @@
                                         <td class="text-center">{{($value->status)==1 ? 'active':'inactive'}}</td>
                                         
                                         <td class="action-buttons">
-                                            <div class="button-container">
+                                            <div class="button-container class='bx bx-radio-circle-marked bx-burst bx-rotate-90 align-middle font-18 me-1'">
                                                 <a href="{{route('medicine.edit',encryptor('encrypt', $value->id))}}">
                                                     <i class="fa fa-edit"></i>
                                                 </a>
