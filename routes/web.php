@@ -43,8 +43,8 @@ Route::middleware(['checkrole'])->prefix('admin')->group(function(){
     Route::resource('category', Category::class);
     Route::resource('dose', dose::class);
     Route::resource('companies', companies::class);
-    Route::resource('supplier', supplier::class); 
-    Route::resource('medicine', medicine::class); 
+    Route::resource('supplier', supplier::class);
+    Route::resource('medicine', medicine::class);
     Route::resource('medicineCategory', MedicineCategory::class);
     Route::get('permission/{role}', [permission::class,'index'])->name('permission.list');
     Route::post('permission/{role}', [permission::class,'save'])->name('permission.save');

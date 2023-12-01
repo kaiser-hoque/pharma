@@ -2,9 +2,9 @@
 @section('title',trans('create Users'))
 @section('content')
 
- 
 
- 
+
+
 
 
 	<div class="page-wrapper">
@@ -27,7 +27,7 @@
 						<hr/>
 						<div class="table-responsive">
 							<table class="table align-middle mb-0">
-								<thead class="table-light">	
+								<thead class="table-light">
 									<tr>
 										<th scope="col">{{__('#SL')}}</th>
 										<th scope="col">{{__('Name')}}</th>
@@ -46,6 +46,9 @@
                                 <td>{{$d->name_en}}</td>
                                 <td>{{$d->email}}</td>
                                 <td>{{$d->contact_no_en}}</td>
+                                {{-- <td class="d-flex align-items-center text-primary">	<i class='bx bx-radio-circle-marked bx-burst bx-rotate-90 align-middle font-18 me-1'></i>
+                                    <span>{{$d->role?->name}}</span>
+                                </td> --}}
                                 <td>{{$d->role?->name}}</td>
                                 <td><img width="50px" class="product-img" src="{{asset('public/uploads/users/'.$d->image)}}" alt=""></td>
                                 <td style="color: @if($d->status==1) green @else red @endif; border-radius: 5px;font-weight: bold; font-size:15px">@if($d->status==1){{__('Active')}} @else{{__('Inactive')}} @endif</td>
@@ -64,7 +67,7 @@
                             <tr>
                                 <th colspan="8" class="text-center">No Pruduct Found</th>
                             </tr>
-                        @endforelse 	 
+                        @endforelse
 								</tbody>
 							</table>
 						</div>

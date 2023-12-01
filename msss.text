@@ -1,0 +1,24 @@
+ <script>
+            // Get the status dropdown element
+            var statusDropdown = document.getElementById('status');
+
+            // Get the label element
+            var activeLabel = document.getElementById('activeLabel');
+
+            // Add an event listener to the status dropdown
+            statusDropdown.addEventListener('change', function() {
+                // Check the selected value and apply styles accordingly
+                if (statusDropdown.value == 1) {
+                    activeLabel.classList.add('text-danger'); // Apply styles for Active status
+                } else {
+                    activeLabel.classList.remove('text-danger'); // Remove styles for Inactive status
+                }
+            });
+        </script>
+
+
+                                           <label id="activeLabel" for="status"><b>Status<span class="text-danger">*</span></b></label>
+<select id="status" class="form-control" name="status">
+    <option value="1" @if(old('status')==1) selected @endif>Active</option>
+    <option value="0" @if(old('status')==0) selected @endif>Inactive</option>
+</select>

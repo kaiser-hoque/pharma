@@ -100,7 +100,7 @@
 
 
 
-									
+
 									<div class="col-md-4">
 										<label for="bsValidation1" class="form-label"><b>Dose Name<span class="text-danger">*</span></b></label>
 										<br>
@@ -125,6 +125,8 @@
                                         <span class="text-danger"> {{ $errors->first('price') }}</span>
                                     @endif
 									</div>
+
+
 
 
 									<div class="col-md-4">

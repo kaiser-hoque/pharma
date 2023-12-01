@@ -1064,8 +1064,8 @@
     <!--app JS-->
     <script src="{{ asset('public/assets/js/app.js') }}"></script>
 <script src="{{ asset('assets/plugins/perfect-scrollbar/js/perfect-scrollbar.js')}}"></script>
-	<script src="{{ asset('assets/plugins/datatable/js/jquery.dataTables.min.js')}}"></script>
-	<script src="{{ asset('assets/plugins/datatable/js/dataTables.bootstrap5.min.js')}}"></script>
+	{{-- <script src="{{ asset('assets/plugins/datatable/js/jquery.dataTables.min.js')}}"></script>
+	<script src="{{ asset('assets/plugins/datatable/js/dataTables.bootstrap5.min.js')}}"></script> --}}
     @stack('scripts');
 </body>
 

@@ -55,7 +55,12 @@
                                         <td class="text-center">{{$value->contact_num}}</td>
                                         <td class="text-center">{{$value->email}}</td>
                                         <td class="text-center">{{$value->address}}</td>
-                                        <td class="text-center">{{$value->status}}</td>
+                                        {{-- <td class="text-center">{{$value->status}}</td> --}}
+                                        <td>
+											<div class="d-flex align-items-center text-primary">	<i class='bx bx-radio-circle-marked bx-burst bx-rotate-90 align-middle font-18 me-1'></i>
+												<span>{{$value->status}}</span>
+											</div>
+										</td>
                                         <td class="text-center">{{$value->division}}</td>
                                         <td class="text-center">{{$value->description}}</td>
                                         <td class="action-buttons">
