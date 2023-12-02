@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
-
+namespace App\Http\Controllers\Backend;
+use App\Http\Controllers\Controller;
 use App\Models\Purchase;
 use Illuminate\Http\Request;
-
+use Exception;
 class PurchaseController extends Controller
 {
     /**
@@ -12,7 +12,7 @@ class PurchaseController extends Controller
      */
     public function index()
     {
-        //
+        return view('backend.purchase.index');
     }
 
     /**
@@ -20,7 +20,7 @@ class PurchaseController extends Controller
      */
     public function create()
     {
-        //
+        return view('backend.purchase.create');
     }
 
     /**
@@ -28,7 +28,21 @@ class PurchaseController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $pur= new Purchase;
+        $pur->supplier_id=$request->supplierName;
+        $pur->purchase_date = $request->purchase_date;
+        $pur->reference_no=$request->reference_no;
+        $pur->total_quantity=$request->total_qty;
+        $pur->sub_amount=$request->tsubtotal;
+        $pur->discount_type=$request->discount_all_type;
+        $pur->discount=$request->discount_all;
+        $pur->other_charge=$request->tother_charge;
+        $pur->round_of=$request->troundof;
+        $pur->grand_total=$request->tgrandtotal;
+        $pur->note=$request->note;
+        $pur->created_by=currentUserId();
+        $pur->payment_status=0;
+        $pur->status=1;
     }
 
     /**
@@ -44,7 +58,7 @@ class PurchaseController extends Controller
      */
     public function edit(Purchase $purchase)
     {
-        //
+        return view ('backend.purchase.edit');
     }
 
     /**

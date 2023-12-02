@@ -12,6 +12,8 @@ use App\Http\Controllers\Backend\DoseController as dose;
 use App\Http\Controllers\Backend\CompaniesController as companies;
 use App\Http\Controllers\Backend\SupplierController as supplier;
 use App\Http\Controllers\Backend\MedicineController as medicine;
+use App\Http\Controllers\Backend\PurchaseController as purchase;
+
 
 
 // use App\Models\MedicineCategory;
@@ -45,10 +47,11 @@ Route::middleware(['checkrole'])->prefix('admin')->group(function(){
     Route::resource('companies', companies::class);
     Route::resource('supplier', supplier::class);
     Route::resource('medicine', medicine::class);
+    Route::resource('purchase', purchase::class);
     Route::resource('medicineCategory', MedicineCategory::class);
     Route::get('permission/{role}', [permission::class,'index'])->name('permission.list');
     Route::post('permission/{role}', [permission::class,'save'])->name('permission.save');
-    // Route::get('/customers', [Customer::class,'index'])->name('customer');
+     
 });
 
 // Route::get('/profile', function () {

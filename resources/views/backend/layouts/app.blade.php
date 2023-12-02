@@ -187,12 +187,12 @@
                     <div class="menu-title">Phurchase</div>
                 </a>
                 <ul>
-                    <li> <a href="{{route('medicine.create')}}"><i class='bx bx-radio-circle'></i>Add Phurchase</a>
+                    <li> <a href="{{route('purchase.create')}}"><i class='bx bx-radio-circle'></i>Add Phurchase</a>
                     </li>
-                    <li> <a href="{{route('medicine.create')}}"><i class='bx bx-radio-circle'></i>Purchase Edit</a>
+                    <li> <a href="{{route('purchase.create')}}"><i class='bx bx-radio-circle'></i>Purchase Edit</a>
                     </li>
 
-                    <li> <a href="{{route('medicine.index')}}"><i class='bx bx-radio-circle'></i>  Purchase List</a>
+                    <li> <a href="{{route('purchase.index')}}"><i class='bx bx-radio-circle'></i>  Purchase List</a>
                     </li>
 
                 </ul>
