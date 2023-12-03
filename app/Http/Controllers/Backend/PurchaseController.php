@@ -14,12 +14,13 @@ class PurchaseController extends Controller
      */
     public function index()
     {
-        $row = (int) request('row',10);
-        if($row<1 || $row>100){
-            abort(400,'The per-page parameter must be integer between 1 to 100.');
-        }
-        $purchase=Purchase::paginate($row);
-        return view('.backendpurchase.index',compact('purchase'));
+        // $row = (int) request('row',10);
+        // if($row<1 || $row>100){
+        //     abort(400,'The per-page parameter must be integer between 1 to 100.');
+        // }
+        // $purchase=Purchase::paginate($row);
+        // return view('backend.purchase.index',compact('purchase'));
+        return view('backend.purchase.index');
     }
      /**
 

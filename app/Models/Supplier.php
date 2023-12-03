@@ -11,4 +11,7 @@ class Supplier extends Model
     public function medicine(){
         return $this->hasMany(Medicine::class);
     }
+    public function purchase(){
+        return $this->hasMany(Purchase::class);
+    }
 }
