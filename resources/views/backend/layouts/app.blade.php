@@ -196,6 +196,25 @@
                     </li>
 
                 </ul>
+               
+            </li>
+            <li>
+                <a href="javascript:;" class="has-arrow">
+                    <div class="parent-icon"><i class='bx bx-cart'></i>
+                    </div>
+                    <div class="menu-title">Employee</div>
+                </a>
+                 <ul>
+                    <li> <a href="{{route('employee.create')}}"><i class='bx bx-radio-circle'></i>Add Employee</a>
+                    </li>
+                    <li> <a href="{{route('employee.create')}}"><i class='bx bx-radio-circle'></i>Purchase Employee</a>
+                    </li>
+
+                    <li> <a href="{{route('employee.index')}}"><i class='bx bx-radio-circle'></i>  Employee List</a>
+                    </li>
+
+                </ul>
+               
             </li>
         </ul>
         <!--end navigation-->
