@@ -13,7 +13,7 @@ use App\Http\Controllers\Backend\CompaniesController as companies;
 use App\Http\Controllers\Backend\SupplierController as supplier;
 use App\Http\Controllers\Backend\MedicineController as medicine;
 use App\Http\Controllers\Backend\PurchaseController as purchase;
-use App\Http\Controllers\Backend\EmpolyeeController as employee;
+use App\Http\Controllers\Backend\EmployeeController as employee;
 use App\Http\Controllers\Backend\AttendancesController as attendances;
 
 
@@ -39,6 +39,8 @@ Route::get('/logout', [auth::class,'singOut'])->name('logOut');
 
 Route::middleware(['checkauth'])->prefix('admin')->group(function(){
     Route::get('dashboard', [dashboard::class,'index'])->name('dashboard');
+    Route::get('/product_search', [PurchaseController::class,'product_search'])->name('pur.product_search');
+    Route::get('/product_search_data', [PurchaseController::class,'product_search_data'])->name('pur.product_search_data');
 });
 Route::middleware(['checkrole'])->prefix('admin')->group(function(){
     Route::resource('user', user::class); //1st is for url and 2nd one is controller alice name
@@ -55,7 +57,7 @@ Route::middleware(['checkrole'])->prefix('admin')->group(function(){
     Route::resource('medicineCategory', MedicineCategory::class);
     Route::get('permission/{role}', [permission::class,'index'])->name('permission.list');
     Route::post('permission/{role}', [permission::class,'save'])->name('permission.save');
-     
+
 });
 
 // Route::get('/profile', function () {

@@ -89,6 +89,15 @@
                                     @endif
 									</div>
 									<div class="col-md-4">
+										<label for="bsValidation1" class="form-label"><b>Product Code</b><span class="text-danger">*</span></label>
+										<input type="text" class="form-control rounded-5"
+										name="product_code" id="product_code" placeholder=" product_code" >
+
+                                        @if($errors->has('product_code'))
+                                        <span class="text-danger"> {{ $errors->first('product_code') }}</span>
+                                    @endif
+									</div>
+									<div class="col-md-4">
 										<label for="bsValidation1" class="form-label"><b>Manufacture Date</b><span class="text-danger">*</span></label>
 										<input type="date" class="form-control rounded-5"
 										name="manufacturedate" id="manufacturedate" placeholder=" manufacturedate" >
@@ -97,10 +106,7 @@
                                         <span class="text-danger"> {{ $errors->first('manufacturedate') }}</span>
                                     @endif
 									</div>
-
-
-
-
+ 
 									<div class="col-md-4">
 										<label for="bsValidation1" class="form-label"><b>Dose Name<span class="text-danger">*</span></b></label>
 										<br>

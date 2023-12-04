@@ -62,7 +62,7 @@
                     <div class="menu-title">Dashboard</div>
                 </a>
             </li>
-            <li class="menu-label">UI Elements</li>
+            <li class="menu-label text-primary">UI Elements</li>
             <li>
                 <a href="javascript:;" class="has-arrow">
                     <div class="parent-icon"><i class='bx bx-cart'></i>
@@ -189,14 +189,15 @@
                 <ul>
                     <li> <a href="{{route('purchase.create')}}"><i class='bx bx-radio-circle'></i>Add Phurchase</a>
                     </li>
-               
+
 
                     <li> <a href="{{route('purchase.index')}}"><i class='bx bx-radio-circle'></i>  Purchase List</a>
                     </li>
 
                 </ul>
-               
+
             </li>
+            <li class="menu-label"><span class="text-primary">EMP Management</span> </li>
             <li>
                 <a href="javascript:;" class="has-arrow">
                     <div class="parent-icon"><i class='bx bx-cart'></i>
@@ -206,14 +207,26 @@
                  <ul>
                     <li> <a href="{{route('employee.create')}}"><i class='bx bx-radio-circle'></i>Add Employee</a>
                     </li>
-                    <li> <a href="{{route('employee.create')}}"><i class='bx bx-radio-circle'></i>Purchase Employee</a>
-                    </li>
-
                     <li> <a href="{{route('employee.index')}}"><i class='bx bx-radio-circle'></i>  Employee List</a>
                     </li>
 
                 </ul>
-               
+
+            </li>
+            <li>
+                <a href="javascript:;" class="has-arrow">
+                    <div class="parent-icon"><i class='bx bx-cart'></i>
+                    </div>
+                    <div class="menu-title">Emp Attendances</div>
+                </a>
+                 <ul>
+                    <li> <a href="{{route('employee.create')}}"><i class='bx bx-radio-circle'></i>Add Attendances</a>
+                    </li>
+                    <li> <a href="{{route('employee.index')}}"><i class='bx bx-radio-circle'></i>  Attendances List</a>
+                    </li>
+
+                </ul>
+
             </li>
         </ul>
         <!--end navigation-->

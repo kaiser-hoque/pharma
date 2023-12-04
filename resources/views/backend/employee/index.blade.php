@@ -9,26 +9,26 @@
         <div class="page-wrapper">
             <div class="page-content">
                 <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
-                    <div class="breadcrumb-title pe-3">Customer</div>
+                    <div class="breadcrumb-title pe-3">Employee</div>
                     <div class="ps-3">
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb mb-0 p-0">
                                 <li class="breadcrumb-item"><a href="javascript:;"><i class="bx bx-home-alt"></i></a>
                                 </li>
-                                <li class="breadcrumb-item active" aria-current="page">Customer Data List</li>
+                                <li class="breadcrumb-item active" aria-current="page">Employee Data List</li>
                             </ol>
                         </nav>
                     </div>
                     <div class="ms-auto">
                         <div class="btn-group">
-                            <div class="ms-auto"><a href="{{ route('customer.create') }}"
+                            <div class="ms-auto"><a href="{{ route('employee.create') }}"
                                     class="btn btn-primary radius-30 mt-2 mt-lg-0"><i class="bx bxs-plus-square"></i>Add New
                                 </a>
                             </div>
                         </div>
                     </div>
                 </div>
-                <h6 class="mb-0 text-uppercase">Customer List</h6>
+                <h6 class="mb-0 text-uppercase">Employee List</h6>
                 <hr />
                 <div class="card">
                     <div class="card-body">
@@ -40,6 +40,7 @@
                                         <th>{{ __('Name') }}</th>
                                         <th>{{ __('Contact NO') }}</th>
                                         <th>{{ __('Email') }}</th>
+                                        <th>{{ __('Join Date') }}</th>
                                         <th>{{ __('Gender') }}</th>
                                         <th>{{ __('Address') }}</th>
                                         <th>{{ __('Starus') }}</th>
@@ -48,22 +49,23 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @forelse($customer as $value)
+                                    @forelse($employee as $value)
                                     <tr>
                                         <td>{{++$loop->index}}</td>
                                         <td class="text-center">{{$value->name}}</td>
                                         <td class="text-center">{{$value->contact_num}}</td>
                                         <td class="text-center">{{$value->email}}</td>
+                                        <td class="text-center">{{$value->joindate}}</td>
                                         <td class="text-center">{{$value->gender}}</td>
                                         <td class="text-center">{{$value->address}}</td>
                                         <td class="text-center">{{$value->status}}</td>
                                         <td class="text-center">{{$value->description}}</td>
                                         <td class="action-buttons">
                                             <div class="button-container">
-                                                <a href="{{route('customer.edit', 		encryptor('encrypt', $value->id))}}">
+                                                <a href="{{route('employee.edit', 		encryptor('encrypt', $value->id))}}">
                                                     <i class="fa fa-edit"></i>
                                                 </a>
-                                                <form id="" action="{{ route('customer.destroy', encrypt($value->id))}}"
+                                                <form id="" action="{{ route('employee.destroy', encrypt($value->id))}}"
                                                     method="post">
                                                     @csrf
                                                     @method('delete')

@@ -13,10 +13,11 @@ return new class extends Migration
     {
         Schema::create('purchases', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('supplier_id');
+            $table->unsignedBigInteger('supplier_id')->index()->nullable();
+            $table->foreign('supplier_id')->references('id')->on('suppliers')->onDelete('cascade');
             $table->date('purchase_date');
             $table->string('reference_no')->nullable();
-            $table->string('total_quantity');
+            $table->string('total_quantity')->nullable();
             $table->decimal('sub_amount',10,2)->default(0);
             $table->decimal('tax',10,2)->default(0)->nullable();
             $table->integer('discount_type')->comment('0 amount, 1 percent')->default(0)->nullable();

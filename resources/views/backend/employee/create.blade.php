@@ -32,7 +32,7 @@
 								<h5 class="mb-0">Employee Create</h5>
 							</div>
 							<div class="card-body p-4">
-								<form method="post" enctype="multipart/form-data" action="{{route('customer.store')}}" class="row g-3 needs-validation" novalidate>
+								<form method="post" enctype="multipart/form-data" action="{{route('employee.store')}}" class="row g-3 needs-validation" novalidate>
                                     @csrf
 									<div class="col-md-6">
 										<label for="bsValidation1" class="form-label"><b>Full Name</b></label>
@@ -51,6 +51,16 @@
 
                                         @if($errors->has('contact_num'))
                                         <span class="text-danger"> {{ $errors->first('contact_num') }}</span>
+                                    @endif
+
+									</div>
+									<div class="col-md-6">
+										<label for="bsValidation3" class="form-label"><b>Join Date</b></label>
+										<input type="date" class="form-control rounded-5" id="joindate"
+										name="joindate"placeholder="joindate"  >
+
+                                        @if($errors->has('joindate'))
+                                        <span class="text-danger"> {{ $errors->first('joindate') }}</span>
                                     @endif
 
 									</div>

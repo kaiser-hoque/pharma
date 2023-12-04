@@ -42,6 +42,7 @@ class CustomerController extends Controller
         $customer->status = $request->status;
         $customer->description = $request->description;
         $customer->save();
+
         $this->notice::success('Customer data saved');
         return redirect()->route('customer.index');
        }

@@ -1,12 +1,15 @@
 <?php
 
+
+
 namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Controller;
-use App\Models\Purchase;
-use Illuminate\Http\Request;
 use App\Models\Supplier;
+use App\Models\Purchase;
 use App\Models\Medicine;
+use Illuminate\Http\Request;
 use Exception;
+
 class PurchaseController extends Controller
 {
     /**
@@ -14,44 +17,38 @@ class PurchaseController extends Controller
      */
     public function index()
     {
-        // $row = (int) request('row',10);
-        // if($row<1 || $row>100){
-        //     abort(400,'The per-page parameter must be integer between 1 to 100.');
-        // }
-        // $purchase=Purchase::paginate($row);
-        // return view('backend.purchase.index',compact('purchase'));
-        return view('backend.purchase.index');
-    }
-     /**
+        $purchase=Purchase::paginate(10);
+        return view ('backend.purchase.index', compact('purchase'));
 
+    }
+
+    /**
      * Show the form for creating a new resource.
      */
     public function create()
     {
-
-        $supplier=Supplier::get();
-        return view('backend.purchase.create',compact('supplier'));
+        $supplier = Supplier::get();
+        return view('backend.purchase.create',  compact('supplier'));
     }
 
     /**
      * Store a newly created resource in storage.
      *
-
-     * @return \Illuminate\Http\Response
+        * @return \Illuminate\Http\Response
      */
     public function product_search(Request $request)
     {
         if($request->name){
-            $product=Product::select('id','product_name as value','product_code as label')->where(function($query) use ($request) {
-            $query->where('product_name','like', '%' . $request->name . '%')->orWhere('product_code','like', '%' . $request->name . '%');
-            })->get();
-             print_r(json_encode($product));
+            $product=Medicine::select('id','bname as value','product_code as label')->where(function($query) use ($request) {
+                        $query->where('bname','like', '%' . $request->name . '%')->orWhere('product_code','like', '%' . $request->name . '%');
+                        })->get();
+                      print_r(json_encode($product));
         }
 
     }
 
 
-     /**
+  /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
@@ -59,9 +56,9 @@ class PurchaseController extends Controller
     public function product_search_data(Request $request)
     {
         if($request->item_id){
-            $product=Product::where('id',$request->item_id)->first();
+            $product=Medicine::where('id',$request->item_id)->first();
             $data='<tr class="text-center">';
-            $data.='<td class="p-2">'.$product->product_name.'<input name="product_id[]" type="hidden" value="'.$product->id.'"></td>';
+            $data.='<td class="p-2">'.$product->bname.'<input name="medicine_id[]" type="hidden" value="'.$product->id.'"></td>';
 
             $data.='<td class="p-2"><input onkeyup="get_cal(this)" name="qty[]" type="text" class="form-control qty" value="0"></td>';
             $data.='<td class="p-2"><input onkeyup="get_cal(this)" name="price[]" type="text" class="form-control price" value="0"></td>';
@@ -83,16 +80,11 @@ class PurchaseController extends Controller
 
     }
 
-     /**
-     * Store a newly created resource in storage.
-     */
-
 
 
     public function store(Request $request)
     {
-        DB::beginTransaction();
-        try{
+        try {
             $pur= new Purchase;
             $pur->supplier_id=$request->supplierName;
             $pur->purchase_date = $request->purchase_date;
@@ -106,43 +98,16 @@ class PurchaseController extends Controller
             $pur->grand_total=$request->tgrandtotal;
             $pur->note=$request->note;
             $pur->created_by=currentUserId();
-
             $pur->payment_status=0;
             $pur->status=1;
-            if($pur->save()){
-                if($request->product_id){
-                    foreach($request->product_id as $i=>$product_id){
-                        $pd=new PurchaseDetails;
-                        $pd->purchase_id=$pur->id;
-                        $pd->product_id=$product_id;
-                        $pd->quantity=$request->qty[$i];
-                        $pd->unit_price=$request->price[$i];
-                        $pd->tax=$request->tax[$i]>0?$request->tax[$i]:0;
-                        $pd->discount_type=$request->discount_type[$i];
-                        $pd->discount=$request->discount[$i];
-                        $pd->sub_amount=$request->unit_cost[$i];
-                        $pd->total_amount=$request->subtotal[$i];
-                        if($pd->save()){
-                            $stock=new Stock;
-                            $stock->purchase_id=$pur->id;
-                            $stock->product_id=$product_id;
-                            $stock->quantity=$pd->quantity;
-                            $stock->unit_price=($pd->total_amount / $pd->quantity);
-                            $stock->tax=$pd->tax;
-                            $stock->discount=$pd->discount;
-                            $stock->save();
+            $pur->save();
 
-                            DB::commit();
-                        }
-                    }
-                }
-                \Toastr::success('Create Successfully!');
-                return redirect()->route('purchase.index');
-            }
-        }catch(Exception $e){
-            DB::rollback();
-            dd($e);
-            \Toastr::warning('Please try again!');
+            $this->notice::success('Customer data saved');
+            return redirect()->route('backend.purchase.index');
+           }
+           catch(Exception $e){
+            $this->notice::error('Please try again');
+             dd($e);
             return redirect()->back()->withInput();
         }
     }
@@ -160,8 +125,7 @@ class PurchaseController extends Controller
      */
     public function edit(Purchase $purchase)
     {
-        $purchase=Purchase::find($id);
-        return view('backend.purchase.edit',compact('purchase'));
+        //
     }
 
     /**
@@ -169,24 +133,7 @@ class PurchaseController extends Controller
      */
     public function update(Request $request, Purchase $purchase)
     {
-        try {
-            $purchase=Purchase::find($id);
-            $purchase->purchase_date=$request->purchaseDate;
-            $purchase->supplier_id=$request->supplierId;
-            $purchase->purchase_no=$request-> purchaseNo;
-            $purchase->purchase_status=$request->status;
-            $purchase->sub_amount=$request->subAmount;
-            $purchase->discount=$request->discount;
-            $purchase->total_amount=$request->total;
-            $purchase->updated_by=currentUserId();
-            $purchase->save();
-            
-            $this->notice::success('Data successfully updated');
-            return redirect('purchase.index');
-
-        } catch (Exception $e) {
-            dd($e);
-        }
+        //
     }
 
     /**
@@ -194,11 +141,6 @@ class PurchaseController extends Controller
      */
     public function destroy(Purchase $purchase)
     {
-        $purchase=Purchase::find($id);
-        PurchaseDetails::where('purchase_id',$id)->delete();
-        Stock::where('purchase_id',$id)->delete();
-        $purchase->delete();
-        $this->notice::success('Data successfully deleted');
-        return redirect()->back();
+        //
     }
 }

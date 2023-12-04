@@ -43,6 +43,7 @@ class MedicineController extends Controller
             $medicine->companie_id = $request->companie_id;
             $medicine->bname = $request->bname;
             $medicine->gname = $request->gname;
+            $medicine->product_code = $request->product_code;
             $medicine->category_id = $request->category_id;
             $medicine->supplier_id = $request->supplier_id;
             $medicine->dose_id = $request->dose_id;
@@ -103,6 +104,7 @@ class MedicineController extends Controller
                 $medicine->companie_id = $request->companie_id;
                 $medicine->bname = $request->bname;
                 $medicine->gname = $request->gname;
+                $medicine->product_code = $request->product_code;
                 $medicine->category_id = $request->category_id;
                 $medicine->supplier_id = $request->supplier_id;
                 $medicine->dose_id = $request->dose_id;

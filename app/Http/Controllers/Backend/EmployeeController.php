@@ -1,9 +1,11 @@
 <?php
 
 namespace App\Http\Controllers\Backend;
+use App\Http\Controllers\Controller;
 use App\Models\Employee;
 use Illuminate\Http\Request;
 use Exception;
+
 class EmployeeController extends Controller
 {
     /**
@@ -11,7 +13,8 @@ class EmployeeController extends Controller
      */
     public function index()
     {
-       return view ('backend.employee.index');
+        $employee=Employee::paginate(10);
+        return view ('backend.employee.index', compact('employee'));
     }
 
     /**
@@ -19,7 +22,7 @@ class EmployeeController extends Controller
      */
     public function create()
     {
-        //
+        return view('backend.employee.create');
     }
 
     /**
@@ -27,7 +30,26 @@ class EmployeeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        try {
+            $employee= new Employee();
+            $employee->name = $request->name;
+            $employee->contact_num = $request->contact_num;
+            $employee->email = $request->email;
+            $employee->gender = $request->gender;
+            $employee->joindate = $request->joindate;
+            $employee->address = $request->address;
+            $employee->status = $request->status;
+            $employee->description = $request->description;
+            $employee->save();
+
+            $this->notice::success('employee data saved');
+            return redirect()->route('employee.index');
+           }
+           catch(Exception $e){
+            $this->notice::error('Please try again');
+             dd($e);
+            return redirect()->back()->withInput();
+        }
     }
 
     /**
@@ -41,9 +63,10 @@ class EmployeeController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Employee $employee)
+    public function edit(Employee $id)
     {
-        //
+        $employee=Employee::findOrFail(encryptor('decrypt',$id));
+        return view('backend.employee.edit',compact('employee'));
     }
 
     /**
@@ -51,14 +74,42 @@ class EmployeeController extends Controller
      */
     public function update(Request $request, Employee $employee)
     {
-        //
+        try {
+            $employee=Employee::find(encryptor('decrypt',$id));
+            $employee->name = $request->name;
+            $employee->contact_num = $request->contact_num;
+            $employee->email = $request->email;
+            $employee->gender = $request->gender;
+            $employee->joindate = $request->joindate;
+            $employee->address = $request->address;
+            $employee->status = $request->status;
+            $employee->description = $request->description;
+            $employee->save();
+
+            $this->notice::success('employee data saved');
+            return redirect()->route('employee.index');
+           }
+           catch(Exception $e){
+            $this->notice::error('Please try again');
+            // dd($e);
+            return redirect()->back()->withInput();
+        }
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Employee $employee)
+    public function destroy(Employee $id)
     {
-        //
+        try {
+            $decryptedId = decrypt($id);
+            $employee = Employee::findOrFail($decryptedId);
+            $employee->delete();
+
+            return back()->with('success', 'Data deleted');
+            } catch (\Exception $e) {
+                // dd($e);
+                return back()->with('error', 'Please try again');
+            }
     }
 }

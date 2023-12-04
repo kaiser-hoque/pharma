@@ -17,6 +17,7 @@ return new class extends Migration
             $table->foreign('companies_id')->references('id')->on('companies')->onDelete('cascade');
             $table->string('bname');
             $table->string('gname');
+            $table->string('product_code', 50);
             $table->unsignedBigInteger('category_id')->index()->nullable();
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
             $table->unsignedBigInteger('supplier_id')->index()->nullable();
