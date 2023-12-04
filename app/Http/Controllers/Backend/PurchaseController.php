@@ -180,6 +180,7 @@ class PurchaseController extends Controller
             $purchase->total_amount=$request->total;
             $purchase->updated_by=currentUserId();
             $purchase->save();
+            
             $this->notice::success('Data successfully updated');
             return redirect('purchase.index');
 
