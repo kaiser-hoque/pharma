@@ -1,9 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
-
+namespace App\Http\Controllers\Backend;
+use App\Http\Controllers\Controller;
 use App\Models\Attendances;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Exception;
 
 class AttendancesController extends Controller
 {
@@ -12,7 +14,9 @@ class AttendancesController extends Controller
      */
     public function index()
     {
-        //
+     
+        $attendances = Attendances::all();
+        return view('backend.attendances.index', compact('attendances'));
     }
 
     /**
@@ -20,7 +24,8 @@ class AttendancesController extends Controller
      */
     public function create()
     {
-        //
+        $user = User::get();
+         return view('backend.attendances.create',compact('user'));
     }
 
     /**
@@ -28,7 +33,19 @@ class AttendancesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+       try {
+            $attendances = new Attendances();
+            $attendances->user_id= $request->user_id;
+            $attendances->attendance_date = $request->attendance_date;
+            $attendances->status = $request->status;
+            if ($attendances->save())
+                $this->notice::success('Successfully saved');
+            return redirect()->route('attendances.index');
+        } catch (Exception $e) {
+            dd($e);
+            $this->notice::error('Please try again');
+            return redirect()->back()->withInput();
+        }
     }
 
     /**

@@ -14,14 +14,12 @@ return new class extends Migration
         Schema::create('salaries', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id')->index();
-            $table->foreign('user_id')->references('id')->on('user')->onDelete('cascade');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->decimal('amount', 10, 2);
             $table->enum('salary_type', ['regular', 'advance']);
             $table->date('payment_date');
             $table->timestamps();
-            $table->timestamps();
             $table->softDeletes();
-
         });
     }
 

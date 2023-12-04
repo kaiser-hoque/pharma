@@ -14,9 +14,10 @@ return new class extends Migration
         Schema::create('attendances', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id')->index();
-            $table->foreign('user_id')->references('id')->on('user')->onDelete('cascade');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->date('attendance_date');
-            $table->boolean('status');
+            $table->integer('status');
+            $table->text('description');
             $table->timestamps();
             $table->softDeletes();
 
