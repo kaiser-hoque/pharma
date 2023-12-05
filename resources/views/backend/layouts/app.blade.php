@@ -65,7 +65,7 @@
             <li class="menu-label text-primary">UI Elements</li>
             <li>
                 <a href="javascript:;" class="has-arrow">
-                    <div class="parent-icon"><i class='bx bx-cart'></i>
+                    <div class="parent-icon"><i class="fa-solid fa-user"></i>
                     </div>
                     <div class="menu-title">User</div>
                 </a>
@@ -79,7 +79,7 @@
             </li>
             <li>
                 <a href="javascript:;" class="has-arrow">
-                    <div class="parent-icon"><i class='bx bx-cart'></i>
+                    <div class="parent-icon"><i class="fab fa-critical-role"></i>
                     </div>
                     <div class="menu-title">Role</div>
                 </a>
@@ -95,7 +95,7 @@
             </li>
             <li>
                 <a href="javascript:;" class="has-arrow">
-                    <div class="parent-icon"><i class='bx bx-cart'></i>
+                    <div class="parent-icon"><i class="fa fa-list-alt" aria-hidden="true"></i>
                     </div>
                     <div class="menu-title">Category</div>
                 </a>
@@ -109,7 +109,7 @@
             </li>
             <li>
                 <a href="javascript:;" class="has-arrow">
-                    <div class="parent-icon"><i class='bx bx-cart'></i>
+                    <div class="parent-icon"><i class="fa-solid fa-droplet"></i>
                     </div>
                     <div class="menu-title">Dose</div>
                 </a>
@@ -124,7 +124,7 @@
             </li>
             <li>
                 <a href="javascript:;" class="has-arrow">
-                    <div class="parent-icon"><i class='bx bx-cart'></i>
+                    <div class="parent-icon"><i class="fa-solid fa-users"></i>
                     </div>
                     <div class="menu-title">Customer</div>
                 </a>
@@ -138,9 +138,9 @@
             </li>
             <li>
                 <a href="javascript:;" class="has-arrow">
-                    <div class="parent-icon"><i class='bx bx-cart'></i>
+                    <div class="parent-icon"> <i class="fa-solid fa-city"></i>
                     </div>
-                    <div class="menu-title">Compani</div>
+                    <div class="menu-title">Company</div>
                 </a>
                 <ul>
                     <li> <a href="{{route('companies.create')}}"><i class='bx bx-radio-circle'></i>Create Company</a>
@@ -152,7 +152,7 @@
             </li>
             <li>
                 <a href="javascript:;" class="has-arrow">
-                    <div class="parent-icon"><i class='bx bx-cart'></i>
+                    <div class="parent-icon"><i class="fas fa-industry"></i>
                     </div>
                     <div class="menu-title">Supplier</div>
                 </a>
@@ -167,7 +167,7 @@
             </li>
             <li>
                 <a href="javascript:;" class="has-arrow">
-                    <div class="parent-icon"><i class='bx bx-cart'></i>
+                    <div class="parent-icon"><i class="fa-solid fa-capsules"></i>
                     </div>
                     <div class="menu-title">Medicine</div>
                 </a>
@@ -182,7 +182,7 @@
             </li>
             <li>
                 <a href="javascript:;" class="has-arrow">
-                    <div class="parent-icon"><i class='bx bx-cart'></i>
+                    <div class="parent-icon"><i class="fa fa-shopping-cart" aria-hidden="true"></i>
                     </div>
                     <div class="menu-title">Phurchase</div>
                 </a>
@@ -199,7 +199,7 @@
             </li>
             <li>
                 <a href="javascript:;" class="has-arrow">
-                    <div class="parent-icon"><i class='bx bx-cart'></i>
+                    <div class="parent-icon"><i class="fa fa-info-circle" aria-hidden="true"></i>
                     </div>
                     <div class="menu-title">Purchase Details</div>
                 </a>
@@ -217,7 +217,7 @@
             <li class="menu-label"><span class="text-primary">EMP Management</span> </li>
             <li>
                 <a href="javascript:;" class="has-arrow">
-                    <div class="parent-icon"><i class='bx bx-cart'></i>
+                    <div class="parent-icon"><i class="fa-regular fa-users"></i>
                     </div>
                     <div class="menu-title">Employee</div>
                 </a>
