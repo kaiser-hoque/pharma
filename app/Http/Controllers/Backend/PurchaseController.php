@@ -27,7 +27,7 @@ class PurchaseController extends Controller
     public function create()
     {
         $supplier = Supplier::get();
-        return view('backend.purchase.create',  compact('supplier','medicine'));
+        return view('backend.purchase.create',  compact('supplier'));
     }
 
     /**
