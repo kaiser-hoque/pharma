@@ -70,9 +70,9 @@
                     <div class="menu-title">User</div>
                 </a>
                 <ul>
-                    <li> <a href="{{ route('user.create') }}"><i class='bx bx-radio-circle'></i>Add User</a>
+                    <li> <a href="{{ route('user.create') }}"><i class="fa-solid fa-arrow-right"></i></i>Add User</a>
                     </li>
-                    <li> <a href="{{ route('user.index') }}"><i class='bx bx-radio-circle'></i>User List</a>
+                    <li> <a href="{{ route('user.index') }}"><i class="fa-solid fa-arrow-right"></i>User List</a>
                     </li>
 
                 </ul>
@@ -84,11 +84,11 @@
                     <div class="menu-title">Role</div>
                 </a>
                 <ul>
-                    <li> <a href="{{ route('role.create') }}"><i class='bx bx-radio-circle'></i>Create Role</a>
+                    <li> <a href="{{ route('role.create') }}"><i class="fa-solid fa-arrow-right"></i>reate Role</a>
                     </li>
 
 
-                    <li> <a href="{{ route('role.index') }}"><i class='bx bx-radio-circle'></i>Role List</a>
+                    <li> <a href="{{ route('role.index') }}"><i class="fa-solid fa-arrow-right"></i>Role List</a>
                     </li>
 
                 </ul>
@@ -100,9 +100,9 @@
                     <div class="menu-title">Category</div>
                 </a>
                 <ul>
-                    <li> <a href="{{route('category.create')}}"><i class='bx bx-radio-circle'></i>Create category</a>
+                    <li> <a href="{{route('category.create')}}"><i class="fa-solid fa-arrow-right"></i>Create category</a>
                     </li>
-                    <li> <a href="{{route('category.index')}}"><i class='bx bx-radio-circle'></i>Category List</a>
+                    <li> <a href="{{route('category.index')}}"><i class="fa-solid fa-arrow-right"></i>Category List</a>
                     </li>
 
                 </ul>
@@ -114,10 +114,10 @@
                     <div class="menu-title">Dose</div>
                 </a>
                 <ul>
-                    <li> <a href="{{route('dose.create')}}"><i class='bx bx-radio-circle'></i>Create Dose</a>
+                    <li> <a href="{{route('dose.create')}}"><i class="fa-solid fa-arrow-right"></i>Create Dose</a>
                     </li>
 
-                    <li> <a href="{{route('dose.index')}}"><i class='bx bx-radio-circle'></i>Dose List</a>
+                    <li> <a href="{{route('dose.index')}}"><i class="fa-solid fa-arrow-right"></i>Dose List</a>
                     </li>
 
                 </ul>
@@ -129,9 +129,9 @@
                     <div class="menu-title">Customer</div>
                 </a>
                 <ul>
-                    <li> <a href="{{route('customer.create')}}"><i class='bx bx-radio-circle'></i>Create Customer</a>
+                    <li> <a href="{{route('customer.create')}}"><i class="fa-solid fa-arrow-right"></i>Create Customer</a>
                     </li>
-                    <li> <a href="{{route('customer.index')}}"><i class='bx bx-radio-circle'></i>Customer List</a>
+                    <li> <a href="{{route('customer.index')}}"><i class="fa-solid fa-arrow-right"></i>Customer List</a>
                     </li>
 
                 </ul>
@@ -143,9 +143,9 @@
                     <div class="menu-title">Company</div>
                 </a>
                 <ul>
-                    <li> <a href="{{route('companies.create')}}"><i class='bx bx-radio-circle'></i>Create Company</a>
+                    <li> <a href="{{route('companies.create')}}"><i class="fa-solid fa-arrow-right"></i>Create Company</a>
                     </li>
-                    <li> <a href="{{route('companies.index')}}"><i class='bx bx-radio-circle'></i>Company List</a>
+                    <li> <a href="{{route('companies.index')}}"><i class="fa-solid fa-arrow-right"></i>Company List</a>
                     </li>
 
                 </ul>
@@ -157,10 +157,10 @@
                     <div class="menu-title">Supplier</div>
                 </a>
                 <ul>
-                    <li> <a href="{{route('supplier.create')}}"><i class='bx bx-radio-circle'></i>Create Supplier</a>
+                    <li> <a href="{{route('supplier.create')}}"><i class="fa-solid fa-arrow-right"></i>Create Supplier</a>
                     </li>
 
-                    <li> <a href="{{route('supplier.index')}}"><i class='bx bx-radio-circle'></i>Supplier List</a>
+                    <li> <a href="{{route('supplier.index')}}"><i class="fa-solid fa-arrow-right"></i>Supplier List</a>
                     </li>
 
                 </ul>
@@ -172,10 +172,10 @@
                     <div class="menu-title">Medicine</div>
                 </a>
                 <ul>
-                    <li> <a href="{{route('medicine.create')}}"><i class='bx bx-radio-circle'></i>Add Medicine</a>
+                    <li> <a href="{{route('medicine.create')}}"><i class="fa-solid fa-arrow-right"></i>Add Medicine</a>
                     </li>
 
-                    <li> <a href="{{route('medicine.index')}}"><i class='bx bx-radio-circle'></i>Medicine List</a>
+                    <li> <a href="{{route('medicine.index')}}"><i class="fa-solid fa-arrow-right"></i>Medicine List</a>
                     </li>
 
                 </ul>
@@ -187,11 +187,11 @@
                     <div class="menu-title">Phurchase</div>
                 </a>
                 <ul>
-                    <li> <a href="{{route('purchase.create')}}"><i class='bx bx-radio-circle'></i>Add Phurchase</a>
+                    <li> <a href="{{route('purchase.create')}}"><i class="fa-solid fa-arrow-right"></i>Add Phurchase</a>
                     </li>
 
 
-                    <li> <a href="{{route('purchase.index')}}"><i class='bx bx-radio-circle'></i>  Purchase List</a>
+                    <li> <a href="{{route('purchase.index')}}"><i class="fa-solid fa-arrow-right"></i> Purchase List</a>
                     </li>
 
                 </ul>
@@ -204,11 +204,11 @@
                     <div class="menu-title">Purchase Details</div>
                 </a>
                 <ul>
-                    <li> <a href="{{route('purchasedetails.create')}}"><i class='bx bx-radio-circle'></i>Details Create</a>
+                    <li> <a href="{{route('purchasedetails.create')}}"><i class="fa-solid fa-arrow-right"></i></i>Details Create</a>
                     </li>
 
 
-                    <li> <a href="{{route('purchasedetails.index')}}"><i class='bx bx-radio-circle'></i>Details List</a>
+                    <li> <a href="{{route('purchasedetails.index')}}"><i class="fa-solid fa-arrow-right"></i>Details List</a>
                     </li>
 
                 </ul>
@@ -217,14 +217,14 @@
             <li class="menu-label"><span class="text-primary">EMP Management</span> </li>
             <li>
                 <a href="javascript:;" class="has-arrow">
-                    <div class="parent-icon"><i class="fa-regular fa-users"></i>
+                    <div class="parent-icon"><i class="fa-solid fa-people-roof"></i>
                     </div>
                     <div class="menu-title">Employee</div>
                 </a>
                  <ul>
-                    <li> <a href="{{route('employee.create')}}"><i class='bx bx-radio-circle'></i>Add Employee</a>
+                    <li> <a href="{{route('employee.create')}}"><i class="fa-solid fa-arrow-right"></i>Add Employee</a>
                     </li>
-                    <li> <a href="{{route('employee.index')}}"><i class='bx bx-radio-circle'></i>  Employee List</a>
+                    <li> <a href="{{route('employee.index')}}"><i class="fa-solid fa-arrow-right"></i>Employee List</a>
                     </li>
 
                 </ul>
@@ -232,14 +232,14 @@
             </li>
             <li>
                 <a href="javascript:;" class="has-arrow">
-                    <div class="parent-icon"><i class='bx bx-cart'></i>
+                    <div class="parent-icon"><i class="fas fa-arrows"></i>
                     </div>
                     <div class="menu-title">Emp Attendances</div>
                 </a>
                  <ul>
-                    <li> <a href="{{route('employee.create')}}"><i class='bx bx-radio-circle'></i>Add Attendances</a>
+                    <li> <a href="{{route('employee.create')}}"><i class="fa-solid fa-arrow-right"></i></i>Add Attendances</a>
                     </li>
-                    <li> <a href="{{route('employee.index')}}"><i class='bx bx-radio-circle'></i>  Attendances List</a>
+                    <li> <a href="{{route('employee.index')}}"><i class="fa-solid fa-arrow-right"></i></i>  Attendances List</a>
                     </li>
 
                 </ul>
