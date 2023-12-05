@@ -16,10 +16,9 @@ class PurchaseController extends Controller
      * Display a listing of the resource.
      */
     public function index()
-    {
+    {   
         $purchase=Purchase::paginate(10);
         return view ('backend.purchase.index', compact('purchase'));
-
     }
 
     /**
@@ -28,7 +27,7 @@ class PurchaseController extends Controller
     public function create()
     {
         $supplier = Supplier::get();
-        return view('backend.purchase.create',  compact('supplier'));
+        return view('backend.purchase.create',  compact('supplier','medicine'));
     }
 
     /**
@@ -84,7 +83,8 @@ class PurchaseController extends Controller
 
     public function store(Request $request)
     {
-        try {
+        DB::beginTransaction();
+        try{
             $pur= new Purchase;
             $pur->supplier_id=$request->supplierName;
             $pur->purchase_date = $request->purchase_date;
@@ -98,18 +98,46 @@ class PurchaseController extends Controller
             $pur->grand_total=$request->tgrandtotal;
             $pur->note=$request->note;
             $pur->created_by=currentUserId();
+
             $pur->payment_status=0;
             $pur->status=1;
-            $pur->save();
+            if($pur->save()){
+                if($request->product_id){
+                    foreach($request->product_id as $i=>$product_id){
+                        $pd=new PurchaseDetails;
+                        $pd->purchase_id=$pur->id;
+                        $pd->product_id=$product_id;
+                        $pd->quantity=$request->qty[$i];
+                        $pd->unit_price=$request->price[$i];
+                        $pd->tax=$request->tax[$i]>0?$request->tax[$i]:0;
+                        $pd->discount_type=$request->discount_type[$i];
+                        $pd->discount=$request->discount[$i];
+                        $pd->sub_amount=$request->unit_cost[$i];
+                        $pd->total_amount=$request->subtotal[$i];
+                        if($pd->save()){
+                            $stock=new Stock;
+                            $stock->purchase_id=$pur->id;
+                            $stock->product_id=$product_id;
+                            $stock->quantity=$pd->quantity;
+                            $stock->unit_price=($pd->total_amount / $pd->quantity);
+                            $stock->tax=$pd->tax;
+                            $stock->discount=$pd->discount;
+                            $stock->save();
 
-            $this->notice::success('Customer data saved');
-            return redirect()->route('backend.purchase.index');
-           }
-           catch(Exception $e){
-            $this->notice::error('Please try again');
-             dd($e);
+                            DB::commit();
+                        }
+                    }
+                }
+                \Toastr::success('Create Successfully!');
+                return redirect()->route('purchase.index');
+            }
+        }catch(Exception $e){
+            DB::rollback();
+            dd($e);
+            \Toastr::warning('Please try again!');
             return redirect()->back()->withInput();
         }
+
     }
 
     /**

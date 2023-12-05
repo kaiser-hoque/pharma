@@ -197,6 +197,23 @@
                 </ul>
 
             </li>
+            <li>
+                <a href="javascript:;" class="has-arrow">
+                    <div class="parent-icon"><i class='bx bx-cart'></i>
+                    </div>
+                    <div class="menu-title">Purchase Details</div>
+                </a>
+                <ul>
+                    <li> <a href="{{route('purchasedetails.create')}}"><i class='bx bx-radio-circle'></i>Details Create</a>
+                    </li>
+
+
+                    <li> <a href="{{route('purchasedetails.index')}}"><i class='bx bx-radio-circle'></i>Details List</a>
+                    </li>
+
+                </ul>
+
+            </li>
             <li class="menu-label"><span class="text-primary">EMP Management</span> </li>
             <li>
                 <a href="javascript:;" class="has-arrow">
