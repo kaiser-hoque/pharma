@@ -16,7 +16,7 @@
 							<ol class="breadcrumb mb-0 p-0">
 								<li class="breadcrumb-item"><a href="javascript:;"><i class="bx bx-home-alt"></i></a>
 								</li>
-								<li class="breadcrumb-item active" aria-current="page">Medicine Details</li>
+								<li class="breadcrumb-item active" aria-current="page">Medicine Information</li>
 							</ol>
 						</nav>
 					</div>
@@ -37,39 +37,47 @@
 
 				 <div class="card">
 					<div class="row g-0">
-					  <div class="col-md-4 border-end">
+                        <h3 class="text-center text-muted mt-2">Medicine-Details</h3>
+                         <div class="col-md-4 border-end">
 						<img src="assets/images/products/13.png" class="img-fluid" alt="...">
 						<div class="row mb-3 row-cols-auto g-2 justify-content-center mt-3">
-							<div class="col"><img src="assets/images/products/12.png" width="70" class="border rounded cursor-pointer" alt=""></div>
-							<div class="col"><img src="assets/images/products/11.png" width="70" class="border rounded cursor-pointer" alt=""></div>
-							<div class="col"><img src="assets/images/products/14.png" width="70" class="border rounded cursor-pointer" alt=""></div>
-							<div class="col"><img src="assets/images/products/15.png" width="70" class="border rounded cursor-pointer" alt=""></div>
+							<div class="col"><img src="{{ asset('public/uploads/medicine/'.$medicine->image) }}" width="100" class="border rounded cursor-pointer" alt="Medicine Image "></div>
+							 
 						</div>
 					  </div>
+					   
 					  <div class="col-md-8">
 						<div class="card-body">
-						  <h4 class="card-title">{{$medicine->bname}}</h4>
-						  
 						  <div class="mb-3"> 
 							 
 						</div>
-						   
+
 						  <dl class="row">
-							<dt class="col-sm-3">Model#</dt>
-							<dd class="col-sm-9">Odsy-1000</dd>
-						  
+							<dt class="col-sm-3">Medicin Name</dt><br>
+							<dd class="col-sm-9 text-muted ">{{$medicine->bname}}</dd>
+							<dt class="col-sm-3">Generic Name:</dt>
+							<dd class="col-sm-9">{{$medicine->bname}}</dd>
+							<dt class="col-sm-3">Product Code:</dt>
+							<dd class="col-sm-9">{{$medicine->product_code}}</dd>
 							<dt class="col-sm-3">Dose Name:</dt>
 							<dd class="col-sm-9">{{$medicine->dose?->dose_description}}</dd>
+							<dt class="col-sm-3">Manufacture Date:</dt>
+							<dd class="col-sm-9">{{$medicine->manufacturedate}}</dd>
+							<dt class="col-sm-3">Expire Date:</dt>
+							<dd class="col-sm-9">{{$medicine->expiredate}}</dd>
+							<dt class="col-sm-3">Strength:</dt>
+							<dd class="col-sm-9">{{$medicine->strength}}</dd>
+							<dt class="col-sm-3">Price:</dt>
+							<dd class="col-sm-9">{{$medicine->price}}</dd>
+							<dt class="col-sm-3">Status:</dt>
+							<dd class="col-sm-9">{{$medicine->status}}</dd>
 						  
-							<dt class="col-sm-3">Delivery</dt>
-							<dd class="col-sm-9">Russia, USA, and Europe </dd>
+							 
 						  </dl>
-						  
-						   
-						 
 						</div>
 					  </div>
 					</div>
+            </div>
                     <hr/>
 					<div class="card-body">
 						<ul class="nav nav-tabs nav-primary mb-0" role="tablist">
@@ -78,7 +86,7 @@
 									<div class="d-flex align-items-center">
 										<div class="tab-icon"><i class='bx bx-comment-detail font-18 me-1'></i>
 										</div>
-										<div class="tab-title"> Product Description </div>
+										<div class="tab-title"> Medicin Description </div>
 									</div>
 								</a>
 							</li>
@@ -87,8 +95,7 @@
 						</ul>
 						<div class="tab-content pt-3">
 							<div class="tab-pane fade show active" id="primaryhome" role="tabpanel">
-								<p>Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry richardson ex squid. Aliquip placeat salvia cillum iphone. Seitan aliquip quis cardigan american apparel, butcher voluptate nisi.</p>
-								<p>Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry richardson ex squid. Aliquip placeat salvia cillum iphone. Seitan aliquip quis cardigan american apparel, butcher voluptate nisi.</p>
+								<p> {{$medicine->description}}</p>
 							</div>
 							 
 						</div>

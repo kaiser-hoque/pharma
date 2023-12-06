@@ -94,6 +94,16 @@
 
 
 								</div>
+
+								<div class="col-md-4">
+										<label for="bsValidation1" class="form-label"><b>Product Code</b><span class="text-danger">*</span></label>
+										<input type="text" class="form-control rounded-5"
+										name="product_code" id="product_code" placeholder=" product_code" value="{{ old('product_code',$medicine->product_code)}}"  >
+
+                                        @if($errors->has('product_code'))
+                                        <span class="text-danger"> {{ $errors->first('product_code') }}</span>
+                                    @endif
+									</div>
 								
 								
 								<div class="col-md-4">
@@ -149,17 +159,6 @@
 									</div>
 								</div>
 								
-								
-								
-								
-								<div class="col-md-4">
-									<label for="description"><b>Description</b> </label>
-									<textarea class="form-control rounded-5" id="description" placeholder="description ..."
-									name="description" rows="3"> {{ old('description', $medicine->description) }}</textarea>
-									@if($errors->has('description'))
-									<span class="text-danger"> {{ $errors->first('description') }}</span>
-									@endif
-								</div>
 								<div class="col-md-4">
 									<label for="bsValidation1" class="form-label"><b>Category Name</b></label> <br>
 									<select class="form-control" name="category_id" id="category_id">
@@ -184,7 +183,6 @@
 									</select>
 								</div>
 
-
 								<div class="col-md-4">
 									<div class="form-group">
 									<label for="image"><b>Medicine Image</b></label>
@@ -193,14 +191,25 @@
 										@if($errors->has('image'))
 										<span class="text-danger">{{ $errors->first('image') }}</span>
 									@endif
-
 									
 									@if($medicine->image)
 										<p><b>Existing Image:</b></p>
 										<img class="img-fluid img-thumbnail"  src="{{ asset('public/uploads/medicine/'.$medicine->image) }}" alt="Existing Image" style="max-width: 100px;">
 									@endif
 									</div>
+								</div><br>
+								<hr class="mt-2">
+								<div class="col-md-4">
+									<label for="description"><b>Description</b> </label>
+									<textarea class="form-control rounded-5" id="description" placeholder="description ..."
+									name="description" rows="3"> {{ old('description', $medicine->description) }}</textarea>
+									@if($errors->has('description'))
+									<span class="text-danger"> {{ $errors->first('description') }}</span>
+									@endif
 								</div>
+
+
+								
 																
 								<div class="col-md-12">
 									<div class="d-md-flex d-grid align-items-center gap-3">
