@@ -139,8 +139,8 @@
                                         <div class="form-group">
                                             <label for="status"><b>Status<span class="text-danger">*</span></b></label>
                                             <select id="status" class="form-control" name="status">
-                                                <option value="1" @if(old('status')==1) selected @endif>Active</option>
-                                                <option value="0" @if(old('status')==0) selected @endif>Inactive</option>
+                                                <option value="active" @if(old('status')==1) selected @endif>Active</option>
+                                                <option value="Inactive" @if(old('status')==0) selected @endif>Inactive</option>
                                             </select>
 
                                             @if($errors->has('status'))
