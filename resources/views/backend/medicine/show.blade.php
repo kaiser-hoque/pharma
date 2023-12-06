@@ -39,13 +39,12 @@
 					<div class="row g-0">
                         <h3 class="text-center text-muted mt-2">Medicine-Details</h3>
                          <div class="col-md-4 border-end">
-						<img src="assets/images/products/13.png" class="img-fluid" alt="...">
+						<img src="{{ asset('public/uploads/medicine/'.$medicine->image) }}" class="img-fluid mt-5" alt="...">
 						<div class="row mb-3 row-cols-auto g-2 justify-content-center mt-3">
-							<div class="col"><img src="{{ asset('public/uploads/medicine/'.$medicine->image) }}" width="100" class="border rounded cursor-pointer" alt="Medicine Image "></div>
-							 
+ 						 
 						</div>
 					  </div>
-					   
+ 
 					  <div class="col-md-8">
 						<div class="card-body">
 						  <div class="mb-3"> 
@@ -71,8 +70,7 @@
 							<dd class="col-sm-9">{{$medicine->price}}</dd>
 							<dt class="col-sm-3">Status:</dt>
 							<dd class="col-sm-9">{{$medicine->status}}</dd>
-						  
-							 
+	  
 						  </dl>
 						</div>
 					  </div>
