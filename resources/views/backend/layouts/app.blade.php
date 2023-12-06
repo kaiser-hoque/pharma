@@ -196,6 +196,10 @@
                     <li> <a href="{{route('purchase.index')}}"><i class="fa-solid fa-arrow-right"></i> Purchase List</a>
                     </li>
 
+                    
+                    <li> <a href="{{route('purchasedetails.index')}}"><i class="fa-solid fa-arrow-right"></i>Details List</a>
+                    </li>
+
                 </ul>
 
             </li>
@@ -206,12 +210,7 @@
                     <div class="menu-title">Purchase Details</div>
                 </a>
                 <ul>
-                    <li> <a href="{{route('purchasedetails.create')}}"><i class="fa-solid fa-arrow-right"></i></i>Details Create</a>
-                    </li>
-
-
-                    <li> <a href="{{route('purchasedetails.index')}}"><i class="fa-solid fa-arrow-right"></i>Details List</a>
-                    </li>
+  
 
                 </ul>
 

@@ -48,7 +48,6 @@
 
                                             <select required class="form-control form-select" name="supplierName"
                                                 id="supplierName">
-                                                <option value="">Select Supplier</option>
                                                 <option value="">==Select Name==</option>
                                                 @forelse ($supplier as $c)
                                                     <option {{ old('supplierName') == $c->id }}
