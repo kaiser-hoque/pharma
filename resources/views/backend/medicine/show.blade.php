@@ -39,7 +39,7 @@
 					<div class="row g-0">
                         <h3 class="text-center text-muted mt-2">Medicine-Details</h3>
                          <div class="col-md-4 border-end">
-						<img src="{{ asset('public/uploads/medicine/'.$medicine->image) }}" class="img-fluid mt-5" alt="...">
+						<img src="{{ asset('public/uploads/medicine/'.$medicine->image) }}" style="width: 250px; height: 200px; align" class="img-fluid mt-5 rounded  d-block mx-auto " alt="...">
 						<div class="row mb-3 row-cols-auto g-2 justify-content-center mt-3">
  						 
 						</div>

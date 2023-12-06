@@ -99,7 +99,7 @@ class EmployeeController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Employee $id)
+    public function destroy($id)
     {
         try {
             $decryptedId = decrypt($id);

@@ -83,7 +83,7 @@ class DoseController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Dose $id)
+    public function destroy($id)
     {
         try {
             $decryptedId = decrypt($id);
