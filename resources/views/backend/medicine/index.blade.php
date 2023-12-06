@@ -75,6 +75,7 @@
                                                 <a href="{{route('medicine.edit',encryptor('encrypt', $value->id))}}">
                                                     <i class="fa fa-edit"></i>
                                                 </a>
+                                                <a href="{{route('medicine.show',encryptor('encrypt',$value->id))}}"><i class="fa-solid fa-eye"></i></a>
                                                 <form id="" action="{{ route('medicine.destroy', $value->id)}}" method="post">
                                                     @csrf
                                                     @method('delete')

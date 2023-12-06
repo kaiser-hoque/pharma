@@ -5,121 +5,97 @@
 
 
 
-    <div class="wrapper">
-        <div class="page-wrapper">
-            <div class="page-content">
-                <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
-                    <div class="breadcrumb-title pe-3">Tables</div>
-                    <div class="ps-3">
-                        <nav aria-label="breadcrumb">
-                            <ol class="breadcrumb mb-0 p-0">
-                                <li class="breadcrumb-item"><a href="javascript:;"><i class="bx bx-home-alt"></i></a>
-                                </li>
-                                <li class="breadcrumb-item active" aria-current="page">supplier Data Table</li>
-                            </ol>
-                        </nav>
-                    </div>
-                    <div class="ms-auto">
-                        <div class="btn-group">
-                            <div class="ms-auto"><a href="{{ route('medicine.create') }}"
-                                    class="btn btn-primary radius-30 mt-2 mt-lg-0"><i class="bx bxs-plus-square"></i>Add New
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <h6 class="mb-0 text-uppercase">Medicine</h6>
-                <hr />
-                <div class="card">
-                    <div class="card-body">
-                        <div class="table-responsive">
-                            <table id="example" class="table table-striped table-bordered" style="width:100%">
-                                <thead>
-                                    <tr>
-                                        <th>{{ __('SL') }}</th>
-                                        
-                                        <!-- <th class="text-center">{{ __('Company') }}<br>{{ __('Name') }}</th> -->
-                                        <th class="text-center">{{ __('Brand') }}<br>{{ __('Name') }}</th>
-                                        <th class="text-center">{{ __('Generic') }}<br>{{ __('Name') }}</th>
-                                        <th class="text-center">{{ __('Dose') }}<br>{{ __('Name') }}</th>
-                                        <th class="text-center">{{ __('Manufacture') }}<br>{{ __('Date') }}</th>
-                                        <th class="text-center">{{ __('Expire') }}<br>{{ __('Date') }}</th>
-                                        <th>{{ __('Strength') }}</th>
-                                        <th>{{ __('Price') }}</th>
-                                        <th>{{ __('Status') }}</th>
-                                       
-                                        <th class="white-space-nowrap">{{ __('Action') }}</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @forelse($medicine as $value)
-                                    <tr>
-                                        <td>{{++$loop->index}}</td>
-                                        {{-- <td class="text-center">
-                                            <img width="50px" class="rounded-circle" src="{{asset('public/uploads/medicine/'.$value->image)}}" alt="">
-                                        </td> --}}
-                                        <!-- <td class="text-center">{{$value->company?->name}}</td> -->
-                                        <td class="text-center">{{$value->bname}}</td>
-                                        <td class="text-center">{{$value->gname}}</td>
-                                        <td class="text-center">{{$value->dose?->dose_description}}</td>
-                                        <td class="text-center">{{$value->manufacturedate}}</td>
-                                        <td class="text-center">{{$value->expiredate}}</td>
-                                        <td class="text-center">{{$value->strength}}</td>
-                                        <td class="text-center">{{$value->price}}</td>
-                                        <td class="text-center">{{($value->status)==1 ? 'active':'inactive'}}</td>
-                                        
-                                        <td class="action-buttons">
-                                            <div class="button-container">
-                                                <a href="{{route('medicine.edit',encryptor('encrypt', $value->id))}}">
-                                                    <i class="fa fa-edit"></i>
-                                                </a>
-                                                <form id="" action="{{ route('medicine.destroy', $value->id)}}" method="post">
-                                                    @csrf
-                                                    @method('delete')
-                                                    <button style="background: none; border: none;" type="submit">
-                                                        <i class="fa fa-trash text-danger"></i>
-                                                    </button>
-                                                </form>
+    <div class="page-wrapper">
+			<div class="page-content">
 
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    @empty
-                                    <tr>
-                                        <th colspan="12" class="text-center">No Product Found</th>
-                                    </tr>
-                                    @endforelse
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-            </div>
+				<!--breadcrumb-->
+				<div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
+					<div class="breadcrumb-title pe-3">Medicine</div>
+					<div class="ps-3">
+						<nav aria-label="breadcrumb">
+							<ol class="breadcrumb mb-0 p-0">
+								<li class="breadcrumb-item"><a href="javascript:;"><i class="bx bx-home-alt"></i></a>
+								</li>
+								<li class="breadcrumb-item active" aria-current="page">Medicine Details</li>
+							</ol>
+						</nav>
+					</div>
+					<div class="ms-auto">
+						<div class="btn-group">
+							<button type="button" class="btn btn-primary">Settings</button>
+							<button type="button" class="btn btn-primary split-bg-primary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown">	<span class="visually-hidden">Toggle Dropdown</span>
+							</button>
+							<div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-end">	<a class="dropdown-item" href="javascript:;">Action</a>
+								<a class="dropdown-item" href="javascript:;">Another action</a>
+								<a class="dropdown-item" href="javascript:;">Something else here</a>
+								<div class="dropdown-divider"></div>	<a class="dropdown-item" href="javascript:;">Separated link</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!--end breadcrumb-->
 
-
-            {{-- ================ --}}
-            <!-- <style>
-                .action-buttons {
-                    width: 1%;
-                    white-space: nowrap;
-                }
-
-                .button-container {
-                    display: flex;
-                    gap: 10px;
-                }
-            </style> -->
-
-        </div>
-
-
-        <div class="overlay toggle-icon"></div>
-        <a href="javaScript:;" class="back-to-top"><i class='bx bxs-up-arrow-alt'></i></a>
-        <footer class="page-footer">
-            <p class="mb-0">Copyright © 2023. All right reserved.</p>
-        </footer>
-    </div>
-
+				 <div class="card">
+					<div class="row g-0">
+					  <div class="col-md-4 border-end">
+						<img src="assets/images/products/13.png" class="img-fluid" alt="...">
+						<div class="row mb-3 row-cols-auto g-2 justify-content-center mt-3">
+							<div class="col"><img src="assets/images/products/12.png" width="70" class="border rounded cursor-pointer" alt=""></div>
+							<div class="col"><img src="assets/images/products/11.png" width="70" class="border rounded cursor-pointer" alt=""></div>
+							<div class="col"><img src="assets/images/products/14.png" width="70" class="border rounded cursor-pointer" alt=""></div>
+							<div class="col"><img src="assets/images/products/15.png" width="70" class="border rounded cursor-pointer" alt=""></div>
+						</div>
+					  </div>
+					  <div class="col-md-8">
+						<div class="card-body">
+						  <h4 class="card-title">{{$medicine->bname}}</h4>
+						  
+						  <div class="mb-3"> 
+							 
+						</div>
+						   
+						  <dl class="row">
+							<dt class="col-sm-3">Model#</dt>
+							<dd class="col-sm-9">Odsy-1000</dd>
+						  
+							<dt class="col-sm-3">Dose Name:</dt>
+							<dd class="col-sm-9">{{$medicine->dose?->dose_description}}</dd>
+						  
+							<dt class="col-sm-3">Delivery</dt>
+							<dd class="col-sm-9">Russia, USA, and Europe </dd>
+						  </dl>
+						  
+						   
+						 
+						</div>
+					  </div>
+					</div>
+                    <hr/>
+					<div class="card-body">
+						<ul class="nav nav-tabs nav-primary mb-0" role="tablist">
+							<li class="nav-item" role="presentation">
+								<a class="nav-link active" data-bs-toggle="tab" href="#primaryhome" role="tab" aria-selected="true">
+									<div class="d-flex align-items-center">
+										<div class="tab-icon"><i class='bx bx-comment-detail font-18 me-1'></i>
+										</div>
+										<div class="tab-title"> Product Description </div>
+									</div>
+								</a>
+							</li>
+							 
+							 
+						</ul>
+						<div class="tab-content pt-3">
+							<div class="tab-pane fade show active" id="primaryhome" role="tabpanel">
+								<p>Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry richardson ex squid. Aliquip placeat salvia cillum iphone. Seitan aliquip quis cardigan american apparel, butcher voluptate nisi.</p>
+								<p>Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry richardson ex squid. Aliquip placeat salvia cillum iphone. Seitan aliquip quis cardigan american apparel, butcher voluptate nisi.</p>
+							</div>
+							 
+						</div>
+					</div>
+				  </div>			  
+			</div>
+		</div>
 
 
 
@@ -145,5 +121,5 @@
     @endpush -->
 
     <!--app JS-->
-    <script src="assets/js/app.js"></script>
+    
 @endsection

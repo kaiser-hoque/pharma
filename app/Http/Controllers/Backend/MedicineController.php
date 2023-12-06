@@ -76,9 +76,10 @@ class MedicineController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Medicine $medicine)
+    public function show($id)
     {
-       return view('backend.medicine.show', compact('medicine'));
+       $medicine = Medicine::findOrFail(encryptor('decrypt',$id));
+        return view('backend.medicine.show', compact('medicine'));
     }
 
     /**

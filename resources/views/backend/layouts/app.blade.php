@@ -177,6 +177,8 @@
 
                     <li> <a href="{{route('medicine.index')}}"><i class="fa-solid fa-arrow-right"></i>Medicine List</a>
                     </li>
+                    <li>  
+                    </li>
 
                 </ul>
             </li>
