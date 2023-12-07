@@ -17,7 +17,7 @@ class MedicineController extends Controller
      */
     public function index()
     {
-        $medicine = Medicine::paginate(10);
+        $medicine = Medicine::get();
         return view('backend.medicine.index', compact('medicine'));
     }
 
