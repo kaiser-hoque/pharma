@@ -1,10 +1,6 @@
 @extends('backend.layouts.app')
 @section('title', trans('create Users'))
 @section('content')
-
-
-
-
     <div class="wrapper">
         <div class="page-wrapper">
             <div class="page-content">
@@ -122,9 +118,6 @@
             <p class="mb-0">Copyright © 2023. All right reserved.</p>
         </footer>
     </div>
-
-
-
 
     </div>
     @push('scripts')

@@ -1,10 +1,6 @@
 @extends('backend.layouts.app')
 @section('title', trans('create Users'))
 @section('content')
-
-
-
-
     <div class="wrapper">
         <div class="page-wrapper">
             <div class="page-content">
@@ -37,36 +33,59 @@
                                 <thead>
                                     <tr>
                                         <th>{{ __('SL') }}</th>
-                                        
-                                        
-                                        <th class="text-center">{{ __('Supplier ') }}<br>{{ __('Name') }}</th>
-                                        <th class="text-center">{{ __('Purchase ') }}<br>{{ __('date') }}</th>
-                                        <th class="text-center">{{ __('Total ') }}<br>{{ __('Quantity') }}</th>
-                                        <th class="text-center">{{ __('Sub ') }}<br>{{ __('Amount') }}</th>
-                                        <th class="text-center">{{ __('Grand  ') }}<br>{{ __('Total') }}</th>
+                                        <th class="text-center">{{ __('Supplier') }}<br>{{ __('Name') }}</th>
+                                        <th class="text-center">{{ __('Purchase') }}<br>{{ __('date') }}</th>
+                                        <th class="text-center">{{ __('Total') }}<br>{{ __('Quantity') }}</th>
+                                        <th class="text-center">{{ __('Sub') }}<br>{{ __('Amount') }}</th>
+                                        <th class="text-center">{{ __('Grand') }}<br>{{ __('Total') }}</th>
                                         <th>{{ __('Status') }}</th>
-                                        <th class="text-center">{{ __('Reference   ') }}<br>{{ __('No') }}</th>
-                                        <th class="text-center">{{ __('Discount    ') }}<br>{{ __('Type') }}</th>
-                                        <th class="text-center">{{ __('Discount    ') }}</th>
-                                        <th class="text-center">{{ __('Other     ') }}<br>{{ __('Charge') }}</th>
-                                        <th class="text-center">{{ __('Round     ') }}<br>{{ __(' Of') }}</th>
-                                        <th class="text-center">{{ __('payment      ') }}<br>{{ __(' status') }}</th>
-                                        <th class="text-center">{{ __('status       ') }}<br>{{ __(' note') }}</th>
+                                        <th class="text-center">{{ __('Reference') }}<br>{{ __('No') }}</th>
+                                        <th class="text-center">{{ __('Discount') }}</th>
+                                        <th class="text-center">{{ __('Other') }}<br>{{ __('Charge') }}</th>
+                                        <th class="text-center">{{ __('Round') }}<br>{{ __(' Of') }}</th>
+                                        <th class="text-center">{{ __('payment') }}<br>{{ __(' status') }}</th>
+                                        <th class="text-center">{{ __('status') }}<br>{{ __(' note') }}</th>
                                         <th>{{ __('Tax') }}</th>
                                         <th>{{ __('Price') }}</th>
                                         <th>{{ __('note') }}</th>
-                                       
                                         <th class="white-space-nowrap">{{ __('Action') }}</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                     
-                                    
-                                  
+                                    @forelse($purchase as $value)
                                     <tr>
-                                        <th colspan="18" class="text-center">No Product Found</th>
+                                        <td>{{++$loop->index}}</td>
+                                        <td>{{$value->bname}}</td>
+                                        <td>{{$value->gname}}</td>
+                                        <td>{{$value->dose?->dose_description}}</td>
+                                        <td>{{$value->manufacturedate}}</td>
+                                        <td>{{$value->expiredate}}</td>
+                                        <td>{{$value->strength}}</td>
+                                        <td>{{$value->price}}</td>
+                                        <td>{{($value->status)==1 ? 'active':'inactive'}}</td>
+                                        
+                                        <td class="action-buttons">
+                                            <div class="button-container">
+                                                <a href="{{route('medicine.edit',encryptor('encrypt', $value->id))}}">
+                                                    <i class="fa fa-edit"></i>
+                                                </a>
+                                                <a href="{{route('medicine.show',encryptor('encrypt',$value->id))}}"><i class="fa-solid fa-eye"></i></a>
+                                                <form id="" action="{{ route('medicine.destroy', $value->id)}}" method="post">
+                                                    @csrf
+                                                    @method('delete')
+                                                    <button style="background: none; border: none;" type="submit">
+                                                        <i class="fa fa-trash text-danger"></i>
+                                                    </button>
+                                                </form>
+
+                                            </div>
+                                        </td>
                                     </tr>
-                                    
+                                    @empty
+                                    <tr>
+                                        <th colspan="12" class="text-center">No Product Found</th>
+                                    </tr>
+                                    @endforelse
                                 </tbody>
                             </table>
                         </div>

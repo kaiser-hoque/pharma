@@ -6,9 +6,12 @@ namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Controller;
 use App\Models\Supplier;
 use App\Models\Purchase;
+use App\Models\PurchaseDetails;
+use App\Models\Stock;
 use App\Models\Medicine;
 use Illuminate\Http\Request;
 use Exception;
+use DB;
 
 class PurchaseController extends Controller
 {
@@ -102,11 +105,11 @@ class PurchaseController extends Controller
             $pur->payment_status=0;
             $pur->status=1;
             if($pur->save()){
-                if($request->product_id){
-                    foreach($request->product_id as $i=>$product_id){
+                if($request->medicine_id){
+                    foreach($request->medicine_id as $i=>$medicine_id){
                         $pd=new PurchaseDetails;
                         $pd->purchase_id=$pur->id;
-                        $pd->product_id=$product_id;
+                        $pd->medicine_id=$medicine_id;
                         $pd->quantity=$request->qty[$i];
                         $pd->unit_price=$request->price[$i];
                         $pd->tax=$request->tax[$i]>0?$request->tax[$i]:0;
@@ -117,7 +120,7 @@ class PurchaseController extends Controller
                         if($pd->save()){
                             $stock=new Stock;
                             $stock->purchase_id=$pur->id;
-                            $stock->product_id=$product_id;
+                            $stock->medicine_id=$medicine_id;
                             $stock->quantity=$pd->quantity;
                             $stock->unit_price=($pd->total_amount / $pd->quantity);
                             $stock->tax=$pd->tax;

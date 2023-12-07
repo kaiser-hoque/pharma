@@ -40,8 +40,8 @@ Route::get('/logout', [auth::class,'singOut'])->name('logOut');
 
 Route::middleware(['checkauth'])->prefix('admin')->group(function(){
     Route::get('dashboard', [dashboard::class,'index'])->name('dashboard');
-    Route::get('/product_search', [PurchaseController::class,'product_search'])->name('pur.product_search');
-    Route::get('/product_search_data', [PurchaseController::class,'product_search_data'])->name('pur.product_search_data');
+    Route::get('/product_search', [purchase::class,'product_search'])->name('pur.product_search');
+    Route::get('/product_search_data', [purchase::class,'product_search_data'])->name('pur.product_search_data');
 });
 Route::middleware(['checkrole'])->prefix('admin')->group(function(){
     Route::resource('user', user::class); //1st is for url and 2nd one is controller alice name
