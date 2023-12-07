@@ -43,9 +43,9 @@
                                         <th class="text-center">{{ __('Other') }}<br>{{ __('Charge') }}</th>
                                         <th class="text-center">{{ __('Round') }}<br>{{ __(' Of') }}</th>
                                         <th class="text-center">{{ __('payment') }}<br>{{ __(' status') }}</th>
-                                        <th class="text-center">{{ __('status') }} 
+                                        <th class="text-center">{{ __('status') }}
                                         <th>{{ __('Tax') }}</th>
-                                        <th>{{ __('Price') }}</th>
+
                                         <th>{{ __('note') }}</th>
                                         <th class="white-space-nowrap">{{ __('Action') }}</th>
                                     </tr>
@@ -66,10 +66,10 @@
                                         <td>{{$value->payment_status}}</td>
                                         <td>{{($value->status)==1 ? 'active':'inactive'}}</td>
                                         <td>{{$value->tax}}</td>
-                                        <td>{{$value->price}}</td>
+                                      
                                         <td>{{$value->note}}</td>
-                                    
-                                        
+
+
                                         <td class="action-buttons">
                                             <div class="button-container">
                                                 <a href="{{route('medicine.edit',encryptor('encrypt', $value->id))}}">
@@ -122,5 +122,5 @@
     </div>
 
     </div>
-     
+
 @endsection

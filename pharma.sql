@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 07, 2023 at 02:57 AM
+-- Generation Time: Dec 07, 2023 at 08:35 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -244,7 +244,9 @@ INSERT INTO `medicines` (`id`, `companie_id`, `bname`, `gname`, `category_id`, `
 (15, 18, 'Advil', 'Ibuprofen', 15, 'ADV001', 5, NULL, 2, '455.00', 1, 'Over-the-counter pain reliever and anti-inflammatory drug.', '2023-12-06 19:50:49', '2023-12-06 19:50:49', '2023-11-29', '2023-12-23', '100mg'),
 (16, 17, 'Zyrtec', 'Cetirizine', 7, 'ZYR002', 3, NULL, 8, '330.00', 0, 'Antihistamine used for allergy relief.', '2023-12-06 19:52:23', '2023-12-06 19:52:23', '2024-01-01', '2023-12-28', '250mg'),
 (17, 11, 'Prozac', 'Fluoxetine', 6, 'PRO003', 7, NULL, 5, '200.00', 1, 'SSRI used for depression and anxiety.', '2023-12-06 19:53:50', '2023-12-06 19:53:50', '2023-11-22', '2023-12-28', '500mg'),
-(18, 9, 'Nexium', 'Esomeprazole', 12, 'NEX005', 8, NULL, 2, '100.00', 1, 'PPI used to treat acid reflux.', '2023-12-06 19:55:03', '2023-12-06 19:55:03', '2023-10-23', '2023-12-29', '250mg');
+(18, 9, 'Nexium', 'Esomeprazole', 12, 'NEX005', 8, NULL, 2, '100.00', 1, 'PPI used to treat acid reflux.', '2023-12-06 19:55:03', '2023-12-06 19:55:03', '2023-10-23', '2023-12-29', '250mg'),
+(19, 16, 'Nexium', 'Esomeprazole', 6, 'NEX005', 7, NULL, 4, '235.00', 1, 'PPI used to treat acid reflux.', '2023-12-06 21:10:15', '2023-12-06 21:10:15', '2023-12-10', '2023-12-29', '25mg'),
+(20, 16, 'Tylenol', 'Acetaminophen', 15, 'TYL004', 1, NULL, 6, '555.00', 1, 'Commonly used for pain and fever relief.', '2023-12-06 21:11:51', '2023-12-06 21:11:51', '2023-08-09', '2024-03-14', '500MG');
 
 -- --------------------------------------------------------
 
@@ -343,6 +345,18 @@ CREATE TABLE `purchases` (
   `deleted_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `purchases`
+--
+
+INSERT INTO `purchases` (`id`, `supplier_id`, `purchase_date`, `reference_no`, `total_quantity`, `sub_amount`, `tax`, `discount_type`, `discount`, `other_charge`, `round_of`, `grand_total`, `note`, `created_by`, `updated_by`, `payment_status`, `status`, `status_note`, `created_at`, `updated_at`, `deleted_at`) VALUES
+(1, 1, '2023-12-05', '123', '4', '67.00', '5.00', 7, '5.00', '4.00', '45.00', '45.00', 'hi', '', NULL, 0, 1, 'hi', NULL, NULL, NULL),
+(2, 1, '2023-12-05', '128', '7', '67.00', '5.00', 9, '6.00', '5.00', '55.00', '95.00', 'hi', '', NULL, 0, 1, 'hlw', NULL, NULL, NULL),
+(4, 2, '2023-11-27', '11111', '2', '185.60', '0.00', 1, '5.00', NULL, '0.60', '203.00', 'hhhh', '1', NULL, 0, 1, NULL, '2023-12-07 00:14:37', '2023-12-07 00:14:37', NULL),
+(5, 4, '2023-12-13', '34', '8', '457.60', '0.00', 1, '34.00', NULL, '0.60', '446.00', 'kamal', '1', NULL, 0, 1, NULL, '2023-12-07 01:04:28', '2023-12-07 01:04:28', NULL),
+(6, 4, '2023-12-13', '34', '67', '-2653.20', '0.00', 1, '34.00', NULL, '0.80', '-2665.00', 'kamal', '1', NULL, 0, 1, NULL, '2023-12-07 01:05:57', '2023-12-07 01:05:57', NULL),
+(8, 4, '2023-12-04', '454', '2', '99.00', '0.00', 1, '5.00', NULL, '0.00', '99.00', 'jhwgw', '1', NULL, 0, 1, NULL, '2023-12-07 01:18:37', '2023-12-07 01:18:37', NULL);
+
 -- --------------------------------------------------------
 
 --
@@ -371,7 +385,12 @@ CREATE TABLE `purchase_details` (
 
 INSERT INTO `purchase_details` (`id`, `purchase_id`, `medicine_id`, `quantity`, `unit_price`, `sub_amount`, `tax`, `discount_type`, `discount`, `total_amount`, `created_at`, `updated_at`, `deleted_at`) VALUES
 (1, 2, 2, '23.00', '23.00', '23.00', '4.00', 1, '3.00', '23.00', '2023-12-04 23:17:33', '2023-12-04 23:17:33', NULL),
-(2, 3, 3, '3.00', '3.00', '3.00', '2.00', 1, '1.00', '56.00', '2023-12-04 23:31:56', '2023-12-04 23:31:56', NULL);
+(2, 3, 3, '3.00', '3.00', '3.00', '2.00', 1, '1.00', '56.00', '2023-12-04 23:31:56', '2023-12-04 23:31:56', NULL),
+(3, 4, 13, '2.00', '88.00', '96.80', '10.00', 1, '4.00', '185.60', '2023-12-07 00:14:37', '2023-12-07 00:14:37', NULL),
+(4, 5, 13, '8.00', '55.00', '60.50', '10.00', 0, '6.00', '457.60', '2023-12-07 01:04:28', '2023-12-07 01:04:28', NULL),
+(5, 5, 13, '0.00', '0.00', '0.00', '0.00', 0, '0.00', '0.00', '2023-12-07 01:04:28', '2023-12-07 01:04:28', NULL),
+(6, 6, 13, '67.00', '4.00', '4.40', '10.00', 1, '44.00', '-2653.20', '2023-12-07 01:05:57', '2023-12-07 01:05:57', NULL),
+(7, 8, 12, '2.00', '45.00', '49.50', '10.00', 0, '0.00', '99.00', '2023-12-07 01:18:37', '2023-12-07 01:18:37', NULL);
 
 -- --------------------------------------------------------
 
@@ -433,6 +452,16 @@ CREATE TABLE `stocks` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `stocks`
+--
+
+INSERT INTO `stocks` (`id`, `medicine_id`, `purchase_id`, `sales_id`, `transfer_id`, `quantity`, `unit_price`, `tax`, `discount`, `batch_id`, `created_at`, `updated_at`) VALUES
+(1, 13, 4, NULL, NULL, '2.00', '92.80', '10.00', '4.00', 1, '2023-12-07 00:14:37', '2023-12-07 00:14:37'),
+(2, 13, 5, NULL, NULL, '8.00', '57.20', '10.00', '6.00', 1, '2023-12-07 01:04:28', '2023-12-07 01:04:28'),
+(3, 13, 6, NULL, NULL, '67.00', '-39.60', '10.00', '44.00', 1, '2023-12-07 01:05:57', '2023-12-07 01:05:57'),
+(4, 12, 8, NULL, NULL, '2.00', '49.50', '10.00', '0.00', 1, '2023-12-07 01:18:37', '2023-12-07 01:18:37');
 
 -- --------------------------------------------------------
 
@@ -665,7 +694,7 @@ ALTER TABLE `employees`
 -- AUTO_INCREMENT for table `medicines`
 --
 ALTER TABLE `medicines`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `migrations`
@@ -689,13 +718,13 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT for table `purchases`
 --
 ALTER TABLE `purchases`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `purchase_details`
 --
 ALTER TABLE `purchase_details`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `roles`
@@ -713,7 +742,7 @@ ALTER TABLE `salaries`
 -- AUTO_INCREMENT for table `stocks`
 --
 ALTER TABLE `stocks`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `suppliers`
