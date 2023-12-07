@@ -38,13 +38,12 @@
                                         <th class="text-center">{{ __('Total') }}<br>{{ __('Quantity') }}</th>
                                         <th class="text-center">{{ __('Sub') }}<br>{{ __('Amount') }}</th>
                                         <th class="text-center">{{ __('Grand') }}<br>{{ __('Total') }}</th>
-                                        <th>{{ __('Status') }}</th>
                                         <th class="text-center">{{ __('Reference') }}<br>{{ __('No') }}</th>
                                         <th class="text-center">{{ __('Discount') }}</th>
                                         <th class="text-center">{{ __('Other') }}<br>{{ __('Charge') }}</th>
                                         <th class="text-center">{{ __('Round') }}<br>{{ __(' Of') }}</th>
                                         <th class="text-center">{{ __('payment') }}<br>{{ __(' status') }}</th>
-                                        <th class="text-center">{{ __('status') }}<br>{{ __(' note') }}</th>
+                                        <th class="text-center">{{ __('status') }} 
                                         <th>{{ __('Tax') }}</th>
                                         <th>{{ __('Price') }}</th>
                                         <th>{{ __('note') }}</th>
@@ -55,14 +54,21 @@
                                     @forelse($purchase as $value)
                                     <tr>
                                         <td>{{++$loop->index}}</td>
-                                        <td>{{$value->bname}}</td>
-                                        <td>{{$value->gname}}</td>
-                                        <td>{{$value->dose?->dose_description}}</td>
-                                        <td>{{$value->manufacturedate}}</td>
-                                        <td>{{$value->expiredate}}</td>
-                                        <td>{{$value->strength}}</td>
-                                        <td>{{$value->price}}</td>
+                                        <td>{{$value->supplier?->name}}</td>
+                                        <td>{{$value->purchase_date}}</td>
+                                        <td>{{$value->total_quantity}}</td>
+                                        <td>{{$value->sub_amount}}</td>
+                                        <td>{{$value->grand_total}}</td>
+                                        <td>{{$value->reference_no}}</td>
+                                        <td>{{$value->discount}}</td>
+                                        <td>{{$value->other_charge}}</td>
+                                        <td>{{$value->round_of}}</td>
+                                        <td>{{$value->payment_status}}</td>
                                         <td>{{($value->status)==1 ? 'active':'inactive'}}</td>
+                                        <td>{{$value->tax}}</td>
+                                        <td>{{$value->price}}</td>
+                                        <td>{{$value->note}}</td>
+                                    
                                         
                                         <td class="action-buttons">
                                             <div class="button-container">
