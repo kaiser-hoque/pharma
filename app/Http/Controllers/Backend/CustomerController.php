@@ -100,7 +100,7 @@ class CustomerController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Customer $customer)
+    public function destroy($id)
     {
         try {
             $decryptedId = decrypt($id);

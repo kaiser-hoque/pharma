@@ -108,7 +108,7 @@
 									<div class="col-md-5">
 										<label for="bsValidation13" class="form-label"><b>Description</b></label>
 										<textarea class="form-control rounded-5" id="description" placeholder="description ..."
-										name="description"rows="3" value="{{old('Description',$customer->description)}}" >></textarea>
+										name="description"rows="3" value="{{old('Description',$customer->description)}}" ></textarea>
 
                                         @if($errors->has('description'))
                                         <span class="text-danger"> {{ $errors->first('description') }}</span>

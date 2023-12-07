@@ -40,10 +40,10 @@
                                         <th>{{ __('Name') }}</th>
                                         <th>{{ __('Contact NO') }}</th>
                                         <th>{{ __('Email') }}</th>
-                                        <th>{{ __('Address') }}</th>
+                                        {{-- <th>{{ __('Address') }}</th> --}}
                                         <th>{{ __('Starus') }}</th>
                                         <th>{{ __('Division') }}</th>
-                                        <th>{{ __('Description') }}</th>
+                                        {{-- <th>{{ __('Description') }}</th> --}}
                                         <th class="white-space-nowrap">{{ __('Action') }}</th>
                                     </tr>
                                 </thead>
@@ -54,7 +54,7 @@
                                         <td class="text-center">{{$value->name}}</td>
                                         <td class="text-center">{{$value->contact_num}}</td>
                                         <td class="text-center">{{$value->email}}</td>
-                                        <td class="text-center">{{$value->address}}</td>
+                                        {{-- <td class="text-center">{{$value->address}}</td> --}}
                                         {{-- <td class="text-center">{{$value->status}}</td> --}}
                                         <td>
 											<div class="d-flex align-items-center text-primary">	<i class='bx bx-radio-circle-marked bx-burst bx-rotate-90 align-middle font-18 me-1'></i>
@@ -62,7 +62,7 @@
 											</div>
 										</td>
                                         <td class="text-center">{{$value->division}}</td>
-                                        <td class="text-center">{{$value->description}}</td>
+                                        {{-- <td class="text-center">{{$value->description}}</td> --}}
                                         <td class="action-buttons">
                                             <div class="button-container">
                                                 <a href="{{route('companies.edit', 		encryptor('encrypt', $value->id))}}">

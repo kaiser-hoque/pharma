@@ -101,25 +101,18 @@ class CompaniesController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Companies $companies)
+    public function destroy( $id)
     {
-        // try {
-        //     $decryptedId = decrypt($id);
-        //     $companies = Companies::findOrFail($decryptedId);
-        //     $companies->delete();
-
-        //     return back()->with('success', 'Data deleted');
-        //     } catch (\Exception $e) {
-        //         // dd($e);
-        //         return back()->with('error', 'Please try again');
-        //     }
-
         try {
+            $decryptedId = decrypt($id);
+            $companies = Companies::findOrFail($decryptedId);
             $companies->delete();
+
             return back()->with('success', 'Data deleted');
-        } catch (\Exception $e) {
-            return back()->with('error', 'Please try again');
-        }
+            } catch (\Exception $e) {
+                // dd($e);
+                return back()->with('error', 'Please try again');
+            }
 
 
     }
