@@ -19,7 +19,7 @@ class PurchaseController extends Controller
      * Display a listing of the resource.
      */
     public function index()
-    {   
+    {
         $purchase=Purchase::paginate(10);
         return view ('backend.purchase.index', compact('purchase'));
     }
