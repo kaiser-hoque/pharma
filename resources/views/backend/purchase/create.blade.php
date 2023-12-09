@@ -71,12 +71,12 @@
                                                 value="{{ old('purchase_date') }}" name="purchase_date"
                                                 placeholder="dd/mm/yyyy" required>
                                         </div>
-                                        <div class="col-md-2 mt-2">
+                                        <div class="col-md-3 mt-2">
                                             <label for="reference_no" class="float-end">
                                                 <h6>Reference Number</h6>
                                             </label>
                                         </div>
-                                        <div class="col-md-4 mt-2">
+                                        <div class="col-md-3 mt-2">
                                             <input type="text" class="form-control"
                                                 value="{{ old('reference_no') }}" name="reference_no">
                                         </div>

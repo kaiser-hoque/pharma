@@ -30,6 +30,9 @@
     <link rel="stylesheet" href="{{ asset('public/assets/css/semi-dark.css') }}" />
     <link rel="stylesheet" href="{{ asset('public/assets/css/header-colors.css') }}" />
 
+    <!-- toastr -->
+    <link rel="stylesheet" href="http://cdn.bootcss.com/toastr.js/latest/css/toastr.min.css">
+
     <!-- font asswm -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
         integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="

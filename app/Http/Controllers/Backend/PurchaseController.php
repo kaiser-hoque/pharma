@@ -20,7 +20,7 @@ class PurchaseController extends Controller
      */
     public function index()
     {   
-        $purchase=Purchase::paginate(10);
+        $purchase=Purchase::get();
         return view ('backend.purchase.index', compact('purchase'));
     }
 
@@ -126,7 +126,6 @@ class PurchaseController extends Controller
                             $stock->tax=$pd->tax;
                             $stock->discount=$pd->discount;
                             $stock->save();
-
                             DB::commit();
                         }
                     }

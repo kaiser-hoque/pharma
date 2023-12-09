@@ -84,7 +84,7 @@
 									<div class="d-flex align-items-center">
 										<div class="tab-icon"><i class='bx bx-comment-detail font-18 me-1'></i>
 										</div>
-										<div class="tab-title"> Medicin Description </div>
+										<div class="tab-title text-center "> <h4 class="text-primary ">Medicin Description </h4>  </div>
 									</div>
 								</a>
 							</li>
@@ -92,8 +92,10 @@
 							 
 						</ul>
 						<div class="tab-content pt-3">
-							<div class="tab-pane fade show active" id="primaryhome" role="tabpanel">
-								<p> {{$medicine->description}}</p>
+							<div class="tab-pane fade show active " 				id="primaryhome" 		role="tabpanel">
+								<div class="text-center bg-primary p-5 opacity-25"> 
+									<h2 class="text-white"> {{$medicine->description}}</h2>
+								</div>
 							</div>
 							 
 						</div>
