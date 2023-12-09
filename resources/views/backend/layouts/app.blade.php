@@ -218,6 +218,51 @@
                 </ul>
 
             </li>
+
+            <li>
+                <a href="javascript:;" class="has-arrow">
+                    <div class="parent-icon"><i class="fa fa-file" aria-hidden="true"></i></i>
+                    </div>
+                    <div class="menu-title">Report</div>
+                </a>
+                <ul>
+                    <li> <a href="{{route('purchase.create')}}"><i class="fa-solid fa-arrow-right"></i>Sales Report</a>
+                    </li>
+
+
+                    <li> <a href="{{route('purchase.index')}}"><i class="fa-solid fa-arrow-right"></i> Purchase Report</a>
+                    </li>
+
+
+                    <li> <a href="{{route('purchasedetails.index')}}"><i class="fa-solid fa-arrow-right"></i>Stock Report</a>
+                    </li>
+
+                </ul>
+
+            </li>
+            <li>
+                <a href="javascript:;" class="has-arrow">
+                    <div class="parent-icon"><i class="fa fa-file" aria-hidden="true"></i></i>
+                    </div>
+                    <div class="menu-title">Finance</div>
+                </a>
+                <ul>
+                    <li> <a href="{{route('purchase.create')}}"><i class="fa-solid fa-arrow-right"></i>Income</a>
+                    </li>
+
+
+                    <li> <a href="{{route('purchase.index')}}"><i class="fa-solid fa-arrow-right"></i> Expence</a>
+                    </li>
+
+
+                    <li> <a href="{{route('purchasedetails.index')}}"><i class="fa-solid fa-arrow-right"></i>Invoice List</a>
+                    </li>
+                    <li> <a href="{{route('purchasedetails.index')}}"><i class="fa-solid fa-arrow-right"></i>Invoice Details</a>
+                    </li>
+
+                </ul>
+
+            </li>
             <li class="menu-label"><span class="text-primary">EMP Management</span> </li>
             <li>
                 <a href="javascript:;" class="has-arrow">
@@ -244,6 +289,21 @@
                     <li> <a href="{{route('employee.create')}}"><i class="fa-solid fa-arrow-right"></i></i>Add Attendances</a>
                     </li>
                     <li> <a href="{{route('employee.index')}}"><i class="fa-solid fa-arrow-right"></i></i>  Attendances List</a>
+                    </li>
+
+                </ul>
+
+            </li>
+            <li>
+                <a href="javascript:;" class="has-arrow">
+                    <div class="parent-icon"><i class="fas fa-arrows"></i>
+                    </div>
+                    <div class="menu-title">Salary</div>
+                </a>
+                 <ul>
+                    <li> <a href="{{route('employee.create')}}"><i class="fa-solid fa-arrow-right"></i></i>Add Salary</a>
+                    </li>
+                    <li> <a href="{{route('employee.index')}}"><i class="fa-solid fa-arrow-right"></i></i>  Salary List</a>
                     </li>
 
                 </ul>
