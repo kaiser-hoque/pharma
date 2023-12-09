@@ -58,14 +58,13 @@
                                         <td class="text-center">{{$value->quantity}}</td>
                                         <td class="text-center">{{$value->unit_price}}</td>
                                         <td class="text-center">{{$value->tax}}</td>
-                                       <td class="text-center">
-    @if($value->discount_type == 0)
-        <span class="bg-success badge badge-success">Amount</span>
-    @else
-        <span class="bg-info badge badge-info">Percent(%)</span>
-    @endif
-</td>
-
+                                        <td class="text-center">
+                                            @if($value->discount_type == 0)
+                                                <span class="bg-success badge badge-success">Amount</span>
+                                            @else
+                                                <span class="bg-info badge badge-info">Percent(%)</span>
+                                            @endif
+                                        </td>
                                         <td class="text-center">{{$value->discount}}</td>
                                         <td class="text-center">{{$value->sub_amount}}</td>
                                         <td class="text-center">{{$value->total_amount}}</td>

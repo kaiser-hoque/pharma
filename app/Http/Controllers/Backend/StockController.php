@@ -1,8 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
-
+namespace App\Http\Controllers\backend;
+use App\Http\Controllers\Controller;
 use App\Models\Stock;
+ 
+
 use Illuminate\Http\Request;
 
 class StockController extends Controller
@@ -11,8 +13,8 @@ class StockController extends Controller
      * Display a listing of the resource.
      */
     public function index()
-    {
-        //
+    {   $stock=Stock::get();
+        return view('backend.stock.index',compact('stock'));
     }
 
     /**

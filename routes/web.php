@@ -16,6 +16,7 @@ use App\Http\Controllers\Backend\PurchaseController as purchase;
 use App\Http\Controllers\Backend\EmployeeController as employee;
 use App\Http\Controllers\Backend\AttendancesController as attendances;
 use App\Http\Controllers\Backend\PurchaseDetailsController as purchasedetails;
+use App\Http\Controllers\Backend\StockController as stock;
 
 
 
@@ -55,6 +56,7 @@ Route::middleware(['checkrole'])->prefix('admin')->group(function(){
     Route::resource('purchase', purchase::class);
     Route::resource('employee', employee::class);
     Route::resource('attendances', attendances::class);
+    Route::resource('stock', stock::class);
     Route::resource('purchasedetails', purchasedetails::class);
     Route::resource('medicineCategory', MedicineCategory::class);
     Route::get('permission/{role}', [permission::class,'index'])->name('permission.list');

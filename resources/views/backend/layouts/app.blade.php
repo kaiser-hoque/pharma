@@ -143,12 +143,12 @@
                 <a href="javascript:;" class="has-arrow">
                     <div class="parent-icon"> <i class="fa-solid fa-city"></i>
                     </div>
-                    <div class="menu-title">Company</div>
+                    <div class="menu-title">Manufacturer </div>
                 </a>
                 <ul>
-                    <li> <a href="{{route('companies.create')}}"><i class="fa-solid fa-arrow-right"></i>Create Company</a>
+                    <li> <a href="{{route('companies.create')}}"><i class="fa-solid fa-arrow-right"></i>Create Manufacturer</a>
                     </li>
-                    <li> <a href="{{route('companies.index')}}"><i class="fa-solid fa-arrow-right"></i>Company List</a>
+                    <li> <a href="{{route('companies.index')}}"><i class="fa-solid fa-arrow-right"></i>Manufacturer List</a>
                     </li>
 
                 </ul>
@@ -180,7 +180,7 @@
 
                     <li> <a href="{{route('medicine.index')}}"><i class="fa-solid fa-arrow-right"></i>Medicine List</a>
                     </li>
-                    <li>  
+                    <li>
                     </li>
 
                 </ul>
@@ -199,7 +199,7 @@
                     <li> <a href="{{route('purchase.index')}}"><i class="fa-solid fa-arrow-right"></i> Purchase List</a>
                     </li>
 
-                    
+
                     <li> <a href="{{route('purchasedetails.index')}}"><i class="fa-solid fa-arrow-right"></i>Details List</a>
                     </li>
 
@@ -213,7 +213,7 @@
                     <div class="menu-title">Purchase Details</div>
                 </a>
                 <ul>
-  
+
 
                 </ul>
 

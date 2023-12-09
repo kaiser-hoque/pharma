@@ -33,19 +33,18 @@
                                 <thead>
                                     <tr>
                                         <th>{{ __('SL') }}</th>
-                                        <th class="text-center">{{ __('Supplier') }}<br>{{ __('Name') }}</th>
-                                        <th class="text-center">{{ __('Purchase') }}<br>{{ __('date') }}</th>
-                                        <th class="text-center">{{ __('Total') }}<br>{{ __('Quantity') }}</th>
-                                        <th class="text-center">{{ __('Sub') }}<br>{{ __('Amount') }}</th>
-                                        <th class="text-center">{{ __('Grand') }}<br>{{ __('Total') }}</th>
-                                        <th class="text-center">{{ __('Reference') }}<br>{{ __('No') }}</th>
+                                        <th class="text-center">{{ __('Supplier Name') }} </th>
+                                        <th class="text-center">{{ __('Purchase date') }} </th>
+                                        <th class="text-center">{{ __('Total Quantity') }} </th>
+                                        <th class="text-center">{{ __('Sub Amount') }} </th>
+                                        <th class="text-center">{{ __('Grand Total') }} </th>
+                                        <th class="text-center">{{ __('Reference No') }} </th>
                                         <th class="text-center">{{ __('Discount') }}</th>
-                                        <th class="text-center">{{ __('Other') }}<br>{{ __('Charge') }}</th>
-                                        <th class="text-center">{{ __('Round') }}<br>{{ __(' Of') }}</th>
-                                        <th class="text-center">{{ __('payment') }}<br>{{ __(' status') }}</th>
-                                        <th class="text-center">{{ __('status') }} 
+                                        <th class="text-center">{{ __('Other Charge') }} </th>
+                                        <th class="text-center">{{ __('Round Of') }} </th>
+                                        <th class="text-center">{{ __('payment status') }} </th>
+                                        <th class="text-center">{{ __('status') }}
                                         <th>{{ __('Tax') }}</th>
-                                        <th>{{ __('Price') }}</th>
                                         <th>{{ __('note') }}</th>
                                         <th class="white-space-nowrap">{{ __('Action') }}</th>
                                     </tr>
@@ -64,12 +63,18 @@
                                         <td>{{$value->other_charge}}</td>
                                         <td>{{$value->round_of}}</td>
                                         <td>{{$value->payment_status}}</td>
-                                        <td>{{($value->status)==1 ? 'active':'inactive'}}</td>
+                                        {{-- <td>{{($value->status)==1 ? 'active':'inactive'}}</td> --}}
+                                        <td class="text-center">
+                                            @if($value->status == 0)
+                                                <span class="bg-success badge badge-success">Active</span>
+                                            @else
+                                                <span class="bg-info badge badge-info">Inactive</span>
+                                            @endif
+                                        </td>
                                         <td>{{$value->tax}}</td>
-                                        <td>{{$value->price}}</td>
                                         <td>{{$value->note}}</td>
-                                    
-                                        
+
+
                                         <td class="action-buttons">
                                             <div class="button-container">
                                                 <a href="{{route('medicine.edit',encryptor('encrypt', $value->id))}}">
@@ -122,5 +127,5 @@
     </div>
 
     </div>
-     
+
 @endsection
