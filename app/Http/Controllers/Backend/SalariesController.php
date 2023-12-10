@@ -13,7 +13,7 @@ class SalariesController extends Controller
      */
     public function index()
     {
-        //
+      return view('backend.salary.index');
     }
 
     /**
@@ -21,7 +21,7 @@ class SalariesController extends Controller
      */
     public function create()
     {
-        //
+       return view('backend.salary.create');
     }
 
     /**
