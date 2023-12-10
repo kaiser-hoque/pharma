@@ -194,6 +194,7 @@
                                                     <label for="" class="form-group">
                                                         <h6 class="tother_charge">0.00</h6>
                                                     </label>
+                                                     <!-- <input type="text" class="form-control form-group" id="other_charge" name="tother_charge" onkeyup="check_change()"> -->
                                                 </div>
                                             </div>
 

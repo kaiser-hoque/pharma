@@ -1,27 +1,21 @@
 <?php
 
-
-
-namespace App\Http\Controllers\Backend;
+namespace App\Http\Controllers\backend;
 use App\Http\Controllers\Controller;
-use App\Models\Supplier;
-use App\Models\Purchase;
-use App\Models\PurchaseDetails;
-use App\Models\Stock;
+use App\Models\sale;
+use App\Models\customer;
 use App\Models\Medicine;
 use Illuminate\Http\Request;
-use Exception;
-use DB;
 
-class PurchaseController extends Controller
+class SaleController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $purchase=Purchase::paginate(10);
-        return view ('backend.purchase.index', compact('purchase'));
+        $sale=Sale::paginate(10);
+        return view ('backend.sale.index', compact('sale'));
     }
 
     /**
@@ -29,14 +23,14 @@ class PurchaseController extends Controller
      */
     public function create()
     {
-        $supplier = Supplier::get();
-        return view('backend.purchase.create',  compact('supplier'));
+        $customer = Customer::get();
+        return view('backend.sale.create',  compact('customer'));
     }
 
     /**
      * Store a newly created resource in storage.
      *
-        * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\Response
      */
     public function product_search(Request $request)
     {
@@ -49,8 +43,7 @@ class PurchaseController extends Controller
 
     }
 
-
-  /**
+     /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
@@ -63,7 +56,7 @@ class PurchaseController extends Controller
             $data.='<td class="p-2">'.$product->bname.'<input name="medicine_id[]" type="hidden" value="'.$product->id.'"></td>';
 
             $data.='<td class="p-2"><input onkeyup="get_cal(this)" name="qty[]" type="text" class="form-control qty" value="0"></td>';
-            $data.='<td class="p-2"><input onkeyup="get_cal(this)" name="price[]" type="text" class="form-control price" value="0"></td>';
+            $data.='<td class="p-2"><input onkeyup="get_cal(this)" name="price[]" type="text" value="'.$product->price.'" class="form-control price" value="0"></td>';
             $data.='<td class="p-2"><input onkeyup="get_cal(this)" name="tax[]" type="text" class="form-control tax" value=""></td>';
             $data.='<td class="p-2">
                         <select onchange="get_cal(this)" class="form-control form-select discount_type" name="discount_type[]">
@@ -82,14 +75,12 @@ class PurchaseController extends Controller
 
     }
 
-
-
     public function store(Request $request)
     {
         DB::beginTransaction();
         try{
             $pur= new Purchase;
-            $pur->supplier_id=$request->supplierName;
+            $pur->customer_id=$request->custname;
             $pur->purchase_date = $request->purchase_date;
             $pur->reference_no=$request->reference_no;
             $pur->total_quantity=$request->total_qty;
@@ -101,7 +92,6 @@ class PurchaseController extends Controller
             $pur->grand_total=$request->tgrandtotal;
             $pur->note=$request->note;
             $pur->created_by=currentUserId();
-
             $pur->payment_status=0;
             $pur->status=1;
             if($pur->save()){
@@ -139,13 +129,12 @@ class PurchaseController extends Controller
             \Toastr::warning('Please try again!');
             return redirect()->back()->withInput();
         }
-
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Purchase $purchase)
+    public function show(sale $sale)
     {
         //
     }
@@ -153,7 +142,7 @@ class PurchaseController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Purchase $purchase)
+    public function edit(sale $sale)
     {
         //
     }
@@ -161,7 +150,7 @@ class PurchaseController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Purchase $purchase)
+    public function update(Request $request, sale $sale)
     {
         //
     }
@@ -169,13 +158,8 @@ class PurchaseController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy($id)
+    public function destroy(sale $sale)
     {
-        $purchase=Purchase::find($id);
-        PurchaseDetails::where('purchase_id',$id)->delete();
-        Stock::where('purchase_id',$id)->delete();
-        $purchase->delete();
-        $this->notice::success('Data successfully deleted');
-        return redirect()->back();
+        //
     }
 }

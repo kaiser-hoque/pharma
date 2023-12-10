@@ -208,6 +208,27 @@
             </li>
             <li>
                 <a href="javascript:;" class="has-arrow">
+                    <div class="parent-icon"><i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                    </div>
+                    <div class="menu-title">Sale</div>
+                </a>
+                <ul>
+                    <li> <a href="{{route('sale.create')}}"><i class="fa-solid fa-arrow-right"></i>Add Sale</a>
+                    </li>
+
+
+                    <li> <a href="{{route('sale.index')}}"><i class="fa-solid fa-arrow-right"></i> Sale List</a>
+                    </li>
+
+
+                    <li> <a href="{{route('purchasedetails.index')}}"><i class="fa-solid fa-arrow-right"></i>Details List</a>
+                    </li>
+
+                </ul>
+
+            </li>
+            <!-- <li>
+                <a href="javascript:;" class="has-arrow">
                     <div class="parent-icon"><i class="fa fa-info-circle" aria-hidden="true"></i>
                     </div>
                     <div class="menu-title">Purchase Details</div>
@@ -217,7 +238,7 @@
 
                 </ul>
 
-            </li>
+            </li> -->
 
             <li>
                 <a href="javascript:;" class="has-arrow">

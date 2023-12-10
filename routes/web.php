@@ -17,6 +17,7 @@ use App\Http\Controllers\Backend\EmployeeController as employee;
 use App\Http\Controllers\Backend\AttendancesController as attendances;
 use App\Http\Controllers\Backend\PurchaseDetailsController as purchasedetails;
 use App\Http\Controllers\Backend\StockController as stock;
+use App\Http\Controllers\Backend\SaleController as sale;
 
 
 
@@ -43,6 +44,8 @@ Route::middleware(['checkauth'])->prefix('admin')->group(function(){
     Route::get('dashboard', [dashboard::class,'index'])->name('dashboard');
     Route::get('/product_search', [purchase::class,'product_search'])->name('pur.product_search');
     Route::get('/product_search_data', [purchase::class,'product_search_data'])->name('pur.product_search_data');
+    Route::get('/product_search_sales', [sale::class,'product_search'])->name('sales.product_search');
+    Route::get('/product_search_data_sales', [sale::class,'product_search_data'])->name('sales.product_search_data');
 });
 Route::middleware(['checkrole'])->prefix('admin')->group(function(){
     Route::resource('user', user::class); //1st is for url and 2nd one is controller alice name
@@ -54,6 +57,7 @@ Route::middleware(['checkrole'])->prefix('admin')->group(function(){
     Route::resource('supplier', supplier::class);
     Route::resource('medicine', medicine::class);
     Route::resource('purchase', purchase::class);
+    Route::resource('sale', sale::class);
     Route::resource('employee', employee::class);
     Route::resource('attendances', attendances::class);
     Route::resource('stock', stock::class);

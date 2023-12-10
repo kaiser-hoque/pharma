@@ -63,25 +63,18 @@
                                         <td>{{$value->other_charge}}</td>
                                         <td>{{$value->round_of}}</td>
                                         <td>{{$value->payment_status}}</td>
-                                        {{-- <td>{{($value->status)==1 ? 'active':'inactive'}}</td> --}}
-                                        <td class="text-center">
-                                            @if($value->status == 0)
-                                                <span class="bg-success badge badge-success">Active</span>
-                                            @else
-                                                <span class="bg-info badge badge-info">Inactive</span>
-                                            @endif
-                                        </td>
+                                        <td>{{ __($value->status == 1 ? 'pharches' : 
+                                            ($value->status == 2 ? 'return' : 
+                                            ($value->status == 3 ? 'partial_return' : 'cancel'))) }}</td>
                                         <td>{{$value->tax}}</td>
                                         <td>{{$value->note}}</td>
-
-
                                         <td class="action-buttons">
                                             <div class="button-container">
-                                                <a href="{{route('medicine.edit',encryptor('encrypt', $value->id))}}">
+                                                <!-- <a href="{{route('medicine.edit',encryptor('encrypt', $value->id))}}">
                                                     <i class="fa fa-edit"></i>
-                                                </a>
+                                                </a> -->
                                                 <a href="{{route('medicine.show',encryptor('encrypt',$value->id))}}"><i class="fa-solid fa-eye"></i></a>
-                                                <form id="" action="{{ route('medicine.destroy', $value->id)}}" method="post">
+                                                <form id="" action="{{ route('purchase.destroy', $value->id)}}" method="post">
                                                     @csrf
                                                     @method('delete')
                                                     <button style="background: none; border: none;" type="submit">

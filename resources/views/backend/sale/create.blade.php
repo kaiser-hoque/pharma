@@ -11,20 +11,20 @@
         <div class="page-content">
             <!--breadcrumb-->
             <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
-                <div class="breadcrumb-title pe-3">Purchase</div>
+                <div class="breadcrumb-title pe-3">sale</div>
                 <div class="ps-3">
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb mb-0 p-0">
                             <li class="breadcrumb-item"><a href="javascript:;"><i class="bx bx-home-alt"></i></a>
                             </li>
-                            <li class="breadcrumb-item active" aria-current="page">Purchase Create</li>
+                            <li class="breadcrumb-item active" aria-current="page">Sale Create</li>
                         </ol>
                     </nav>
                 </div>
                 <div class="ms-auto">
                     <div class="btn-group">
                         <button type="button" class="btn btn-primary"><a class="text-white"
-                                href="{{ route('medicine.index') }}">Purchase list</a></button>
+                                href="{{ route('medicine.index') }}">Sale list</a></button>
                     </div>
                 </div>
             </div>
@@ -36,21 +36,21 @@
                     <div class="card">
                         <div class="card-content mt-5">
                             <div class="card-body">
-                                <form class="form" method="post" action="{{ route('purchase.store') }}">
+                                <form class="form" method="post" action="{{ route('sale.store') }}">
                                     @csrf
                                     <div class="row">
                                         <div class="col-md-2 mt-2">
                                             <label for="supplierName" class="float-end">
-                                                <h6>Supplier<span class="text-danger">*</span></h6>
+                                                <h6>Customer<span class="text-danger">*</span></h6>
                                             </label>
                                         </div>
                                         <div class="col-md-4">
 
-                                            <select required class="form-control form-select" name="supplierName"
-                                                id="supplierName">
+                                            <select required class="form-control form-select" name="custname"
+                                                id="custname">
                                                 <option value="">==Select Name==</option>
-                                                @forelse ($supplier as $c)
-                                                    <option {{ old('supplierName') == $c->id }}
+                                                @forelse ($customer as $c)
+                                                    <option {{ old('custname') == $c->id }}
                                                         value="{{ $c->id }}">{{ $c->name }}</option>
                                                 @empty
                                                     <option value="">No Supplier found</option>
@@ -282,7 +282,7 @@
 
                     $.ajax({
                         autoFocus: true,
-                        url: "{{ route('pur.product_search') }}",
+                        url: "{{ route('sales.product_search') }}",
                         method: 'GET',
                         dataType: 'json',
                         data: {
@@ -348,7 +348,7 @@
             $("#item_search").addClass('ui-autocomplete-loader-center');
             $.ajax({
                 autoFocus: true,
-                url: "{{ route('pur.product_search_data') }}",
+                url: "{{ route('sales.product_search_data') }}",
                 method: 'GET',
                 dataType: 'json',
                 data: {
