@@ -58,8 +58,8 @@
 
                                             </select>
                                         </div>
-                                        @if ($errors->has('supplierName'))
-                                            <span class="text-danger"> {{ $errors->first('supplierName') }}</span>
+                                        @if ($errors->has('custname'))
+                                            <span class="text-danger"> {{ $errors->first('custname') }}</span>
                                         @endif
                                         <div class="col-md-2 mt-2">
                                             <label for="date" class="float-end">
@@ -68,7 +68,7 @@
                                         </div>
                                         <div class="col-md-4">
                                             <input type="date" id="datepicker" class="form-control"
-                                                value="{{ old('purchase_date') }}" name="purchase_date"
+                                                value="{{ old('sale_date') }}" name="sale_date"
                                                 placeholder="dd/mm/yyyy" required>
                                         </div>
                                         <div class="col-md-2 mt-2">

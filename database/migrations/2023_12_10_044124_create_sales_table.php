@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('customer_id')->index()->nullable();
             $table->foreign('customer_id')->references('id')->on('customers')->onDelete('cascade');
-            $table->date('purchase_date');
+            $table->date('sale_date');
             $table->string('reference_no')->nullable();
             $table->string('total_quantity')->nullable();
             $table->decimal('sub_amount',10,2)->default(0);

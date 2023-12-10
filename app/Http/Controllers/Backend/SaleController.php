@@ -6,6 +6,8 @@ use App\Models\sale;
 use App\Models\customer;
 use App\Models\Medicine;
 use Illuminate\Http\Request;
+use App\Models\SaleDetails;
+use App\Models\Stock;
 
 class SaleController extends Controller
 {
@@ -14,7 +16,8 @@ class SaleController extends Controller
      */
     public function index()
     {
-        $sale=Sale::paginate(10);
+        // $sale=Sale::paginate(10);
+        $sale=Sale::get();
         return view ('backend.sale.index', compact('sale'));
     }
 
@@ -79,35 +82,35 @@ class SaleController extends Controller
     {
         DB::beginTransaction();
         try{
-            $pur= new Purchase;
-            $pur->customer_id=$request->custname;
-            $pur->purchase_date = $request->purchase_date;
-            $pur->reference_no=$request->reference_no;
-            $pur->total_quantity=$request->total_qty;
-            $pur->sub_amount=$request->tsubtotal;
-            $pur->discount_type=$request->discount_all_type;
-            $pur->discount=$request->discount_all;
-            $pur->other_charge=$request->tother_charge;
-            $pur->round_of=$request->troundof;
-            $pur->grand_total=$request->tgrandtotal;
-            $pur->note=$request->note;
-            $pur->created_by=currentUserId();
-            $pur->payment_status=0;
-            $pur->status=1;
-            if($pur->save()){
+            $sale= new Sale;
+            $sale->customer_id=$request->custname;
+            $sale->sale_date = $request->sale_date;
+            $sale->reference_no=$request->reference_no;
+            $sale->total_quantity=$request->total_qty;
+            $sale->sub_amount=$request->tsubtotal;
+            $sale->discount_type=$request->discount_all_type;
+            $sale->discount=$request->discount_all;
+            $sale->other_charge=$request->tother_charge;
+            $sale->round_of=$request->troundof;
+            $sale->grand_total=$request->tgrandtotal;
+            $sale->note=$request->note;
+            $sale->created_by=currentUserId();
+            $sale->payment_status=0;
+            $sale->status=1;
+            if($sale->save()){
                 if($request->medicine_id){
                     foreach($request->medicine_id as $i=>$medicine_id){
-                        $pd=new PurchaseDetails;
-                        $pd->purchase_id=$pur->id;
-                        $pd->medicine_id=$medicine_id;
-                        $pd->quantity=$request->qty[$i];
-                        $pd->unit_price=$request->price[$i];
-                        $pd->tax=$request->tax[$i]>0?$request->tax[$i]:0;
-                        $pd->discount_type=$request->discount_type[$i];
-                        $pd->discount=$request->discount[$i];
-                        $pd->sub_amount=$request->unit_cost[$i];
-                        $pd->total_amount=$request->subtotal[$i];
-                        if($pd->save()){
+                        $sd=new saleDetails;
+                        $sd->sale_id=$sale->id;
+                        $sd->medicine_id=$medicine_id;
+                        $sd->quantity=$request->qty[$i];
+                        $sd->unit_price=$request->price[$i];
+                        $sd->tax=$request->tax[$i]>0?$request->tax[$i]:0;
+                        $sd->discount_type=$request->discount_type[$i];
+                        $sd->discount=$request->discount[$i];
+                        $sd->sub_amount=$request->unit_cost[$i];
+                        $sd->total_amount=$request->subtotal[$i];
+                        if($sd->save()){
                             $stock=new Stock;
                             $stock->purchase_id=$pur->id;
                             $stock->medicine_id=$medicine_id;
@@ -121,7 +124,7 @@ class SaleController extends Controller
                     }
                 }
                 \Toastr::success('Create Successfully!');
-                return redirect()->route('purchase.index');
+                return redirect()->route('sale.index');
             }
         }catch(Exception $e){
             DB::rollback();
