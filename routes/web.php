@@ -19,6 +19,7 @@ use App\Http\Controllers\Backend\PurchaseDetailsController as purchasedetails;
 use App\Http\Controllers\Backend\StockController as stock;
 use App\Http\Controllers\Backend\SaleController as sale;
 use App\Http\Controllers\Backend\SalariesController as salary;
+use App\Http\Controllers\Backend\AdvancedsalaryController as advancedsalary;
 
 
 
@@ -62,6 +63,7 @@ Route::middleware(['checkrole'])->prefix('admin')->group(function(){
     Route::resource('employee', employee::class);
     Route::resource('attendances', attendances::class);
     Route::resource('salary', salary::class);
+    Route::resource('advancedsalary', advancedsalary::class);
     Route::resource('stock', stock::class);
     Route::resource('purchasedetails', purchasedetails::class);
     Route::resource('medicineCategory', MedicineCategory::class);

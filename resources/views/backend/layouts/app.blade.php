@@ -319,12 +319,27 @@
                 <a href="javascript:;" class="has-arrow">
                     <div class="parent-icon"><i class="fas fa-arrows"></i>
                     </div>
+                    <div class="menu-title">Advanced Salary</div>
+                </a>
+                 <ul>
+                    <li> <a href="{{route('advancedsalary.create')}}"><i class="fa-solid fa-arrow-right"></i></i>Add Advanced Salary</a>
+                    </li>
+                    <li> <a href="{{route('advancedsalary.index')}}"><i class="fa-solid fa-arrow-right"></i></i> Advanced Salary List</a>
+                    </li>
+
+                </ul>
+
+            </li>
+            <li>
+                <a href="javascript:;" class="has-arrow">
+                    <div class="parent-icon"><i class="fas fa-arrows"></i>
+                    </div>
                     <div class="menu-title">Salary</div>
                 </a>
                  <ul>
-                    <li> <a href="{{route('employee.create')}}"><i class="fa-solid fa-arrow-right"></i></i>Add Salary</a>
+                    <li> <a href="{{route('salary.create')}}"><i class="fa-solid fa-arrow-right"></i></i>Add Salary</a>
                     </li>
-                    <li> <a href="{{route('employee.index')}}"><i class="fa-solid fa-arrow-right"></i></i>  Salary List</a>
+                    <li> <a href="{{route('salary.index')}}"><i class="fa-solid fa-arrow-right"></i></i>  Salary List</a>
                     </li>
 
                 </ul>
