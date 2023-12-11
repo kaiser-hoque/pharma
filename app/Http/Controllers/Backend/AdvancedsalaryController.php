@@ -46,17 +46,11 @@ class AdvancedsalaryController extends Controller
                 ->with('error', 'Employee has already received advanced salary for the selected month.');
         }
 
-
-
-
-
             $advancedsalary= new advancedsalary();
             $advancedsalary->emp_id = $request->emp_id;
             $advancedsalary->month = $request->month;
-
             $advancedsalary->year = $request->year;
             $advancedsalary->advanced_salary = $request->advanced_salary;
-
             $advancedsalary->save();
             $this->notice::success('advancedsalary data saved');
             return redirect()->route('advancedsalary.index');

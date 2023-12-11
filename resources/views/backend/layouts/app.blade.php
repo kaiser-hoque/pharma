@@ -326,6 +326,8 @@
                     </li>
                     <li> <a href="{{route('advancedsalary.index')}}"><i class="fa-solid fa-arrow-right"></i></i> Advanced Salary List</a>
                     </li>
+                    <li> <a href="{{route('advancedsalary.index')}}"><i class="fa-solid fa-arrow-right"></i></i> All Salary List</a>
+                    </li>
 
                 </ul>
 
