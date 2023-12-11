@@ -54,7 +54,7 @@ class PurchaseDetailsController extends Controller
     // }
 
 
-         $pd=new PurchaseDetails;
+    //      $pd=new PurchaseDetails;
 
     }
 

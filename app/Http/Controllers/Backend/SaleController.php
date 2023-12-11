@@ -8,6 +8,8 @@ use App\Models\Medicine;
 use Illuminate\Http\Request;
 use App\Models\SaleDetails;
 use App\Models\Stock;
+use Exception;
+use DB;
 
 class SaleController extends Controller
 {
@@ -17,8 +19,8 @@ class SaleController extends Controller
     public function index()
     {
         // $sale=Sale::paginate(10);
-        $sale=Sale::get();
-        return view ('backend.sale.index', compact('sale'));
+        // $sale=sale::get();
+        return view ('backend.sale.index');
     }
 
     /**
@@ -100,7 +102,7 @@ class SaleController extends Controller
             if($sale->save()){
                 if($request->medicine_id){
                     foreach($request->medicine_id as $i=>$medicine_id){
-                        $sd=new saleDetails;
+                        $sd=new SaleDetails;
                         $sd->sale_id=$sale->id;
                         $sd->medicine_id=$medicine_id;
                         $sd->quantity=$request->qty[$i];
@@ -110,17 +112,22 @@ class SaleController extends Controller
                         $sd->discount=$request->discount[$i];
                         $sd->sub_amount=$request->unit_cost[$i];
                         $sd->total_amount=$request->subtotal[$i];
-                        if($sd->save()){
-                            $stock=new Stock;
-                            $stock->purchase_id=$pur->id;
-                            $stock->medicine_id=$medicine_id;
-                            $stock->quantity=$pd->quantity;
-                            $stock->unit_price=($pd->total_amount / $pd->quantity);
-                            $stock->tax=$pd->tax;
-                            $stock->discount=$pd->discount;
+                        if ($sd->save()) {
+                            $stock = new Stock;
+                            $stock->sales_id = $sale->id;
+                            $stock->medicine_id = $medicine_id;
+                            $stock->quantity = - $sd->quantity;
+                            $stock->unit_price = ($sd->total_amount / $sd->quantity);
+                            $stock->tax = $sd->tax;
+                            $stock->discount = $sd->discount;
                             $stock->save();
+
+                            Stock::where('medicine_id', $medicine_id)
+                                ->decrement('quantity', $sd->quantity);
+
                             DB::commit();
                         }
+
                     }
                 }
                 \Toastr::success('Create Successfully!');

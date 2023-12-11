@@ -50,7 +50,7 @@
                                         <th class="white-space-nowrap">{{ __('Action') }}</th>
                                     </tr>
                                 </thead>
-                                <tbody>
+                                {{--<tbody>
                                     @forelse($purchase as $value)
                                     <tr>
                                         <td>{{++$loop->index}}</td>
@@ -92,7 +92,7 @@
                                         <th colspan="12" class="text-center">No Product Found</th>
                                     </tr>
                                     @endforelse
-                                </tbody>
+                                </tbody> --}}
                             </table>
                         </div>
                     </div>

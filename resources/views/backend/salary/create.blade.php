@@ -36,8 +36,14 @@
                                     @csrf
 									<div class="col-md-6">
 										<label for="bsValidation1" class="form-label"><b>Full Name (emp)</b></label>
-										<input type="text" class="form-control"
-										name="emp_id" id="emp_id" placeholder="  Name" >
+                                        <select name="emp_id" id="">
+                                            <option value="">==Select Name==</option>
+                                            @forelse ($employee as $c )
+                                            <option {{old('emp_id')==$c->id}} value="{{$c->id}}">{{$c->name}}</option>
+                                            @empty
+                                            <option value="">No Company name found</option>
+                                            @endforelse
+                                        </select>
 
                                         @if($errors->has('emp_id'))
                                         <span class="text-danger"> {{ $errors->first('emp_id') }}</span>

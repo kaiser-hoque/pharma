@@ -9,6 +9,6 @@ class advancedsalary extends Model
 {
     use HasFactory;
     public function employee(){
-        return $this->belongsTo(Employee::class);
+        return $this->belongsTo(Employee::class,'emp_id','id');
     }
 }
