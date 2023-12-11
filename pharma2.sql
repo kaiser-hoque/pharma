@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 11, 2023 at 03:24 AM
+-- Generation Time: Dec 07, 2023 at 08:35 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -20,31 +20,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `pharma`
 --
-
--- --------------------------------------------------------
-
---
--- Table structure for table `advancedsalaries`
---
-
-CREATE TABLE `advancedsalaries` (
-  `id` int(11) NOT NULL,
-  `emp_id` int(11) DEFAULT NULL,
-  `month` varchar(191) DEFAULT NULL,
-  `year` text DEFAULT NULL,
-  `advanced_salary` varchar(191) DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `advancedsalaries`
---
-
-INSERT INTO `advancedsalaries` (`id`, `emp_id`, `month`, `year`, `advanced_salary`, `created_at`, `updated_at`) VALUES
-(1, 3, 'April', '2002', '3000', '2023-12-10 15:14:20', '2023-12-10 15:14:20'),
-(2, 6, 'January', '2002', '2000', '2023-12-10 15:34:03', '2023-12-10 15:34:03'),
-(3, 1, 'January', '2002', '2000', '2023-12-10 15:34:37', '2023-12-10 15:34:37');
 
 -- --------------------------------------------------------
 
@@ -380,10 +355,7 @@ INSERT INTO `purchases` (`id`, `supplier_id`, `purchase_date`, `reference_no`, `
 (4, 2, '2023-11-27', '11111', '2', '185.60', '0.00', 1, '5.00', NULL, '0.60', '203.00', 'hhhh', '1', NULL, 0, 1, NULL, '2023-12-07 00:14:37', '2023-12-07 00:14:37', NULL),
 (5, 4, '2023-12-13', '34', '8', '457.60', '0.00', 1, '34.00', NULL, '0.60', '446.00', 'kamal', '1', NULL, 0, 1, NULL, '2023-12-07 01:04:28', '2023-12-07 01:04:28', NULL),
 (6, 4, '2023-12-13', '34', '67', '-2653.20', '0.00', 1, '34.00', NULL, '0.80', '-2665.00', 'kamal', '1', NULL, 0, 1, NULL, '2023-12-07 01:05:57', '2023-12-07 01:05:57', NULL),
-(8, 4, '2023-12-04', '454', '2', '99.00', '0.00', 1, '5.00', NULL, '0.00', '99.00', 'jhwgw', '1', NULL, 0, 1, NULL, '2023-12-07 01:18:37', '2023-12-07 01:18:37', NULL),
-(9, 2, '2023-12-04', '43543', '23', '1055.24', '0.00', 0, '23.00', NULL, '0.53', '835.00', 'lll', '1', NULL, 0, 1, NULL, '2023-12-08 11:45:19', '2023-12-08 11:45:19', NULL),
-(10, 3, '2023-12-07', NULL, '1', '440.00', '0.00', 0, '23.00', NULL, '0.80', '372.00', 'good', '1', NULL, 0, 1, NULL, '2023-12-09 10:46:03', '2023-12-09 10:46:03', NULL),
-(11, 3, '2023-12-10', NULL, '1', '66.00', '0.00', 1, '10.00', NULL, '0.00', '79.00', NULL, '1', NULL, 0, 1, NULL, '2023-12-09 10:58:17', '2023-12-09 10:58:17', NULL);
+(8, 4, '2023-12-04', '454', '2', '99.00', '0.00', 1, '5.00', NULL, '0.00', '99.00', 'jhwgw', '1', NULL, 0, 1, NULL, '2023-12-07 01:18:37', '2023-12-07 01:18:37', NULL);
 
 -- --------------------------------------------------------
 
@@ -418,10 +390,7 @@ INSERT INTO `purchase_details` (`id`, `purchase_id`, `medicine_id`, `quantity`, 
 (4, 5, 13, '8.00', '55.00', '60.50', '10.00', 0, '6.00', '457.60', '2023-12-07 01:04:28', '2023-12-07 01:04:28', NULL),
 (5, 5, 13, '0.00', '0.00', '0.00', '0.00', 0, '0.00', '0.00', '2023-12-07 01:04:28', '2023-12-07 01:04:28', NULL),
 (6, 6, 13, '67.00', '4.00', '4.40', '10.00', 1, '44.00', '-2653.20', '2023-12-07 01:05:57', '2023-12-07 01:05:57', NULL),
-(7, 8, 12, '2.00', '45.00', '49.50', '10.00', 0, '0.00', '99.00', '2023-12-07 01:18:37', '2023-12-07 01:18:37', NULL),
-(8, 9, 14, '23.00', '56.00', '68.88', '23.00', 1, '23.00', '1055.24', '2023-12-08 11:45:19', '2023-12-08 11:45:19', NULL),
-(9, 10, 14, '1.00', '400.00', '440.00', '10.00', 1, '0.00', '440.00', '2023-12-09 10:46:03', '2023-12-09 10:46:03', NULL),
-(10, 11, 12, '1.00', '60.00', '66.00', '10.00', 1, '0.00', '66.00', '2023-12-09 10:58:17', '2023-12-09 10:58:17', NULL);
+(7, 8, 12, '2.00', '45.00', '49.50', '10.00', 0, '0.00', '99.00', '2023-12-07 01:18:37', '2023-12-07 01:18:37', NULL);
 
 -- --------------------------------------------------------
 
@@ -492,10 +461,7 @@ INSERT INTO `stocks` (`id`, `medicine_id`, `purchase_id`, `sales_id`, `transfer_
 (1, 13, 4, NULL, NULL, '2.00', '92.80', '10.00', '4.00', 1, '2023-12-07 00:14:37', '2023-12-07 00:14:37'),
 (2, 13, 5, NULL, NULL, '8.00', '57.20', '10.00', '6.00', 1, '2023-12-07 01:04:28', '2023-12-07 01:04:28'),
 (3, 13, 6, NULL, NULL, '67.00', '-39.60', '10.00', '44.00', 1, '2023-12-07 01:05:57', '2023-12-07 01:05:57'),
-(4, 12, 8, NULL, NULL, '2.00', '49.50', '10.00', '0.00', 1, '2023-12-07 01:18:37', '2023-12-07 01:18:37'),
-(5, 14, 9, NULL, NULL, '23.00', '45.88', '23.00', '23.00', 1, '2023-12-08 11:45:19', '2023-12-08 11:45:19'),
-(6, 14, 10, NULL, NULL, '1.00', '440.00', '10.00', '0.00', 1, '2023-12-09 10:46:03', '2023-12-09 10:46:03'),
-(7, 12, 11, NULL, NULL, '1.00', '66.00', '10.00', '0.00', 1, '2023-12-09 10:58:17', '2023-12-09 10:58:17');
+(4, 12, 8, NULL, NULL, '2.00', '49.50', '10.00', '0.00', 1, '2023-12-07 01:18:37', '2023-12-07 01:18:37');
 
 -- --------------------------------------------------------
 
@@ -565,12 +531,6 @@ INSERT INTO `users` (`id`, `name_en`, `name_bn`, `email`, `contact_no_en`, `cont
 --
 -- Indexes for dumped tables
 --
-
---
--- Indexes for table `advancedsalaries`
---
-ALTER TABLE `advancedsalaries`
-  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `attendances`
@@ -695,12 +655,6 @@ ALTER TABLE `users`
 --
 
 --
--- AUTO_INCREMENT for table `advancedsalaries`
---
-ALTER TABLE `advancedsalaries`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
---
 -- AUTO_INCREMENT for table `attendances`
 --
 ALTER TABLE `attendances`
@@ -764,13 +718,13 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT for table `purchases`
 --
 ALTER TABLE `purchases`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `purchase_details`
 --
 ALTER TABLE `purchase_details`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `roles`
@@ -788,7 +742,7 @@ ALTER TABLE `salaries`
 -- AUTO_INCREMENT for table `stocks`
 --
 ALTER TABLE `stocks`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `suppliers`
