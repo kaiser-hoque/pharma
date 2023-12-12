@@ -48,6 +48,7 @@ Route::middleware(['checkauth'])->prefix('admin')->group(function(){
     Route::get('/product_search_data', [purchase::class,'product_search_data'])->name('pur.product_search_data');
     Route::get('/product_search_sales', [sale::class,'product_search'])->name('sales.product_search');
     Route::get('/product_search_data_sales', [sale::class,'product_search_data'])->name('sales.product_search_data');
+    Route::get('/chack_stock', [sale::class,'check_stock'])->name('sales.check_stock');
 });
 Route::middleware(['checkrole'])->prefix('admin')->group(function(){
     Route::resource('user', user::class); //1st is for url and 2nd one is controller alice name

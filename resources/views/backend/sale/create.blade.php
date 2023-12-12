@@ -364,6 +364,23 @@
                 }
             });
 
+    function check_stock(e,pid){
+        $.ajax({
+            autoFocus:true,
+            url: "{{route('sales.check_stock')}}",
+            method: 'GET',
+            dataType: 'json',
+            data: {item_id: pid},
+            success: function(res){
+                if(parseFloat($(e).val()) > parseFloat(res)){
+                    alert("You cannot sale more than "+res);
+                    $(e).val(res);
+                    get_cal(e)
+                }
+            },error: function(e){console.log("error "+e);}
+        });
+    }         
+
         }
         //INCREMENT ITEM
         function removerow(e) {

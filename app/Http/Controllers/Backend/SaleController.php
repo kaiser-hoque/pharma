@@ -48,6 +48,12 @@ class SaleController extends Controller
 
     }
 
+    
+    public function check_stock(Request $request)
+    {
+        $stock=Stock::where('medicine_id',$request->item_id)->sum('quantity');
+        print_r(json_encode($stock));
+    }
      /**
      * Show the form for creating a new resource.
      *
@@ -55,7 +61,8 @@ class SaleController extends Controller
      */
     public function product_search_data(Request $request)
     {
-        if($request->item_id){
+        $stock=Stock::where('medicine_id',$request->item_id)->sum('quantity');
+        if($stock > 0){
             $product=Medicine::where('id',$request->item_id)->first();
             $data='<tr class="text-center">';
             $data.='<td class="p-2">'.$product->bname.'<input name="medicine_id[]" type="hidden" value="'.$product->id.'"></td>';
@@ -116,14 +123,11 @@ class SaleController extends Controller
                             $stock = new Stock;
                             $stock->sales_id = $sale->id;
                             $stock->medicine_id = $medicine_id;
-                            $stock->quantity = - $sd->quantity;
+                            $stock->quantity = "-".$sd->quantity;
                             $stock->unit_price = ($sd->total_amount / $sd->quantity);
                             $stock->tax = $sd->tax;
                             $stock->discount = $sd->discount;
                             $stock->save();
-
-                            Stock::where('medicine_id', $medicine_id)
-                                ->decrement('quantity', $sd->quantity);
 
                             DB::commit();
                         }
