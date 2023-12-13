@@ -48,7 +48,7 @@ class SaleController extends Controller
 
     }
 
-    
+
     public function check_stock(Request $request)
     {
         $stock=Stock::where('medicine_id',$request->item_id)->sum('quantity');
@@ -83,6 +83,8 @@ class SaleController extends Controller
             $data.='</tr>';
 
             print_r(json_encode($data));
+        } else{
+            print_r(json_encode(false));
         }
 
     }

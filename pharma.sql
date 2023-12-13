@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 11, 2023 at 03:24 AM
+-- Generation Time: Dec 12, 2023 at 09:53 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -44,7 +44,9 @@ CREATE TABLE `advancedsalaries` (
 INSERT INTO `advancedsalaries` (`id`, `emp_id`, `month`, `year`, `advanced_salary`, `created_at`, `updated_at`) VALUES
 (1, 3, 'April', '2002', '3000', '2023-12-10 15:14:20', '2023-12-10 15:14:20'),
 (2, 6, 'January', '2002', '2000', '2023-12-10 15:34:03', '2023-12-10 15:34:03'),
-(3, 1, 'January', '2002', '2000', '2023-12-10 15:34:37', '2023-12-10 15:34:37');
+(3, 1, 'January', '2002', '2000', '2023-12-10 15:34:37', '2023-12-10 15:34:37'),
+(4, 1, 'January', '2000', '500', '2023-12-10 21:52:19', '2023-12-10 21:52:19'),
+(5, 3, 'January', '2000', '500', '2023-12-11 00:30:29', '2023-12-11 00:30:29');
 
 -- --------------------------------------------------------
 
@@ -268,8 +270,8 @@ INSERT INTO `medicines` (`id`, `companie_id`, `bname`, `gname`, `category_id`, `
 (14, 14, 'Aspirin', 'Acetylsalicylic Acid', 7, 'ASP005', NULL, NULL, 2, '90.00', 1, 'Pain reliever and anti-inflammatory medication.', '2023-12-06 19:47:34', '2023-12-06 19:47:34', '2023-12-04', '2023-12-28', '500mg'),
 (15, 18, 'Advil', 'Ibuprofen', 15, 'ADV001', 5, NULL, 2, '455.00', 1, 'Over-the-counter pain reliever and anti-inflammatory drug.', '2023-12-06 19:50:49', '2023-12-06 19:50:49', '2023-11-29', '2023-12-23', '100mg'),
 (16, 17, 'Zyrtec', 'Cetirizine', 7, 'ZYR002', 3, NULL, 8, '330.00', 0, 'Antihistamine used for allergy relief.', '2023-12-06 19:52:23', '2023-12-06 19:52:23', '2024-01-01', '2023-12-28', '250mg'),
-(17, 11, 'Prozac', 'Fluoxetine', 6, 'PRO003', 7, NULL, 5, '200.00', 1, 'SSRI used for depression and anxiety.', '2023-12-06 19:53:50', '2023-12-06 19:53:50', '2023-11-22', '2023-12-28', '500mg'),
-(18, 9, 'Nexium', 'Esomeprazole', 12, 'NEX005', 8, NULL, 2, '100.00', 1, 'PPI used to treat acid reflux.', '2023-12-06 19:55:03', '2023-12-06 19:55:03', '2023-10-23', '2023-12-29', '250mg'),
+(17, 11, 'Prozac', 'Prozac', 6, 'PRO003', 7, '1351702276779.jpg', 5, '200.00', 1, 'SSRI used for depression and anxiety.', '2023-12-06 19:53:50', '2023-12-11 00:39:39', '2023-11-22', '2023-12-28', '500mg'),
+(18, 9, 'Nexium', 'Nexium', 12, 'NEX005', 8, '1111702276802.jpg', 2, '100.00', 1, 'PPI used to treat acid reflux.', '2023-12-06 19:55:03', '2023-12-11 00:40:02', '2023-10-23', '2023-12-29', '250mg'),
 (19, 16, 'Nexium', 'Esomeprazole', 6, 'NEX005', 7, NULL, 4, '235.00', 1, 'PPI used to treat acid reflux.', '2023-12-06 21:10:15', '2023-12-06 21:10:15', '2023-12-10', '2023-12-29', '25mg'),
 (20, 16, 'Tylenol', 'Acetaminophen', 15, 'TYL004', 1, NULL, 6, '555.00', 1, 'Commonly used for pain and fever relief.', '2023-12-06 21:11:51', '2023-12-06 21:11:51', '2023-08-09', '2024-03-14', '500MG');
 
@@ -300,12 +302,14 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (8, '2023_11_26_174219_create_companies_table', 1),
 (9, '2023_11_27_035102_create_suppliers_table', 1),
 (10, '2023_11_27_061650_create_medicines_table', 1),
-(13, '2023_12_03_145820_create_purchases_table', 2),
 (14, '2023_12_03_191258_create_salaries_table', 2),
 (15, '2023_12_03_192039_create_attendances_table', 3),
-(16, '2023_12_04_135719_create_stocks_table', 3),
-(17, '2023_12_04_140410_create_purchase_details_table', 3),
-(18, '2023_12_04_185737_create_employees_table', 3);
+(18, '2023_12_04_185737_create_employees_table', 3),
+(20, '2023_12_03_145820_create_purchases_table', 4),
+(21, '2023_12_04_135719_create_stocks_table', 4),
+(22, '2023_12_04_140410_create_purchase_details_table', 4),
+(23, '2023_12_10_044124_create_sales_table', 5),
+(24, '2023_12_10_142258_create_sale_details_table', 5);
 
 -- --------------------------------------------------------
 
@@ -375,15 +379,9 @@ CREATE TABLE `purchases` (
 --
 
 INSERT INTO `purchases` (`id`, `supplier_id`, `purchase_date`, `reference_no`, `total_quantity`, `sub_amount`, `tax`, `discount_type`, `discount`, `other_charge`, `round_of`, `grand_total`, `note`, `created_by`, `updated_by`, `payment_status`, `status`, `status_note`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 1, '2023-12-05', '123', '4', '67.00', '5.00', 7, '5.00', '4.00', '45.00', '45.00', 'hi', '', NULL, 0, 1, 'hi', NULL, NULL, NULL),
-(2, 1, '2023-12-05', '128', '7', '67.00', '5.00', 9, '6.00', '5.00', '55.00', '95.00', 'hi', '', NULL, 0, 1, 'hlw', NULL, NULL, NULL),
-(4, 2, '2023-11-27', '11111', '2', '185.60', '0.00', 1, '5.00', NULL, '0.60', '203.00', 'hhhh', '1', NULL, 0, 1, NULL, '2023-12-07 00:14:37', '2023-12-07 00:14:37', NULL),
-(5, 4, '2023-12-13', '34', '8', '457.60', '0.00', 1, '34.00', NULL, '0.60', '446.00', 'kamal', '1', NULL, 0, 1, NULL, '2023-12-07 01:04:28', '2023-12-07 01:04:28', NULL),
-(6, 4, '2023-12-13', '34', '67', '-2653.20', '0.00', 1, '34.00', NULL, '0.80', '-2665.00', 'kamal', '1', NULL, 0, 1, NULL, '2023-12-07 01:05:57', '2023-12-07 01:05:57', NULL),
-(8, 4, '2023-12-04', '454', '2', '99.00', '0.00', 1, '5.00', NULL, '0.00', '99.00', 'jhwgw', '1', NULL, 0, 1, NULL, '2023-12-07 01:18:37', '2023-12-07 01:18:37', NULL),
-(9, 2, '2023-12-04', '43543', '23', '1055.24', '0.00', 0, '23.00', NULL, '0.53', '835.00', 'lll', '1', NULL, 0, 1, NULL, '2023-12-08 11:45:19', '2023-12-08 11:45:19', NULL),
-(10, 3, '2023-12-07', NULL, '1', '440.00', '0.00', 0, '23.00', NULL, '0.80', '372.00', 'good', '1', NULL, 0, 1, NULL, '2023-12-09 10:46:03', '2023-12-09 10:46:03', NULL),
-(11, 3, '2023-12-10', NULL, '1', '66.00', '0.00', 1, '10.00', NULL, '0.00', '79.00', NULL, '1', NULL, 0, 1, NULL, '2023-12-09 10:58:17', '2023-12-09 10:58:17', NULL);
+(1, 1, '2023-12-11', '11111', '2', '71.40', '0.00', 0, '5.00', NULL, '0.83', '72.00', 'kaiser', '1', NULL, 0, 1, NULL, '2023-12-11 22:35:12', '2023-12-11 22:35:12', NULL),
+(2, 1, '2023-12-12', '34', '1', '200.00', '0.00', 0, '10.00', NULL, '0.00', '190.00', 'dfgsdf', '1', NULL, 0, 1, NULL, '2023-12-12 02:44:51', '2023-12-12 02:44:51', NULL),
+(3, 1, '2023-12-12', '34', '1', '200.00', '0.00', 0, '10.00', NULL, '0.00', '190.00', 'fgh', '1', NULL, 0, 1, NULL, '2023-12-12 02:47:12', '2023-12-12 02:47:12', NULL);
 
 -- --------------------------------------------------------
 
@@ -399,7 +397,7 @@ CREATE TABLE `purchase_details` (
   `unit_price` decimal(10,2) NOT NULL DEFAULT 0.00,
   `sub_amount` decimal(10,2) NOT NULL DEFAULT 0.00,
   `tax` decimal(10,2) NOT NULL DEFAULT 0.00,
-  `discount_type` int(11) NOT NULL DEFAULT 0 COMMENT '0 amount, 1 percent',
+  `discount_type` int(11) DEFAULT 0 COMMENT '0 amount, 1 percent',
   `discount` decimal(10,2) NOT NULL DEFAULT 0.00,
   `total_amount` decimal(10,2) NOT NULL DEFAULT 0.00,
   `created_at` timestamp NULL DEFAULT NULL,
@@ -412,16 +410,9 @@ CREATE TABLE `purchase_details` (
 --
 
 INSERT INTO `purchase_details` (`id`, `purchase_id`, `medicine_id`, `quantity`, `unit_price`, `sub_amount`, `tax`, `discount_type`, `discount`, `total_amount`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 2, 2, '23.00', '23.00', '23.00', '4.00', 1, '3.00', '23.00', '2023-12-04 23:17:33', '2023-12-04 23:17:33', NULL),
-(2, 3, 3, '3.00', '3.00', '3.00', '2.00', 1, '1.00', '56.00', '2023-12-04 23:31:56', '2023-12-04 23:31:56', NULL),
-(3, 4, 13, '2.00', '88.00', '96.80', '10.00', 1, '4.00', '185.60', '2023-12-07 00:14:37', '2023-12-07 00:14:37', NULL),
-(4, 5, 13, '8.00', '55.00', '60.50', '10.00', 0, '6.00', '457.60', '2023-12-07 01:04:28', '2023-12-07 01:04:28', NULL),
-(5, 5, 13, '0.00', '0.00', '0.00', '0.00', 0, '0.00', '0.00', '2023-12-07 01:04:28', '2023-12-07 01:04:28', NULL),
-(6, 6, 13, '67.00', '4.00', '4.40', '10.00', 1, '44.00', '-2653.20', '2023-12-07 01:05:57', '2023-12-07 01:05:57', NULL),
-(7, 8, 12, '2.00', '45.00', '49.50', '10.00', 0, '0.00', '99.00', '2023-12-07 01:18:37', '2023-12-07 01:18:37', NULL),
-(8, 9, 14, '23.00', '56.00', '68.88', '23.00', 1, '23.00', '1055.24', '2023-12-08 11:45:19', '2023-12-08 11:45:19', NULL),
-(9, 10, 14, '1.00', '400.00', '440.00', '10.00', 1, '0.00', '440.00', '2023-12-09 10:46:03', '2023-12-09 10:46:03', NULL),
-(10, 11, 12, '1.00', '60.00', '66.00', '10.00', 1, '0.00', '66.00', '2023-12-09 10:58:17', '2023-12-09 10:58:17', NULL);
+(1, 1, 14, '2.00', '34.00', '37.40', '10.00', 0, '5.00', '71.40', '2023-12-11 22:35:12', '2023-12-11 22:35:12', NULL),
+(2, 2, 14, '1.00', '200.00', '220.00', '10.00', 0, '10.00', '200.00', '2023-12-12 02:44:51', '2023-12-12 02:44:51', NULL),
+(3, 3, 14, '1.00', '200.00', '220.00', '10.00', 0, '10.00', '200.00', '2023-12-12 02:47:12', '2023-12-12 02:47:12', NULL);
 
 -- --------------------------------------------------------
 
@@ -466,6 +457,86 @@ CREATE TABLE `salaries` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `sales`
+--
+
+CREATE TABLE `sales` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `customer_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `sale_date` date NOT NULL,
+  `reference_no` varchar(255) DEFAULT NULL,
+  `total_quantity` varchar(255) DEFAULT NULL,
+  `sub_amount` decimal(10,2) NOT NULL DEFAULT 0.00,
+  `tax` decimal(10,2) DEFAULT 0.00,
+  `discount_type` int(11) DEFAULT 0 COMMENT '0 amount, 1 percent',
+  `discount` decimal(10,2) DEFAULT 0.00,
+  `other_charge` decimal(10,2) DEFAULT 0.00,
+  `round_of` decimal(10,2) DEFAULT 0.00,
+  `grand_total` decimal(10,2) NOT NULL DEFAULT 0.00,
+  `note` varchar(255) DEFAULT NULL,
+  `created_by` varchar(255) NOT NULL,
+  `updated_by` varchar(255) DEFAULT NULL,
+  `payment_status` int(11) DEFAULT 0 COMMENT '0 unpaid, 1 paid, 2 partial_paid',
+  `status` int(11) NOT NULL DEFAULT 1 COMMENT '1 parches, 2 return, 3 partial_return, 4 cancel',
+  `status_note` varchar(255) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `deleted_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `sales`
+--
+
+INSERT INTO `sales` (`id`, `customer_id`, `sale_date`, `reference_no`, `total_quantity`, `sub_amount`, `tax`, `discount_type`, `discount`, `other_charge`, `round_of`, `grand_total`, `note`, `created_by`, `updated_by`, `payment_status`, `status`, `status_note`, `created_at`, `updated_at`, `deleted_at`) VALUES
+(2, 12, '2023-12-04', 'p-1233', '1', '727.00', '0.00', 1, '5.00', NULL, '0.00', '745.00', 'kamal', '1', NULL, 0, 1, NULL, '2023-12-11 01:54:05', '2023-12-11 01:54:05', NULL),
+(3, 11, '2023-12-12', '11111', '1', '94.50', '0.00', 0, '5.00', NULL, '0.77', '94.00', 'kaiser', '1', NULL, 0, 1, NULL, '2023-12-11 22:36:42', '2023-12-11 22:36:42', NULL),
+(7, 9, '2023-12-11', '113434', '1', '727.00', '0.00', 1, '10.00', NULL, '0.00', '727.00', 'jamal', '1', NULL, 0, 1, NULL, '2023-12-12 02:10:08', '2023-12-12 02:10:08', NULL),
+(8, 10, '2023-12-11', '3435', '2', '178.00', '0.00', 1, '10.00', NULL, '0.00', '178.00', 'kamalda', '1', NULL, 0, 1, NULL, '2023-12-12 02:12:55', '2023-12-12 02:12:55', NULL),
+(9, 10, '2023-12-13', '34', '2', '419.00', '0.00', 0, NULL, NULL, '0.00', '419.00', NULL, '1', NULL, 0, 1, NULL, '2023-12-12 02:19:59', '2023-12-12 02:19:59', NULL),
+(10, 10, '2023-12-13', '34', '1', '89.00', '0.00', 0, '5.00', NULL, '0.55', '107.00', 'dfdg', '1', NULL, 0, 1, NULL, '2023-12-12 02:20:31', '2023-12-12 02:20:31', NULL),
+(11, 10, '2023-12-13', '34', '1', '90.00', '0.00', 0, '5.00', NULL, '0.50', '108.00', 'dfdg', '1', NULL, 0, 1, NULL, '2023-12-12 02:22:11', '2023-12-12 02:22:11', NULL),
+(12, 10, '2023-12-13', '34', '1', '90.00', '0.00', 0, '10.00', NULL, '0.00', '91.00', 'adfsgdsaf', '1', NULL, 0, 1, NULL, '2023-12-12 02:48:16', '2023-12-12 02:48:16', NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `sale_details`
+--
+
+CREATE TABLE `sale_details` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `sale_id` bigint(20) UNSIGNED NOT NULL,
+  `medicine_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `quantity` decimal(10,2) NOT NULL DEFAULT 0.00,
+  `unit_price` decimal(10,2) NOT NULL DEFAULT 0.00,
+  `sub_amount` decimal(10,2) NOT NULL DEFAULT 0.00,
+  `tax` decimal(10,2) NOT NULL DEFAULT 0.00,
+  `discount_type` int(11) DEFAULT 0 COMMENT '0 amount, 1 percent',
+  `discount` decimal(10,2) NOT NULL DEFAULT 0.00,
+  `total_amount` decimal(10,2) NOT NULL DEFAULT 0.00,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `deleted_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `sale_details`
+--
+
+INSERT INTO `sale_details` (`id`, `sale_id`, `medicine_id`, `quantity`, `unit_price`, `sub_amount`, `tax`, `discount_type`, `discount`, `total_amount`, `created_at`, `updated_at`, `deleted_at`) VALUES
+(2, 2, 13, '1.00', '670.00', '737.00', '10.00', 1, '10.00', '727.00', '2023-12-11 01:54:05', '2023-12-11 01:54:05', NULL),
+(3, 3, 14, '1.00', '90.00', '99.00', '10.00', 0, '5.00', '94.50', '2023-12-11 22:36:42', '2023-12-11 22:36:42', NULL),
+(4, 7, 13, '1.00', '670.00', '737.00', '10.00', 1, '10.00', '727.00', '2023-12-12 02:10:08', '2023-12-12 02:10:08', NULL),
+(5, 8, 14, '2.00', '90.00', '99.00', '10.00', 1, '10.00', '178.00', '2023-12-12 02:12:55', '2023-12-12 02:12:55', NULL),
+(6, 9, 11, '1.00', '300.00', '330.00', '10.00', 1, '10.00', '320.00', '2023-12-12 02:19:59', '2023-12-12 02:19:59', NULL),
+(7, 10, 14, '1.00', '90.00', '99.00', '10.00', 1, '10.00', '89.00', '2023-12-12 02:20:31', '2023-12-12 02:20:31', NULL),
+(8, 11, 14, '1.00', '90.00', '99.00', '10.00', 0, '10.00', '90.00', '2023-12-12 02:22:11', '2023-12-12 02:22:11', NULL),
+(9, 12, 14, '1.00', '90.00', '99.00', '10.00', 0, '10.00', '90.00', '2023-12-12 02:48:16', '2023-12-12 02:48:16', NULL);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `stocks`
 --
 
@@ -489,13 +560,8 @@ CREATE TABLE `stocks` (
 --
 
 INSERT INTO `stocks` (`id`, `medicine_id`, `purchase_id`, `sales_id`, `transfer_id`, `quantity`, `unit_price`, `tax`, `discount`, `batch_id`, `created_at`, `updated_at`) VALUES
-(1, 13, 4, NULL, NULL, '2.00', '92.80', '10.00', '4.00', 1, '2023-12-07 00:14:37', '2023-12-07 00:14:37'),
-(2, 13, 5, NULL, NULL, '8.00', '57.20', '10.00', '6.00', 1, '2023-12-07 01:04:28', '2023-12-07 01:04:28'),
-(3, 13, 6, NULL, NULL, '67.00', '-39.60', '10.00', '44.00', 1, '2023-12-07 01:05:57', '2023-12-07 01:05:57'),
-(4, 12, 8, NULL, NULL, '2.00', '49.50', '10.00', '0.00', 1, '2023-12-07 01:18:37', '2023-12-07 01:18:37'),
-(5, 14, 9, NULL, NULL, '23.00', '45.88', '23.00', '23.00', 1, '2023-12-08 11:45:19', '2023-12-08 11:45:19'),
-(6, 14, 10, NULL, NULL, '1.00', '440.00', '10.00', '0.00', 1, '2023-12-09 10:46:03', '2023-12-09 10:46:03'),
-(7, 12, 11, NULL, NULL, '1.00', '66.00', '10.00', '0.00', 1, '2023-12-09 10:58:17', '2023-12-09 10:58:17');
+(1, 14, 3, NULL, NULL, '3.00', '200.00', '10.00', '10.00', 1, '2023-12-12 02:47:12', '2023-12-12 02:47:12'),
+(2, 14, NULL, 12, NULL, '-1.00', '90.00', '10.00', '10.00', 1, '2023-12-12 02:48:16', '2023-12-12 02:48:16');
 
 -- --------------------------------------------------------
 
@@ -669,6 +735,19 @@ ALTER TABLE `salaries`
   ADD KEY `salaries_user_id_index` (`user_id`);
 
 --
+-- Indexes for table `sales`
+--
+ALTER TABLE `sales`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `sales_customer_id_index` (`customer_id`);
+
+--
+-- Indexes for table `sale_details`
+--
+ALTER TABLE `sale_details`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `stocks`
 --
 ALTER TABLE `stocks`
@@ -698,7 +777,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `advancedsalaries`
 --
 ALTER TABLE `advancedsalaries`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `attendances`
@@ -746,7 +825,7 @@ ALTER TABLE `medicines`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT for table `permissions`
@@ -764,13 +843,13 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT for table `purchases`
 --
 ALTER TABLE `purchases`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `purchase_details`
 --
 ALTER TABLE `purchase_details`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `roles`
@@ -785,10 +864,22 @@ ALTER TABLE `salaries`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `sales`
+--
+ALTER TABLE `sales`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+
+--
+-- AUTO_INCREMENT for table `sale_details`
+--
+ALTER TABLE `sale_details`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
 -- AUTO_INCREMENT for table `stocks`
 --
 ALTER TABLE `stocks`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `suppliers`
@@ -838,6 +929,12 @@ ALTER TABLE `purchases`
 --
 ALTER TABLE `salaries`
   ADD CONSTRAINT `salaries_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE;
+
+--
+-- Constraints for table `sales`
+--
+ALTER TABLE `sales`
+  ADD CONSTRAINT `sales_customer_id_foreign` FOREIGN KEY (`customer_id`) REFERENCES `customers` (`id`) ON DELETE CASCADE;
 
 --
 -- Constraints for table `users`

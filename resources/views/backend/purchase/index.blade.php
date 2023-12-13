@@ -63,17 +63,17 @@
                                         <td>{{$value->other_charge}}</td>
                                         <td>{{$value->round_of}}</td>
                                         <td>{{$value->payment_status}}</td>
-                                        <td>{{ __($value->status == 1 ? 'pharches' : 
-                                            ($value->status == 2 ? 'return' : 
+                                        <td>{{ __($value->status == 1 ? 'pharches' :
+                                            ($value->status == 2 ? 'return' :
                                             ($value->status == 3 ? 'partial_return' : 'cancel'))) }}</td>
                                         <td>{{$value->tax}}</td>
                                         <td>{{$value->note}}</td>
                                         <td class="action-buttons">
                                             <div class="button-container">
-                                                <!-- <a href="{{route('medicine.edit',encryptor('encrypt', $value->id))}}">
+                                                {{-- <a href="{{route('purchase.edit',encryptor('encrypt', $value->id))}}">
                                                     <i class="fa fa-edit"></i>
-                                                </a> -->
-                                                <a href="{{route('medicine.show',encryptor('encrypt',$value->id))}}"><i class="fa-solid fa-eye"></i></a>
+                                                </a>  --}}
+                                                <a href="{{route('purchase.show',encryptor('encrypt',$value->id))}}"><i class="fa-solid fa-eye"></i></a>
                                                 <form id="" action="{{ route('purchase.destroy', $value->id)}}" method="post">
                                                     @csrf
                                                     @method('delete')

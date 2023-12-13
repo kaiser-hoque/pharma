@@ -145,9 +145,10 @@ class PurchaseController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Purchase $purchase)
+    public function show($id)
     {
-        //
+        $purchase = Purchase::findOrFail(encryptor('decrypt',$id));
+        return view('backend.purchase.show', compact('purchase'));
     }
 
     /**

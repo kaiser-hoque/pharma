@@ -255,7 +255,7 @@
 
     </div>
 </div>
-
+ 
  @endsection
 
  @push('scripts')
@@ -355,14 +355,18 @@
                     item_id: item_id
                 },
                 success: function(res) {
-                    $('#details_data').append(res);
-                    $("#item_search").val('');
-                    $("#item_search").removeClass('ui-autocomplete-loader-center');
-                },
-                error: function(e) {
-                    console.log("error " + e);
-                }
-            });
+            if (res) {
+                $('#details_data').append(res);
+                $("#item_search").val('');
+            } else {
+                alert("Product is out of stock");
+            }
+            $("#item_search").removeClass('ui-autocomplete-loader-center');
+        },
+        error: function(e) {
+            console.log("error " + e);
+        }
+    });
 
     function check_stock(e,pid){
         $.ajax({
@@ -379,7 +383,7 @@
                 }
             },error: function(e){console.log("error "+e);}
         });
-    }         
+    }
 
         }
         //INCREMENT ITEM

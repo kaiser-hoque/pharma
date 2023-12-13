@@ -24,7 +24,7 @@
                 <div class="ms-auto">
                     <div class="btn-group">
                         <button type="button" class="btn btn-primary"><a class="text-white"
-                                href="{{ route('medicine.index') }}">Purchase list</a></button>
+                                href="{{ route('purchase.index') }}">Purchase list</a></button>
                     </div>
                 </div>
             </div>
