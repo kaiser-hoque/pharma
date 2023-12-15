@@ -34,17 +34,37 @@
                                     <tr>
                                         <th>{{ __('SL') }}</th>
                                         <th>{{ __('Medicine Name') }}</th>
-                                        <th>{{ __('Quentity') }}</th>
+                                        <th>{{ __('Expire Date') }}</th>
+                                        <th>{{ __('Quantity') }}</th>
                                         <th>{{ __('Stock Value') }}</th>
+                                        <th>{{ __('Reorder Status') }}</th>
+                                        <th>{{ __('Low Stock Status') }}</th> <!-- New column -->
                                     </tr>
                                 </thead>
                                 <tbody>
                                     @forelse($stock as $p)
                                         <tr>
                                             <td>{{ ++$loop->index }}</td>
-                                            <td class="text-center">{{ $p->medicine?->bname}}</td>
-                                            <td class="text-center">{{ $p->quantity }}</td>
-
+                                            <td class="text-center">{{ $p->medicine?->bname }}</td>
+                                            <td>{{ $p->medicine ? date('M-d-Y', strtotime($p->medicine->expiredate)) : null }}</td>
+                                            <td class="text-center">
+                                                {{ $p->quantity }}
+                                            </td>
+                                            <td>{{ $p->stock_value }}</td>
+                                            <td>
+                                                @if($p->quantity < 5)
+                                                    <span class="text-danger">Low Stock</span>
+                                                @else
+                                                    Normal
+                                                @endif
+                                            </td>
+                                            <td>
+                                                @if($p->quantity < 5)
+                                                    <span class="text-danger">Low Stock</span>
+                                                @else
+                                                    <!-- Add any other status or leave empty -->
+                                                @endif
+                                            </td>
                                         </tr>
                                     @empty
                                         <tr>
@@ -53,6 +73,8 @@
                                     @endforelse
                                 </tbody>
                             </table>
+
+
                         </div>
                     </div>
                 </div>

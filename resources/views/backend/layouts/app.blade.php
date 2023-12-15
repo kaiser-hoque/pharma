@@ -265,6 +265,18 @@
                 <a href="javascript:;" class="has-arrow">
                     <div class="parent-icon"><i class="fa fa-file" aria-hidden="true"></i></i>
                     </div>
+                    <div class="menu-title">Stock</div>
+                </a>
+                <ul>
+                    <li> <a href="{{route('stock.index')}}"><i class="fa-solid fa-arrow-right"></i>Medicine Stock</a>
+                    </li>
+                </ul>
+
+            </li>
+            <li>
+                <a href="javascript:;" class="has-arrow">
+                    <div class="parent-icon"><i class="fa fa-file" aria-hidden="true"></i></i>
+                    </div>
                     <div class="menu-title">Finance</div>
                 </a>
                 <ul>
