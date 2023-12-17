@@ -38,7 +38,7 @@
                                         <th>{{ __('Quantity') }}</th>
                                         <th>{{ __('Stock Value') }}</th>
                                         <th>{{ __('Reorder Status') }}</th>
-                                        <th>{{ __('Low Stock Status') }}</th> <!-- New column -->
+                                        
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -58,13 +58,7 @@
                                                     Normal
                                                 @endif
                                             </td>
-                                            <td>
-                                                @if($p->quantity < 5)
-                                                    <span class="text-danger">Low Stock</span>
-                                                @else
-                                                    <!-- Add any other status or leave empty -->
-                                                @endif
-                                            </td>
+                                            
                                         </tr>
                                     @empty
                                         <tr>

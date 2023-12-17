@@ -60,7 +60,10 @@ Route::middleware(['checkrole'])->prefix('admin')->group(function(){
     Route::resource('supplier', supplier::class);
     Route::resource('medicine', medicine::class);
     Route::resource('purchase', purchase::class);
+    Route::get('invoice', [purchase::class,'invoice'])->name('invoice');
     Route::resource('sale', sale::class);
+    Route::get('saledetails', [sale::class,'saledetails'])->name('saledetails');
+
     Route::resource('employee', employee::class);
     Route::resource('attendances', attendances::class);
     Route::resource('salary', salary::class);

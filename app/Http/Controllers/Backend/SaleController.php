@@ -178,4 +178,10 @@ class SaleController extends Controller
     {
         //
     }
+
+    public function saledetails()
+    {
+        $sale=SaleDetails::get();
+        return view ('backend.sale.saledetails', compact('sale')); 
+    }
 }

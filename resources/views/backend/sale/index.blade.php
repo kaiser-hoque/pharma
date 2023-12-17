@@ -38,15 +38,15 @@
                                         <th class="text-center">{{ __('Reference No') }} </th>
                                         <th class="text-center">{{ __('Total Quantity') }} </th>
                                         <th class="text-center">{{ __('Sub Amount') }} </th>
-                                        <th class="text-center">{{ __('Tax') }} </th>
-                                        <th class="text-center">{{ __('Discount Type') }} </th>
+                                        <!-- <th class="text-center">{{ __('Tax') }} </th> -->
+                                        <!-- <th class="text-center">{{ __('Discount Type') }} </th> -->
                                         <th class="text-center">{{ __('Discount') }} </th>
-                                        <th class="text-center">{{ __('Other Charge') }} </th>
-                                        <th class="text-center">{{ __('Round Of') }} </th>
+                                        <!-- <th class="text-center">{{ __('Other Charge') }} </th> -->
+                                        <!-- <th class="text-center">{{ __('Round Of') }} </th> -->
                                         <th class="text-center">{{ __('Grand Total') }} </th>
-                                        <th class="text-center">{{ __('Payment Status') }} </th>
+                                        <!-- <th class="text-center">{{ __('Payment Status') }} </th>
                                         <th class="text-center">{{ __('Note') }} </th>
-                                        <th class="text-center">{{ __('Status Note') }} </th>
+                                        <th class="text-center">{{ __('Status Note') }} </th> -->
                                         <th class="white-space-nowrap">{{ __('Action') }}</th>
                                     </tr>
                                 </thead>
@@ -59,13 +59,13 @@
                                         <td>{{$value->reference_no}}</td>
                                         <td> {{$value->total_quantity}} </td>
                                         <td>{{$value->sub_amount}}</td>
-                                        <td>{{$value->tax}}</td>
-                                        <td>{{($value->discount_type)==0 ? 'amount':'percent' }}</td>
+                                        <!-- <td>{{$value->tax}}</td> -->
+                                        <!-- <td>{{($value->discount_type)==0 ? 'amount':'percent' }}</td> -->
                                         <td>{{$value->discount}}</td>
-                                        <td>{{$value->other_charge}}</td>
-                                        <td>{{$value->round_of}}</td>
+                                        <!-- <td>{{$value->other_charge}}</td> -->
+                                        <!-- <td>{{$value->round_of}}</td> -->
                                         <td>{{$value->grand_total}}</td>
-                                        <td>
+                                        <!-- <td>
                                             {{
                                                 $value->payment_status == 0 ? 'unpaid' :
                                                 ($value->payment_status == 1 ? 'paid' :
@@ -74,7 +74,7 @@
                                         </td>
 
                                         <td>{{$value->note}}</td>
-                                        <td>{{$value->status_note}}</td>
+                                        <td>{{$value->status_note}}</td> -->
                                         {{-- <td>{{($value->status)==1 ? 'active':'inactive'}}</td> --}}
                                         <td class="action-buttons">
                                             <div class="button-container">

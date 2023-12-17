@@ -37,7 +37,7 @@
                                 <thead>
                                     <tr>
                                         <th>{{ __('SL') }}</th>
-                                        <th>{{ __('Purchase id') }}</th>
+                                        <!-- <th>{{ __('Purchase id') }}</th> -->
                                         <th>{{ __('Product Name') }}</th>
                                         <th>{{ __('quantity') }}</th>
                                         <th>{{ __('Unite Price') }}</th>
@@ -53,7 +53,7 @@
                                     @forelse($pd as $value)
                                     <tr>
                                         <td>{{++$loop->index}}</td>
-                                        <td class="text-center">{{$value->purchase_id}}</td>
+                                        <!-- <td class="text-center">{{$value->purchase_id}}</td> -->
                                         <td class="text-center">{{$value->medicine?->bname}}</td>
                                         <td class="text-center">{{$value->quantity}}</td>
                                         <td class="text-center">{{$value->unit_price}}</td>

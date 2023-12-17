@@ -1,7 +1,4 @@
 <?php
-
-
-
 namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Controller;
 use App\Models\Supplier;
@@ -178,5 +175,9 @@ class PurchaseController extends Controller
         $purchase->delete();
         $this->notice::success('Data successfully deleted');
         return redirect()->back();
+    }
+    public function invoice()
+    {
+       return view ('backend.purchase.invoice');
     }
 }

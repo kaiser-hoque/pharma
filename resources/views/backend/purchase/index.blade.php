@@ -38,14 +38,14 @@
                                         <th class="text-center">{{ __('Total Quantity') }} </th>
                                         <th class="text-center">{{ __('Sub Amount') }} </th>
                                         <th class="text-center">{{ __('Grand Total') }} </th>
-                                        <th class="text-center">{{ __('Reference No') }} </th>
+                                        <!-- <th class="text-center">{{ __('Reference No') }} </th> -->
                                         <th class="text-center">{{ __('Discount') }}</th>
-                                        <th class="text-center">{{ __('Other Charge') }} </th>
+                                        <!-- <th class="text-center">{{ __('Other Charge') }} </th>
                                         <th class="text-center">{{ __('Round Of') }} </th>
                                         <th class="text-center">{{ __('payment status') }} </th>
                                         <th class="text-center">{{ __('status') }}
                                         <th>{{ __('Tax') }}</th>
-                                        <th>{{ __('note') }}</th>
+                                        <th>{{ __('note') }}</th> -->
                                         <th class="white-space-nowrap">{{ __('Action') }}</th>
                                     </tr>
                                 </thead>
@@ -58,16 +58,16 @@
                                         <td>{{$value->total_quantity}}</td>
                                         <td>{{$value->sub_amount}}</td>
                                         <td>{{$value->grand_total}}</td>
-                                        <td>{{$value->reference_no}}</td>
+                                        <!-- <td>{{$value->reference_no}}</td> -->
                                         <td>{{$value->discount}}</td>
-                                        <td>{{$value->other_charge}}</td>
+                                        <!-- <td>{{$value->other_charge}}</td>
                                         <td>{{$value->round_of}}</td>
                                         <td>{{$value->payment_status}}</td>
                                         <td>{{ __($value->status == 1 ? 'pharches' :
                                             ($value->status == 2 ? 'return' :
                                             ($value->status == 3 ? 'partial_return' : 'cancel'))) }}</td>
                                         <td>{{$value->tax}}</td>
-                                        <td>{{$value->note}}</td>
+                                        <td>{{$value->note}}</td> -->
                                         <td class="action-buttons">
                                             <div class="button-container">
                                                 {{-- <a href="{{route('purchase.edit',encryptor('encrypt', $value->id))}}">

@@ -202,6 +202,8 @@
 
                     <li> <a href="{{route('purchasedetails.index')}}"><i class="fa-solid fa-arrow-right"></i>Details List</a>
                     </li>
+                    <li> <a href="{{route('invoice')}}"><i class="fa-solid fa-arrow-right"></i>Invoice</a>
+                    </li>
 
                 </ul>
 
@@ -221,7 +223,7 @@
                     </li>
 
 
-                    <li> <a href="{{route('purchasedetails.index')}}"><i class="fa-solid fa-arrow-right"></i>Details List</a>
+                    <li> <a href="{{route('saledetails')}}"><i class="fa-solid fa-arrow-right"></i>Sale Details list</a>
                     </li>
 
                 </ul>
