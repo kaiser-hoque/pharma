@@ -178,6 +178,9 @@ class PurchaseController extends Controller
     }
     public function invoice()
     {
-       return view ('backend.purchase.invoice');
+        // $purchaseDetails = PurchaseDetails::where('purchase_id', $id)->get();
+        // $purchase = Purchase::find($id);
+        // return view('backend.purchase.invoice', compact('purchaseDetails', 'purchase'));
+        return view('backend.purchase.invoice' );
     }
 }

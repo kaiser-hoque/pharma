@@ -38,7 +38,7 @@
                                         <th>{{ __('Quantity') }}</th>
                                         <th>{{ __('Stock Value') }}</th>
                                         <th>{{ __('Reorder Status') }}</th>
-                                        
+
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -58,7 +58,7 @@
                                                     Normal
                                                 @endif
                                             </td>
-                                            
+
                                         </tr>
                                     @empty
                                         <tr>
@@ -87,8 +87,7 @@
             </style>
 
         </div>
-        <!--end page wrapper -->
-        <!--start overlay-->
+      
         <div class="overlay toggle-icon"></div>
         <!--end overlay-->
         <!--Start Back To Top Button--> <a href="javaScript:;" class="back-to-top"><i class='bx bxs-up-arrow-alt'></i></a>

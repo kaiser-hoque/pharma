@@ -20,8 +20,8 @@ use App\Http\Controllers\Backend\StockController as stock;
 use App\Http\Controllers\Backend\SaleController as sale;
 use App\Http\Controllers\Backend\SalariesController as salary;
 use App\Http\Controllers\Backend\AdvancedsalaryController as advancedsalary;
-
-
+use App\Http\Controllers\Backend\ReportController as report;
+use App\Http\Controllers\Backend\ReportController;
 
 // use App\Models\MedicineCategory;
 
@@ -61,6 +61,7 @@ Route::middleware(['checkrole'])->prefix('admin')->group(function(){
     Route::resource('medicine', medicine::class);
     Route::resource('purchase', purchase::class);
     Route::get('invoice', [purchase::class,'invoice'])->name('invoice');
+    Route::get('phurchasereport', [ReportController::class,'phurchasereport'])->name('phurchasereport');
     Route::resource('sale', sale::class);
     Route::get('saledetails', [sale::class,'saledetails'])->name('saledetails');
 

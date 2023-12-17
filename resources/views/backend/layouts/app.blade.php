@@ -249,11 +249,11 @@
                     <div class="menu-title">Report</div>
                 </a>
                 <ul>
-                    <li> <a href="{{route('purchase.create')}}"><i class="fa-solid fa-arrow-right"></i>Sales Report</a>
+                    <li> <a href="{{route('phurchasereport.create')}}"><i class="fa-solid fa-arrow-right"></i>Purchase Report</a>
                     </li>
 
 
-                    <li> <a href="{{route('purchase.index')}}"><i class="fa-solid fa-arrow-right"></i> Purchase Report</a>
+                    <li> <a href="{{route('purchase.index')}}"><i class="fa-solid fa-arrow-right"></i> Sale Report</a>
                     </li>
 
 
