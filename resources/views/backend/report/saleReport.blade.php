@@ -5,67 +5,64 @@
         <div class="page-wrapper">
             <div class="page-content">
                 <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
-                    <div class="breadcrumb-title pe-3">Tables</div>
+                    <div class="breadcrumb-title pe-3">Sale Report</div>
                     <div class="ps-3">
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb mb-0 p-0">
                                 <li class="breadcrumb-item"><a href="javascript:;"><i class="bx bx-home-alt"></i></a>
                                 </li>
-                                <li class="breadcrumb-item active" aria-current="page">supplier Data Table</li>
+                                <li class="breadcrumb-item active" aria-current="page">Sale Data Table</li>
                             </ol>
                         </nav>
                     </div>
                     <div class="ms-auto">
                         <div class="btn-group">
                             <div class="ms-auto"><a href="{{ route('medicine.create') }}"
-                                    class="btn btn-primary radius-30 mt-2 mt-lg-0"><i class="bx bxs-plus-square"></i>Add New
+                                    class="btn btn-primary radius-30 mt-2 mt-lg-0"><i class="bx bxs-plus-square"></i>Sale list
                                 </a>
                             </div>
                         </div>
                     </div>
                 </div>
-                <h6 class="mb-0 text-uppercase">Medicine</h6>
+                <h6 class="mb-0 text-uppercase">Sale Report</h6>
                 <hr />
                 <div class="card">
                     <div class="card-body">
-                        <div class="table-responsive">
+                        <form action="" method="get">
+                            <div class="d-flex flex-wrap align-items-center     justify-content-between">
+                                <div class="col-md-4"> 
+                                    <label for="from_date" class="col-auto">From Date:</label>
+                                    <input class="form-control" type="date" name="from_date" value="{{ $fromDate ?? '' }}" required>
+                                </div>
+                                <div class="col-md-4"> 
+                                    <label for="to_date" class="col-auto">To Date:</label>
+                                    <input class="form-control" type="date" name="to_date" value="{{ $toDate ?? '' }}" required>
+                                </div>
+                                <div class="col-md-3 mt-3"> 
+                                <button type="submit" class="btn btn-primary text-end">Generate Report</button>
+                                </div>
+                            </div>
+                        </form>
+                        <hr>
+                        <div class="table-responsive mt-5">
                             <table id="example" class="table table-striped table-bordered" style="width:100%">
                                 <thead>
                                     <tr>
-                                        <th>{{ __('SL') }}</th>
-                                        
-                                        <!-- <th class="text-center">{{ __('Company') }}<br>{{ __('Name') }}</th>
-                                        <th class="text-center">{{ __('Company') }}<br>{{ __('email') }}</th> -->
-                                        <th class="text-center">{{ __('Brand') }}<br>{{ __('Name') }}</th>
-                                        <th class="text-center">{{ __('Generic') }}<br>{{ __('Name') }}</th>
-                                        <th class="text-center">{{ __('Dose') }}<br>{{ __('Name') }}</th>
-                                        <th class="text-center">{{ __('Manufacture') }}<br>{{ __('Date') }}</th>
-                                        <th class="text-center">{{ __('Expire') }}<br>{{ __('Date') }}</th>
-                                        <th>{{ __('Strength') }}</th>
-                                        <th>{{ __('Price') }}</th>
-                                        <th>{{ __('Status') }}</th>
-                                       
-                                        <th class="white-space-nowrap">{{ __('Action') }}</th>
+                                        <th class="text-center">{{__('No.')}}</th>
+                                        <th class="text-center">{{__('Customer Name')}}</th>
+                                        <th class="text-center">{{__('Date')}}</th>
+                                        <th class="text-center">{{__('Quentity')}}</th>
+                                        <th class="text-center">{{__('Sub Amount')}}</th>
+                                        <th class="text-center">{{__('Discount')}}</th>
+                                        <th class="text-center">{{__('Tex')}}</th>
+                                        <th class="text-center">{{__('Total Amount')}}</th>
                                     </tr>
                                 </thead>
-                                <tbody>
+                                {{-- <tbody>
                                     @forelse($medicine as $value)
                                     <tr>
-                                        <td>{{++$loop->index}}</td>
-                                        {{-- <td class="text-center">
-                                            <img width="50px" class="rounded-circle" src="{{asset('public/uploads/medicine/'.$value->image)}}" alt="">
-                                        </td> --}}
-                                        <!-- <td class="text-center">{{$value->company?->name}}</td>
-                                        <td class="text-center">{{$value->company?->email}}</td> -->
-                                        <td class="text-center">{{$value->bname}}</td>
-                                        <td class="text-center">{{$value->gname}}</td>
-                                        <td class="text-center">{{$value->dose?->dose_description}}</td>
-                                        <td class="text-center">{{$value->manufacturedate}}</td>
-                                        <td class="text-center">{{$value->expiredate}}</td>
-                                        <td class="text-center">{{$value->strength}}</td>
-                                        <td class="text-center">{{$value->price}}</td>
-                                        <td class="text-center">{{($value->status)==1 ? 'active':'inactive'}}</td>
-                                        
+
+
                                         <td class="action-buttons">
                                             <div class="button-container">
                                                 <a href="{{route('medicine.edit',encryptor('encrypt', $value->id))}}">
@@ -88,7 +85,7 @@
                                         <th colspan="12" class="text-center">No Product Found</th>
                                     </tr>
                                     @endforelse
-                                </tbody>
+                                </tbody>--}}
                             </table>
                         </div>
                     </div>

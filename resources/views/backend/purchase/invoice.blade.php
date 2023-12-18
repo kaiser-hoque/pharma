@@ -62,60 +62,59 @@
                                         <div class="row contacts">
                                             <div class="col invoice-to">
                                                 <div class="text-gray-light">INVOICE TO:</div>
-                                                <h5 class="to">John Doe</h5>
-                                                <h5 class="to">Reference No: </h5>
-                                                <div class="email"><a href="mailto:john@example.com">john@example.com</a>
-                                                </div>
+                                               
+													<span>Reference No: {{ $purchase->reference_no }}</span><br>
+													<span>Purchase Date: {{ $purchase->purchase_date }}</span>
+													{{-- Rest of the content --}}
+												
+
                                             </div>
                                             <div class="col invoice-details">
-                                                <h1 class="invoice-id">INVOICE 3-2-1</h1>
-                                                <div class="date">Date of Invoice: 01/10/2018</div>
+                                                <div class="date">Date of Invoice: {{ date('d/m/Y') }}</div>
                                                 <div class="date">Due Date: 30/10/2018</div>
                                             </div>
                                         </div>
                                         <table>
                                             <thead>
-                                                <tr>
-                                                    <th>#</th>
-                                                    <th class="text-left">DESCRIPTION</th>
-                                                    <th class="text-right">HOUR PRICE</th>
-                                                    <th class="text-right">HOURS</th>
-                                                    <th class="text-right">TOTAL</th>
-                                                </tr>
+                                               <tr>
+													<th>Product</th>
+													<th>Quantity</th>
+													<th>Unit Price</th>
+													<th>V.A.T</th>
+													<th>Discount</th>
+													<th>Subtotal</th>
+												</tr>
                                             </thead>
                                             <tbody>
-                                                <tr>
-                                                    <td class="no">04</td>
-                                                    <td class="text-left">
-                                                        <h3>
-                                                            <a target="_blank" href="javascript:;">
-                                                                Youtube channel
-                                                            </a>
-                                                        </h3>
-                                                        <a target="_blank" href="javascript:;">
-                                                            Useful videos
-                                                        </a> to improve your Javascript skills. Subscribe and stay tuned :)
-                                                    </td>
-                                                    <td class="unit">$0.00</td>
-                                                    <td class="qty">100</td>
-                                                    <td class="total">$0.00</td>
-                                                </tr>
-
-
+												@foreach ($purchaseDetails as $pd)
+													<tr>
+														<td>{{ $pd->medicine->bname }}</td>
+														<td>{{ $pd->quantity }}</td>
+														<td>{{ $pd->unit_price }}</td>
+														<td>{{ $pd->tax }}</td>
+														<td>{{ $pd->discount }}</td>
+														<td>{{ $pd->sub_amount }}</td>
+													</tr>
+												@endforeach
                                             </tbody>
                                             <tfoot>
                                                 <tr>
-                                                    <td colspan="2"></td>
-                                                    <td colspan="2">SUBTOTAL</td>
+                                                    <td colspan="3"></td>
+                                                    <td colspan="2">Sub Amount:</td>
                                                     <td>$5,200.00</td>
                                                 </tr>
                                                 <tr>
-                                                    <td colspan="2"></td>
-                                                    <td colspan="2">TAX 25%</td>
+                                                    <td colspan="3"></td>
+                                                    <td colspan="2">TAX(percent or fixd)</td>
                                                     <td>$1,300.00</td>
                                                 </tr>
                                                 <tr>
-                                                    <td colspan="2"></td>
+                                                    <td colspan="3"></td>
+                                                    <td colspan="2">Discount:</td>
+                                                    <td>$1,300.00</td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="3"></td>
                                                     <td colspan="2">GRAND TOTAL</td>
                                                     <td>$6,500.00</td>
                                                 </tr>

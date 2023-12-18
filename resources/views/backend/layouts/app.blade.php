@@ -200,10 +200,7 @@
                     </li>
 
 
-                    <li> <a href="{{route('purchasedetails.index')}}"><i class="fa-solid fa-arrow-right"></i>Details List</a>
-                    </li>
-                    <li> <a href="{{route('invoice')}}"><i class="fa-solid fa-arrow-right"></i>Invoice</a>
-                    </li>
+                   
 
                 </ul>
 
@@ -223,13 +220,13 @@
                     </li>
 
 
-                    <li> <a href="{{route('saledetails')}}"><i class="fa-solid fa-arrow-right"></i>Sale Details list</a>
-                    </li>
+                    <!-- <li> <a href="{{route('saledetails')}}"><i class="fa-solid fa-arrow-right"></i>Sale Details list</a>
+                    </li> -->
 
                 </ul>
 
             </li>
-            <!-- <li>
+            <li>
                 <a href="javascript:;" class="has-arrow">
                     <div class="parent-icon"><i class="fa fa-info-circle" aria-hidden="true"></i>
                     </div>
@@ -240,7 +237,7 @@
 
                 </ul>
 
-            </li> -->
+            </li>
 
             <li>
                 <a href="javascript:;" class="has-arrow">
@@ -249,11 +246,11 @@
                     <div class="menu-title">Report</div>
                 </a>
                 <ul>
-                    <li> <a href="{{route('phurchasereport.create')}}"><i class="fa-solid fa-arrow-right"></i>Purchase Report</a>
+                    <li> <a href="{{route('phurchasereport')}}"><i class="fa-solid fa-arrow-right"></i>Purchase Report</a>
                     </li>
 
 
-                    <li> <a href="{{route('purchase.index')}}"><i class="fa-solid fa-arrow-right"></i> Sale Report</a>
+                    <li> <a href="{{route('salereport')}}"><i class="fa-solid fa-arrow-right"></i> Sale Report</a>
                     </li>
 
 

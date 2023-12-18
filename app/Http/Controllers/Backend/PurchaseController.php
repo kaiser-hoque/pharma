@@ -176,11 +176,13 @@ class PurchaseController extends Controller
         $this->notice::success('Data successfully deleted');
         return redirect()->back();
     }
-    public function invoice()
+    public function invoice($id)
     {
-        // $purchaseDetails = PurchaseDetails::where('purchase_id', $id)->get();
-        // $purchase = Purchase::find($id);
-        // return view('backend.purchase.invoice', compact('purchaseDetails', 'purchase'));
-        return view('backend.purchase.invoice' );
+
+        $purchaseDetails = PurchaseDetails::where('purchase_id', $id)->get();
+        $purchase = Purchase::findOrFail(encryptor('decrypt',$id));
+        return view('backend.purchase.invoice', compact('purchaseDetails', 'purchase'));
     }
 }
+
+ 

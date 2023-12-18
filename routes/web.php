@@ -60,10 +60,15 @@ Route::middleware(['checkrole'])->prefix('admin')->group(function(){
     Route::resource('supplier', supplier::class);
     Route::resource('medicine', medicine::class);
     Route::resource('purchase', purchase::class);
-    Route::get('invoice', [purchase::class,'invoice'])->name('invoice');
-    Route::get('phurchasereport', [ReportController::class,'phurchasereport'])->name('phurchasereport');
+    Route::get('invoice/{id}', [purchase::class,'invoice'])->name('invoice');
+
+    Route::get('phurchasereport', [ReportController::class,'PurchaseReport'])->name('phurchasereport'); //2nd one is function name
+
+    Route::get('salereport', [ReportController::class,'SaleReport'])->name('salereport'); //2nd one is function name
+
     Route::resource('sale', sale::class);
     Route::get('saledetails', [sale::class,'saledetails'])->name('saledetails');
+    
 
     Route::resource('employee', employee::class);
     Route::resource('attendances', attendances::class);
