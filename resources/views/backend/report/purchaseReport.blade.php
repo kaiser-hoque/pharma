@@ -30,15 +30,15 @@
                     <div class="card-body">
                         <form action="" method="get">
                             <div class="d-flex flex-wrap align-items-center     justify-content-between">
-                                <div class="col-md-4"> 
+                                <div class="col-md-4">
                                     <label for="from_date" class="col-auto">From Date:</label>
                                     <input class="form-control" type="date" name="from_date" value="{{ $fromDate ?? '' }}" required placeholder="start date">
                                 </div>
-                                <div class="col-md-4"> 
+                                <div class="col-md-4">
                                     <label for="to_date" class="col-auto">To Date:</label>
                                     <input class="form-control" type="date" name="to_date" value="{{ $toDate ?? '' }}" required>
                                 </div>
-                                <div class="col-md-3 mt-3"> 
+                                <div class="col-md-3 mt-3">
                                 <button type="submit" class="btn btn-primary text-end">Generate Report</button>
                                 </div>
                             </div>
@@ -47,6 +47,7 @@
                         <div class="table-responsive mt-5">
                             <table id="example" class="table table-striped table-bordered" style="width:100%">
                                 <thead>
+                                    <h6>Purchase Report from {{ $fromDate }} to {{ $toDate }}</h6>
                                     <tr>
                                         <th class="text-center">{{__('No.')}}</th>
                                         <th class="text-center">{{__('Supplier Name')}}</th>
@@ -58,8 +59,22 @@
                                         <th class="text-center">{{__('Total Amount')}}</th>
                                     </tr>
                                 </thead>
-                                
-                                
+
+                                <tbody>
+                                    @foreach($purchase as $sd)
+                                    <tr>
+                                        <td>{{$sd->id}}</td>
+                                        <td>{{ $sd->supplier->name }}</td>
+                                        <td>{{ $sd->purchase_date }}</td>
+                                        <td>{{ $sd->total_quantity }}</td>
+                                        <td>{{ $sd->sub_amount}}</td>
+                                        <td>{{ $sd->discount}} {{ $sd->discount_type==1?"%":"BDT"}}</td>
+                                        <td>{{ $sd->tax}}</td>
+                                        <td>{{ $sd->total_amount}}</td>
+                                    </tr>
+                                    @endforeach
+                                </tbody>
+
                             </table>
                         </div>
                     </div>
@@ -67,7 +82,7 @@
             </div>
 
 
-            
+
         </div>
 
 
@@ -79,7 +94,7 @@
     </div>
 
     </div>
-    
 
-    
+
+
 @endsection

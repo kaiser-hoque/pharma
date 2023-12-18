@@ -20,4 +20,10 @@ class Medicine extends Model
      public function dose(){
         return $this->belongsTo(Dose::class);
     }
+    public function pdetails(){
+        return $this->hasMany(PurchaseDetails::class);
+    }
+    public function purchase(){
+        return $this->hasMany(Purchase::class,'purchase_id','id');
+    }
 }

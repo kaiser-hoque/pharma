@@ -9,14 +9,15 @@ class PurchaseDetails extends Model
 {
     use HasFactory;
     public function medicine()
-{
-    return $this->belongsTo(Medicine::class, 'medicine_id', 'id');
-}
+    {
+        return $this->belongsTo(Medicine::class);
+    }
 
-public function purchase()
-{
-    return $this->belongsTo(Purchase::class, 'purchase_id', 'id');
-}
+    public function purchase()
+    {
+        return $this->belongsTo(Purchase::class);
+    }
+
 
 }
 

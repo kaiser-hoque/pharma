@@ -178,11 +178,11 @@ class PurchaseController extends Controller
     }
     public function invoice($id)
     {
-
         $purchaseDetails = PurchaseDetails::where('purchase_id', $id)->get();
-        $purchase = Purchase::findOrFail(encryptor('decrypt',$id));
+        $purchase = Purchase::find($id);
         return view('backend.purchase.invoice', compact('purchaseDetails', 'purchase'));
+
     }
 }
 
- 
+

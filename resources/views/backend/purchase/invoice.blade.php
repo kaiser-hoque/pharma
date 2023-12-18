@@ -62,11 +62,11 @@
                                         <div class="row contacts">
                                             <div class="col invoice-to">
                                                 <div class="text-gray-light">INVOICE TO:</div>
-                                               
+
 													<span>Reference No: {{ $purchase->reference_no }}</span><br>
 													<span>Purchase Date: {{ $purchase->purchase_date }}</span>
 													{{-- Rest of the content --}}
-												
+
 
                                             </div>
                                             <div class="col invoice-details">
@@ -74,8 +74,8 @@
                                                 <div class="date">Due Date: 30/10/2018</div>
                                             </div>
                                         </div>
-                                        <table>
-                                            <thead>
+                                        <table id="example" class="table table-striped table-bordered" style="width:100%">
+                                            <thead class="bg-primary">
                                                <tr>
 													<th>Product</th>
 													<th>Quantity</th>
@@ -86,9 +86,11 @@
 												</tr>
                                             </thead>
                                             <tbody>
+
+
 												@foreach ($purchaseDetails as $pd)
 													<tr>
-														<td>{{ $pd->medicine->bname }}</td>
+														<td>{{ $pd->medicine->bname}}</td>
 														<td>{{ $pd->quantity }}</td>
 														<td>{{ $pd->unit_price }}</td>
 														<td>{{ $pd->tax }}</td>
@@ -101,22 +103,22 @@
                                                 <tr>
                                                     <td colspan="3"></td>
                                                     <td colspan="2">Sub Amount:</td>
-                                                    <td>$5,200.00</td>
+                                                    <td> ${{ $purchase->sub_amount }}</td>
                                                 </tr>
                                                 <tr>
                                                     <td colspan="3"></td>
                                                     <td colspan="2">TAX(percent or fixd)</td>
-                                                    <td>$1,300.00</td>
+                                                    <td>{{ $purchase->tax }}</td>
                                                 </tr>
                                                 <tr>
                                                     <td colspan="3"></td>
                                                     <td colspan="2">Discount:</td>
-                                                    <td>$1,300.00</td>
+                                                    <td>{{ $purchase->discount }}</td>
                                                 </tr>
                                                 <tr>
                                                     <td colspan="3"></td>
                                                     <td colspan="2">GRAND TOTAL</td>
-                                                    <td>$6,500.00</td>
+                                                    <td>{{ $purchase->grand_total }}</td>
                                                 </tr>
                                             </tfoot>
                                         </table>

@@ -70,9 +70,9 @@
                                         <td>{{$value->note}}</td> -->
                                         <td class="action-buttons">
                                             <div class="button-container">
-                                                <a href="{{route('invoice', encryptor('encrypt',$value->id))}}">
+                                                <a href="{{ route('purchase.generate-invoice', $value->id) }}">
                                                     <i class="fas fa-file-invoice" title="Invoice"></i>
-                                                </a> 
+                                                </a>
                                                 <a href="{{route('purchase.show',encryptor('encrypt',$value->id))}}"><i class="fa-solid fa-eye"></i></a>
                                                 <form id="" action="{{ route('purchase.destroy', $value->id)}}" method="post">
                                                     @csrf

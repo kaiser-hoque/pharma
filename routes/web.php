@@ -60,7 +60,8 @@ Route::middleware(['checkrole'])->prefix('admin')->group(function(){
     Route::resource('supplier', supplier::class);
     Route::resource('medicine', medicine::class);
     Route::resource('purchase', purchase::class);
-    Route::get('invoice/{id}', [purchase::class,'invoice'])->name('invoice');
+    Route::get('/purchase/{id}/generate-invoice', [purchase::class,'invoice'])->name('purchase.generate-invoice');
+    // Route::get('invoice/{id}', [purchase::class,'invoice'])->name('invoice');
 
     Route::get('phurchasereport', [ReportController::class,'PurchaseReport'])->name('phurchasereport'); //2nd one is function name
 
@@ -68,7 +69,7 @@ Route::middleware(['checkrole'])->prefix('admin')->group(function(){
 
     Route::resource('sale', sale::class);
     Route::get('saledetails', [sale::class,'saledetails'])->name('saledetails');
-    
+
 
     Route::resource('employee', employee::class);
     Route::resource('attendances', attendances::class);
