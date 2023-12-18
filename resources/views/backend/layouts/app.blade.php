@@ -198,6 +198,8 @@
 
                     <li> <a href="{{route('purchase.index')}}"><i class="fa-solid fa-arrow-right"></i> Purchase List</a>
                     </li>
+                    <li> <a href="{{route('purchasedetails.index')}}"><i class="fa-solid fa-arrow-right"></i> Purchase List</a>
+                    </li>
 
 
                    
