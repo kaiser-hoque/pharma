@@ -150,9 +150,10 @@ class SaleController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(sale $sale)
+    public function show($id)
     {
-        //
+        $sale = sale::findOrFail(encryptor('decrypt',$id));
+        return view('backend.sale.show', compact('sale'));
     }
 
     /**
@@ -182,6 +183,6 @@ class SaleController extends Controller
     public function saledetails()
     {
         $sale=SaleDetails::get();
-        return view ('backend.sale.saledetails', compact('sale')); 
+        return view ('backend.sale.saledetails', compact('sale'));
     }
 }

@@ -15,7 +15,7 @@ class sale extends Model
         return $this->belongsTo(medicine::class,'medicine_id','id');
     }
     public function details(){
-        return $this->hasMany(SalesDetails::class,'sales_id','id');
+        return $this->hasMany(SaleDetails::class,'sales_id','id');
     }
 
 }
