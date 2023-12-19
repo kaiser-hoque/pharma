@@ -38,8 +38,8 @@
                 <div class="card-body">
                     <div class="table-responsive">
                         <table id="example" class="table table-striped table-bordered" style="width:100%">
-                            <thead>
-                                <tr>
+                            <thead class="bg-primary text-white">
+                                <tr class="text-center">
                                     <th>{{__('SL')}}</th>
                                     <th>{{__('Dose Description')}}</th>
                                     <th class="white-space-nowrap">{{__('Action')}}</th>

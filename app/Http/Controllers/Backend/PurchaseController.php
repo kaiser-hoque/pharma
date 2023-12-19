@@ -17,7 +17,7 @@ class PurchaseController extends Controller
      */
     public function index()
     {
-        $purchase=Purchase::paginate(10);
+        $purchase=Purchase::get();
         return view ('backend.purchase.index', compact('purchase'));
     }
 

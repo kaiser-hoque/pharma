@@ -48,7 +48,7 @@
                                             </div>
                                             <div class="col company-details">
                                                 <h2 class="name">
-                                                    <a target="_blank" href="javascript:;">
+                                                    <a target="_blank" href="javascript:;" class="text-dark">
                                                         Pharma
                                                     </a>
                                                 </h2>
@@ -108,16 +108,16 @@
                                                 <tr>
                                                     <td colspan="3"></td>
                                                     <td colspan="2">TAX </td>
-                                                    <td>{{ $purchase->tax }}</td>
+                                                    <td>{{ $purchase->tax }}%</td>
                                                 </tr>
                                                 <tr>
                                                     <td colspan="3"></td>
                                                     <td colspan="2">Discount:</td>
-                                                    <td>{{ $purchase->discount }}</td>
+                                                    <td>{{ $purchase->discount }}%</td>
                                                 </tr>
                                                 <tr>
                                                     <td colspan="3"></td>
-                                                    <td colspan="2">GRAND TOTAL</td>
+                                                    <td colspan="2" clsass="text-dark">GRAND TOTAL</td>
                                                     <td>{{ $purchase->grand_total }}</td>
                                                 </tr>
                                             </tfoot>
