@@ -74,9 +74,9 @@
                                                 <div class="date">Due Date: 30/10/2018</div>
                                             </div>
                                         </div>
-                                        <table id="" class=" " style="width:100%">
+                                        <table class="table table-bordered">
                                             <thead >
-                                               <tr>
+                                               <tr class="borderd">
 													<th>Product</th>
 													<th>Quantity</th>
 													<th>Unit Price</th>
