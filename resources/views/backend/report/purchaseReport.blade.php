@@ -47,7 +47,14 @@
                         <div class="table-responsive mt-5">
                             <table id="example" class="table table-striped table-bordered" style="width:100%">
                                 <thead>
-                                    <h6>Purchase Report from {{ $fromDate }} to {{ $toDate }}</h6>
+                                    @php
+                                        $fromDate = \Carbon\Carbon::parse($fromDate);
+                                        $toDate = \Carbon\Carbon::parse($toDate);
+                                    @endphp
+
+                                    <h6 class="text-center text-primary">Purchase Report from {{ $fromDate->toDateString() }} to {{  $toDate->toDateString() }}
+                                    </h6>
+
                                     <tr>
                                         <th class="text-center">{{__('No.')}}</th>
                                         <th class="text-center">{{__('Supplier Name')}}</th>
@@ -70,7 +77,7 @@
                                         <td>{{ $sd->sub_amount}}</td>
                                         <td>{{ $sd->discount}} {{ $sd->discount_type==1?"%":"BDT"}}</td>
                                         <td>{{ $sd->tax}}</td>
-                                        <td>{{ $sd->total_amount}}</td>
+                                        <td>{{ $sd->grand_total}}</td>
                                     </tr>
                                     @endforeach
                                 </tbody>

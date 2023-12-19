@@ -12,7 +12,7 @@ class sale extends Model
         return $this->belongsTo(Customer::class, 'customer_id', 'id');
     }
     public function medicine(){
-        return $this->belongsTo(Product::class,'medicine_id','id');
+        return $this->belongsTo(medicine::class,'medicine_id','id');
     }
     public function details(){
         return $this->hasMany(SalesDetails::class,'sales_id','id');

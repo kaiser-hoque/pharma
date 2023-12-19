@@ -41,7 +41,7 @@
                                         <th>{{ __('Contact NO') }}</th>
                                         <th>{{ __('Email') }}</th>
                                         <th>{{ __('Address') }}</th>
-                                        <th>{{ __('Starus') }}</th>
+                                        <th>{{ __('Status') }}</th>
                                         <th>{{ __('Supplier') }}</th>
                                         <th>{{ __('Description') }}</th>
                                         <th class="white-space-nowrap">{{ __('Action') }}</th>
@@ -55,7 +55,18 @@
                                         <td class="text-center">{{$value->contact_num}}</td>
                                         <td class="text-center">{{$value->email}}</td>
                                         <td class="text-center">{{$value->address}}</td>
-                                        <td class="text-center" >{{$value->status}}</td>
+                                      
+
+                                        <td
+                                            style="color:
+                                    @if ($value->status == 1) green
+                                    @else red @endif; border-radius: 5px;font-weight: bold; font-size:15px">
+
+                                            @if ($value->status == 1)
+                                                {{ __('Active') }}
+                                                @else{{ __('Inactive') }}
+                                            @endif
+                                        </td>
                                         <td class="text-center">{{$value->supplier}}</td>
                                         <td class="text-center">{{$value->description}}</td>
                                         <td class="action-buttons">

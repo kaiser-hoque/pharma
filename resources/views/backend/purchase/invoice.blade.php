@@ -74,8 +74,8 @@
                                                 <div class="date">Due Date: 30/10/2018</div>
                                             </div>
                                         </div>
-                                        <table id="example" class="table table-striped table-bordered" style="width:100%">
-                                            <thead class="bg-primary">
+                                        <table id="" class=" " style="width:100%">
+                                            <thead >
                                                <tr>
 													<th>Product</th>
 													<th>Quantity</th>
@@ -107,7 +107,7 @@
                                                 </tr>
                                                 <tr>
                                                     <td colspan="3"></td>
-                                                    <td colspan="2">TAX(percent or fixd)</td>
+                                                    <td colspan="2">TAX </td>
                                                     <td>{{ $purchase->tax }}</td>
                                                 </tr>
                                                 <tr>

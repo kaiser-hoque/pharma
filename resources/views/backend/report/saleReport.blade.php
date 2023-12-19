@@ -53,39 +53,26 @@
                                         <th class="text-center">{{__('Date')}}</th>
                                         <th class="text-center">{{__('Quentity')}}</th>
                                         <th class="text-center">{{__('Sub Amount')}}</th>
-                                        <th class="text-center">{{__('Discount')}}</th>
+                                         
                                         <th class="text-center">{{__('Tex')}}</th>
                                         <th class="text-center">{{__('Total Amount')}}</th>
                                     </tr>
                                 </thead>
-                                {{-- <tbody>
-                                    @forelse($medicine as $value)
+                                <tbody>
+                                    @foreach($sale as $sd)
                                     <tr>
-
-
-                                        <td class="action-buttons">
-                                            <div class="button-container">
-                                                <a href="{{route('medicine.edit',encryptor('encrypt', $value->id))}}">
-                                                    <i class="fa fa-edit"></i>
-                                                </a>
-                                                <a href="{{route('medicine.show',encryptor('encrypt',$value->id))}}"><i class="fa-solid fa-eye"></i></a>
-                                                <form id="" action="{{ route('medicine.destroy', $value->id)}}" method="post">
-                                                    @csrf
-                                                    @method('delete')
-                                                    <button style="background: none; border: none;" type="submit">
-                                                        <i class="fa fa-trash text-danger"></i>
-                                                    </button>
-                                                </form>
-
-                                            </div>
-                                        </td>
+                                        <td>{{$sd->id}}</td>
+                                        <td>{{ $sd->customer->name }}</td>
+                                        <td>{{ $sd->sale_date }}</td>
+                                        <td>{{ $sd->total_quantity }}</td>
+                                        <td>{{ $sd->sub_amount}}</td>
+                                        <td>{{ $sd->discount}}</td>
+                                        <td>{{ $sd->tax}}</td>
+                                        <td></td>
+                                        <td>{{ $sd->grand_total}}</td>
                                     </tr>
-                                    @empty
-                                    <tr>
-                                        <th colspan="12" class="text-center">No Product Found</th>
-                                    </tr>
-                                    @endforelse
-                                </tbody>--}}
+                                    @endforeach
+                                </tbody>
                             </table>
                         </div>
                     </div>

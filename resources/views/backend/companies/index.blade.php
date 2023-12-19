@@ -41,7 +41,7 @@
                                         <th>{{ __('Contact NO') }}</th>
                                         <th>{{ __('Email') }}</th>
                                         {{-- <th>{{ __('Address') }}</th> --}}
-                                        <th>{{ __('Starus') }}</th>
+                                        <th>{{ __('Status') }}</th>
                                         <th>{{ __('Division') }}</th>
                                         {{-- <th>{{ __('Description') }}</th> --}}
                                         <th class="white-space-nowrap">{{ __('Action') }}</th>
@@ -56,11 +56,16 @@
                                         <td class="text-center">{{$value->email}}</td>
                                         {{-- <td class="text-center">{{$value->address}}</td> --}}
                                         {{-- <td class="text-center">{{$value->status}}</td> --}}
-                                        <td>
-											<div class="d-flex align-items-center text-primary">	<i class='bx bx-radio-circle-marked bx-burst bx-rotate-90 align-middle font-18 me-1'></i>
-												<span>{{$value->status}}</span>
-											</div>
-										</td>
+                                        <td
+                                            style="color:
+                                    @if ($value->status == 1) green
+                                    @else red @endif; border-radius: 5px;font-weight: bold; font-size:15px"><i class='bx bx-radio-circle-marked bx-burst bx-rotate-90 align-middle font-18 me-1'></i>
+
+                                            @if ($value->status == 1)
+                                                {{ __('Active') }}
+                                                @else{{ __('Inactive') }}
+                                            @endif
+                                        </td>
                                         <td class="text-center">{{$value->division}}</td>
                                         {{-- <td class="text-center">{{$value->description}}</td> --}}
                                         <td class="action-buttons">
