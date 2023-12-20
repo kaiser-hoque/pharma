@@ -4,12 +4,10 @@
 
 
 
-    <!--wrapper-->
+ 
      <div class="wrapper">
-        <!--start page wrapper -->
         <div class="page-wrapper">
             <div class="page-content">
-                <!--breadcrumb-->
                 <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
                     <div class="breadcrumb-title pe-3">{{ __('Tables') }}</div>
                     <div class="ps-3">
@@ -41,8 +39,7 @@
                                     @forelse($stock as $p)
                                         <tr>
                                             <td>{{ ++$loop->index }}</td>
-                                            <td class="text-center">{{ $p->medicine?->bname }}</td>
-                                                                                                                                <td>
+                                            <td class="text-center">{{ $p->medicine?->bname }}</td>                                                                                      <td>
                                                 {{ $p->medicine ? date('M-d-Y', strtotime($p->medicine->expiredate)) : null }}
                                                 @if($p->medicine)
                                                     @php
@@ -78,50 +75,13 @@
         </div>
 
         <div class="overlay toggle-icon"></div>
-        <!--end overlay-->
-        <!--Start Back To Top Button-->
         <a href="javaScript:;" class="back-to-top"><i class='bx bxs-up-arrow-alt'></i></a>
-        <!--End Back To Top Button-->
         <footer class="page-footer">
             <p class="mb-0">{{ __('Copyright © 2023. All right reserved.') }}</p>
         </footer>
     </div>
-    <!--end wrapper-->
-
-    <!-- search modal -->
-
-
     </div>
-
-    <!-- Bootstrap JS -->
-
-    @push('scripts')
-        ;
-        <script>
-            $(document).ready(function() {
-                $('#example').DataTable();
-            });
-        </script>
-        <script>
-            $(document).ready(function() {
-                var table = $('#example2').DataTable({
-                    lengthChange: false,
-                    buttons: ['copy', 'excel', 'pdf', 'print']
-                });
-
-                table.buttons().container()
-                    .appendTo('#example2_wrapper .col-md-6:eq(0)');
-            });
-        </script>
-    @endpush
-
-
-    <script src="assets/js/app.js"></script>
-
-
-
-
-
+<script src="assets/js/app.js"></script>
     </html>
 
 @endsection

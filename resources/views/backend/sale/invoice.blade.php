@@ -5,7 +5,7 @@
         <div class="page-wrapper">
             <div class="page-content">
                 <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
-                    <div class="breadcrumb-title pe-3">Tables</div>
+                    <div class="breadcrumb-title pe-3">Invoice</div>
                     <div class="ps-3">
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb mb-0 p-0">
@@ -24,7 +24,7 @@
                         </div>
                     </div>
                 </div>
-                <h6 class="mb-0 text-uppercase">Purchase</h6>
+                <h6 class="mb-0 text-uppercase">Sale</h6>
                 <hr />
                 <div class="card">
                     <div class="card-body">
@@ -63,24 +63,24 @@
                                             <div class="col invoice-to">
                                                 <div class="text-gray-light">INVOICE TO:</div>
 
-													<span>Reference No: {{ $purchase->reference_no }}</span><br>
-													<span>Purchase Date: {{ $purchase->purchase_date }}</span>
-													{{-- Rest of the content --}}
-
+													<span>Customer Name: <b>{{ $sale->customer->name }}</b></span><br>
+													<span>Reference No: {{ $sale->reference_no }}</span><br>
+													
+													 
 
                                             </div>
                                             <div class="col invoice-details">
                                                 <div class="date">Date of Invoice: {{ date('d/m/Y') }}</div>
-                                                <div class="date">Due Date: 30/10/2018</div>
+                                               <span>Sales Date: {{ $sale->sale_date }}</span>
                                             </div>
                                         </div>
                                         <table class="table table-bordered">
                                             <thead >
                                                <tr class="borderd">
-													<th>Product</th>
+													<th>Medicine Name</th>
 													<th>Quantity</th>
 													<th>Unit Price</th>
-													<th>V.A.T</th>
+													<th>VAT</th>
 													<th>Discount</th>
 													<th>Subtotal</th>
 												</tr>
@@ -88,15 +88,14 @@
                                             <tbody>
 
 
-												@foreach ($purchaseDetails as $pd)
+												@foreach ($saleDetails as $sd)
 													<tr>
-														<td>{{ $pd->medicine->bname}}</td>
-														<td>{{ $pd->quantity }}</td>
-														<td>{{ $pd->unit_price }}</td>
-														<td>{{ $pd->tax }} {{ $pd->discount_type==0?"%":"BDT"}}</td>
-														<td>{{ $pd->discount }} {{ $pd->discount_type==0?"%":"BDT"}}</td>
-														<td>{{ $pd->quantity * $pd->unit_price }}</td>
-
+														<td>{{ $sd->medicine->bname}}</td>
+														<td>{{ $sd->quantity }}</td>
+														<td>{{ $sd->unit_price }}</td>
+														<td>{{ $sd->tax }} {{ $sd->discount_type==0?"%":"BDT"}}</td>
+                <td>{{ $sd->discount }}{{ $sd->discount_type==0?"%":"BDT"}}</td>
+														<td>{{ $sd->sub_amount }}</td>
 													</tr>
 												@endforeach
                                             </tbody>
@@ -104,22 +103,22 @@
                                                 <tr>
                                                     <td colspan="3"></td>
                                                     <td colspan="2">Sub Amount:</td>
-                                                    <td> ${{ $purchase->sub_amount }}</td>
+                                                    <td>  {{$sale->sub_amount}}</td>
                                                 </tr>
                                                 <tr>
                                                     <td colspan="3"></td>
                                                     <td colspan="2">TAX </td>
-                                                    <td>{{ $purchase->tax }}%</td>
+                                                    <td> {{$sale->tax}}%</td>
                                                 </tr>
                                                 <tr>
                                                     <td colspan="3"></td>
                                                     <td colspan="2">Discount:</td>
-                                                    <td>{{ $purchase->discount }}%</td>
+                                                    <td> {{$sale->discount}}%</td>
                                                 </tr>
                                                 <tr>
                                                     <td colspan="3"></td>
                                                     <td colspan="2" clsass="text-dark">GRAND TOTAL</td>
-                                                    <td>{{ $purchase->grand_total }}</td>
+                                                    <td> {{$sale->grand_total}}</td>
                                                 </tr>
                                             </tfoot>
                                         </table>
@@ -129,7 +128,6 @@
                                     <footer>Invoice was created on a computer and is valid without the signature and seal.
                                     </footer>
                                 </div>
-                                <!--DO NOT DELETE THIS div. IT is responsible for showing footer always at the bottom-->
                                 <div></div>
                             </div>
                         </div>

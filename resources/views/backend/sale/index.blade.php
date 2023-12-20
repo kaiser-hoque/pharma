@@ -78,6 +78,9 @@
                                         {{-- <td>{{($value->status)==1 ? 'active':'inactive'}}</td> --}}
                                         <td class="action-buttons">
                                             <div class="button-container">
+                                                <a href="{{ route('sale.generate-invoice', $value->id) }}">
+                                                    <i class="fas fa-file-invoice" title="Invoice"></i>
+                                                </a>
                                                 <a href="{{route('sale.edit',encryptor('encrypt', $value->id))}}">
                                                     <i class="fa fa-edit"></i>
                                                 </a>

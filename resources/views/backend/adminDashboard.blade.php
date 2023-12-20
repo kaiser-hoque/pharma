@@ -25,7 +25,7 @@
 	<div>
 		<p class="mb-0 text-secondary">Total Customers</p>
 		<h4 class="my-1">8.4K</h4>
-		<p class="mb-0 font-13 text-success"><i class='bx bxs-up-arrow align-middle'></i>14% Since last week</p>
+		<p class="mb-0 font-13 text-success"><i class='bx bxs-up-arrow align-middle'></i>14% Since last fff week</p>
 		</div>
 		<div class="widgets-icons bg-light-warning text-warning ms-auto"><i class='bx bxs-group'></i>
 	</div>

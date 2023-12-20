@@ -185,4 +185,12 @@ class SaleController extends Controller
         $sale=SaleDetails::get();
         return view ('backend.sale.saledetails', compact('sale'));
     }
+
+     public function invoice($id)
+    {
+        $saleDetails = SaleDetails::where('sale_id', $id)->get();
+        $sale = sale::find($id);
+        return view('backend.sale.invoice', compact('saleDetails', 'sale'));
+
+    }
 }

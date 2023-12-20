@@ -45,7 +45,7 @@
                                     {{-- <th>{{ __('Email') }}</th> --}}
                                     <th>{{ __('Gender') }}</th>
                                     <th>{{ __('Address') }}</th>
-                                    <th>{{ __('Starus') }}</th>
+                                    <th>{{ __('Status') }}</th>
                                     {{-- <th>{{ __('Description') }}</th> --}}
                                     <th class="white-space-nowrap">{{ __('Action') }}</th>
                                 </tr>
