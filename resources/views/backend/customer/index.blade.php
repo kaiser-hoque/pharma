@@ -37,7 +37,7 @@
                 <div class="card-body">
                     <div class="table-responsive">
                         <table id="example" class="table table-striped table-bordered" style="width:100%">
-                            <thead>
+                            <thead class="text-white bg-primary">
                                 <tr>
                                     <th>{{ __('SL') }}</th>
                                     <th>{{ __('Name') }}</th>

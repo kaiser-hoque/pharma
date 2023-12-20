@@ -193,4 +193,6 @@ class SaleController extends Controller
         return view('backend.sale.invoice', compact('saleDetails', 'sale'));
 
     }
+
+  
 }

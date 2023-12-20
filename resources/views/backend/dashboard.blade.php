@@ -4,42 +4,78 @@
 <div class="page-wrapper"> <div class="page-content"> <div class="row row-cols-1 row-cols-lg-2 row-cols-xl-3">
 	<div class="col">
 	<div class="card radius-10">
-	<div class="card-body">
-		<div class="d-flex align-items-center">
-			<div>
-				<p class="mb-0 text-secondary">Revenue</p>
-				<h4 class="my-1">$4805</h4>
-				
-			</div>
-		</div>
-	</div>
-</div>
-</div>
-<div class="col">
-<div class="card radius-10">
-	<div class="card-body">
-		<div class="d-flex align-items-center">
-			<div>
-				<p class="mb-0 text-secondary">Total Customers</p>
-				<h4 class="my-1">8.4K</h4>
-			</div> 
-		</div>
-	</div>
-</div>
-</div>
-<div class="col">
-	<div class="card radius-10">
 		<div class="card-body">
 			<div class="d-flex align-items-center">
 				<div>
-					<p class="mb-0 text-secondary">Store Visitors</p>
-					<h4 class="my-1">59K</h4>
-				</div> 
+					<p class="mb-0 text-secondary">Total Sale</p>
+					<h4 class="my-1"> {{ $totalSales }}</h4>
+					
+				</div>
 			</div>
 		</div>
 	</div>
-</div>
-</div>
+	</div>
+	<div class="col">
+		<div class="card radius-10">
+			<div class="card-body">
+				<div class="d-flex align-items-center">
+					<div>
+						<p class="mb-0 text-secondary">Total Purchase</p>
+						<h4 class="my-1">{{$totalPurchase}}</h4>
+					</div> 
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="col">
+		<div class="card radius-10">
+			<div class="card-body">
+				<div class="d-flex align-items-center">
+					<div>
+						<p class="mb-0 text-secondary">Total Stock</p>
+						<h4 class="my-1"><a href="{{route('stock.index')}}"><i class="fa-solid fa-arrow-right"></i><span class="text-dark">{{$totalStock}}</span></a></h4>
+					</div> 
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="col">
+		<div class="card radius-10">
+			<div class="card-body">
+				<div class="d-flex align-items-center">
+					<div>
+						<p class="mb-0 text-secondary">Total Purchase</p>
+						<h4 class="my-1">{{$totalPurchase}}</h4>
+					</div> 
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="col">
+		<div class="card radius-10">
+			<div class="card-body">
+				<div class="d-flex align-items-center">
+					<div>
+						<p class="mb-0 text-secondary">Total Purchase</p>
+						<h4 class="my-1">{{$totalPurchase}}</h4>
+					</div> 
+				</div>
+			</div>
+		</div>
+	</div>
+		<div class="col">
+			<div class="card radius-10">
+				<div class="card-body">
+					<div class="d-flex align-items-center">
+						<div>
+							<p class="mb-0 text-secondary">Total Customer</p>
+							<h4 class="my-1">{{$totalCustomer}}</h4>
+						</div> 
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 <!--end row-->
 <div class="row row-cols-1 row-cols-xl-2">
 	<div class="col d-flex">

@@ -26,8 +26,8 @@
                  </div>
                  <hr />
                  <div class="table-responsive">
-                     <table class="table align-middle mb-0">
-                         <thead>
+                     <table id="example" class="table table-striped table-bordered" style="width:100%">
+                         <thead class="text-white bg-primary">
                         <tr>
                             <th scope="col">{{__('#SL')}}</th>
                             <th scope="col">{{__('Name')}}</th>

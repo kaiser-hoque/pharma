@@ -26,7 +26,7 @@
 						</div>
 						<hr/>
 						<div class="table-responsive">
-							<table class="table align-middle mb-0">
+							<table class="table align-middle mb-0 table table-striped table-bordered" id="example" style="width:100%">
 								<thead class="table-light">
 									<tr>
 										<th scope="col">{{__('#SL')}}</th>

@@ -228,7 +228,7 @@
                 </ul>
 
             </li>
-            <li>
+            {{--<li>
                 <a href="javascript:;" class="has-arrow">
                     <div class="parent-icon"><i class="fa fa-info-circle" aria-hidden="true"></i>
                     </div>
@@ -239,7 +239,7 @@
 
                 </ul>
 
-            </li>
+            </li>--}}
 
             <li>
                 <a href="javascript:;" class="has-arrow">
@@ -256,13 +256,13 @@
                     </li>
 
 
-                    <li> <a href="{{route('purchasedetails.index')}}"><i class="fa-solid fa-arrow-right"></i>Stock Report</a>
+                    <li> <a href="{{route('stock.index')}}"><i class="fa-solid fa-arrow-right"></i>Medicine Stock</a>
                     </li>
 
                 </ul>
 
             </li>
-            <li>
+            {{-- <li>
                 <a href="javascript:;" class="has-arrow">
                     <div class="parent-icon"><i class="fa fa-file" aria-hidden="true"></i></i>
                     </div>
@@ -273,7 +273,7 @@
                     </li>
                 </ul>
 
-            </li>
+            </li> --}}
             <li>
                 <a href="javascript:;" class="has-arrow">
                     <div class="parent-icon"><i class="fa fa-file" aria-hidden="true"></i></i>

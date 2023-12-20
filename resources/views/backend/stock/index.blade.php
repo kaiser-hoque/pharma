@@ -26,10 +26,11 @@
                     <div class="card-body">
                         <div class="table-responsive">
                             <table id="example" class="table table-striped table-bordered" style="width:100%">
-                                <thead>
+                                <thead class="bg-primary text-white">
                                     <tr>
                                         <th>{{ __('SL') }}</th>
                                         <th>{{ __('Medicine Name') }}</th>
+                                        <th>{{ __('Supplier Name') }}</th>
                                         <th>{{ __('Expire Date') }}</th>
                                         <th>{{ __('Quantity') }}</th>
                                          
@@ -39,8 +40,10 @@
                                     @forelse($stock as $p)
                                         <tr>
                                             <td>{{ ++$loop->index }}</td>
-                                            <td class="text-center">{{ $p->medicine?->bname }}</td>                                                                                      <td>
-                                                {{ $p->medicine ? date('M-d-Y', strtotime($p->medicine->expiredate)) : null }}
+                                            <td class="text-center">{{ $p->medicine?->bname }}</td>                                                                     
+                                           <td class="text-center">{{ $p->medicine->supplier->name ?? 'N/A' }}</td>
+                                                                                                                            <td>
+                                                {{ $p->medicine ? date('d-M-Y', strtotime($p->medicine->expiredate)) : null }}
                                                 @if($p->medicine)
                                                     @php
                                                         $daysRemaining = now()->diffInDays($p->medicine->expiredate);
@@ -52,13 +55,18 @@
                                             </td>
 
 
-                                            <td class="text-center">
+                                                                                                                            <td class="text-center">
                                                 {{ $p->quantity }}
-                                                @if($p->quantity < 5)
-                                                    <span class="text-danger">(Low Stock)</span>
-                                                   
+                                                @if($p->quantity <= 0)
+                                                    <span class="text-warning" style="color: yellow;">(Out of Stock)</span>
+                                                @elseif($p->quantity < 5)
+                                                    <span class="text-danger" style="color: red;">(Low Stock)</span>
+                                                @elseif($p->quantity >= 5 && $p->quantity < 10)
+                                                    <span class="text-success" style="color: green;">(Available)</span>
                                                 @endif
                                             </td>
+
+
                                              
                                         </tr>
                                     @empty

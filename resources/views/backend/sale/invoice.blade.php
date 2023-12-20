@@ -94,7 +94,7 @@
 														<td>{{ $sd->quantity }}</td>
 														<td>{{ $sd->unit_price }}</td>
 														<td>{{ $sd->tax }} {{ $sd->discount_type==0?"%":"BDT"}}</td>
-                <td>{{ $sd->discount }}{{ $sd->discount_type==0?"%":"BDT"}}</td>
+                                                        <td>{{ $sd->discount }}{{ $sd->discount_type==0?"%":"BDT"}}</td>
 														<td>{{ $sd->sub_amount }}</td>
 													</tr>
 												@endforeach
@@ -113,7 +113,7 @@
                                                 <tr>
                                                     <td colspan="3"></td>
                                                     <td colspan="2">Discount:</td>
-                                                    <td> {{$sale->discount}}%</td>
+                                                    <td>{{ $sd->discount }}{{ $sd->discount_type==0?"%":"BDT"}}</td>
                                                 </tr>
                                                 <tr>
                                                     <td colspan="3"></td>

@@ -70,6 +70,8 @@
 							<dd class="col-sm-9">{{$medicine->price}}</dd>
 							<dt class="col-sm-3">Status:</dt>
 							<dd class="col-sm-9">{{$medicine->status}}</dd>
+							<dt class="col-sm-3">Stock:</dt>
+							<dd class="col-sm-9"> ----</dd>
 	  
 						  </dl>
 						</div>
