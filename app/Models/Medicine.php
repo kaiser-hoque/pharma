@@ -26,4 +26,7 @@ class Medicine extends Model
     public function purchase(){
         return $this->hasMany(Purchase::class,'purchase_id','id');
     }
+    public function stock(){
+        return $this->hasMany(Stock::class,'purchase_id','id');
+    }
 }

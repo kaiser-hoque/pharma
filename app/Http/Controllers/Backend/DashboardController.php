@@ -8,6 +8,8 @@ use App\Models\sale;
 use App\Models\Purchase;
 use App\Models\Customer;
 use App\Models\Stock;
+use App\Models\Medicine;
+use App\Models\SaleDetails;
 
 class DashboardController extends Controller
 {
@@ -16,13 +18,14 @@ class DashboardController extends Controller
         $totalPurchase =Purchase::count();
         $totalCustomer =Customer::count();
         $totalStock =Stock::count();
+        $medicine = Medicine::get();
         if(fullAccess())
             return view ('backend.adminDashboard',compact('totalSales'));
         else
-            return view ('backend.dashboard',compact('totalSales','totalPurchase','totalCustomer','totalStock'));
+            return view ('backend.dashboard',compact('totalSales','totalPurchase','totalCustomer','totalStock','medicine'));
     }
 
-   
+
 
     // public function recentSales()
     // {

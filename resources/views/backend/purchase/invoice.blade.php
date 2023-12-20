@@ -64,13 +64,9 @@
                                 <main>
                                     <div class="row contacts">
                                         <div class="col invoice-to">
-                                            <div class="text-gray-light">INVOICE TO:</div>
-
+                                            <div class="text-gray-light">INVOICE TO:{{ $purchase->supplier->name }}</div>
                                             <span>Reference No: {{ $purchase->reference_no }}</span><br>
                                             <span>Purchase Date: {{ $purchase->purchase_date }}</span>
-                                            {{-- Rest of the content --}}
-
-
                                         </div>
                                         <div class="col invoice-details">
                                             <div class="date">Date of Invoice: {{ date('d/m/Y') }}</div>
@@ -96,7 +92,7 @@
                                                     <td>{{ $pd->medicine->bname }}</td>
                                                     <td>{{ $pd->quantity }}</td>
                                                     <td>{{ $pd->unit_price }}</td>
-                                                    <td>{{ $pd->tax }} {{ $pd->discount_type == 0 ? '%' : 'BDT' }}</td>
+                                                    <td>{{ $pd->tax }}%</td>
                                                     <td>{{ $pd->discount }} {{ $pd->discount_type == 0 ? '%' : 'BDT' }}
                                                     </td>
                                                     <td>{{ $pd->quantity * $pd->unit_price }}</td>

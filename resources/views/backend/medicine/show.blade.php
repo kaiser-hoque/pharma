@@ -41,14 +41,14 @@
                          <div class="col-md-4 border-end">
 						<img src="{{ asset('public/uploads/medicine/'.$medicine->image) }}" style="width: 250px; height: 200px; align" class="img-fluid mt-5 rounded  d-block mx-auto " alt="...">
 						<div class="row mb-3 row-cols-auto g-2 justify-content-center mt-3">
- 						 
+
 						</div>
 					  </div>
- 
+
 					  <div class="col-md-8">
 						<div class="card-body">
-						  <div class="mb-3"> 
-							 
+						  <div class="mb-3">
+
 						</div>
 
 						  <dl class="row">
@@ -70,9 +70,6 @@
 							<dd class="col-sm-9">{{$medicine->price}}</dd>
 							<dt class="col-sm-3">Status:</dt>
 							<dd class="col-sm-9">{{$medicine->status}}</dd>
-							<dt class="col-sm-3">Stock:</dt>
-							<dd class="col-sm-9"> ----</dd>
-	  
 						  </dl>
 						</div>
 					  </div>
@@ -90,19 +87,19 @@
 									</div>
 								</a>
 							</li>
-							 
-							 
+
+
 						</ul>
 						<div class="tab-content pt-3">
 							<div class="tab-pane fade show active " 				id="primaryhome" 		role="tabpanel">
-								<div class="text-center bg-primary p-5 opacity-25"> 
+								<div class="text-center bg-primary p-5 opacity-25">
 									<h2 class="text-white"> {{$medicine->description}}</h2>
 								</div>
 							</div>
-							 
+
 						</div>
 					</div>
-				  </div>			  
+				  </div>
 			</div>
 		</div>
 
@@ -130,5 +127,5 @@
     @endpush -->
 
     <!--app JS-->
-    
+
 @endsection

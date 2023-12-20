@@ -209,7 +209,7 @@
             </li>
             <li>
                 <a href="javascript:;" class="has-arrow">
-                    <div class="parent-icon"><i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                    <div class="parent-icon"><i class="fa-solid fa-tag"></i>
                     </div>
                     <div class="menu-title">Sale</div>
                 </a>
@@ -243,7 +243,7 @@
 
             <li>
                 <a href="javascript:;" class="has-arrow">
-                    <div class="parent-icon"><i class="fa fa-file" aria-hidden="true"></i></i>
+                    <div class="parent-icon"><i class="fa-solid fa-file"></i>
                     </div>
                     <div class="menu-title">Report</div>
                 </a>
@@ -276,7 +276,7 @@
             </li> --}}
             <li>
                 <a href="javascript:;" class="has-arrow">
-                    <div class="parent-icon"><i class="fa fa-file" aria-hidden="true"></i></i>
+                    <div class="parent-icon"><i class="fa-solid fa-coins"></i>
                     </div>
                     <div class="menu-title">Finance</div>
                 </a>
@@ -991,6 +991,8 @@
                         <div class="user-info">
                             <p class="user-name mb-0">
                                 {{ encryptor('decrypt',request()->session()->get('username')) }}</p>
+                            <p class="user-name mb-0">
+                                {{encryptor('decrypt',request()->session()->get('role')) }}</p>
 
                         </div>
                     </a>

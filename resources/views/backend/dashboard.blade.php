@@ -9,7 +9,7 @@
 				<div>
 					<p class="mb-0 text-secondary">Total Sale</p>
 					<h4 class="my-1"> {{ $totalSales }}</h4>
-					
+
 				</div>
 			</div>
 		</div>
@@ -22,7 +22,7 @@
 					<div>
 						<p class="mb-0 text-secondary">Total Purchase</p>
 						<h4 class="my-1">{{$totalPurchase}}</h4>
-					</div> 
+					</div>
 				</div>
 			</div>
 		</div>
@@ -34,7 +34,7 @@
 					<div>
 						<p class="mb-0 text-secondary">Total Stock</p>
 						<h4 class="my-1"><a href="{{route('stock.index')}}"><i class="fa-solid fa-arrow-right"></i><span class="text-dark">{{$totalStock}}</span></a></h4>
-					</div> 
+					</div>
 				</div>
 			</div>
 		</div>
@@ -46,7 +46,7 @@
 					<div>
 						<p class="mb-0 text-secondary">Total Purchase</p>
 						<h4 class="my-1">{{$totalPurchase}}</h4>
-					</div> 
+					</div>
 				</div>
 			</div>
 		</div>
@@ -58,7 +58,7 @@
 					<div>
 						<p class="mb-0 text-secondary">Total Purchase</p>
 						<h4 class="my-1">{{$totalPurchase}}</h4>
-					</div> 
+					</div>
 				</div>
 			</div>
 		</div>
@@ -70,7 +70,7 @@
 						<div>
 							<p class="mb-0 text-secondary">Total Customer</p>
 							<h4 class="my-1">{{$totalCustomer}}</h4>
-						</div> 
+						</div>
 					</div>
 				</div>
 			</div>
@@ -139,7 +139,7 @@
 			<div class="card-header border-bottom-0">
 				<div class="d-flex align-items-center">
 					<div>
-						<h5 class="mb-1">Top Products</h5>
+						<h5 class="mb-1">Top Medicine</h5>
 						<p class="mb-0 font-13 text-secondary"><i class='bx bxs-calendar'></i>in last 30 days revenue
 						</p>
 					</div>
@@ -162,146 +162,29 @@
 				</div>
 			</div>
 			<div class="product-list p-3 mb-3">
+                @foreach($medicine as $m)
 				<div class="row border mx-0 mb-3 py-2 radius-10 cursor-pointer">
 					<div class="col-sm-6">
 						<div class="d-flex align-items-center">
 							<div class="product-img">
-								<img src="{{asset('public/assets/images/icons/chair.png')}}" alt="" />
+								<img src="{{asset('public/uploads/medicine/'.$m->image)}}" alt="" />
 							</div>
 							<div class="ms-2">
-								<h6 class="mb-1">Light Blue Chair</h6>
-								<p class="mb-0">$240.00</p>
+								<h6 class="mb-1">{{$m->bname}}</h6>
+								<p class="mb-0">{{$m->gname}}</p>
 							</div>
 						</div>
 					</div>
 					<div class="col-sm">
-						<h6 class="mb-1">$2140.00</h6>
-						<p class="mb-0">345 Sales</p>
+						<h6 class="mb-1">{{$m->price}}</h6>
+
 					</div>
 					<div class="col-sm">
 						<div id="chart5"></div>
 					</div>
 				</div>
-				<div class="row border mx-0 mb-3 py-2 radius-10 cursor-pointer">
-					<div class="col-sm-6">
-						<div class="d-flex align-items-center">
-							<div class="product-img">
-								<img src="{{asset('public/assets/images/icons/user-interface.png')}}" alt="" />
-							</div>
-							<div class="ms-2">
-								<h6 class="mb-1">Honor Mobile 7x</h6>
-								<p class="mb-0">$159.00</p>
-							</div>
-						</div>
-					</div>
-					<div class="col-sm">
-						<h6 class="mb-1">$3570.00</h6>
-						<p class="mb-0">148 Sales</p>
-					</div>
-					<div class="col-sm">
-						<div id="chart6"></div>
-					</div>
-				</div>
-				<div class="row border mx-0 mb-3 py-2 radius-10 cursor-pointer">
-					<div class="col-sm-6">
-						<div class="d-flex align-items-center">
-							<div class="product-img">
-								<img src="{{asset('public/assets/images/icons/watch.png')}}" alt="" />
-							</div>
-							<div class="ms-2">
-								<h6 class="mb-1">Hand Watch</h6>
-								<p class="mb-0">$250.00</p>
-							</div>
-						</div>
-					</div>
-					<div class="col-sm">
-						<h6 class="mb-1">$3650.00</h6>
-						<p class="mb-0">122 Sales</p>
-					</div>
-					<div class="col-sm">
-						<div id="chart7"></div>
-					</div>
-				</div>
-				<div class="row border mx-0 mb-3 py-2 radius-10 cursor-pointer">
-					<div class="col-sm-6">
-						<div class="d-flex align-items-center">
-							<div class="product-img">
-								<img src="{{asset('public/assets/images/icons/idea.png')}}" alt="" />
-							</div>
-							<div class="ms-2">
-								<h6 class="mb-1">Mini Laptop</h6>
-								<p class="mb-0">$260.00</p>
-							</div>
-						</div>
-					</div>
-					<div class="col-sm">
-						<h6 class="mb-1">$6320.00</h6>
-						<p class="mb-0">452 Sales</p>
-					</div>
-					<div class="col-sm">
-						<div id="chart8"></div>
-					</div>
-				</div>
-				<div class="row border mx-0 mb-3 py-2 radius-10 cursor-pointer">
-					<div class="col-sm-6">
-						<div class="d-flex align-items-center">
-							<div class="product-img">
-								<img src="{{asset('public/assets/images/icons/tshirt.png')}}" alt="" />
-							</div>
-							<div class="ms-2">
-								<h6 class="mb-1">Slim-T-Shirt</h6>
-								<p class="mb-0">$112.00</p>
-							</div>
-						</div>
-					</div>
-					<div class="col-sm">
-						<h6 class="mb-1">$2360.00</h6>
-						<p class="mb-0">572 Sales</p>
-					</div>
-					<div class="col-sm">
-						<div id="chart9"></div>
-					</div>
-				</div>
-				<div class="row border mx-0 mb-3 py-2 radius-10 cursor-pointer">
-					<div class="col-sm-6">
-						<div class="d-flex align-items-center">
-							<div class="product-img">
-								<img src="{{asset('public/assets/images/icons/headphones.png')}}" alt="" />
-							</div>
-							<div class="ms-2">
-								<h6 class="mb-1">Smart Headphones</h6>
-								<p class="mb-0">$360.00</p>
-							</div>
-						</div>
-					</div>
-					<div class="col-sm">
-						<h6 class="mb-1">$9840.00</h6>
-						<p class="mb-0">275 Sales</p>
-					</div>
-					<div class="col-sm">
-						<div id="chart10"></div>
-					</div>
-				</div>
-				<div class="row border mx-0 py-2 radius-10 cursor-pointer">
-					<div class="col-sm-6">
-						<div class="d-flex align-items-center">
-							<div class="product-img">
-								<img src="{{asset('public/assets/images/icons/shoes.png')}}" alt="" />
-							</div>
-							<div class="ms-2">
-								<h6 class="mb-1">Green Sports Shoes</h6>
-								<p class="mb-0">$410.00</p>
-							</div>
-						</div>
-					</div>
-					<div class="col-sm">
-						<h6 class="mb-1">$3840.00</h6>
-						<p class="mb-0">265 Sales</p>
-					</div>
-					<div class="col-sm">
-						<div id="chart11"></div>
-					</div>
-				</div>
+                @endforeach
+
 			</div>
 		</div>
 	</div>
@@ -417,7 +300,7 @@
 							</div>
 						</td>
 					</tr>
-					 
+
 				</tbody>
 			</table>
 		</div>

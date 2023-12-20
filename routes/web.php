@@ -78,9 +78,10 @@ Route::middleware(['checkrole'])->prefix('admin')->group(function(){
     Route::resource('advancedsalary', advancedsalary::class);
     Route::resource('stock', stock::class);
     Route::resource('purchasedetails', purchasedetails::class);
-    Route::resource('medicineCategory', MedicineCategory::class);
+    Route::resource('medicineCategory', Category::class);
     Route::get('permission/{role}', [permission::class,'index'])->name('permission.list');
     Route::post('permission/{role}', [permission::class,'save'])->name('permission.save');
+
 
 });
 

@@ -7,6 +7,7 @@ use App\Models\Companies;
 use App\Models\Supplier;
 use App\Models\Dose;
 use App\Models\Category;
+use App\Models\Stock;
 use Illuminate\Http\Request;
 use Exception;
 
