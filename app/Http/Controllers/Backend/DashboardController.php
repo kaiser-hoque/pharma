@@ -9,6 +9,7 @@ use App\Models\Purchase;
 use App\Models\Customer;
 use App\Models\Stock;
 use App\Models\Medicine;
+use Illuminate\Support\Carbon;
 use App\Models\SaleDetails;
 
 class DashboardController extends Controller
@@ -19,10 +20,14 @@ class DashboardController extends Controller
         $totalCustomer =Customer::count();
         $totalStock =Stock::count();
         $medicine = Medicine::get();
+        $today = today();
+        $dailySales = Sale::whereDate('created_at', $today)->sum('grand_total');
+        $yesterdaySales = Sale::whereDate('created_at', Carbon::yesterday())->sum('grand_total');
+
         if(fullAccess())
             return view ('backend.adminDashboard',compact('totalSales'));
         else
-            return view ('backend.dashboard',compact('totalSales','totalPurchase','totalCustomer','totalStock','medicine'));
+            return view ('backend.dashboard',compact('totalSales','totalPurchase','totalCustomer','totalStock','medicine','dailySales','yesterdaySales'));
     }
 
 

@@ -44,8 +44,8 @@
 			<div class="card-body">
 				<div class="d-flex align-items-center">
 					<div>
-						<p class="mb-0 text-secondary">Total Purchase</p>
-						<h4 class="my-1">{{$totalPurchase}}</h4>
+						<p class="mb-0 text-secondary">Todays Sale</p>
+						<h4 class="my-1">{{$dailySales}}</h4>
 					</div>
 				</div>
 			</div>
@@ -56,8 +56,8 @@
 			<div class="card-body">
 				<div class="d-flex align-items-center">
 					<div>
-						<p class="mb-0 text-secondary">Total Purchase</p>
-						<h4 class="my-1">{{$totalPurchase}}</h4>
+						<p class="mb-0 text-secondary">Yesterday Sales</p>
+						<h4 class="my-1">{{ $yesterdaySales }}</h4>
 					</div>
 				</div>
 			</div>
@@ -206,10 +206,10 @@
 			<table class="table align-middle mb-0">
 				<thead class="table-light">
 					<tr>
-						<th>Order id</th>
+						<th>#SL</th>
 						<th>Medicine</th>
 						<th>Customer</th>
-						<th>Date</th>
+						<th>Sale Date</th>
 						<th>Price</th>
 						<th>Status</th>
 						<th>Action</th>
