@@ -4,8 +4,8 @@
 
 
 
- 
-     <div class="wrapper">
+
+    <div class="wrapper">
         <div class="page-wrapper">
             <div class="page-content">
                 <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
@@ -33,31 +33,34 @@
                                         <th>{{ __('Supplier Name') }}</th>
                                         <th>{{ __('Expire Date') }}</th>
                                         <th>{{ __('Quantity') }}</th>
-                                         
+
                                     </tr>
                                 </thead>
                                 <tbody>
                                     @forelse($stock as $p)
                                         <tr>
                                             <td>{{ ++$loop->index }}</td>
-                                            <td class="text-center">{{ $p->medicine?->bname }}</td>                                                                     
-                                           <td class="text-center">{{ $p->medicine->supplier->name ?? 'N/A' }}</td>
-                                                                                                                            <td>
-                                                {{ $p->medicine ? date('d-M-Y', strtotime($p->medicine->expiredate)) : null }}
-                                                @if($p->medicine)
+                                            <td class="text-center">{{ $p->medicine?->bname }}</td>
+                                            <td class="text-center">{{ $p->medicine->supplier->name ?? 'N/A' }}</td>
+                                            <td>
+                                                @if ($p->medicine)
+                                                    {{ date('d-M-Y', strtotime($p->medicine->expiredate)) }}
                                                     @php
                                                         $daysRemaining = now()->diffInDays($p->medicine->expiredate);
                                                     @endphp
-                                                    @if($daysRemaining <= 5)
-                                            <br/> <span class="text-danger">(End after {{ $daysRemaining }} {{ Str::plural('day', $daysRemaining) }})</span>
+                                                    @if ($daysRemaining <= 5)
+                                                        <br /> <span class="text-danger">(End after {{ $daysRemaining }} {{ Str::plural('day', $daysRemaining) }})</span>
+                                                    @endif
+                                                    @if (now() > \Carbon\Carbon::parse($p->medicine->expiredate))
+                                                        <br /> <span class="text-danger">(It's expired)</span>
                                                     @endif
                                                 @endif
                                             </td>
 
 
-                                                                                                                            <td class="text-center">
+                                            <td class="text-center">
                                                 {{ $p->quantity }}
-                                                @if($p->quantity <= 0)
+                                                @if ($p->quantity <= 0)
                                                     <span class="text-warning" style="color: yellow;">(Out of Stock)</span>
                                                 @elseif($p->quantity < 5)
                                                     <span class="text-danger" style="color: red;">(Low Stock)</span>
@@ -67,7 +70,7 @@
                                             </td>
 
 
-                                             
+
                                         </tr>
                                     @empty
                                         <tr>
@@ -89,7 +92,8 @@
         </footer>
     </div>
     </div>
-<script src="assets/js/app.js"></script>
+    <script src="assets/js/app.js"></script>
+
     </html>
 
 @endsection
