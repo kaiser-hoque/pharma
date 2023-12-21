@@ -56,7 +56,7 @@
 			<div class="card-body">
 				<div class="d-flex align-items-center">
 					<div>
-						<p class="mb-0 text-secondary">Today Sales</p>
+						<p class="mb-0 text-secondary">Today Purchase</p>
 						<h4 class="my-1">{{ $dailyPurchase }}</h4>
 					</div>
 				</div>
