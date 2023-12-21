@@ -43,19 +43,20 @@
                                             <td class="text-center">{{ $p->medicine?->bname }}</td>
                                             <td class="text-center">{{ $p->medicine->supplier->name ?? 'N/A' }}</td>
                                             <td>
-    @if ($p->medicine)
-        {{ date('d-M-Y', strtotime($p->medicine->expiredate)) }}
-        @php
-            $daysRemaining = now()->diffInDays($p->medicine->expiredate);
-        @endphp
+                                                @if ($p->medicine)
+                                                    {{ date('d-M-Y', strtotime($p->medicine->expiredate)) }}
+                                                    @php
+                                                        $daysRemaining = now()->diffInDays($p->medicine->expiredate);
+                                                    @endphp
 
-        @if ($daysRemaining <= 10 && $daysRemaining > 0)
-            <br /> <span class="text-success">(Expires in {{ $daysRemaining }} {{ Str::plural('day', $daysRemaining) }})</span>
-        @elseif ($daysRemaining <= 0)
-            <br /> <span class="text-danger">(Expired)</span>
-        @endif
-    @endif
-</td>
+                                                    @if ($daysRemaining <= 10 && $daysRemaining > 0)
+                                                        <br /> <span class="text-success">(Expires in {{ $daysRemaining }}
+                                                            {{ Str::plural('day', $daysRemaining) }})</span>
+                                                    @elseif ($daysRemaining <= 0)
+                                                        <br /> <span class="text-danger">(Expired)</span>
+                                                    @endif
+                                                @endif
+                                            </td>
 
 
                                             <td class="text-center">
