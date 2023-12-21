@@ -37,15 +37,15 @@
 				</div>
 				<!--end breadcrumb-->
 				<div class="row">
-					<div class="col-xl-10 mx-auto">
+					<div class="col-xl-10 mx-auto" >
 						<div class="card">
-							<div class="card-header px-4 py-3">
-								<h5 class="mb-0">Supplier Create</h5>
+							<div class="card-header px-4 py-3 bg-primary">
+								<h5 class="mb-0 text-white">Supplier Create</h5>
 							</div>
 							<div class="card-body p-4">
 								<form method="post" enctype="multipart/form-data" action="{{route('supplier.store')}}" class="row g-3 needs-validation" novalidate>
                                     @csrf
-									<div class="col-md-5">
+									<div class="col-md-4">
 										<label for="bsValidation1" class="form-label"><b>Full Name</b></label>
 										<input type="text" class="form-control"
 										name="name" id="name" placeholder="  Name" >
@@ -55,7 +55,7 @@
                                     @endif
 									</div>
 
-									<div class="col-md-5">
+									<div class="col-md-4">
 										<label for="bsValidation3" class="form-label"><b>Contact Num</b></label>
 										<input type="text" class="form-control" id="contact_num"
 										name="contact_num"placeholder="contact_num"  >
@@ -65,7 +65,7 @@
                                     @endif
 
 									</div>
-									<div class="col-md-5">
+									<div class="col-md-4">
 										<label for="bsValidation4" class="form-label"><b>Email</b></label>
 										<input type="email" class="form-control"
 										name="email" id="email" placeholder="Email" >
@@ -75,7 +75,7 @@
                                     @endif
 									</div>
 
-									<div class="col-md-5">
+									<div class="col-md-4">
                                         <div class="form-group">
                                             <label for="status"><b>Status</b></label>
                                             <select id="status" class="form-control" name="status">
@@ -88,7 +88,7 @@
                                             @endif
                                         </div>
                                     </div>
-									<div class="col-md-5">
+									<div class="col-md-4">
                                         <div class="form-group">
                                             <label for="supplier"><b>supplier Type</b></label>
                                             <select id="supplier" class="form-control" name="supplier">
@@ -102,23 +102,22 @@
                                             @endif
                                         </div>
                                     </div>
-
-
-
-
-									<div class="col-md-5">
-										<label for="bsValidation13" class="form-label"><b>Adress</b></label>
+									<div class="col-md-4">
+                                        <div class="form-group">
+										<label for="bsValidation13" ><b>Adress</b></label>
 										<textarea class="form-control" id="address"
-										name="address"placeholder="Address ..." rows="3" ></textarea>
+										name="address"placeholder="Address ..." rows="1" ></textarea>
 
                                         @if($errors->has('address'))
                                         <span class="text-danger"> {{ $errors->first('address') }}</span>
                                     @endif
+                                </div>
+
 									</div>
-									<div class="col-md-5">
-										<label for="bsValidation13" class="form-label"><b>Description</b></label>
+									<div class="col-md-4">
+										<label for="bsValidation13"  ><b>Description</b></label>
 										<textarea class="form-control" id="description" placeholder="description ..."
-										name="description"rows="3" required></textarea>
+										name="description"rows="1" required></textarea>
 
                                         @if($errors->has('description'))
                                         <span class="text-danger"> {{ $errors->first('description') }}</span>

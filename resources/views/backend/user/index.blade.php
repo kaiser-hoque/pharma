@@ -55,6 +55,8 @@
 									<td class="">
 										<div style="display: flex; justify-content: space-between; 	align-items: center;">
 											<a href="{{ route('user.edit', encryptor('encrypt', $d->id)) }}"><i class="fa fa-edit"></i></a>
+
+                                            
 											<a href="{{ route('user.show', encryptor('encrypt', $d->id)) }}"><i class="fa-solid fa-eye"></i></a>
 											<form id="" action="{{ route('user.destroy', encrypt($d->id)) }}" method="post">
 												@csrf
