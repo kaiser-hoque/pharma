@@ -46,7 +46,7 @@
                         <hr>
                         <div class="table-responsive mt-5">
                             <table id="example" class="table table-striped table-bordered" style="width:100%">
-                                <thead>
+                                <thead class="text-white bg-primary">
                                     @php
                                         $fromDate = \Carbon\Carbon::parse($fromDate);
                                         $toDate = \Carbon\Carbon::parse($toDate);
@@ -62,7 +62,7 @@
                                         <th class="text-center">{{__('Quentity')}}</th>
                                         <th class="text-center">{{__('Sub Amount')}}</th>
                                         <th class="text-center">{{__('Discount')}}</th>
-                                        <th class="text-center">{{__('Tex')}}</th>
+                                         
                                         <th class="text-center">{{__('Total Amount')}}</th>
                                     </tr>
                                 </thead>
@@ -76,11 +76,23 @@
                                         <td>{{ $sd->total_quantity }}</td>
                                         <td>{{ $sd->sub_amount}}</td>
                                         <td>{{ $sd->discount}} {{ $sd->discount_type==1?"%":"BDT"}}</td>
-                                        <td>{{ $sd->tax}}</td>
+                                         
                                         <td>{{ $sd->grand_total}}</td>
                                     </tr>
                                     @endforeach
                                 </tbody>
+                                 <tfoot>
+                                    <tr>
+                                        <td class="text-center"></td>
+                                        <td class="text-center"></td>
+                                        <td class="text-center"></td>
+                                        <td class="text-center"></td>
+                                        <td class="text-center"></td>
+                                        
+                                        <td class="text-center"><b>Total: {{ $purchase->sum('sub_amount') }}</b></td>    
+                                        <td class="text-center"><b>Total: {{ $purchase->sum('grand_total') }}</b></td>    
+                                    </tr>
+                                </tfoot>
 
                             </table>
                         </div>

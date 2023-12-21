@@ -26,6 +26,8 @@
 	<link rel="stylesheet" href="{{asset('public/assets/css/dark-theme.css')}}"/>
 	<link rel="stylesheet" href="{{asset('public/assets/css/semi-dark.css')}}"/>
 	<link rel="stylesheet" href="{{asset('public/assets/css/header-colors.css')}}"/>
+	{!! Toastr::message() !!}
+	 <link rel="stylesheet" href="http://cdn.bootcss.com/toastr.js/latest/css/toastr.min.css">
 	<title>{{env('APP_NAME')}} | @yield('title','Page Name')</title>
 </head>
 
@@ -50,10 +52,10 @@
 	<script src="{{asset('public/assets/js/index.js')}}"></script>
 	<!--app JS-->
 	<script src="{{asset('public/assets/js/app.js')}}"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" ></script>
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css"/>
+	<script src="http://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+        <script src="http://cdn.bootcss.com/toastr.js/latest/js/toastr.min.js"></script>
 
-	<!-- <script >
+	 <script >
 			@if (Session:: has('success '))
 		toastr.success("{{ Session:: get('success') }}");
 		@endif
@@ -66,7 +68,7 @@
 		@if (Session:: has('error '))
 		toastr.error("{{ Session:: get('error') }}");
 		@endif  
-	</script> -->
+	</script> 
 </body>
 
 

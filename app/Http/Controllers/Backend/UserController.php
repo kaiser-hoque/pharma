@@ -74,8 +74,10 @@ class UserController extends Controller
      */
     public function show(string $id)
     {
-        //
+       $user=User::findOrFail(encryptor('decrypt',$id));
+        return view('backend.user.show',compact('user'));
     }
+    
 
     /**
      * Show the form for editing the specified resource.

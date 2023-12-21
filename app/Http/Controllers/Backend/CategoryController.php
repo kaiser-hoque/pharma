@@ -7,6 +7,7 @@ use App\Models\Category;
 use Illuminate\Http\Request;
 use Exception;
 
+
 class CategoryController extends Controller
 {
     /**
@@ -74,7 +75,7 @@ class CategoryController extends Controller
             $data->medicine_category = $request->category_name;
             if ($data->save())
                 $this->notice::success('Successfully updated');
-            return redirect()->route('category.index');
+                return redirect()->route('category.index');
         } catch (Exception $e) {
             // dd($e);
             $this->notice::error('Please try again');

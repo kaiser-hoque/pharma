@@ -38,11 +38,11 @@
                         <div class="card">
                             <div class="card-body">
                                 <div class="d-flex flex-column align-items-center text-center">
-                                    <img src=" " alt="Admin" class="rounded-circle p-1 bg-primary" width="110">
+                                    <img src="{{ asset('public/uploads/users/' .request()->session()->get('image')) }}" alt="Admin"   width="110">
                                     <div class="mt-3">
                                    
-                                        <h4>name</h4>
-                                        <p class="text-secondary mb-1">Full Stack Developer</p>
+                                        <h4>{{ encryptor('decrypt',request()->session()->get('username')) }}</h4>
+                                        <p class="text-secondary mb-1"> {{encryptor('decrypt',request()->session()->get('role')) }}</p>
                                         <p class="text-muted font-size-sm">Bay Area, San Francisco, CA</p>
                                         <button class="btn btn-primary">Follow</button>
                                         <button class="btn btn-outline-primary">Message</button>

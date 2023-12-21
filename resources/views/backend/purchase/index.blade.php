@@ -74,13 +74,13 @@
                                                     <i class="fas fa-file-invoice" title="Invoice"></i>
                                                 </a>
                                                 <a href="{{route('purchase.show',encryptor('encrypt',$value->id))}}"><i class="fa-solid fa-eye"></i></a>
-                                                <form id="" action="{{ route('purchase.destroy', $value->id)}}" method="post">
+                                                {{--<form id="" action="{{ route('purchase.destroy', $value->id)}}" method="post">
                                                     @csrf
                                                     @method('delete')
                                                     <button style="background: none; border: none;" type="submit">
                                                         <i class="fa fa-trash text-danger"></i>
                                                     </button>
-                                                </form>
+                                                </form>--}}
 
                                             </div>
                                         </td>

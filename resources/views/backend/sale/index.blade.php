@@ -81,17 +81,17 @@
                                                 <a href="{{ route('sale.generate-invoice', $value->id) }}">
                                                     <i class="fas fa-file-invoice" title="Invoice"></i>
                                                 </a>
-                                                <a href="{{route('sale.edit',encryptor('encrypt', $value->id))}}">
+                                               {{-- <a href="{{route('sale.edit',encryptor('encrypt', $value->id))}}">
                                                     <i class="fa fa-edit"></i>
-                                                </a>
+                                                </a>--}}
                                                 <a href="{{route('sale.show',encryptor('encrypt',$value->id))}}"><i class="fa-solid fa-eye"></i></a>
-                                                <form id="" action="{{ route('sale.destroy', $value->id)}}" method="post">
+                                                {{--<form id="" action="{{ route('sale.destroy', $value->id)}}" method="post">
                                                     @csrf
                                                     @method('delete')
                                                     <button style="background: none; border: none;" type="submit">
                                                         <i class="fa fa-trash text-danger"></i>
                                                     </button>
-                                                </form>
+                                                </form>--}}
 
                                             </div>
                                         </td>

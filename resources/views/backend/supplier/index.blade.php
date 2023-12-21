@@ -67,7 +67,10 @@
                                                 @else{{ __('Inactive') }}
                                             @endif
                                         </td>
-                                        <td class="text-center">{{$value->supplier}}</td>
+                                     <td class="text-center">
+    <span style="color: @if($value->supplier === 'Regular') green @elseif($value->supplier === 'Common') blue @elseif($value->supplier === 'Very Regular') #0d6efd @else @endif">{{$value->supplier}}</span>
+</td>
+
                                         <td class="text-center">{{$value->description}}</td>
                                         <td class="action-buttons">
                                             <div class="button-container">

@@ -43,19 +43,19 @@
                                             <td class="text-center">{{ $p->medicine?->bname }}</td>
                                             <td class="text-center">{{ $p->medicine->supplier->name ?? 'N/A' }}</td>
                                             <td>
-                                                @if ($p->medicine)
-                                                    {{ date('d-M-Y', strtotime($p->medicine->expiredate)) }}
-                                                    @php
-                                                        $daysRemaining = now()->diffInDays($p->medicine->expiredate);
-                                                    @endphp
-                                                    @if ($daysRemaining <= 5)
-                                                        <br /> <span class="text-danger">(End after {{ $daysRemaining }} {{ Str::plural('day', $daysRemaining) }})</span>
-                                                    @endif
-                                                    @if (now() > \Carbon\Carbon::parse($p->medicine->expiredate))
-                                                        <br /> <span class="text-danger">(It's expired)</span>
-                                                    @endif
-                                                @endif
-                                            </td>
+    @if ($p->medicine)
+        {{ date('d-M-Y', strtotime($p->medicine->expiredate)) }}
+        @php
+            $daysRemaining = now()->diffInDays($p->medicine->expiredate);
+        @endphp
+
+        @if ($daysRemaining <= 10 && $daysRemaining > 0)
+            <br /> <span class="text-success">(Expires in {{ $daysRemaining }} {{ Str::plural('day', $daysRemaining) }})</span>
+        @elseif ($daysRemaining <= 0)
+            <br /> <span class="text-danger">(Expired)</span>
+        @endif
+    @endif
+</td>
 
 
                                             <td class="text-center">

@@ -114,7 +114,7 @@
                                             <tr>
                                                 <td colspan="3"></td>
                                                 <td colspan="2">Discount:</td>
-                                                <td>{{ $purchase->discount }}%</td>
+                                                <td>{{ $purchase->discount}}%</td>
                                             </tr>
                                             <tr>
                                                 <td colspan="3"></td>

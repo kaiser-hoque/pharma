@@ -41,27 +41,30 @@
 								</thead>
 								<tbody>
 									@forelse($data as $d)
-                            <tr class="">
-                                <td>{{++$loop->index}}</td>
-                                <td>{{$d->name_en}}</td>
-                                <td>{{$d->email}}</td>
-                                <td>{{$d->contact_no_en}}</td>
-                                {{-- <td class="d-flex align-items-center text-primary">	<i class='bx bx-radio-circle-marked bx-burst bx-rotate-90 align-middle font-18 me-1'></i>
-                                    <span>{{$d->role?->name}}</span>
-                                </td> --}}
-                                <td>{{$d->role?->name}}</td>
-                                <td><img width="50px" class="product-img" src="{{asset('public/uploads/users/'.$d->image)}}" alt=""></td>
-                                <td style="color: @if($d->status==1) green @else red @endif; border-radius: 5px;font-weight: bold; font-size:15px">@if($d->status==1){{__('Active')}} @else{{__('Inactive')}} @endif</td>
-                                <td class="btn group">
-                                    <a href="{{route('user.edit',encryptor('encrypt',$d->id))}}"><i class="fa fa-edit"></i></a>
+                            	<tr class="">
+									<td>{{++$loop->index}}</td>
+									<td>{{$d->name_en}}</td>
+									<td>{{$d->email}}</td>
+									<td>{{$d->contact_no_en}}</td>
+									{{-- <td class="d-flex align-items-center text-primary">	<i class='bx bx-radio-circle-marked bx-burst bx-rotate-90 align-middle font-18 me-1'></i>
+										<span>{{$d->role?->name}}</span>
+									</td> --}}
+									<td>{{$d->role?->name}}</td>
+									<td><img width="50px" class="product-img" src="{{asset('public/uploads/users/'.$d->image)}}" alt=""></td>
+									<td style="color: @if($d->status==1) green @else red @endif; border-radius: 5px;font-weight: bold; font-size:15px">@if($d->status==1){{__('Active')}} @else{{__('Inactive')}} @endif</td>
+									<td class="">
+										<div style="display: flex; justify-content: space-between; 	align-items: center;">
+											<a href="{{ route('user.edit', encryptor('encrypt', $d->id)) }}"><i class="fa fa-edit"></i></a>
+											<a href="{{ route('user.show', encryptor('encrypt', $d->id)) }}"><i class="fa-solid fa-eye"></i></a>
+											<form id="" action="{{ route('user.destroy', encrypt($d->id)) }}" method="post">
+												@csrf
+												@method('delete')
+												<button style="background: none; border: none;" type="submit"><i class="fa fa-trash text-danger"></i></button>
+											</form>
+										</div>
+									</td>
 
-                                    <form id="" action="{{ route('user.destroy',encrypt($d->id))}}" method="post">
-                                        @csrf
-                                        @method('delete')
-                                        <button style="background: none; border: none;" type="submit"><i class="fa fa-trash text-danger"></i></button>
 
-                                    </form>
-                                </td>
                             </tr>
                         @empty
                             <tr>

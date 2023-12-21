@@ -46,19 +46,24 @@
                         <hr>
                         <div class="table-responsive mt-5">
                             <table id="example" class="table table-striped table-bordered" style="width:100%">
-                                <thead>
+                                <thead class="text-white bg-primary">
+                                     @php
+                                        $fromDate = \Carbon\Carbon::parse($fromDate);
+                                        $toDate = \Carbon\Carbon::parse($toDate);
+                                    @endphp
+
+                                    <h6 class="text-center text-primary">Purchase Report from {{ $fromDate->toDateString() }} to {{  $toDate->toDateString() }}
+                                    </h6>
                                     <tr>
                                         <th class="text-center">{{__('No.')}}</th>
                                         <th class="text-center">{{__('Customer Name')}}</th>
                                         <th class="text-center">{{__('Date')}}</th>
                                         <th class="text-center">{{__('Quentity')}}</th>
                                         <th class="text-center">{{__('Sub Amount')}}</th>
-                                         
-                                        <th class="text-center">{{__('Tex')}}</th>
                                         <th class="text-center">{{__('Total Amount')}}</th>
                                     </tr>
                                 </thead>
-                                <tbody>
+                                <tbody class="text-center">
                                     @foreach($sale as $sd)
                                     <tr>
                                         <td>{{$sd->id}}</td>
@@ -66,13 +71,20 @@
                                         <td>{{ $sd->sale_date }}</td>
                                         <td>{{ $sd->total_quantity }}</td>
                                         <td>{{ $sd->sub_amount}}</td>
-                                        <td>{{ $sd->discount}}</td>
-                                        <td>{{ $sd->tax}}</td>
-                                        <td></td>
                                         <td>{{ $sd->grand_total}}</td>
                                     </tr>
                                     @endforeach
                                 </tbody>
+                                <tfoot>
+                                    <tr>
+                                        <td class="text-center"></td>
+                                        <td class="text-center"></td>
+                                        <td class="text-center"></td>
+                                        <td class="text-center"></td>
+                                        <td class="text-center"><b>Total: {{ $sale->sum('sub_amount') }}</b></td>    
+                                        <td class="text-center"><b>Total: {{ $sale->sum('grand_total') }}</b></td>    
+                                    </tr>
+                                </tfoot>
                             </table>
                         </div>
                     </div>
