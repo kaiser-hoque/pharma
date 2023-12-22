@@ -79,7 +79,7 @@
                                     </div>
                                     <div class="text-center mx-auto">
                                     <span style="font-size: 16px; font-weight:bold">Pharma</span><br>
-                                    <span>455 Foggy Heights, AZ 85004, BD</span><br>
+                                    <span>455 Foggy Heights. AZ 85004, BD</span><br>
                                     <span>(123) 456-789</span><br>
                                     <span>pharma@gmail.com</span><br>
                                     <span><h4>Cash Memo</h4></span><br>
