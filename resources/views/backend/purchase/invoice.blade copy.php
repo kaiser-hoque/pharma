@@ -6,14 +6,6 @@
     .color3 {
         background-color: rgba(238, 227, 227, 0.452) !important;
     }
-    .bottomborder{
-        font-size:13px;
-        font-weight:bold;
-        border-bottom: 1px solid rgb(70, 67, 67)!important;
-        border-top: 1px solid rgb(70, 67, 67)!important;
-        padding-top: 4px!important;
-
-    }
 </style>
 
     <div class="wrapper">
@@ -92,7 +84,7 @@
                                     <span>pharma@gmail.com</span><br>
                                     <span><h4>Cash Memo</h4></span><br>
                                 </div>
-                                    <table width="665">
+                                    <table border="1" width="665" style="border-collapse: collapse;">
                                         <thead>
                                             <tr>
                                                 <td colspan="4">
@@ -106,14 +98,14 @@
                                                     <span>Due Date: 30/10/2018</span>
                                                 </td>
                                             </tr>
-                                            <tr class="text-center bottomborder pt-5">
-                                                <td>#SL</td>
-                                                <td>Product</td>
-                                                <td>Quantity</td>
-                                                <td>Unit Price</td>
-                                                <td>V.A.T</td>
-                                                <td>Discount</td>
-                                                <td>Amount</td>
+                                            <tr>
+                                                <td class="text-center" style="font-size: 13px; font-weight:bold">#SL</td>
+                                                <td class="text-center" style="font-size: 13px; font-weight:bold">Product</td>
+                                                <td class="text-center" style="font-size: 13px; font-weight:bold">Quantity</td>
+                                                <td class="text-center" style="font-size: 13px; font-weight:bold">Unit Price</td>
+                                                <td class="text-center" style="font-size: 13px; font-weight:bold">V.A.T</td>
+                                                <td class="text-center" style="font-size: 13px; font-weight:bold">Discount</td>
+                                                <td class="text-center" style="font-size: 13px; font-weight:bold">Amount</td>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -212,3 +204,5 @@
     </div>
 
     </div>
+
+@endsection
