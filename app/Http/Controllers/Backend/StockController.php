@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\backend;
 use App\Http\Controllers\Controller;
 use App\Models\Stock;
- 
+use DB;
 
 use Illuminate\Http\Request;
 
@@ -13,7 +13,7 @@ class StockController extends Controller
      * Display a listing of the resource.
      */
     public function index()
-    {   $stock=Stock::get();
+    {   $stock=DB::select("SELECT medicines.id,medicines.bname,sum(`quantity`) as balance,(`quantity` * `unit_price`) as stock_value FROM `stocks` JOIN medicines on medicines.id=stocks.medicine_id GROUP BY stocks.medicine_id");
         return view('backend.stock.index',compact('stock'));
     }
 
