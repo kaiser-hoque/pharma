@@ -11,7 +11,7 @@ use App\Models\Customer;
 use App\Models\Stock;
 use App\Models\Medicine;
 use Illuminate\Support\Carbon;
- 
+
 
 class DashboardController extends Controller
 {
@@ -28,13 +28,10 @@ class DashboardController extends Controller
         $yesterdaySales = Sale::whereDate('created_at', Carbon::yesterday())->sum('grand_total');
 
         if(fullAccess())
-            return view ('backend.adminDashboard',compact('totalSales'));
+            return view ('backend.adminDashboard',compact(' '));
         else
             return view ('backend.dashboard',compact('totalSales','totalPurchase','totalCustomer','totalStock','medicine','dailySales','yesterdaySales','recentSale', 'dailyPurchase'));
     }
-
-
-
     // public function recentSales()
     // {
     //     // Get recent sales (example: last 10 sales)
