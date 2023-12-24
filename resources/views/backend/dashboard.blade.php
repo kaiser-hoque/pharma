@@ -191,7 +191,7 @@
 </div>
 <!--end row-->
 
-<!--end row-->
+<!--recent sale-->
 <div class="card radius-10">
 	<div class="card-body">
 		<div class="d-flex align-items-center">
@@ -211,92 +211,42 @@
 						<th>Customer</th>
 						<th>Sale Date</th>
 						<th>Price</th>
-						 
-						<th>Action</th>
+						<th class="text-center">⬇</th>
 					</tr>
 				</thead>
 				<tbody>
 					  @foreach($recentSale as $rs)
-					<tr>
-						<td>#{{++$loop->index}}</td>
+					<tr onclick="redirectToSaleIndex()"> {{--"When I click on any row, it goes to sale.index.--}}
+
+                            <td>{{++$loop->index}}</td>
 						<td>
 							<div class="d-flex align-items-center">
-								<!-- <div class="recent-product-img">
+								 {{--<div class="recent-product-img">
 									<img src="{{asset('public/assets/images/icons/chair.png')}}" alt="">
-								</div> -->
+								</div>--}}
 								<div class="ms-2">
 									<h6 class="mb-1 font-14">{{$rs->medicine->bname}} <br><span class="text-muted">{{$rs->medicine->product_code}}</span> </h6>
 								</div>
 							</div>
 						</td>
 						<td>{{$rs->sale->customer->name}}</td>
-						<td>{{$rs->sale->sale_date}}</td>
+
+                        <td>{{\Carbon\Carbon::parse($rs->sale->sale_date)->format('j F y') }}</td>
+
 						<td>{{$rs->medicine->price}}</td>
 						<td>
-							<div class="d-flex order-actions"> <a href="javascript:;" class=""><i
-										class="bx bx-cog"></i></a>
-								<a href="javascript:;" class="ms-4"><i class='bx bx-down-arrow-alt'></i></a>
-							</div>
+							<div class="btn-group">
+                                <button type="button" class="btn btn-primary">Explore</button>
+                                <button type="button" class="btn btn-primary split-bg-primary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown">	<span class="visually-hidden">Toggle Dropdown</span>
+                                </button>
+                                <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-end">
+                                    <a class="dropdown-item" href="{{ route('sale.create') }}">Add Sale</a>
+                                    <a class="dropdown-item" href="{{route('purchase.create')}}">Add Purchase</a>
+                                </div>
+                            </div>
 						</td>
 					</tr>
 					 @endforeach
-					{{--<tr>
-						<td>#987549</td>
-						<td>
-							<div class="d-flex align-items-center">
-								<div class="recent-product-img">
-									<img src="{{asset('public/assets/images/icons/shoes.png')}}" alt="">
-								</div>
-								<div class="ms-2">
-									<h6 class="mb-1 font-14">Green Sport Shoes</h6>
-								</div>
-							</div>
-						</td>
-						<td>Martin Hughes</td>
-						<td>14 Jul 2020</td>
-						<td>$45.00</td>
-						<td>
-							<div class="d-flex align-items-center text-primary"> <i
-									class='bx bx-radio-circle-marked bx-burst bx-rotate-90 align-middle font-18 me-1'></i>
-								<span>Dispatched</span>
-							</div>
-						</td>
-						<td>
-							<div class="d-flex order-actions"> <a href="javascript:;" class=""><i
-										class="bx bx-cog"></i></a>
-								<a href="javascript:;" class="ms-4"><i class='bx bx-down-arrow-alt'></i></a>
-							</div>
-						</td>
-					</tr>
-					<tr>
-						<td>#685749</td>
-						<td>
-							<div class="d-flex align-items-center">
-								<div class="recent-product-img">
-									<img src="{{asset('public/assets/images/icons/headphones.png')}}" alt="">
-								</div>
-								<div class="ms-2">
-									<h6 class="mb-1 font-14">Red Headphone 07</h6>
-								</div>
-							</div>
-						</td>
-						<td>Shoan Stephen</td>
-						<td>15 Jul 2020</td>
-						<td>$67.00</td>
-						<td>
-							<div class="d-flex align-items-center text-success"> <i
-									class='bx bx-radio-circle-marked bx-burst bx-rotate-90 align-middle font-18 me-1'></i>
-								<span>Completed</span>
-							</div>
-						</td>
-						<td>
-							<div class="d-flex order-actions"> <a href="javascript:;" class=""><i
-										class="bx bx-cog"></i></a>
-								<a href="javascript:;" class="ms-4"><i class='bx bx-down-arrow-alt'></i></a>
-							</div>
-						</td>
-					</tr>--}}
-
 				</tbody>
 			</table>
 		</div>
@@ -304,11 +254,13 @@
 </div>
 </div>
 </div>
-<!--end page wrapper -->
-<!--start overlay-->
+{{--"When I click on any row, it goes to sale.index.--}}
+<script>
+    function redirectToSaleIndex() {
+        window.location.href = "{{ route('sale.index')}}"
+    }
+</script>
+
 <div class="overlay toggle-icon"></div>
-<!--end overlay-->
-<!--Start Back To Top Button-->
 <a href="javaScript:;" class="back-to-top"><i class='bx bxs-up-arrow-alt'></i></a>
-<!--End Back To Top Button-->
 @endsection
