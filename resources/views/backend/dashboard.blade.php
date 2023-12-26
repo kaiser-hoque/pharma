@@ -216,7 +216,8 @@
 				</thead>
 				<tbody>
 					  @foreach($recentSale as $rs)
-					<tr onclick="redirectToSaleIndex()"> {{--"When I click on any row, it goes to sale.index.--}}
+					<!-- <tr onclick="redirectToSaleIndex()"> {{--"When I click on any row, it goes to sale.index.--}} -->
+					<tr> {{--"When I click on any row, it goes to sale.index.--}}
 
                             <td>{{++$loop->index}}</td>
 						<td>
