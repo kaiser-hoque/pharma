@@ -45,7 +45,7 @@
 									</div>
 
 									<div class="col-md-6">
-										<label for="bsValidation3" class="form-label"><b>Contact Num</b></label>
+										<label for="bsValidation3" class="form-label"><b>Contact number</b></label>
 										<input type="text" class="form-control rounded-5" id="contact_num"
 										name="contact_num"placeholder="contact_num"  >
 
