@@ -10,14 +10,14 @@ use App\Http\Requests\Backend\user\UpdateRequest;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Crypt;
 use File;
- 
+
 use Exception;
- 
+
 
 class UserController extends Controller
 {
     /**
-     * Display a listing of tne resource.
+     * Display a listing of tne resurce.
      */
     public function index()
     {
@@ -77,7 +77,7 @@ class UserController extends Controller
        $user=User::findOrFail(encryptor('decrypt',$id));
         return view('backend.user.show',compact('user'));
     }
-    
+
 
     /**
      * Show the form for editing the specified resource.
@@ -118,7 +118,7 @@ class UserController extends Controller
                 return redirect()->route('user.index')->with('success','Successfully saved');
             else
                 return redirect()->back()->withInput()->with('error','Please try again');
-            
+
         }catch(Exception $e){
             dd($e);
             return redirect()->back()->withInput()->with('error','Please try again');
@@ -134,7 +134,7 @@ class UserController extends Controller
         $decryptedId = Crypt::decrypt($id);
         $user = User::findOrFail($decryptedId);
         $user->delete();
-        
+
         return back()->with('success', 'Data deleted');
         } catch (\Exception $e) {
             // dd($e);
@@ -143,13 +143,13 @@ class UserController extends Controller
 
         // $user= User::findOrFail(encryptor('decrypt',$id));
         // $image_path=public_path('uploads/users/').$user->image;
-        
+
         // if($user->delete()){
-        //     if(File::exists($image_path)) 
+        //     if(File::exists($image_path))
         //         File::delete($image_path);
-            
+
             // Toastr::warning('Deleted Permanently!');
             // return redirect()->back();
-        
+
     }
 }
