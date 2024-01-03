@@ -42,7 +42,7 @@
 							@method('PATCH')
 							<div class="row">
 
-						
+
 								<div class="col-md-4">
 									<label for="bsValidation1" class="form-label"><b>Company Name</b><span class="text-danger">*</span></label> <br>
 									<select class="form-control" name="companie_id" id="companie_id">
@@ -78,7 +78,7 @@
 								@endif
 								</div>
 
-								
+
 								<div class="col-md-4">
 									<label for="bsValidation1" class="form-label"><b>Dose Name</b><span class="text-danger">*</span></label>
 									<br>
@@ -104,13 +104,13 @@
                                         <span class="text-danger"> {{ $errors->first('product_code') }}</span>
                                     @endif
 									</div>
-								
-								
+
+
 								<div class="col-md-4">
 									<label for="bsValidation1" class="form-label"><b>Expire date</b><span class="text-danger">*</span></label>
 									<input type="date" class="form-control"
 									name="expiredate" id="expiredate" placeholder=" expiredate" value="{{ old('expiredate',$medicine->expiredate)}}" >
-									
+
 									@if($errors->has('expiredate'))
 									<span class="text-danger"> {{ $errors->first('expiredate') }}</span>
 									@endif
@@ -119,7 +119,7 @@
 									<label for="bsValidation1" class="form-label"><b>Strength</b><span class="text-danger">*</span></label>
 									<input type="text" class="form-control"
 									name="strength" id="strength" placeholder=" expiredate" value="{{ old('Strength',$medicine->strength)}}">
-									
+
 									@if($errors->has('strength'))
 									<span class="text-danger"> {{ $errors->first('strength') }}</span>
 									@endif
@@ -128,24 +128,24 @@
 									<label for="bsValidation1" class="form-label"><b>Manufacture Date</b><span class="text-danger">*</span></label>
 									<input type="date" class="form-control"
 									name="manufacturedate" id="manufacturedate" placeholder=" manufacturedate" value="{{ old('manufacturedate',$medicine->manufacturedate)}}">
-									
+
 									@if($errors->has('manufacturedate'))
 									<span class="text-danger"> {{ $errors->first('manufacturedate') }}</span>
 									@endif
 								</div>
-								
-								
+
+
 								<div class="col-md-4">
 									<label for="bsValidation1" class="form-label"><b>Price</b><span class="text-danger">*</span></label>
 									<input type="text" class="form-control"
 									name="price" id="price" placeholder=" price" value="{{ old('price',$medicine->price)}}" >
-									
+
 									@if($errors->has('price'))
 									<span class="text-danger"> {{ $errors->first('price') }}</span>
 									@endif
 								</div>
-								
-								
+
+
 								<div class="col-md-4">
 									<div class="form-group">
 										<label for="status"><b>Status</b><span class="text-danger">*</span></label>
@@ -158,7 +158,7 @@
 										@endif
 									</div>
 								</div>
-								
+
 								<div class="col-md-4">
 									<label for="bsValidation1" class="form-label"><b>Category Name</b></label> <br>
 									<select class="form-control" name="category_id" id="category_id">
@@ -187,11 +187,11 @@
 									<div class="form-group">
 									<label for="image"><b>Medicine Image</b></label>
 										<input type="file" id="image" class="form-control" placeholder="Image" name="image">
-										
+
 										@if($errors->has('image'))
 										<span class="text-danger">{{ $errors->first('image') }}</span>
 									@endif
-									
+
 									@if($medicine->image)
 										<p><b>Existing Image:</b></p>
 										<img class="img-fluid img-thumbnail"  src="{{ asset('public/uploads/medicine/'.$medicine->image) }}" alt="Existing Image" style="max-width: 100px;">
@@ -202,15 +202,15 @@
 								<div class="col-md-12">
 									<label for="description"><b>Description</b> </label>
 									<textarea class="form-control" id="description" placeholder="description ..."
-									name="description" rows="2"> {{ old('description', $medicine->description) }}</textarea>
+									name="description" rows="5"> {{ old('description', $medicine->description) }}</textarea>
 									@if($errors->has('description'))
 									<span class="text-danger"> {{ $errors->first('description') }}</span>
 									@endif
 								</div>
 
 
-								
-																
+
+
 								<div class="col-md-12">
 									<div class="d-md-flex d-grid align-items-center gap-3">
 										<button type="submit" class="btn btn-primary px-4 mt-3">Submit</button>

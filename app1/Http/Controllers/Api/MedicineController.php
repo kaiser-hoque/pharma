@@ -12,9 +12,4 @@ class MedicineController extends Controller
         $data=Medicine::get();
         return response ($data, 200);
     }
-   public function medicine_single($id)
-    {
-        $data=Medicine::find($id);
-        return response ($data, 200);
-    }
 }
