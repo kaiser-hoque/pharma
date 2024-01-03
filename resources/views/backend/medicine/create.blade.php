@@ -31,10 +31,10 @@
 				</div>
 				<!--end breadcrumb-->
 				<div class="row">
-					<div class="col-xl-12 mx-auto">
+					<div class="col-md-11 mx-auto">
 						<div class="card">
-							<div class="card-header px-4 py-3">
-								<h5 class="mb-0">medicine Create </h5>
+							<div class="card-header px-4 py-3 bg-primary" >
+								<h5 class="mb-0 text-white">medicine Added </h5>
 							</div>
 							<div class="card-body p-4">
 								<form method="post" enctype="multipart/form-data" action="{{route('medicine.store')}}" class="row g-3 needs-validation" novalidate>
@@ -190,7 +190,7 @@
                                     @endif
 									</div>
 
-									<div class="col-md-4">
+									<div class="col-md-8">
 										<label for="bsValidation13" class="form-label"><b>Description</b></label>
 										<textarea class="form-control" id="description" placeholder="description ..."
 										name="description"rows="1" required></textarea>

@@ -31,10 +31,10 @@
 			</div>
 			<!--end breadcrumb-->
 			<div class="row">
-				<div class="col-xl-11 mx-auto">
+				<div class="col-md-11 mx-auto">
 					<div class="card">
-						<div class="card-header px-4 py-3">
-							<h5 class="mb-0">medicine Create</h5>
+						<div class="card-header px-4 py-3 bg-primary">
+							<h5 class="mb-0 text-white " >Medicine Edit</h5>
 						</div>
 						<div class="card-body p-4">
 							<form class="form" method="post" enctype="multipart/form-data" action="{{route('medicine.update',encryptor('encrypt',$medicine->id))}}">
@@ -70,7 +70,7 @@
 
 								<div class="col-md-4">
 									<label for="bsValidation1" class="form-label"><b>Medicine Generic name</b><span class="text-danger">*</span></label>
-									<input type="text" class="form-control rounded-5"
+									<input type="text" class="form-control"
 									name="gname" id="gname" placeholder=" Generic Name" value="{{ old('Generic_Name',$medicine->bname)}}"  >
 
 									@if($errors->has('gname'))
@@ -97,7 +97,7 @@
 
 								<div class="col-md-4">
 										<label for="bsValidation1" class="form-label"><b>Product Code</b><span class="text-danger">*</span></label>
-										<input type="text" class="form-control rounded-5"
+										<input type="text" class="form-control"
 										name="product_code" id="product_code" placeholder=" product_code" value="{{ old('product_code',$medicine->product_code)}}"  >
 
                                         @if($errors->has('product_code'))
@@ -108,7 +108,7 @@
 								
 								<div class="col-md-4">
 									<label for="bsValidation1" class="form-label"><b>Expire date</b><span class="text-danger">*</span></label>
-									<input type="date" class="form-control rounded-5"
+									<input type="date" class="form-control"
 									name="expiredate" id="expiredate" placeholder=" expiredate" value="{{ old('expiredate',$medicine->expiredate)}}" >
 									
 									@if($errors->has('expiredate'))
@@ -117,7 +117,7 @@
 								</div>
 								<div class="col-md-4">
 									<label for="bsValidation1" class="form-label"><b>Strength</b><span class="text-danger">*</span></label>
-									<input type="text" class="form-control rounded-5"
+									<input type="text" class="form-control"
 									name="strength" id="strength" placeholder=" expiredate" value="{{ old('Strength',$medicine->strength)}}">
 									
 									@if($errors->has('strength'))
@@ -126,7 +126,7 @@
 								</div>
 								<div class="col-md-4">
 									<label for="bsValidation1" class="form-label"><b>Manufacture Date</b><span class="text-danger">*</span></label>
-									<input type="date" class="form-control rounded-5"
+									<input type="date" class="form-control"
 									name="manufacturedate" id="manufacturedate" placeholder=" manufacturedate" value="{{ old('manufacturedate',$medicine->manufacturedate)}}">
 									
 									@if($errors->has('manufacturedate'))
@@ -137,7 +137,7 @@
 								
 								<div class="col-md-4">
 									<label for="bsValidation1" class="form-label"><b>Price</b><span class="text-danger">*</span></label>
-									<input type="text" class="form-control rounded-5"
+									<input type="text" class="form-control"
 									name="price" id="price" placeholder=" price" value="{{ old('price',$medicine->price)}}" >
 									
 									@if($errors->has('price'))
@@ -186,7 +186,7 @@
 								<div class="col-md-4">
 									<div class="form-group">
 									<label for="image"><b>Medicine Image</b></label>
-										<input type="file" id="image" class="form-control rounded-5" placeholder="Image" name="image">
+										<input type="file" id="image" class="form-control" placeholder="Image" name="image">
 										
 										@if($errors->has('image'))
 										<span class="text-danger">{{ $errors->first('image') }}</span>
@@ -199,10 +199,10 @@
 									</div>
 								</div><br>
 								<hr class="mt-2">
-								<div class="col-md-4">
+								<div class="col-md-12">
 									<label for="description"><b>Description</b> </label>
-									<textarea class="form-control rounded-5" id="description" placeholder="description ..."
-									name="description" rows="3"> {{ old('description', $medicine->description) }}</textarea>
+									<textarea class="form-control" id="description" placeholder="description ..."
+									name="description" rows="2"> {{ old('description', $medicine->description) }}</textarea>
 									@if($errors->has('description'))
 									<span class="text-danger"> {{ $errors->first('description') }}</span>
 									@endif

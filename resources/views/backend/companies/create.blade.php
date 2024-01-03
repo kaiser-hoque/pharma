@@ -28,13 +28,13 @@
 				<div class="row">
 					<div class="col-xl-6 mx-auto">
 						<div class="card">
-							<div class="card-header px-4 py-3">
-								<h5 class="mb-0">Companies Create</h5>
+							<div class="card-header px-4 py-3 ">
+								<h5 class="mb-0 text-white">Companies Add</h5>
 							</div>
 							<div class="card-body p-4">
 								<form method="post" enctype="multipart/form-data" action="{{route('companies.store')}}" class="row g-3 needs-validation" novalidate>
                                     @csrf
-									<div class="col-md-12">
+									<div class="col-md-4">
 										<label for="bsValidation1" class="form-label"><b>Full Name</b></label>
 										<input type="text" class="form-control"
 										name="name" id="name" placeholder="  Name" >
@@ -44,7 +44,7 @@
                                     @endif
 									</div>
 
-									<div class="col-md-12">
+									<div class="col-md-4">
 										<label for="bsValidation3" class="form-label"><b>Contact Num</b></label>
 										<input type="text" class="form-control" id="contact_num"
 										name="contact_num"placeholder="contact_num"  >
@@ -54,7 +54,7 @@
                                     @endif
 
 									</div>
-									<div class="col-md-12">
+									<div class="col-md-4">
 										<label for="bsValidation4" class="form-label"><b>Email</b></label>
 										<input type="email" class="form-control"
 										name="email" id="email" placeholder="Email" >
@@ -64,7 +64,7 @@
                                     @endif
 									</div>
 
-									<div class="sm-col-12">
+									<div class="col-md-4">
                                         <div class="form-group">
                                             <label for="status"><b>Status</b></label>
                                             <select id="status" class="form-control" name="status">
@@ -77,7 +77,7 @@
                                             @endif
                                         </div>
                                     </div>
-									<div class="col-md-12">
+									<div class="col-md-4">
                                         <div class="form-group">
                                             <label for="division"><b>Division</b></label>
                                             <select id="division" class="form-control" name="division">
@@ -100,27 +100,27 @@
 
 
 
-									<div class="col-md-12">
+									<div class="col-md-4">
 										<label for="bsValidation13" class="form-label"><b>Adress</b></label>
 										<textarea class="form-control" id="address"
-										name="address"placeholder="Address ..." rows="3" ></textarea>
+										name="address"placeholder="Address ..." rows="1" ></textarea>
 
                                         @if($errors->has('address'))
                                         <span class="text-danger"> {{ $errors->first('address') }}</span>
                                     @endif
 									</div>
-									<div class="col-md-12">
-										<label for="bsValidation13" class="form-label"><b>Description</b></label>
+									<div class="col-md-4">
+										<label for="bsValidation13"><b>Description</b></label>
 										<textarea class="form-control" id="description" placeholder="description ..."
-										name="description"rows="3" required></textarea>
+										name="description"rows="1" required></textarea>
 
                                         @if($errors->has('description'))
                                         <span class="text-danger"> {{ $errors->first('description') }}</span>
                                     @endif
-									</div>
+									</div> <br>
 
-									<div class="col-md-12">
-										<div class="d-md-flex d-grid align-items-center gap-3">
+									<div class="col-md-4">
+										<div class="d-md-flex d-grid align-items-center gap-3 mt-4 ">
 											<button type="submit" class="btn btn-primary px-4">Submit</button>
 											<button type="reset" class="btn btn-light px-4">Reset</button>
 										</div>
