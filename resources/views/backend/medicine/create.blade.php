@@ -54,7 +54,7 @@
 
 									<div class="col-md-4">
 										<label for="bsValidation1" class="form-label"><b>Medicine Brand Name<span class="text-danger">*</span></b></label>
-										<input type="text" class="form-control rounded-5"
+										<input type="text" class="form-control"
 										name="bname" id="bname" placeholder=" Brand Name" >
 
                                         @if($errors->has('bname'))
@@ -63,7 +63,7 @@
 									</div>
 									<div class="col-md-4">
 										<label for="bsValidation1" class="form-label"><b>Medicine Generic name<span class="text-danger">*</span></b></label>
-										<input type="text" class="form-control rounded-5"
+										<input type="text" class="form-control"
 										name="gname" id="gname" placeholder=" Generic Name" >
 
                                         @if($errors->has('gname'))
@@ -72,7 +72,7 @@
 									</div>
 									<div class="col-md-4">
 										<label for="bsValidation1" class="form-label"><b>Expire date</b><span class="text-danger">*</span></label>
-										<input type="date" class="form-control rounded-5"
+										<input type="date" class="form-control"
 										name="expiredate" id="expiredate" placeholder=" expiredate" >
 
                                         @if($errors->has('expiredate'))
@@ -81,7 +81,7 @@
 									</div>
 									<div class="col-md-4">
 										<label for="bsValidation1" class="form-label"><b>Strength</b><span class="text-danger">*</span></label>
-										<input type="text" class="form-control rounded-5"
+										<input type="text" class="form-control"
 										name="strength" id="strength" placeholder=" expiredate" >
 
                                         @if($errors->has('strength'))
@@ -90,7 +90,7 @@
 									</div>
 									<div class="col-md-4">
 										<label for="bsValidation1" class="form-label"><b>Product Code</b><span class="text-danger">*</span></label>
-										<input type="text" class="form-control rounded-5"
+										<input type="text" class="form-control"
 										name="product_code" id="product_code" placeholder=" product_code" >
 
                                         @if($errors->has('product_code'))
@@ -99,7 +99,7 @@
 									</div>
 									<div class="col-md-4">
 										<label for="bsValidation1" class="form-label"><b>Manufacture Date</b><span class="text-danger">*</span></label>
-										<input type="date" class="form-control rounded-5"
+										<input type="date" class="form-control"
 										name="manufacturedate" id="manufacturedate" placeholder=" manufacturedate" >
 
                                         @if($errors->has('manufacturedate'))
@@ -124,7 +124,7 @@
 
 									<div class="col-md-4">
 										<label for="bsValidation1" class="form-label"><b>Price</b><span class="text-danger">*</span></label>
-										<input type="text" class="form-control rounded-5"
+										<input type="text" class="form-control"
 										name="price" id="price" placeholder=" price" >
 
                                         @if($errors->has('price'))
@@ -183,7 +183,7 @@
 
 									<div class="col-md-4">
 										<label for="bsValidation1" class="form-label"><b>Medicine Image</b></label>
-                                        <input type="file" id="image" class="form-control rounded-5" placeholder="Image" name="image">
+                                        <input type="file" id="image" class="form-control" placeholder="Image" name="image">
 
                                         @if($errors->has('image'))
                                         <span class="text-danger"> {{ $errors->first('image') }}</span>
@@ -192,8 +192,8 @@
 
 									<div class="col-md-4">
 										<label for="bsValidation13" class="form-label"><b>Description</b></label>
-										<textarea class="form-control rounded-5" id="description" placeholder="description ..."
-										name="description"rows="3" required></textarea>
+										<textarea class="form-control" id="description" placeholder="description ..."
+										name="description"rows="1" required></textarea>
 
                                         @if($errors->has('description'))
                                         <span class="text-danger"> {{ $errors->first('description') }}</span>

@@ -241,8 +241,8 @@
                                 <button type="button" class="btn btn-primary split-bg-primary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown">	<span class="visually-hidden">Toggle Dropdown</span>
                                 </button>
                                 <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-end">
-                                    <a class="dropdown-item" href="{{ route('sale.create') }}">Add Sale</a>
-                                    <a class="dropdown-item" href="{{route('purchase.create')}}">Add Purchase</a>
+                                    <a class="dropdown-item" href="{{ route('sale.index') }}">Add Sale</a>
+                                    <a class="dropdown-item" href="{{route('purchase.index')}}">Add Purchase</a>
                                 </div>
                             </div>
 						</td>

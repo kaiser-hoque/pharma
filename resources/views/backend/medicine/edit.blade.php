@@ -59,7 +59,7 @@
 
 								<div class="col-md-4">
 									<label for="bsValidation1" class="form-label"><b>Medicine Brand Name</b><span class="text-danger">*</span></label>
-									<input type="text" class="form-control rounded-5"
+									<input type="text" class="form-control"
 									name="bname" id="bname" placeholder=" Brand Name" value="{{ old('bname',$medicine->bname)}}" >
 
 									@if($errors->has('bname'))
