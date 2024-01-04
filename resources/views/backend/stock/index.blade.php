@@ -37,18 +37,29 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @forelse($stock as $p)
-                                        <tr>
-                                            <td>{{ ++$loop->index }}</td>
-                                            <td class="text-center">{{ $p->bname }}</td>
-                                            <td class="text-center">{{ $p->balance }}</td>
-                                        </tr>
-                                    @empty
-                                        <tr>
-                                            <th colspan="6" class="text-center">{{ __('No Dose Found') }}</th>
-                                        </tr>
-                                    @endforelse
-                                </tbody>
+    @forelse($stock as $p)
+        <tr>
+            <td>{{ ++$loop->index }}</td>
+            <td class="text-center">{{ $p->bname }}</td>
+            <td class="text-center">
+                {{ $p->balance }}
+                <span class="ml-2 @if($p->balance < 5) text-danger @else text-success @endif">
+                    @if($p->balance < 5)
+                        <br>(Low Stock)
+                    @else
+                        <br>(Stock Normal)
+                    @endif
+                </span>
+            </td>
+        </tr>
+    @empty
+        <tr>
+            <th colspan="6" class="text-center">{{ __('No Dose Found') }}</th>
+        </tr>
+    @endforelse
+</tbody>
+
+
                             </table>
                         </div>
                     </div>
