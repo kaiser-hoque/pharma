@@ -38,7 +38,7 @@
         integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- font asswm -->
-  
+
     <title>@yield('title', env('APP_NAME'))</title>
 </head>
 
@@ -88,7 +88,7 @@
                     <div class="menu-title">Role</div>
                 </a>
                 <ul>
-                    <li> <a href="{{ route('role.create') }}"><i class="fa-solid fa-arrow-right"></i>reate Role</a>
+                    <li> <a href="{{ route('role.create') }}"><i class="fa-solid fa-arrow-right"></i>Add Role</a>
                     </li>
 
 
@@ -101,10 +101,10 @@
                 <a href="javascript:;" class="has-arrow">
                     <div class="parent-icon"><i class="fa fa-list-alt" aria-hidden="true"></i>
                     </div>
-                    <div class="menu-title">Category</div>
+                    <div class="menu-title">Medicine Category</div>
                 </a>
                 <ul>
-                    <li> <a href="{{route('category.create')}}"><i class="fa-solid fa-arrow-right"></i>Create category</a>
+                    <li> <a href="{{route('category.create')}}"><i class="fa-solid fa-arrow-right"></i>Add category</a>
                     </li>
                     <li> <a href="{{route('category.index')}}"><i class="fa-solid fa-arrow-right"></i>Category List</a>
                     </li>
@@ -115,10 +115,10 @@
                 <a href="javascript:;" class="has-arrow">
                     <div class="parent-icon"><i class="fa-solid fa-droplet"></i>
                     </div>
-                    <div class="menu-title">Dose</div>
+                    <div class="menu-title">Medicine Dose</div>
                 </a>
                 <ul>
-                    <li> <a href="{{route('dose.create')}}"><i class="fa-solid fa-arrow-right"></i>Create Dose</a>
+                    <li> <a href="{{route('dose.create')}}"><i class="fa-solid fa-arrow-right"></i>Add Dose</a>
                     </li>
 
                     <li> <a href="{{route('dose.index')}}"><i class="fa-solid fa-arrow-right"></i>Dose List</a>
@@ -133,7 +133,7 @@
                     <div class="menu-title">Customer</div>
                 </a>
                 <ul>
-                    <li> <a href="{{route('customer.create')}}"><i class="fa-solid fa-arrow-right"></i>Create Customer</a>
+                    <li> <a href="{{route('customer.create')}}"><i class="fa-solid fa-arrow-right"></i>Add Customer</a>
                     </li>
                     <li> <a href="{{route('customer.index')}}"><i class="fa-solid fa-arrow-right"></i>Customer List</a>
                     </li>
@@ -147,7 +147,7 @@
                     <div class="menu-title">Manufacturer </div>
                 </a>
                 <ul>
-                    <li> <a href="{{route('companies.create')}}"><i class="fa-solid fa-arrow-right"></i>Create Manufacturer</a>
+                    <li> <a href="{{route('companies.create')}}"><i class="fa-solid fa-arrow-right"></i>Add Manufacturer</a>
                     </li>
                     <li> <a href="{{route('companies.index')}}"><i class="fa-solid fa-arrow-right"></i>Manufacturer List</a>
                     </li>
@@ -161,7 +161,7 @@
                     <div class="menu-title">Supplier</div>
                 </a>
                 <ul>
-                    <li> <a href="{{route('supplier.create')}}"><i class="fa-solid fa-arrow-right"></i>Create Supplier</a>
+                    <li> <a href="{{route('supplier.create')}}"><i class="fa-solid fa-arrow-right"></i>Add Supplier</a>
                     </li>
 
                     <li> <a href="{{route('supplier.index')}}"><i class="fa-solid fa-arrow-right"></i>Supplier List</a>
@@ -403,7 +403,7 @@
                             <div class="dropdown-menu dropdown-menu-end p-0">
                                 <div class="app-container p-2 my-2">
                                     <div class="row gx-0 gy-2 row-cols-3 justify-content-center p-2">
-                                        
+
 
                                     </div><!--end row-->
 
