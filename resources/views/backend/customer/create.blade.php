@@ -36,7 +36,7 @@
                                     @csrf
 									<div class="col-md-6">
 										<label for="bsValidation1" class="form-label"><b>Full Name</b></label>
-										<input type="text" class="form-control rounded-5"
+										<input type="text" class="form-control"
 										name="name" id="name" placeholder="  Name" >
 
                                         @if($errors->has('name'))
@@ -46,7 +46,7 @@
 
 									<div class="col-md-6">
 										<label for="bsValidation3" class="form-label"><b>Contact Num</b></label>
-										<input type="text" class="form-control rounded-5" id="contact_num"
+										<input type="text" class="form-control" id="contact_num"
 										name="contact_num"placeholder="contact_num"  >
 
                                         @if($errors->has('contact_num'))
@@ -56,7 +56,7 @@
 									</div>
 									<div class="col-md-6">
 										<label for="bsValidation4" class="form-label"><b>Email</b></label>
-										<input type="email" class="form-control rounded-5"
+										<input type="email" class="form-control"
 										name="email" id="email" placeholder="Email" >
 
                                         @if($errors->has('email'))
@@ -95,17 +95,21 @@
 
 
 									<div class="col-md-6">
-										<label for="bsValidation13" class="form-label"><b>Adress</b></label>
-										<textarea class="form-control rounded-5" id="address"
-										name="address"placeholder="Address ..." rows="3" ></textarea>
+                                        <div>
+                                            <label for="bsValidation13" class="form-label"><b>Adress</b></label>
+                                            <textarea class="form-control" id="address"
+                                            name="address"placeholder="Address ..." rows="1" ></textarea>
 
-                                        @if($errors->has('address'))
-                                        <span class="text-danger"> {{ $errors->first('address') }}</span>
-                                    @endif
+                                            @if($errors->has('address'))
+                                            <span class="text-danger"> {{ $errors->first('address') }}</span>
+                                        @endif
+                                        </div>
+
 									</div>
+
 									<div class="col-md-6">
 										<label for="bsValidation13" class="form-label"><b>Description</b></label>
-										<textarea class="form-control rounded-5" id="description" placeholder="description ..."
+										<textarea class="form-control" id="description" placeholder="description ..."
 										name="description"rows="3" required></textarea>
 
                                         @if($errors->has('description'))
