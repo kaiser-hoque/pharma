@@ -28,8 +28,8 @@
 				<div class="row">
 					<div class="col-md-10 mx-auto">
 						<div class="card">
-							<div class="card-header px-4 py-3">
-								<h5 class="mb-0">Customer Create</h5>
+							<div class="card-header px-4 py-3 bg-primary">
+								<h5 class="mb-0 text-white">Customer Create</h5>
 							</div>
 							<div class="card-body p-4">
 								<form method="post" enctype="multipart/form-data" action="{{route('customer.store')}}" class="row g-3 needs-validation" novalidate>
@@ -79,7 +79,7 @@
                                     </div>
 
 
-									 <div class="col-md-6">
+									<div class="col-md-6">
                                         <div class="form-group">
                                             <label for="status"><b>Status</b></label>
                                             <select id="status" class="form-control" name="status">
