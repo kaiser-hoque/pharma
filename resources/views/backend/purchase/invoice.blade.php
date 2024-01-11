@@ -30,9 +30,13 @@
                     </div>
                     <div class="ms-auto">
                         <div class="btn-group">
-                            <div class="ms-auto"><a href="{{ route('purchase.create') }}"
-                                    class="btn btn-primary radius-30 mt-2 mt-lg-0"><i class="bx bxs-plus-square"></i>Add New
-                                </a>
+                            <button type="button" class="btn btn-primary">Purchase</button>
+                            <button type="button" class="btn btn-primary split-bg-primary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown">	<span class="visually-hidden">Toggle Dropdown</span>
+                            </button>
+                            <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-end">
+                                <a class="dropdown-item" href="{{route('purchase.create')}}">Add Purchase</a>
+                                <a class="dropdown-item" href="{{route('purchase.index')}}">Purchase list</a>
+                            
                             </div>
                         </div>
                     </div>

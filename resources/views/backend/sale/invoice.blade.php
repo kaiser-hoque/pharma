@@ -1,11 +1,24 @@
 @extends('backend.layouts.app')
 @section('title', trans('create Users'))
 @section('content')
+
+<style>
+    .color3 {
+        background-color: rgba(238, 227, 227, 0.452) !important;
+    }
+    .bottomborder{
+        font-size:13px;
+        font-weight:bold;
+        border-bottom: 1px solid rgb(70, 67, 67)!important;
+        border-top: 1px solid rgb(70, 67, 67)!important;
+        padding-top: 4px!important;
+    }
+</style>
     <div class="wrapper">
         <div class="page-wrapper">
             <div class="page-content">
                 <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
-                    <div class="breadcrumb-title pe-3">Invoice</div>
+                    <div class="breadcrumb-title pe-3">Tables</div>
                     <div class="ps-3">
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb mb-0 p-0">
@@ -17,146 +30,170 @@
                     </div>
                     <div class="ms-auto">
                         <div class="btn-group">
-                            <div class="ms-auto"><a href="{{ route('purchase.create') }}"
-                                    class="btn btn-primary radius-30 mt-2 mt-lg-0"><i class="bx bxs-plus-square"></i>Add New
-                                </a>
+                            <button type="button" class="btn btn-primary">sale</button>
+                            <button type="button" class="btn btn-primary split-bg-primary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown">	<span class="visually-hidden">Toggle Dropdown</span>
+                            </button>
+                            <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-end">
+                                <a class="dropdown-item" href="{{route('sale.create')}}">Add Sale</a>
+                                <a class="dropdown-item" href="{{route('sale.index')}}">Sale list</a>
+
                             </div>
                         </div>
                     </div>
                 </div>
                 <h6 class="mb-0 text-uppercase">Sale</h6>
                 <hr />
-                <div class="card">
+                <div class="card col-md-11 mx-auto my-auto">
                     <div class="card-body">
                         <div id="invoice">
                             <div class="toolbar hidden-print">
                                 <div class="text-end">
-                                    <button type="button" onclick="window.print()" class="btn btn-dark"><i class="fa fa-print"></i> Print</button>
-                                    <button type="button" class="btn btn-danger"><i class="fa fa-file-pdf-o"></i>     Export as PDF
-                                    </button>
+                                    <button type="button" onclick="printInvoice()" class="btn btn-dark"><i
+                                            class="fa fa-print"></i> Print</button>
+
+                                    <button type="button" onclick="exportAsPDF()" class="btn btn-danger"><i
+                                            class="fa fa-file-pdf-o"></i> Export as PDF</button>
                                 </div>
-                                <hr />
                             </div>
-                            <div class="invoice overflow-auto">
-                                <div style="min-width: 600px">
-                                    <header>
-                                        <div class="row">
-                                            <div class="col">
-                                                <a href="javascript:;">
-                                                    <img src="assets/images/logo-icon.png" width="80" alt="" />
-                                                </a>
-                                            </div>
-                                            <div class="col company-details">
-                                                <h2 class="name">
-                                                    <a target="_blank" href="javascript:;" class="text-dark">
-                                                        Pharma
-                                                    </a>
-                                                </h2>
-                                                <div>455 Foggy Heights, AZ 85004, BD</div>
-                                                <div>(123) 456-789</div>
-                                                <div>pharma@gmail.com</div>
-                                            </div>
-                                        </div>
-                                    </header>
-                                    <main>
-                                        <div class="row contacts">
-                                            <div class="col invoice-to">
-                                                <div class="text-gray-light">INVOICE TO:</div>
-
-													<span>Customer Name: <b>{{ $sale->customer->name }}</b></span><br>
-													<span>Reference No: {{ $sale->reference_no }}</span><br>
-													
-													 
-
-                                            </div>
-                                            <div class="col invoice-details">
-                                                <div class="date">Date of Invoice: {{ date('d/m/Y') }}</div>
-                                               <span>Sales Date: {{ $sale->sale_date }}</span>
-                                            </div>
-                                        </div>
-                                        <table class="table table-bordered">
-                                            <thead >
-                                               <tr class="borderd">
-													<th>Medicine Name</th>
-													<th>Quantity</th>
-													<th>Unit Price</th>
-													<th>VAT</th>
-													<th>Discount</th>
-													<th>Subtotal</th>
-												</tr>
-                                            </thead>
-                                            <tbody>
-
-
-												@foreach ($saleDetails as $sd)
-													<tr>
-														<td>{{ $sd->medicine->bname}}</td>
-														<td>{{ $sd->quantity }}</td>
-														<td>{{ $sd->unit_price }}</td>
-														<td>{{ $sd->tax }} {{ $sd->discount_type==0?"%":"BDT"}}</td>
-                                                        <td>{{ $sd->discount }}{{ $sd->discount_type==0?"%":"BDT"}}</td>
-														<td>{{ $sd->sub_amount }}</td>
-													</tr>
-												@endforeach
-                                            </tbody>
-                                            <tfoot>
+                            <hr />
+                        </div>
+                        <div class="overflow-auto"  id="printable-content">
+                            <div class="text-center">
+                                            {{-- <table>
                                                 <tr>
-                                                    <td colspan="3"></td>
-                                                    <td colspan="2">Sub Amount:</td>
-                                                    <td>  {{$sale->sub_amount}}</td>
+                                                    <td>
+                                                        <span>Pharma</span><br>
+                                                        <span>455 Foggy Heights, AZ 85004, BD</span><br>
+                                                        <span>(123) 456-789</span><br>
+                                                        <span>pharma@gmail.com</span><br>
+                                                    </td>
                                                 </tr>
                                                 <tr>
-                                                    <td colspan="3"></td>
-                                                    <td colspan="2">TAX </td>
-                                                    <td> {{$sale->tax}}%</td>
+                                                    <td>
+                                                        <span>INVOICE TO:{{ $purchase->supplier->name }}</span><br>
+                                                        <span>Reference No: {{ $purchase->reference_no }}</span><br>
+                                                        <span>Purchase Date: {{ $purchase->purchase_date }}</span>
+                                                    </td>
+                                                    <td>
+                                                        <span  >Date of Invoice: {{ date('d/m/Y') }}</span>
+                                                        <span  >Due Date: 30/10/2018</span>
+                                                    </td>
                                                 </tr>
-                                                <tr>
-                                                    <td colspan="3"></td>
-                                                    <td colspan="2">Discount:</td>
-                                                    <td>{{ $sd->discount }}{{ $sd->discount_type==0?"%":"BDT"}}</td>
-                                                </tr>
-                                                <tr>
-                                                    <td colspan="3"></td>
-                                                    <td colspan="2" clsass="text-dark">GRAND TOTAL</td>
-                                                    <td> {{$sale->grand_total}}</td>
-                                                </tr>
-                                            </tfoot>
-                                        </table>
-                                        <div class="thanks">Thank you!</div>
-
-                                    </main>
-                                    <footer>Invoice was created on a computer and is valid without the signature and seal.
-                                    </footer>
+                                            </table> --}}
+                                    </div>
+                                    <div class="text-center mx-auto">
+                                    <span >Pharma</span><br>
+                                    <span>455 Foggy Heights, AZ 85004, BD</span><br>
+                                    <span>(123) 456-789</span><br>
+                                    <span>pharma@gmail.com</span><br>
+                                    <span><h4>Cash Memo</h4></span><br>
                                 </div>
-                                <div></div>
+                                    <table width="665" class="table table-bordered table-responsive">
+                                        <thead>
+                                            <tr>
+                                                <td colspan="4">
+                                                    <span>INVOICE TO:{{ $sale->supplier->name  ?? 'N/A' }}</span><br>
+                                                    <span>Reference No:{{$sale->reference_no }}</span><br>
+                                                    <span>Sale Date: {{ $sale->purchase_date }}</span>
+                                                </td>
+                                                <td></td>
+                                                <td colspan="3">
+                                                    <span>Date of Invoice: {{ date('d/m/Y') }}</span><br>
+                                                    <span>Due Date: 30/10/2018</span>
+                                                </td>
+                                            </tr>
+                                            <tr class="text-center bottomborder pt-5">
+                                                <td>#SL</td>
+                                                <td>Product</td>
+                                                <td>Quantity</td>
+                                                <td>Unit Price</td>
+                                                <td>V.A.T</td>
+                                                <td>Discount</td>
+                                                <td>Amount</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach ($saleDetails as $sd)
+                                                <tr class="color3 text-center">
+                                                    <td>{{++$loop->index}}</td>
+                                                    <td>{{ $sd->medicine->bname ?? 'N/A' }}</td>
+                                                    <td>{{ $sd->quantity }}</td>
+                                                    <td>{{ $sd->unit_price }}</td>
+                                                    <td>{{ $sd->tax }} {{ $sd->discount_type==0?"%":"BDT"}}</td>
+                                                    <td>{{ $sd->discount }} {{ $sd->discount_type == 0 ? '%' : 'BDT' }}</td>
+                                                    <td>{{ $sd->quantity * $sd->unit_price }}</td>
+                                                </trs
+                                            @endforeach
+                                        </tbody>
+                                        <tfoot>
+                                            <tr>
+                                                <td colspan="4"></td>
+                                                <td colspan="2"class="text-end">Sub Total:</td>
+                                                <td> ${{ $sale->sub_amount }}</td>
+                                            </tr>
+
+                                            <tr>
+                                                <td colspan="4"></td>
+                                                <td colspan="2" class="text-end">Less Discount:</td>
+                                                <td>{{ $sale->discount}}%</td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="4"></td>
+                                                <td colspan="2" class="text-end">Net Payable</td>
+                                                <td>{{ $sale->grand_total }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="4"></td>
+                                                <td colspan="2" class="text-end">Amount Recevied</td>
+                                                <td>{{ $sale->grand_total }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="4"> </td>
+                                                <td colspan="4"> </td>
+                                            </tr>
+                                        </tfoot>
+                                    </table>
+                                    <div class="text-center">Thank you!</div>
+                                </main>
+                                <footer class="text-center">
+                                    Invoice was created on a computer and is valid without the signature and seal.
+                                </footer>
                             </div>
+                            <!-- DO NOT DELETE THIS div. IT is responsible for showing the footer always at the bottom -->
+                            <div></div>
                         </div>
                     </div>
                 </div>
             </div>
-
-
-            {{-- ================ --}}
-            <style>
-                .action-buttons {
-                    width: 1%;
-                    white-space: nowrap;
-                }
-
-                .button-container {
-                    display: flex;
-                    gap: 10px;
-                }
-            </style>
-
         </div>
-        <div class="overlay toggle-icon"></div>
-        <a href="javaScript:;" class="back-to-top"><i class='bx bxs-up-arrow-alt'></i></a>
-        <footer class="page-footer">
-            <p class="mb-0">Copyright © 2023. All right reserved.</p>
-        </footer>
-    </div>
+        {{-- ================ --}}
+        <style>
+            @media print {
+                body * {
+                    visibility: hidden;
+                }
+                #printable-content,
+                #printable-content * {
+                    visibility: visible;
+                }
 
+                #printable-content {
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                }
+            }
+        </style>
+        <script>
+            function printInvoice() {
+                window.print();
+            }
+        </script>
     </div>
-
-@endsection
+    <div class="overlay toggle-icon"></div>
+    <a href="javaScript:;" class="back-to-top"><i class='bx bxs-up-arrow-alt'></i></a>
+    <footer class="page-footer">
+        <p class="mb-0">Copyright © 2023. All right reserved.</p>
+    </footer>
+    </div>
+    </div>
