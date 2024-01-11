@@ -34,7 +34,7 @@
 							<div class="card-body p-4">
 								<form method="post" enctype="multipart/form-data" action="{{route('customer.store')}}" class="row g-3 needs-validation" novalidate>
                                     @csrf
-									<div class="col-md-6">
+									<div class="col-md-4">
 										<label for="bsValidation1" class="form-label"><b>Full Name</b></label>
 										<input type="text" class="form-control"
 										name="name" id="name" placeholder="  Name" >
@@ -44,7 +44,7 @@
                                     @endif
 									</div>
 
-									<div class="col-md-6">
+									<div class="col-md-4">
 										<label for="bsValidation3" class="form-label"><b>Contact Num</b></label>
 										<input type="text" class="form-control" id="contact_num"
 										name="contact_num"placeholder="contact_num"  >
@@ -54,7 +54,7 @@
                                     @endif
 
 									</div>
-									<div class="col-md-6">
+									<div class="col-md-4">
 										<label for="bsValidation4" class="form-label"><b>Email</b></label>
 										<input type="email" class="form-control"
 										name="email" id="email" placeholder="Email" >
@@ -64,7 +64,7 @@
                                     @endif
 									</div>
 
-                                    <div class="col-md-6">
+                                    <div class="col-md-4">
                                         <div class="form-group">
                                             <label for="status"><b>Gender</b></label>
                                             <select id="gender" class="form-control" name="gender">
@@ -79,7 +79,7 @@
                                     </div>
 
 
-									<div class="col-md-6">
+									<div class="col-md-4">
                                         <div class="form-group">
                                             <label for="status"><b>Status</b></label>
                                             <select id="status" class="form-control" name="status">
@@ -93,7 +93,7 @@
                                         </div>
                                     </div>
 
-
+<hr>
 									<div class="col-md-6">
                                         <div>
                                             <label for="bsValidation13" class="form-label"><b>Adress</b></label>
@@ -110,7 +110,7 @@
 									<div class="col-md-6">
 										<label for="bsValidation13" class="form-label"><b>Description</b></label>
 										<textarea class="form-control" id="description" placeholder="description ..."
-										name="description"rows="3" required></textarea>
+										name="description"rows="1" required></textarea>
 
                                         @if($errors->has('description'))
                                         <span class="text-danger"> {{ $errors->first('description') }}</span>
@@ -128,7 +128,6 @@
 						</div>
 					</div>
 				</div>
-
 			</div>
 		</div>
 
