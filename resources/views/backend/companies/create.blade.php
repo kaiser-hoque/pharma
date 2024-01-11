@@ -22,13 +22,13 @@
 							</ol>
 						</nav>
 					</div>
-					 
+
 				</div>
 				<!--end breadcrumb-->
 				<div class="row">
-					<div class="col-xl-6 mx-auto">
+					<div class="col-xl-10 mx-auto">
 						<div class="card">
-							<div class="card-header px-4 py-3 ">
+							<div class="card-header px-4 py-3 bg-primary">
 								<h5 class="mb-0 text-white">Companies Add</h5>
 							</div>
 							<div class="card-body p-4">
