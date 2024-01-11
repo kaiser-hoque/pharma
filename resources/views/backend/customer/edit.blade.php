@@ -28,17 +28,17 @@
 				<div class="row">
 					<div class="col-md-10 mx-auto">
 						<div class="card">
-							<div class="card-header px-4 py-3">
-								<h5 class="mb-0">Customer Edit</h5>
+							<div class="card-header px-4 py-3 bg-primary">
+								<h5 class="mb-0 text-white">Customer Edit</h5>
 							</div>
 							<div class="card-body p-4">
                                 <form class="form" method="post" enctype="multipart/form-data" action="{{route('customer.update',encryptor('encrypt',$customer->id))}}">
                                     @csrf
                                     @method('PATCH')
                                     <div class="row">
-									<div class="col-md-5">
+									<div class="col-md-4">
 										<label for="bsValidation1" class="form-label"><b>Full Name</b></label>
-										<input type="text" class="form-control rounded-5"
+										<input type="text" class="form-control"
 										name="name" id="name" placeholder="  Name" value="{{old('FullName',$customer->name)}}" >
 
                                         @if($errors->has('name'))
@@ -46,9 +46,9 @@
                                     @endif
 									</div>
 
-									<div class="col-md-5">
+									<div class="col-md-4">
 										<label for="bsValidation3" class="form-label"><b>Contact Num</b></label>
-										<input type="text" class="form-control rounded-5" id="contact_num"
+										<input type="text" class="form-control" id="contact_num"
 										name="contact_num"placeholder="contact_num" value="{{old('ContactNum',$customer->contact_num)}}" >
 
                                         @if($errors->has('contact_num'))
@@ -56,9 +56,9 @@
                                     @endif
 
 									</div>
-									<div class="col-md-5">
+									<div class="col-md-4">
 										<label for="bsValidation4" class="form-label"><b>Email</b></label>
-										<input type="email" class="form-control rounded-5"
+										<input type="email" class="form-control"
 										name="email" id="email" placeholder="Email" value="{{old('Email',$customer->email)}}" >
 
                                         @if($errors->has('email'))
@@ -66,7 +66,7 @@
                                     @endif
 									</div>
 
-                                    <div class="col-md-5">
+                                    <div class="col-md-4">
                                         <div class="form-group">
                                             <label for="status"><b>Gender</b></label>
                                             <select id="gender" class="form-control" name="gender">
@@ -81,7 +81,7 @@
                                     </div>
 
 
-									 <div class="col-md-5">
+									 <div class="col-md-4">
                                         <div class="form-group">
                                             <label for="status"><b>Status</b></label>
                                             <select id="status" class="form-control" name="status">
@@ -95,27 +95,27 @@
                                         </div>
                                     </div>
 
-
-									<div class="col-md-5">
+                                        <hr class="mt-4">
+									<div class="col-md-6">
 										<label for="bsValidation13" class="form-label"><b>Adress</b></label>
-										<textarea class="form-control rounded-5" id="address"
-										name="address"placeholder="Address ..." rows="3" value="{{old('Adress',$customer->address)}}" ></textarea>
+										<textarea class="form-control" id="address"
+										name="address"placeholder="Address ..." rows="1">{{old('Adress',$customer->address)}}"</textarea>
 
                                         @if($errors->has('address'))
                                         <span class="text-danger"> {{ $errors->first('address') }}</span>
                                     @endif
 									</div>
-									<div class="col-md-5">
+									<div class="col-md-6">
 										<label for="bsValidation13" class="form-label"><b>Description</b></label>
-										<textarea class="form-control rounded-5" id="description" placeholder="description ..."
-										name="description"rows="3" value="{{old('Description',$customer->description)}}" ></textarea>
+										<textarea class="form-control" id="description" placeholder="description ..."
+										name="description"rows="1">{{old('Description',$customer->description)}}</textarea>
 
                                         @if($errors->has('description'))
                                         <span class="text-danger"> {{ $errors->first('description') }}</span>
                                     @endif
 									</div>
 
-									<div class="col-md-12">
+									<div class="col-md-12 mt-3">
 										<div class="d-md-flex d-grid align-items-center gap-3">
 											<button type="submit" class="btn btn-primary px-4">Submit</button>
 											<button type="reset" class="btn btn-light px-4">Reset</button>
