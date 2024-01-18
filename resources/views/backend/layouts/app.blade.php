@@ -289,11 +289,7 @@
                     <li> <a href="#"><i class="fa-solid fa-arrow-right"></i> Expence</a>
                     </li>
 
-
-                    <li> <a href="#"><i class="fa-solid fa-arrow-right"></i>Invoice List</a>
-                    </li>
-                    <li> <a href="#"><i class="fa-solid fa-arrow-right"></i>Invoice Details</a>
-                    </li>
+ 
 
                 </ul>
 
