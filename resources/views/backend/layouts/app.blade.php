@@ -282,17 +282,17 @@
                     <div class="menu-title">Finance</div>
                 </a>
                 <ul>
-                    <li> <a href="{{route('purchase.create')}}"><i class="fa-solid fa-arrow-right"></i>Income</a>
+                    <li> <a href=" #"><i class="fa-solid fa-arrow-right"></i>Income</a>
                     </li>
 
 
-                    <li> <a href="{{route('purchase.index')}}"><i class="fa-solid fa-arrow-right"></i> Expence</a>
+                    <li> <a href="#"><i class="fa-solid fa-arrow-right"></i> Expence</a>
                     </li>
 
 
-                    <li> <a href="{{route('purchasedetails.index')}}"><i class="fa-solid fa-arrow-right"></i>Invoice List</a>
+                    <li> <a href="#"><i class="fa-solid fa-arrow-right"></i>Invoice List</a>
                     </li>
-                    <li> <a href="{{route('purchasedetails.index')}}"><i class="fa-solid fa-arrow-right"></i>Invoice Details</a>
+                    <li> <a href="#"><i class="fa-solid fa-arrow-right"></i>Invoice Details</a>
                     </li>
 
                 </ul>
