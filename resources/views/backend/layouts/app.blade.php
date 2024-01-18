@@ -289,12 +289,15 @@
                     <li> <a href="#"><i class="fa-solid fa-arrow-right"></i> Expence</a>
                     </li>
 
- 
+
 
                 </ul>
 
             </li>
-            <li class="menu-label"><span class="text-primary">EMP Management</span> </li>
+
+            {{-- upcoming --}}
+
+            {{-- <li class="menu-label"><span class="text-primary">EMP Management</span> </li>
             <li>
                 <a href="javascript:;" class="has-arrow">
                     <div class="parent-icon"><i class="fa-solid fa-people-roof"></i>
@@ -356,7 +359,7 @@
 
                 </ul>
 
-            </li>
+            </li> --}}
         </ul>
         <!--end navigation-->
     </div>
