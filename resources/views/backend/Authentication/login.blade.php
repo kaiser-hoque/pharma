@@ -20,14 +20,14 @@
                 <img src="assets/images/logo-icon.png" width="60" alt="">
             </div>
             <div class="text-center mb-4">
-            <h5 class="">Pharmacy</h5>
+            <h3 class="text-primary">Login</h3>
             <p class="mb-0">Please log in to your account</p>
             </div>
             <div class="form-body">
             <form action="{{route('login.check')}}" class="row g-3" method="post">
                 @csrf
                 <div class="col-12">
-                <label for="username" class="form-label text-center">Contact NUmber||Email Address</label>
+                <label for="username" class="form-label">Contact NUmber||Email Address</label>
                 <input type="text" class="form-control" required="" id="username" name="username"
                     value="{{old('username')}}" placeholder="Phone Number/Email Address">
 
@@ -56,7 +56,7 @@
 
             </div>
         </div>
-        <div class="col-md-6">
+        {{-- <div class="col-md-6">
             <div class="form-check form-switch">
                 <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked">
                 <label class="form-check-label" for="flexSwitchCheckChecked">Remember Me</label>
@@ -64,7 +64,7 @@
         </div>
         <div class="col-md-6 text-end"> <a href="auth-cover-forgot-password.html">Forgot
                 Password ?</a>
-        </div>
+        </div> --}}
         <div class="col-12">
             <div class="d-grid">
                 <button type="submit" class="btn btn-primary">Sign in</button>
