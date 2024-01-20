@@ -20,14 +20,14 @@
                 <img src="assets/images/logo-icon.png" width="60" alt="">
             </div>
             <div class="text-center mb-4">
-            <h5 class="">Syndron Admin</h5>
+            <h5 class="">Pharmacy</h5>
             <p class="mb-0">Please log in to your account</p>
             </div>
             <div class="form-body">
             <form action="{{route('login.check')}}" class="row g-3" method="post">
                 @csrf
                 <div class="col-12">
-                <label for="username" class="form-label">Contact NUmber/Email Address</label>
+                <label for="username" class="form-label text-center">Contact NUmber||Email Address</label>
                 <input type="text" class="form-control" required="" id="username" name="username"
                     value="{{old('username')}}" placeholder="Phone Number/Email Address">
 
