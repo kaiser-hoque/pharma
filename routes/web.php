@@ -38,7 +38,7 @@ use App\Http\Controllers\Backend\ReportController;
 
 Route::get('/register', [auth::class,'signUpForm'])->name('register');
 Route::post('/register', [auth::class,'signUpStore'])->name('register.store');
-Route::get('/login', [auth::class,'signInForm'])->name('login');
+Route::get('/', [auth::class,'signInForm'])->name('login');
 Route::post('/login', [auth::class,'signInCheck'])->name('login.check');
 Route::get('/logout', [auth::class,'singOut'])->name('logOut');
 
