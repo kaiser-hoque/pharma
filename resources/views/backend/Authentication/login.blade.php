@@ -44,7 +44,7 @@
                 <input type="password" class="form-control border-end-0" required="" id="password" name="password"
                     placeholder="Enter password">
 
-                <a href="javascript:;" class="input-group-text bg-transparent"><i class="bx bx-hide"></i></a>
+                {{-- <a href="javascript:;" class="input-group-text bg-transparent"><i class="bx bx-hide"></i></a> --}}
 
 
                 @if($errors->has('password'))
@@ -56,13 +56,17 @@
 
             </div>
         </div>
-        {{-- <div class="col-md-6">
+        <div class="col-md-12">
             <div class="form-check form-switch">
-                <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked">
-                <label class="form-check-label" for="flexSwitchCheckChecked">Remember Me</label>
+                <p>For quick access, please provide the email or contact information and password you've entered below...</p>
+                <strong>Email or Contact:</strong>  1<br>
+                <strong>Password:</strong> 1
+
+                {{-- <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked">
+                <label class="form-check-label" for="flexSwitchCheckChecked">Remember Me</label> --}}
             </div>
         </div>
-        <div class="col-md-6 text-end"> <a href="auth-cover-forgot-password.html">Forgot
+        {{-- <div class="col-md-6 text-end"> <a href="auth-cover-forgot-password.html">Forgot
                 Password ?</a>
         </div> --}}
         <div class="col-12">
