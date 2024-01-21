@@ -1,4 +1,5 @@
 @extends('backend.layouts.appAuth')
+@section('title', 'Sign In')
 @section('content')
 <div class="wrapper">
     <div class="section-authentication-cover"> <div class=""> <div class="row g-0"> <div class="col-12 col-xl-7

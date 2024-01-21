@@ -1,5 +1,5 @@
 @extends('backend.layouts.appAuth')
-@section('title, Sign Up')
+@section('title', 'Sign Up')
 @section('content')
 <div class="wrapper">
     <div class="section-authentication-cover"> <div class=""> <div class="row g-0"> <div class="col-12 col-xl-7
@@ -18,7 +18,7 @@
             width="60" alt="" />
         </div> <div class="text-center mb-4"> <h5 class="">Pharma admin</h5>
         <p class="mb-0">Please fill the below details to create your account</p> </div> <div class="form-body">
-            
+
         <form class="row g-3" action="{{route('register.store')}}" method="POST">
             @csrf
             <div class="col-12">

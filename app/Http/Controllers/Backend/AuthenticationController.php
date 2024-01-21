@@ -83,6 +83,6 @@ class AuthenticationController extends Controller
     {
         request()->session()->flush();
         // return redirect('login')->with($this->resMessageHtml(false, 'error', currentUserId()));
-        return redirect('login')->with('danger', 'succfully logged out');
+        return redirect()->route('login')->with('danger', 'succfully logged out');
     }
 }
